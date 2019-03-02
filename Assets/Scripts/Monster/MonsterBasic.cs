@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(FieldOfView))]
 public class MonsterBasic : MonoBehaviour {
 
     public GameObject player;
     public Vector3[] patrolArray;
     NavMeshAgent navMesh;
     int patrolPoint = 0;
+    FieldOfView FieldOfView;
 
     enum Attackstates
     {
