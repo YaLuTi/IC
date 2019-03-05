@@ -435,6 +435,31 @@ Prefab:
       propertyPath: Xangle
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4211640443969060, guid: ac106236f2904a64ea88c58bd91b87b6, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -3.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211640443969060, guid: ac106236f2904a64ea88c58bd91b87b6, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041605642123424, guid: ac106236f2904a64ea88c58bd91b87b6, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041605642123424, guid: ac106236f2904a64ea88c58bd91b87b6, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041605642123424, guid: ac106236f2904a64ea88c58bd91b87b6, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 3.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 114943823815108708, guid: ac106236f2904a64ea88c58bd91b87b6,
+        type: 2}
+      propertyPath: Yangle
+      value: 0.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac106236f2904a64ea88c58bd91b87b6, type: 2}
   m_IsPrefabParent: 0
@@ -1146,7 +1171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 4e63b0f0ffda5c74d959f8a30985e24a, type: 2}
+  sharedProfile: {fileID: 0}
   isGlobal: 1
   blendDistance: 0
   weight: 0.8
