@@ -43,16 +43,10 @@
 
 	fixed4 frag(v2f i) : SV_Target
 	{
-
 		i.uv = frac(i.uv + float2(0., (sin(i.uv*12. * EffectAmount + _Time.y * EffectAmount)*.1 * EffectAmount*.1).x + EffectAmount * _Time.y));
 
-	fixed4 col = tex2D(_MainTex, i.uv);
-	// just invert the colors
-	col.rgb = col.rgb;
-
-
-
-
+		fixed4 col = tex2D(_MainTex, i.uv);
+		col.rgb = col.rgb;
 	return col;
 	}
 		ENDCG
