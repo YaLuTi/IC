@@ -12,6 +12,8 @@ public class MonsterBasic : MonoBehaviour {
     int patrolPoint = 0;
     FieldOfView FieldOfView;
 
+    List<GameObject> targets;
+
     enum Attackstates
     {
         Patrol,
@@ -19,15 +21,18 @@ public class MonsterBasic : MonoBehaviour {
         Attacking
     }
 
+    [SerializeField]
     Attackstates attackstates;
 	// Use this for initialization
-	void Start () {
+	protected virtual void Start () {
+        attackstates = Attackstates.Patrol;
         player = GameObject.FindGameObjectWithTag("Player");
         navMesh = GetComponent<NavMeshAgent>();
-	}
+        FieldOfView = GetComponent<FieldOfView>();
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	protected virtual void Update () {
 
         switch (attackstates)
         {
@@ -35,12 +40,24 @@ public class MonsterBasic : MonoBehaviour {
                 e_Patrol();
                 break;
             case Attackstates.Alert:
+                e_Alert();
                 break;
             case Attackstates.Attacking:
+                e_Attacking();
                 break;
         }
-        e_Patrol();
+
+        targets = FieldOfView.ViewTargets;
+        UpdateAttackState();
 	}
+
+    void UpdateAttackState()
+    {
+        if (targets.Count > 0)
+        {
+            attackstates = Attackstates.Attacking;
+        }
+    }
 
     void e_Patrol()
     {
@@ -54,6 +71,6 @@ public class MonsterBasic : MonoBehaviour {
 
     void e_Attacking()
     {
-
+        navMesh.SetDestination(player.transform.position);
     }
 }

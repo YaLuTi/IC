@@ -12,7 +12,7 @@ public class FieldOfView : MonoBehaviour {
     public LayerMask TargetMask;
     public LayerMask ObjMask;
 
-    List<GameObject> ViewTargets = new List<GameObject>();
+    public List<GameObject> ViewTargets = new List<GameObject>();
 
    /* private void Start()
     {
@@ -49,7 +49,6 @@ public class FieldOfView : MonoBehaviour {
 
                 if (!Physics.Raycast(transform.position, dir, Distance, ObjMask))
                 {
-                    Debug.Log(1);
                     ViewTargets.Add(targets[i].gameObject);
                 }
             }
