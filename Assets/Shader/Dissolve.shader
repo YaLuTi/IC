@@ -41,7 +41,7 @@
 
 		if (test < _BurnSize && _SliceAmount > 0) {
 			// WTF origin -- float(test * (1 / BurnSize))
-			o.Emission = tex2D(_BurnRamp, float(test * 2)) * _BurnColor * _EmissionAmount;
+			o.Emission = tex2D(_BurnRamp, float(test * 1)) * _BurnColor * _EmissionAmount;
 		}
 
 		o.Albedo = c.rgb;

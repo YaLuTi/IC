@@ -9,10 +9,19 @@ public class PlayerLongSword : MonoBehaviour {
     int AttackCombo = 0;
     bool SwitchState = true;
     AnimatorStateInfo animatorState;
-	// Use this for initialization
-	void Start () {
+
+    WeaponColliderBasic weapon;
+
+    [SerializeField]
+    float[] AttackTrueNormalized;
+    [SerializeField]
+    float[] AttackFalseNormalized;
+    
+    // Use this for initialization
+    void Start () {
         animator = GetComponent<Animator>();
         animatorState = animator.GetCurrentAnimatorStateInfo(0);
+        weapon = GetComponentInChildren<WeaponColliderBasic>();
 	}
 	
 	// Update is called once per frame
@@ -20,12 +29,17 @@ public class PlayerLongSword : MonoBehaviour {
         if (Input.GetButtonDown("JoyStickTriangle"))
         {
             StopAllCoroutines();
-            if (AttackCombo < 2)
-            {
-                AttackCombo++;
-            }
-            animator.SetInteger("Attack", AttackCombo);
             StartCoroutine(AttackReset());
+            if (SwitchState)
+            {
+                SwitchState = false;
+                if (AttackCombo < 3)
+                {
+                    AttackCombo++;
+                }
+                animator.SetInteger("Attack", AttackCombo);
+                StartCoroutine(Attack(AttackCombo));
+            }
         }
         CheckAnimatorState();
 	}
@@ -35,15 +49,39 @@ public class PlayerLongSword : MonoBehaviour {
         if(animatorState.shortNameHash != animator.GetCurrentAnimatorStateInfo(0).shortNameHash)
         {
             animatorState = animator.GetCurrentAnimatorStateInfo(0);
-            animator.SetInteger("Attack", 0);
+            // animator.SetInteger("Attack", 0);
             // StartCoroutine(AttackCooldownCounter());
             SwitchState = true;
         }
     }
 
+    
+
+    IEnumerator Attack(int Combo)
+    {
+        yield return new WaitForFixedUpdate();
+        while (true)
+        {
+            AnimatorStateInfo animatorStateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            if(animatorStateInfo.normalizedTime > AttackTrueNormalized[Combo - 1])
+            {
+                // weapon.StartAttack();
+                yield return 0;
+            }
+            if (animatorStateInfo.normalizedTime > AttackFalseNormalized[Combo - 1])
+            {
+                // weapon.StopAttack();
+                SwitchState = true;
+                break;
+            }
+            yield return 0;
+        }
+        yield return 0;
+    }
+
     IEnumerator AttackReset()
     {
-        yield return new WaitForSecondsRealtime(0.65f);
+        yield return new WaitForSecondsRealtime(1f);
         animator.SetInteger("Attack", 0);
         AttackCombo = 0;
         yield return 0;
@@ -52,7 +90,7 @@ public class PlayerLongSword : MonoBehaviour {
     IEnumerator AttackCooldownCounter()
     {
         yield return new WaitForFixedUpdate();
-        Debug.Log(1);
+
         yield return 0;
     }
 }

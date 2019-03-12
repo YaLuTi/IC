@@ -34,7 +34,7 @@ public class CameraRotate : MonoBehaviour {
         Xangle += h * rotateSpeed * Time.deltaTime;
         Yangle += v * rotateSpeed * Time.deltaTime / 2;
         Yangle = Mathf.Min(1, Yangle);
-        Yangle = Mathf.Max(0, Yangle);
+        Yangle = Mathf.Max(-1f, Yangle);
         rotateVector = new Vector3(Mathf.Sin(Xangle), Yangle, Mathf.Cos(Xangle));
     }
 }

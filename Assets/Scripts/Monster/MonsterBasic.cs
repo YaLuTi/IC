@@ -4,15 +4,17 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(FieldOfView))]
+[RequireComponent(typeof(Animator))]
 public class MonsterBasic : MonoBehaviour {
 
     public GameObject player;
     public Vector3[] patrolArray;
-    NavMeshAgent navMesh;
-    int patrolPoint = 0;
-    FieldOfView FieldOfView;
+    protected NavMeshAgent navMesh;
+    protected int patrolPoint = 0;
+    protected FieldOfView FieldOfView;
 
-    List<GameObject> targets;
+    protected List<GameObject> targets;
+    protected Animator animator;
 
     enum Attackstates
     {
@@ -27,6 +29,7 @@ public class MonsterBasic : MonoBehaviour {
 	protected virtual void Start () {
         attackstates = Attackstates.Patrol;
         player = GameObject.FindGameObjectWithTag("Player");
+        animator = GetComponent<Animator>();
         navMesh = GetComponent<NavMeshAgent>();
         FieldOfView = GetComponent<FieldOfView>();
     }
@@ -59,18 +62,16 @@ public class MonsterBasic : MonoBehaviour {
         }
     }
 
-    void e_Patrol()
+    protected virtual void e_Patrol()
     {
-        navMesh.SetDestination(patrolArray[patrolPoint]);
     }
 
-    void e_Alert()
+    protected virtual void e_Alert()
     {
 
     }
 
-    void e_Attacking()
+    protected virtual void e_Attacking()
     {
-        navMesh.SetDestination(player.transform.position);
     }
 }

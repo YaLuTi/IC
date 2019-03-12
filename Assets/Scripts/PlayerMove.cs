@@ -36,7 +36,9 @@ public class PlayerMove : MonoBehaviour {
 
         Turn();
         Dodge();
+
         ApplyExtraTurnRotation();
+
         AnimatorUpdate();
     }
 
