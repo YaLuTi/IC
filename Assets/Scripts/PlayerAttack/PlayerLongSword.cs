@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerLongSword : MonoBehaviour {
 
     Animator animator;
+    [SerializeField]
     int AttackCombo = 0;
     bool SwitchState = true;
     AnimatorStateInfo animatorState;
@@ -51,7 +52,7 @@ public class PlayerLongSword : MonoBehaviour {
             animatorState = animator.GetCurrentAnimatorStateInfo(0);
             // animator.SetInteger("Attack", 0);
             // StartCoroutine(AttackCooldownCounter());
-            SwitchState = true;
+            // SwitchState = true;
         }
     }
 
@@ -59,18 +60,19 @@ public class PlayerLongSword : MonoBehaviour {
 
     IEnumerator Attack(int Combo)
     {
+        Debug.Log(Combo);
         yield return new WaitForFixedUpdate();
         while (true)
         {
             AnimatorStateInfo animatorStateInfo = animator.GetCurrentAnimatorStateInfo(0);
             if(animatorStateInfo.normalizedTime > AttackTrueNormalized[Combo - 1])
             {
-                // weapon.StartAttack();
+                weapon.StartAttack();
                 yield return 0;
             }
             if (animatorStateInfo.normalizedTime > AttackFalseNormalized[Combo - 1])
             {
-                // weapon.StopAttack();
+                weapon.StopAttack();
                 SwitchState = true;
                 break;
             }
