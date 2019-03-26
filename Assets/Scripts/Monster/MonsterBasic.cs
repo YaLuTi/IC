@@ -12,6 +12,7 @@ public class MonsterBasic : MonoBehaviour {
     protected NavMeshAgent navMesh;
     protected int patrolPoint = 0;
     protected FieldOfView FieldOfView;
+    protected float moveSpeed;
 
     protected List<GameObject> targets;
     protected Animator animator;
@@ -60,6 +61,10 @@ public class MonsterBasic : MonoBehaviour {
         {
             attackstates = Attackstates.Attacking;
         }
+    }
+
+    public virtual void Damaged()
+    {
     }
 
     protected virtual void e_Patrol()
