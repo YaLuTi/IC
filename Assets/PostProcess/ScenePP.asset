@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65e486e4de6e5448a8fbb43dc8756a0, type: 3}
   m_Name: Grain
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -79,7 +79,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.197
+    value: 0.176
   size:
     overrideState: 1
     value: 0.43
@@ -106,7 +106,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 2.34
+    value: 1
   color:
     overrideState: 0
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -155,7 +155,7 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.231
+    value: 0.2
   fastMode:
     overrideState: 0
     value: 0
@@ -222,16 +222,16 @@ MonoBehaviour:
     overrideState: 1
     value: 0
   saturation:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: -30
   brightness:
     overrideState: 0
     value: 0
   postExposure:
     overrideState: 1
-    value: 1
+    value: 0.5
   contrast:
-    overrideState: 0
+    overrideState: 1
     value: 0
   mixerRedOutRedIn:
     overrideState: 0
@@ -262,13 +262,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 0.87425154, y: 0.8557308, z: 1, w: 0}
+    value: {x: 0.8381164, y: 0.8063779, z: 1, w: -0.03169572}
   gamma:
     overrideState: 1
-    value: {x: 1, y: 0.849345, z: 0.9496504, w: 0}
+    value: {x: 1, y: 0.88071805, z: 0.98077536, w: -0.015847864}
   gain:
     overrideState: 1
-    value: {x: 0.82085556, y: 1, z: 0.7526996, w: 0}
+    value: {x: 0.8031019, y: 1, z: 0.6693078, w: 0}
   masterCurve:
     overrideState: 0
     value:
@@ -1047,7 +1047,7 @@ MonoBehaviour:
       - 0.5
       - 0.5
   hueVsSatCurve:
-    overrideState: 0
+    overrideState: 1
     value:
       curve:
         serializedVersion: 2
@@ -1329,11 +1329,29 @@ MonoBehaviour:
       - 0.5
       - 0.5
   lumVsSatCurve:
-    overrideState: 0
+    overrideState: 1
     value:
       curve:
         serializedVersion: 2
-        m_Curve: []
+        m_Curve:
+        - serializedVersion: 3
+          time: 0.27315915
+          value: 0.49
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.7577197
+          value: 0.53499997
+          inSlope: -4.4205003
+          outSlope: -4.4205003
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -1341,134 +1359,134 @@ MonoBehaviour:
       m_ZeroValue: 0.5
       m_Range: 1
       cachedData:
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
-      - 0.5
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49
+      - 0.49000075
+      - 0.49062446
+      - 0.4923738
+      - 0.4951927
+      - 0.49902502
+      - 0.50381464
+      - 0.5095054
+      - 0.51604116
+      - 0.5233659
+      - 0.5314234
+      - 0.5401575
+      - 0.5495122
+      - 0.55943125
+      - 0.5698586
+      - 0.58073807
+      - 0.5920136
+      - 0.603629
+      - 0.61552817
+      - 0.62765497
+      - 0.63995326
+      - 0.652367
+      - 0.6648399
+      - 0.677316
+      - 0.6897391
+      - 0.70205307
+      - 0.7142018
+      - 0.7261292
+      - 0.737779
+      - 0.7490952
+      - 0.7600217
+      - 0.7705022
+      - 0.78048074
+      - 0.78990114
+      - 0.7987073
+      - 0.80684304
+      - 0.8142523
+      - 0.8208789
+      - 0.8266667
+      - 0.83155966
+      - 0.83550155
+      - 0.83843625
+      - 0.8403077
+      - 0.8410598
+      - 0.84063625
+      - 0.8389811
+      - 0.83603823
+      - 0.83175135
+      - 0.82606447
+      - 0.8189214
+      - 0.810266
+      - 0.8000422
+      - 0.78819394
+      - 0.7746649
+      - 0.75939906
+      - 0.7423403
+      - 0.7234325
+      - 0.70261943
+      - 0.67984515
+      - 0.6550534
+      - 0.62818825
+      - 0.5991932
+      - 0.56801236
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
+      - 0.53499997
 --- !u!114 &114305877634831808
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1528,7 +1546,7 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.315
+    value: 0.3
   smoothness:
     overrideState: 1
     value: 0.2
@@ -1556,18 +1574,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   focusDistance:
-    overrideState: 0
-    value: 10
+    overrideState: 1
+    value: 1
   aperture:
-    overrideState: 0
-    value: 5.6
+    overrideState: 1
+    value: 11
   focalLength:
-    overrideState: 0
+    overrideState: 1
     value: 50
   kernelSize:
     overrideState: 0
@@ -1646,22 +1664,22 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1.5
+    value: 2
   threshold:
     overrideState: 1
     value: 0.06
   softKnee:
     overrideState: 1
-    value: 0.74
+    value: 1
   clamp:
     overrideState: 0
     value: 65472
   diffusion:
     overrideState: 1
-    value: 4.01
+    value: 7
   anamorphicRatio:
-    overrideState: 1
-    value: 0
+    overrideState: 0
+    value: 1
   color:
     overrideState: 1
     value: {r: 1, g: 1, b: 1, a: 1}
