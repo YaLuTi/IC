@@ -49,10 +49,6 @@ public class CameraRotate : MonoBehaviour {
         float h = Input.GetAxis("CameraHorizontal");
         float v = Input.GetAxis("CameraVertical");
 
-        float angle = Mathf.Atan2(LockObj.transform.position.z - followObj.transform.position.z, LockObj.transform.position.x - followObj.transform.position.x) * 180 / Mathf.PI;
-            
-        angle = angle / 180 * Mathf.PI;
-
         transform.position = Vector3.SmoothDamp(transform.position, followObj.transform.position + (rotateVector * 3), ref velocity, smoothTime);
 
         transform.LookAt(followObj.transform);
