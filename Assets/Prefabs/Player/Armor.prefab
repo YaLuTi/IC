@@ -629,7 +629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1753192902353356
 GameObject:
   m_ObjectHideFlags: 1
@@ -1540,7 +1540,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1617094620855790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.062, y: -0.331, z: -10.57}
+  m_LocalPosition: {x: -4.9638968, y: 19.564991, z: -5.8057213}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
   - {fileID: 4082388076837998}
@@ -1707,7 +1707,7 @@ MonoBehaviour:
   moveSpeed: 3
   cameraTransform: {fileID: 0}
   m_MovingTurnSpeed: 360
-  m_StationaryTurnSpeed: 180
+  m_StationaryTurnSpeed: 360
 --- !u!136 &136526111486649396
 CapsuleCollider:
   m_ObjectHideFlags: 1
