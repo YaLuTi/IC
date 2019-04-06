@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour {
     float m_TurnAmount;
     float m_ForwardAmount;
     bool IsDodging;
+    bool IsLock = false;
     // Use this for initialization
     void Start ()
     {
@@ -25,7 +26,42 @@ public class PlayerMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (Input.GetButtonUp("R3"))
+        {
+            IsLock = !IsLock;
+            m_Animator.SetBool("IsLock", IsLock);
+        }
 
+        if (IsLock)
+        {
+            Lock();
+        }
+        else
+        {
+            UnLock();
+        }
+    }
+
+    void Lock()
+    {
+        camForward = Vector3.Scale(cameraTransform.forward, new Vector3(1, 0, 1)).normalized;
+        // transform.position += move * moveSpeed;
+
+        LockMove();
+
+        if (move.magnitude > 1f) move.Normalize();
+        move = transform.InverseTransformDirection(move);
+
+        LockTurn();
+        // Dodge();
+
+        ApplyExtraTurnRotation();
+
+        AnimatorUpdate();
+    }
+
+    void UnLock()
+    {
         camForward = Vector3.Scale(cameraTransform.forward, new Vector3(1, 0, 1)).normalized;
         // transform.position += move * moveSpeed;
 
@@ -50,10 +86,25 @@ public class PlayerMove : MonoBehaviour {
         move = v * camForward + h * cameraTransform.right;
     }
 
+    void LockMove()
+    {
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+
+        move = v * camForward + h * cameraTransform.right;
+    }
+
     void Turn()
     {
         m_TurnAmount = Mathf.Atan2(move.x, move.z);
         m_ForwardAmount = move.z;
+    }
+
+    void LockTurn()
+    {
+        Quaternion q = cameraTransform.rotation;
+        q.x = transform.rotation.x;
+        transform.rotation = q;
     }
 
     void Dodge()
@@ -88,6 +139,9 @@ public class PlayerMove : MonoBehaviour {
         m_Animator.SetFloat("Speed", move.z, 0.1f, Time.deltaTime);
         m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
         m_Animator.SetBool("IsDodging", IsDodging);
+        m_Animator.SetBool("IsLock", IsLock);
+        m_Animator.SetFloat("X", move.x, 0.1f, Time.deltaTime);
+        m_Animator.SetFloat("Y", move.z, 0.1f, Time.deltaTime);
     }
 
     public void OnAnimatorMove()

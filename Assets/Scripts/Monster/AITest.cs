@@ -16,7 +16,6 @@ public class AITest : MonoBehaviour
     {
         // Update the way to the goal every second.
         elapsed += Time.deltaTime;
-        Debug.Log(path.corners.Length);
         if (elapsed > 1.0f)
         {
             elapsed -= 1.0f;
