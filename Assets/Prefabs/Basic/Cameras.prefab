@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 20596739232581572}
   - component: {fileID: 114303903158499466}
   - component: {fileID: 114561127479699860}
+  - component: {fileID: 81618089993211952}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -115,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1401041340012100}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.34, y: 21.08, z: 6.56}
+  m_LocalPosition: {x: -29.9, y: 8.535009, z: -135.187}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4352900838359536}
@@ -187,12 +188,12 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: -1
+  m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 1
   m_OcclusionCulling: 1
@@ -213,6 +214,13 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!81 &81618089993211952
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1290520484051074}
+  m_Enabled: 1
 --- !u!108 &108689638993492410
 Light:
   m_ObjectHideFlags: 1
@@ -332,15 +340,15 @@ MonoBehaviour:
       enablePointLightsShadows: 1
       enableLightsCookies: 1
       enableOcclusionCulling: 1
-      occlusionCullingAccuracy: 3
+      occlusionCullingAccuracy: 2
       enableTemporalReprojection: 1
       temporalReprojectionFactor: 0.9
       resolution: {x: 160, y: 88, z: 128}
-      farClipPlaneDistance: 25
+      farClipPlaneDistance: 50
       density: 0.05
-      anisotropy: 0.7
-      color: {r: 0.21750252, g: 0.19980027, b: 0.25, a: 1}
-      colorStrength: 0.5
+      anisotropy: 0.361
+      color: {r: 0.19980027, g: 0.25, b: 0.21259615, a: 1}
+      colorStrength: 0
     _computeMaximumDepthComputeShader: {fileID: 7200000, guid: a5d52c8a306e8b746ab60b306575aa3e,
       type: 3}
     _processOcclusionMapShader: {fileID: 4800000, guid: b9b5b0990ea6cfa4d96c89a9c1cec3e9,
