@@ -34,7 +34,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a34fa72bd4185749832024e9c8010bf, type: 3}
   m_Name: ScreenSpaceReflections
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -155,7 +155,7 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.2
+    value: 0.26
   fastMode:
     overrideState: 0
     value: 0
@@ -229,7 +229,7 @@ MonoBehaviour:
     value: 0
   postExposure:
     overrideState: 1
-    value: 0.5
+    value: 1
   contrast:
     overrideState: 1
     value: 0
@@ -1580,13 +1580,13 @@ MonoBehaviour:
     value: 1
   focusDistance:
     overrideState: 1
-    value: 1
+    value: 1.3
   aperture:
     overrideState: 1
-    value: 11
+    value: 10
   focalLength:
     overrideState: 1
-    value: 50
+    value: 52
   kernelSize:
     overrideState: 0
     value: 1
@@ -1664,13 +1664,13 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 2
+    value: 1
   threshold:
     overrideState: 1
     value: 0.06
   softKnee:
     overrideState: 1
-    value: 1
+    value: 0.24
   clamp:
     overrideState: 0
     value: 65472
