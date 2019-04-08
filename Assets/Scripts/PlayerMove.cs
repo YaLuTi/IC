@@ -13,9 +13,14 @@ public class PlayerMove : MonoBehaviour {
     [SerializeField] float m_MovingTurnSpeed = 360;
     [SerializeField] float m_StationaryTurnSpeed = 180;
 
+    public float x = 1.45f;
+
+    public CameraRotate cameraRotate;
+
     float m_TurnAmount;
     float m_ForwardAmount;
     bool IsDodging;
+    bool IsSteping;
     bool IsLock = false;
     // Use this for initialization
     void Start ()
@@ -35,10 +40,12 @@ public class PlayerMove : MonoBehaviour {
         if (IsLock)
         {
             Lock();
+            moveSpeed = 5;
         }
         else
         {
             UnLock();
+            moveSpeed = 3;
         }
     }
 
@@ -53,7 +60,7 @@ public class PlayerMove : MonoBehaviour {
         move = transform.InverseTransformDirection(move);
 
         LockTurn();
-        // Dodge();
+        Step();
 
         ApplyExtraTurnRotation();
 
@@ -90,8 +97,26 @@ public class PlayerMove : MonoBehaviour {
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
+        float distance = Vector3.Distance(transform.position, cameraRotate.LockObj.transform.position);
+        distance = Mathf.Max(5, distance);
+        // Debug.Log(distance);
+        // float C = 2 * distance * Mathf.PI;
+        if (h < 0)
+        {
+            float fix = ((h / (distance)) * 0.5f);
+            Debug.Log(fix);
+            h -= fix;
+            v += fix;
+        }
+        if (h > 0)
+        {
+            float fix = ((h / (distance)) * 0.5f);
+            Debug.Log(fix);
+            h -= fix;
+            v += fix;
+        }
 
-        move = v * camForward + h * cameraTransform.right;
+        move =  h * transform.right + v * transform .forward;
     }
 
     void Turn()
@@ -102,9 +127,11 @@ public class PlayerMove : MonoBehaviour {
 
     void LockTurn()
     {
-        Quaternion q = cameraTransform.rotation;
+        transform.LookAt(cameraRotate.LockObj.transform);
+        /*Quaternion q = cameraTransform.rotation;
         q.x = transform.rotation.x;
-        transform.rotation = q;
+        q.z = transform.rotation.z;
+        transform.rotation = q;*/
     }
 
     void Dodge()
@@ -127,6 +154,27 @@ public class PlayerMove : MonoBehaviour {
 
     }
 
+    void Step()
+    {
+        if (IsSteping)
+        {
+            IsSteping = false;
+        }
+
+        animatorStateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
+        m_Animator.SetFloat("StepX", move.x, 0.1f, Time.deltaTime);
+        m_Animator.SetFloat("StepY", move.z, 0.1f, Time.deltaTime);
+
+        if (!animatorStateInfo.IsName("Step"))
+        {
+
+            if (Input.GetButtonDown("JoyStickX"))
+            {
+                IsSteping = Input.GetButtonDown("JoyStickX");
+            }
+        }
+    }
+
     void ApplyExtraTurnRotation()
     {
         // help the character turn faster (this is in addition to root rotation in the animation)
@@ -139,6 +187,7 @@ public class PlayerMove : MonoBehaviour {
         m_Animator.SetFloat("Speed", move.z, 0.1f, Time.deltaTime);
         m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
         m_Animator.SetBool("IsDodging", IsDodging);
+        m_Animator.SetBool("IsSteping", IsSteping);
         m_Animator.SetBool("IsLock", IsLock);
         m_Animator.SetFloat("X", move.x, 0.1f, Time.deltaTime);
         m_Animator.SetFloat("Y", move.z, 0.1f, Time.deltaTime);

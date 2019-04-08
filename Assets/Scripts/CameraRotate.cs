@@ -77,7 +77,7 @@ public class CameraRotate : MonoBehaviour {
         }
         Xangle = angle;
 
-        transform.position = Vector3.SmoothDamp(transform.position, followObj.transform.position + (rotateVector * 2), ref velocity, smoothTime);
+        transform.position = Vector3.SmoothDamp(transform.position, followObj.transform.position + (rotateVector * 3), ref velocity, smoothTime);
 
         transform.LookAt(followObj.transform);
         Yangle = Mathf.Min(1, Yangle);
