@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(FieldOfView))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(AudioSource))]
 public class MonsterBasic : MonoBehaviour {
 
     public GameObject player;
@@ -12,7 +13,8 @@ public class MonsterBasic : MonoBehaviour {
     protected NavMeshAgent navMesh;
     protected int patrolPoint = 0;
     protected FieldOfView FieldOfView;
-    protected float moveSpeed;
+    public float moveSpeed = 1f;
+    protected AudioSource audioSource;
 
     protected List<GameObject> targets;
     protected Animator animator;
@@ -33,6 +35,7 @@ public class MonsterBasic : MonoBehaviour {
         animator = GetComponent<Animator>();
         navMesh = GetComponent<NavMeshAgent>();
         FieldOfView = GetComponent<FieldOfView>();
+        audioSource = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame

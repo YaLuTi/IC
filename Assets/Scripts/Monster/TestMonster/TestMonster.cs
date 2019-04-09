@@ -9,13 +9,12 @@ public class TestMonster : MonsterBasic {
     // Use this for initialization
     [SerializeField]
     float DashDistance = 1f;
-
     bool Attacking = false;
 
+    public AudioEvent cutAudio;
 
 	protected override void Start () {
         base.Start();
-        moveSpeed = 1f;
         navMesh.updatePosition = false;
     }
 	
@@ -40,7 +39,7 @@ public class TestMonster : MonsterBasic {
         Debug.DrawLine(transform.position, patrolArray[patrolPoint], Color.red);
         navMesh.SetDestination(patrolArray[patrolPoint]);
         float RemainingDistance = Vector3.Distance(transform.position, patrolArray[patrolPoint]);
-        if (RemainingDistance <= 0.5f)
+        if (RemainingDistance <= 1f)
         {
             patrolPoint++;
             patrolPoint = patrolPoint % patrolArray.Length;
@@ -50,6 +49,7 @@ public class TestMonster : MonsterBasic {
     public override void Damaged()
     {
         base.Damaged();
+        cutAudio.Play(audioSource);
         StartCoroutine(DamagedEvent());
     }
 

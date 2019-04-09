@@ -12,6 +12,9 @@ public class PlayerLongSword : MonoBehaviour {
     bool SwitchState = true;
     AnimatorStateInfo animatorState;
 
+    public AudioEvent SlashSound;
+    AudioSource audioSource;
+
     WeaponColliderBasic weapon;
 
     [SerializeField]
@@ -30,6 +33,7 @@ public class PlayerLongSword : MonoBehaviour {
         animatorState = animator.GetCurrentAnimatorStateInfo(0);
         weapon = GetComponentInChildren<WeaponColliderBasic>();
         AttackReseter = StartCoroutine(AttackReset());
+        audioSource = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -63,7 +67,10 @@ public class PlayerLongSword : MonoBehaviour {
         }
     }
 
-    
+    void PlaySlash()
+    {
+        SlashSound.Play(audioSource);
+    }
 
     IEnumerator Attack(int Combo)
     {

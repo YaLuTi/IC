@@ -40,8 +40,8 @@ public class WeaponColliderBasic : MonoBehaviour {
             {
                 MonsterBasic monster = other.gameObject.GetComponent<MonsterBasic>();
                 monster.Damaged();
+                Debug.Log("Hit");
             }
-            Debug.Log("Hit");
         }
     }
 }

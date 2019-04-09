@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class PlayerMove : MonoBehaviour {
 
     public float moveSpeed;
@@ -12,6 +13,9 @@ public class PlayerMove : MonoBehaviour {
     AnimatorStateInfo animatorStateInfo;
     [SerializeField] float m_MovingTurnSpeed = 360;
     [SerializeField] float m_StationaryTurnSpeed = 180;
+
+    public AudioEvent StepSound;
+    AudioSource audioSource;
 
     public float x = 1.45f;
 
@@ -26,6 +30,7 @@ public class PlayerMove : MonoBehaviour {
     void Start ()
     {
         m_Animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -40,12 +45,12 @@ public class PlayerMove : MonoBehaviour {
         if (IsLock)
         {
             Lock();
-            moveSpeed = 5;
+            moveSpeed = 2.5f;
         }
         else
         {
             UnLock();
-            moveSpeed = 3;
+            moveSpeed = 3f;
         }
     }
 
@@ -103,20 +108,25 @@ public class PlayerMove : MonoBehaviour {
         // float C = 2 * distance * Mathf.PI;
         if (h < 0)
         {
-            float fix = ((h / (distance)) * 0.5f);
+            float fix = ((h / (distance)) * 0.1f);
             Debug.Log(fix);
             h -= fix;
             v += fix;
         }
         if (h > 0)
         {
-            float fix = ((h / (distance)) * 0.5f);
+            float fix = ((h / (distance)) * 0.1f);
             Debug.Log(fix);
             h -= fix;
             v += fix;
         }
 
-        move =  h * transform.right + v * transform .forward;
+        move =  h * cameraTransform.right + v * cameraTransform .forward;
+    }
+
+    private void PlayStep()
+    {
+        StepSound.Play(audioSource);
     }
 
     void Turn()
