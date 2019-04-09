@@ -36,7 +36,6 @@ AudioMixerGroupController:
   - {fileID: 24400004}
   - {fileID: 244586073807718588}
   - {fileID: 244218580796810038}
-  - {fileID: 244875389241544576}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -150,19 +149,6 @@ AudioMixerEffectController:
     m_GUID: ad7916e19a00852438dff051e03aaba7
   - m_ParameterName: Shared Rev Max
     m_GUID: 72c6c81c6fa823f40b2cbe56b8e40e8b
-  m_SendTarget: {fileID: 0}
-  m_EnableWetMix: 0
-  m_Bypass: 0
---- !u!244 &244875389241544576
-AudioMixerEffectController:
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_EffectID: 963cc7eea381aca4aac49cdfac557807
-  m_EffectName: Resonance Audio Renderer
-  m_MixLevel: f12cda825523e804e95acfa79e98aca0
-  m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
