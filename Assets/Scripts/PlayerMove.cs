@@ -124,9 +124,14 @@ public class PlayerMove : MonoBehaviour {
         move =  h * cameraTransform.right + v * cameraTransform .forward;
     }
 
+    float lastTime = 0;
     private void PlayStep()
     {
-        StepSound.Play(audioSource);
+        if (Time.time - lastTime >= 0.1f)
+        {
+            StepSound.Play(audioSource);
+            lastTime = Time.time;
+        }
     }
 
     void Turn()
