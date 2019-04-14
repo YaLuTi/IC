@@ -3,13 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EZCamera : MonoBehaviour {
-
-    public GameObject followObj;
-    public GameObject LockObj;
-
-    [SerializeField]
-    bool IsLock = false;
-
     public float moveSpeed = 0.1f;
     public float RotateSpeed = 1f;
     
@@ -35,11 +28,11 @@ public class EZCamera : MonoBehaviour {
 
         transform.position += (hh + vv + new Vector3(0, yy, 0)) * moveSpeed;
 
-        float h = Input.GetAxis("CameraHorizontal");
-        float v = Input.GetAxis("CameraVertical");
+        float h = Input.GetAxis("Mouse X");
+        float v = Input.GetAxis("Mouse Y");
 
         Vector3 e = transform.eulerAngles;
-        e += new Vector3(v, h, 0) * RotateSpeed;
+        e += new Vector3(-v, h, 0) * RotateSpeed;
         transform.eulerAngles = e;
     }
 }

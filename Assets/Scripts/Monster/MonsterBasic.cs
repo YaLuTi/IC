@@ -6,6 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(FieldOfView))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(AINav))]
 public class MonsterBasic : MonoBehaviour {
 
     public GameObject player;
@@ -14,20 +15,16 @@ public class MonsterBasic : MonoBehaviour {
     protected int patrolPoint = 0;
     protected FieldOfView FieldOfView;
     public float moveSpeed = 1f;
+    public float Health = 1f;
     protected AudioSource audioSource;
+    protected AINav Nav; 
 
     protected List<GameObject> targets;
     protected Animator animator;
 
-    enum Attackstates
-    {
-        Patrol,
-        Alert,
-        Attacking
-    }
 
     [SerializeField]
-    Attackstates attackstates;
+    protected Attackstates attackstates;
 	// Use this for initialization
 	protected virtual void Start () {
         attackstates = Attackstates.Patrol;
@@ -36,11 +33,16 @@ public class MonsterBasic : MonoBehaviour {
         navMesh = GetComponent<NavMeshAgent>();
         FieldOfView = GetComponent<FieldOfView>();
         audioSource = GetComponent<AudioSource>();
+        Nav = GetComponent<AINav>();
     }
 	
 	// Update is called once per frame
 	protected virtual void Update () {
 
+        if(Health <= 0)
+        {
+            attackstates = Attackstates.Death;
+        }
         switch (attackstates)
         {
             case Attackstates.Patrol:
@@ -52,21 +54,22 @@ public class MonsterBasic : MonoBehaviour {
             case Attackstates.Attacking:
                 e_Attacking();
                 break;
+            case Attackstates.Death:
+                e_Death();
+                break;
+            default:
+                break;
         }
 
         targets = FieldOfView.ViewTargets;
         UpdateAttackState();
 	}
 
-    void UpdateAttackState()
+    public virtual void UpdateAttackState()
     {
-        if (targets.Count > 0)
-        {
-            attackstates = Attackstates.Attacking;
-        }
     }
 
-    public virtual void Damaged()
+    public virtual void Damaged(float damage)
     {
     }
 
@@ -81,5 +84,9 @@ public class MonsterBasic : MonoBehaviour {
 
     protected virtual void e_Attacking()
     {
+    }
+    protected virtual void e_Death()
+    {
+
     }
 }

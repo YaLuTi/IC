@@ -6,6 +6,7 @@ public class EZCameraSwitch : MonoBehaviour {
 
     public GameObject Player;
     public GameObject MainCamera;
+    public GameObject CameraObject;
     public GameObject EZCamera;
 
     bool Switch = true;
@@ -24,6 +25,7 @@ public class EZCameraSwitch : MonoBehaviour {
             {
                 Player.SetActive(false);
                 MainCamera.SetActive(false);
+                CameraObject.SetActive(false);
                 EZCamera.gameObject.SetActive(true);
                 Switch = !Switch;
             }
@@ -31,6 +33,7 @@ public class EZCameraSwitch : MonoBehaviour {
             {
                 Player.SetActive(true);
                 MainCamera.SetActive(true);
+                CameraObject.SetActive(true);
                 EZCamera.gameObject.SetActive(false);
                 Switch = !Switch;
             }

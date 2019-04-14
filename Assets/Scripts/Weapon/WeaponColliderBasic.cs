@@ -6,6 +6,8 @@ public class WeaponColliderBasic : MonoBehaviour {
 
     bool Attacking = false;
 
+    public float AttackDamage = 1f;
+
     [SerializeField]
     List<GameObject> hitObject = new List<GameObject>();
 
@@ -39,7 +41,7 @@ public class WeaponColliderBasic : MonoBehaviour {
             if (other.tag == "Monster")
             {
                 MonsterBasic monster = other.gameObject.GetComponent<MonsterBasic>();
-                monster.Damaged();
+                monster.Damaged(AttackDamage);
                 Debug.Log("Hit");
             }
         }

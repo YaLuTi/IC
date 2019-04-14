@@ -10,6 +10,8 @@ public class CameraRotate : MonoBehaviour {
     [SerializeField]
     bool IsLock = false;
 
+    public float value;
+
     Vector3 distance;
     public float smoothTime = 0.3f;
     public float rotateSpeed = 3f;
@@ -49,7 +51,7 @@ public class CameraRotate : MonoBehaviour {
         float h = Input.GetAxis("CameraHorizontal");
         float v = Input.GetAxis("CameraVertical");
 
-        transform.position = Vector3.SmoothDamp(transform.position, followObj.transform.position + (rotateVector * 3), ref velocity, smoothTime);
+        transform.position = Vector3.SmoothDamp(transform.position, followObj.transform.position + (rotateVector * value), ref velocity, smoothTime);
 
         transform.LookAt(followObj.transform);
         Xangle += h * rotateSpeed * Time.deltaTime;
@@ -77,7 +79,7 @@ public class CameraRotate : MonoBehaviour {
         }
         Xangle = angle;
 
-        transform.position = Vector3.SmoothDamp(transform.position, followObj.transform.position + (rotateVector * 3), ref velocity, smoothTime);
+        transform.position = Vector3.SmoothDamp(transform.position, followObj.transform.position + (rotateVector * value), ref velocity, smoothTime);
 
         transform.LookAt(followObj.transform);
         Yangle = Mathf.Min(1, Yangle);

@@ -9,7 +9,13 @@ public class TestMonster : MonsterBasic {
     // Use this for initialization
     [SerializeField]
     float DashDistance = 1f;
+    [SerializeField]
+    protected float BattleRange = 10f;
+
     bool Attacking = false;
+
+    protected Vector3 destination;
+    public float AngularSpeed = 2f;
 
     public AudioEvent cutAudio;
 
@@ -20,8 +26,9 @@ public class TestMonster : MonsterBasic {
 	
 	// Update is called once per frame
 	protected override void Update () {
+
         base.Update();
-        InstantlyTurn(navMesh.destination);
+        InstantlyTurn();
         navMesh.Warp(transform.position);
         
         UpdateAnimator();
@@ -37,7 +44,8 @@ public class TestMonster : MonsterBasic {
     {
         base.e_Patrol();
         Debug.DrawLine(transform.position, patrolArray[patrolPoint], Color.red);
-        navMesh.SetDestination(patrolArray[patrolPoint]);
+        // navMesh.SetDestination(patrolArray[patrolPoint]);
+        destination = patrolArray[patrolPoint];
         float RemainingDistance = Vector3.Distance(transform.position, patrolArray[patrolPoint]);
         if (RemainingDistance <= 1f)
         {
@@ -46,17 +54,26 @@ public class TestMonster : MonsterBasic {
         }
     }
 
-    public override void Damaged()
+
+    public override void UpdateAttackState()
     {
-        base.Damaged();
+        base.UpdateAttackState();
+        if (targets.Count > 0)
+        {
+            attackstates = Attackstates.Attacking;
+        }
+    }
+    public override void Damaged(float damage)
+    {
+        base.Damaged(damage);
+        Health -= damage;
         cutAudio.Play(audioSource);
         StartCoroutine(DamagedEvent());
     }
 
     IEnumerator DamagedEvent()
     {
-        animator.SetBool("IsDamaged", true);
-        animator.SetInteger("Attack", 0);
+        // animator.SetBool("IsDamaged", true);
         yield return new WaitForSeconds(.25f);
         animator.SetBool("IsDamaged", false);
         yield return 0;
@@ -71,30 +88,40 @@ public class TestMonster : MonsterBasic {
     {
         base.e_Attacking();
 
-        navMesh.SetDestination(player.transform.position);
+        destination = Nav.GetCorners();
         
 
         if (Vector3.Distance(transform.position, player.transform.position) > DashDistance)
         {
-            animator.SetInteger("Attack", 0);
-            moveSpeed = 2f;
-            navMesh.angularSpeed = 300f;
+            moveSpeed = 3f;
         }
         else
         {
-            animator.SetInteger("Attack", 1);
+            animator.SetTrigger("At");
         }
     }
 
+    protected override void e_Death()
+    {
+        base.e_Death();
+        animator.Play("Death");
+        moveSpeed = 0;
+    }
+
     // Need fix to NavPath
-    private void InstantlyTurn(Vector3 destination)
+    private void InstantlyTurn()
     {
         //When on target -> dont rotate!
+        /*if ((destination - transform.position).magnitude < 0.1f) return;
+
+        Vector3 direction = (destination - transform.position).normalized;
+        Quaternion qDir = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, qDir, Time.deltaTime * 1f);*/
         if ((destination - transform.position).magnitude < 0.1f) return;
 
         Vector3 direction = (destination - transform.position).normalized;
         Quaternion qDir = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, qDir, Time.deltaTime * 1f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, qDir, AngularSpeed * Time.deltaTime);
     }
     
     public void OnAnimatorMove()
