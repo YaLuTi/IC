@@ -7,8 +7,11 @@ public class CameraRotate : MonoBehaviour {
     public GameObject followObj;
     public GameObject LockObj;
 
+    Collider[] MonstersList;
+    float[] distanceList;
+
     [SerializeField]
-    bool IsLock = false;
+    public bool IsLock = false;
 
     public float value;
 
@@ -34,7 +37,26 @@ public class CameraRotate : MonoBehaviour {
     {
         if (Input.GetButtonUp("R3"))
         {
-            IsLock = !IsLock;
+            if (IsLock)
+            {
+                IsLock = false;
+            }
+            else
+            {
+                MonstersList = Physics.OverlapSphere(transform.position, 15, LayerMask.GetMask("Creature"));
+                distanceList = new float[MonstersList.Length];
+                for (int i = 0; i < MonstersList.Length; i++)
+                {
+                    distanceList[i] = (MonstersList[i].transform.position - transform.position).sqrMagnitude;
+                }
+                System.Array.Sort(distanceList, MonstersList);
+
+                if (MonstersList.Length > 1)
+                {
+                    LockObj = MonstersList[1].gameObject;
+                    IsLock = !IsLock;
+                }
+            }
         }
         if (!IsLock)
         {

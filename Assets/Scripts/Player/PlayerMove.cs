@@ -9,6 +9,7 @@ public class PlayerMove : MonoBehaviour {
     public Transform cameraTransform;
     Vector3 camForward;
     Vector3 move;
+    public bool Dodgable = true;
     Animator m_Animator;
     AnimatorStateInfo animatorStateInfo;
     [SerializeField] float m_MovingTurnSpeed = 360;
@@ -36,9 +37,15 @@ public class PlayerMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetButtonUp("R3"))
+        animatorStateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
+        if (cameraRotate.IsLock)
         {
-            IsLock = !IsLock;
+            IsLock = true;
+            m_Animator.SetBool("IsLock", IsLock);
+        }
+        else
+        {
+            IsLock = false;
             m_Animator.SetBool("IsLock", IsLock);
         }
 
@@ -142,28 +149,37 @@ public class PlayerMove : MonoBehaviour {
 
     void LockTurn()
     {
-        transform.LookAt(cameraRotate.LockObj.transform);
+        Vector3 lookPos = cameraRotate.LockObj.transform.position - transform.position;
+        lookPos.y = 0;
+        Quaternion rotation = Quaternion.LookRotation(lookPos);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10);
         /*Quaternion q = cameraTransform.rotation;
         q.x = transform.rotation.x;
         q.z = transform.rotation.z;
         transform.rotation = q;*/
     }
 
+    float DebugDodgeTime = 60;
+
     void Dodge()
     {
+        DebugDodgeTime++;
+
+        if (!Dodgable) return;
         if (IsDodging)
         {
             IsDodging = false;
+            return;
         }
 
-        animatorStateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
 
-        if (!animatorStateInfo.IsName("Dodge"))
+        if (!animatorStateInfo.IsName("Dodging") && DebugDodgeTime >= 60)
         {
-
             if (Input.GetButtonDown("JoyStickX"))
             {
+                DebugDodgeTime = 0;
                 IsDodging = Input.GetButtonDown("JoyStickX");
+                m_Animator.SetTrigger("Dodge");
             }
         }
 
@@ -171,6 +187,7 @@ public class PlayerMove : MonoBehaviour {
 
     void Step()
     {
+        if (!Dodgable) return;
         if (IsSteping)
         {
             IsSteping = false;
@@ -193,6 +210,8 @@ public class PlayerMove : MonoBehaviour {
     void ApplyExtraTurnRotation()
     {
         // help the character turn faster (this is in addition to root rotation in the animation)
+
+        if (animatorStateInfo.IsTag("Attack") && animatorStateInfo.normalizedTime > 0.2f) return;
         float turnSpeed = Mathf.Lerp(m_StationaryTurnSpeed, m_MovingTurnSpeed, m_ForwardAmount);
         transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
     }

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(PlayerMove))]
 public class PlayerLongSword : MonoBehaviour {
 
     Animator animator;
+    PlayerMove playerMove;
     [SerializeField]
     int AttackCombo = 0;
     [SerializeField]
@@ -13,6 +15,7 @@ public class PlayerLongSword : MonoBehaviour {
     AnimatorStateInfo animatorState;
 
     public AudioEvent SlashSound;
+    public AudioEvent SlashSoundTwo;
     AudioSource audioSource;
 
     WeaponColliderBasic weapon;
@@ -34,18 +37,19 @@ public class PlayerLongSword : MonoBehaviour {
         weapon = GetComponentInChildren<WeaponColliderBasic>();
         AttackReseter = StartCoroutine(AttackReset());
         audioSource = GetComponent<AudioSource>();
+        playerMove = GetComponent<PlayerMove>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("JoyStickTriangle"))
+        if (Input.GetButtonDown("R1"))
         {
             StopCoroutine(AttackReseter);
             AttackReseter = StartCoroutine(AttackReset());
             if (SwitchState)
             {
                 SwitchState = false;
-                if (AttackCombo < 3)
+                if (AttackCombo < AttackTrueNormalized.Length)
                 {
                     AttackCombo++;
                     StartCoroutine(Attack(AttackCombo));
@@ -70,6 +74,10 @@ public class PlayerLongSword : MonoBehaviour {
     void PlaySlash()
     {
         SlashSound.Play(audioSource);
+    }
+    void PlaySlashTwo()
+    {
+        SlashSoundTwo.Play(audioSource);
     }
 
     IEnumerator Attack(int Combo)
@@ -110,7 +118,7 @@ public class PlayerLongSword : MonoBehaviour {
 
     IEnumerator AttackReset()
     {
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSecondsRealtime(0.65f);
         animator.SetInteger("Attack", 0);
         AttackCombo = 0;
         SwitchState = true;

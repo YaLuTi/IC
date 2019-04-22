@@ -8,6 +8,9 @@ public class WeaponColliderBasic : MonoBehaviour {
 
     public float AttackDamage = 1f;
 
+    public GameObject HitParticle;
+    public Transform p;
+
     [SerializeField]
     List<GameObject> hitObject = new List<GameObject>();
 
@@ -42,6 +45,10 @@ public class WeaponColliderBasic : MonoBehaviour {
             {
                 MonsterBasic monster = other.gameObject.GetComponent<MonsterBasic>();
                 monster.Damaged(AttackDamage);
+                Quaternion r = p.rotation;
+                // r.y = -r.y
+                GameObject g = Instantiate(HitParticle, other.ClosestPoint(transform.position), r);
+                Destroy(g, 3f);
                 Debug.Log("Hit");
             }
         }

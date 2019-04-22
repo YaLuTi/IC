@@ -8,8 +8,6 @@ public class TestMonster : MonsterBasic {
 
     // Use this for initialization
     [SerializeField]
-    float DashDistance = 1f;
-    [SerializeField]
     protected float BattleRange = 10f;
 
     bool Attacking = false;
@@ -21,7 +19,6 @@ public class TestMonster : MonsterBasic {
 
 	protected override void Start () {
         base.Start();
-        navMesh.updatePosition = false;
     }
 	
 	// Update is called once per frame
@@ -29,7 +26,6 @@ public class TestMonster : MonsterBasic {
 
         base.Update();
         InstantlyTurn();
-        navMesh.Warp(transform.position);
         
         UpdateAnimator();
     }
@@ -88,7 +84,7 @@ public class TestMonster : MonsterBasic {
     {
         base.e_Attacking();
 
-        destination = Nav.GetCorners();
+        /*destination = Nav.GetCorners();
         
 
         if (Vector3.Distance(transform.position, player.transform.position) > DashDistance)
@@ -98,7 +94,7 @@ public class TestMonster : MonsterBasic {
         else
         {
             animator.SetTrigger("At");
-        }
+        }*/
     }
 
     protected override void e_Death()
@@ -117,6 +113,8 @@ public class TestMonster : MonsterBasic {
         Vector3 direction = (destination - transform.position).normalized;
         Quaternion qDir = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, qDir, Time.deltaTime * 1f);*/
+        AnimatorStateInfo animatorStateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        if (animatorStateInfo.IsTag("Attack")) return;
         if ((destination - transform.position).magnitude < 0.1f) return;
 
         Vector3 direction = (destination - transform.position).normalized;

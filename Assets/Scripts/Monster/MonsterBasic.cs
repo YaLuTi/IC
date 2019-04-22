@@ -16,6 +16,7 @@ public class MonsterBasic : MonoBehaviour {
     protected FieldOfView FieldOfView;
     public float moveSpeed = 1f;
     public float Health = 1f;
+    public float Stamina = 10f;
     protected AudioSource audioSource;
     protected AINav Nav; 
 
