@@ -42,6 +42,10 @@ public class PlayerLongSword : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        animatorState = animator.GetCurrentAnimatorStateInfo(0);
+        DodgeInterrupt();
+
         if (Input.GetButtonDown("R1"))
         {
             StopCoroutine(AttackReseter);
@@ -59,6 +63,21 @@ public class PlayerLongSword : MonoBehaviour {
         }
         CheckAnimatorState();
 	}
+
+    void DodgeInterrupt()
+    {
+        // Final attack need another Judgment
+        if (animatorState.IsTag("Attack") && animator.GetBool("Dodge"))
+        {
+            if (animatorState.normalizedTime > 0.85f)
+            {
+                StopCoroutine(AttackReseter);
+                animator.SetInteger("Attack", 0);
+                AttackCombo = 0;
+                SwitchState = true;
+            }
+        }
+    }
 
     void CheckAnimatorState()
     {
@@ -118,7 +137,7 @@ public class PlayerLongSword : MonoBehaviour {
 
     IEnumerator AttackReset()
     {
-        yield return new WaitForSecondsRealtime(0.65f);
+        yield return new WaitForSecondsRealtime(1f);
         animator.SetInteger("Attack", 0);
         AttackCombo = 0;
         SwitchState = true;
