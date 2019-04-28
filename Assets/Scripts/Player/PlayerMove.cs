@@ -116,14 +116,14 @@ public class PlayerMove : MonoBehaviour {
         if (h < 0)
         {
             float fix = ((h / (distance)) * 0.1f);
-            Debug.Log(fix);
+            // Debug.Log(fix);
             h -= fix;
             v += fix;
         }
         if (h > 0)
         {
             float fix = ((h / (distance)) * 0.1f);
-            Debug.Log(fix);
+            // Debug.Log(fix);
             h -= fix;
             v += fix;
         }
@@ -144,6 +144,7 @@ public class PlayerMove : MonoBehaviour {
     void Turn()
     {
         m_TurnAmount = Mathf.Atan2(move.x, move.z);
+        Debug.Log(m_TurnAmount);
         m_ForwardAmount = move.z;
     }
 

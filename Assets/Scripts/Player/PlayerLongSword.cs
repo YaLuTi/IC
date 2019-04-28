@@ -25,6 +25,11 @@ public class PlayerLongSword : MonoBehaviour {
     [SerializeField]
     float[] AttackFalseNormalized;
 
+    [SerializeField]
+    float[] HeavyAttackTrueNormalized;
+    [SerializeField]
+    float[] HeavyAttackFalseNormalized;
+
     Coroutine AttackReseter;
     Coroutine AttackOne;
     Coroutine AttackTwo;
@@ -49,6 +54,7 @@ public class PlayerLongSword : MonoBehaviour {
         if (Input.GetButtonDown("R1"))
         {
             StopCoroutine(AttackReseter);
+            animator.SetTrigger("At");
             AttackReseter = StartCoroutine(AttackReset());
             if (SwitchState)
             {
@@ -56,7 +62,21 @@ public class PlayerLongSword : MonoBehaviour {
                 if (AttackCombo < AttackTrueNormalized.Length)
                 {
                     AttackCombo++;
-                    StartCoroutine(Attack(AttackCombo));
+                    animator.SetInteger("Attack", AttackCombo);
+                }
+            }
+        }
+        if (Input.GetButtonDown("R2"))
+        {
+            StopCoroutine(AttackReseter);
+            animator.SetTrigger("HeavyAt");
+            AttackReseter = StartCoroutine(AttackReset());
+            if (SwitchState)
+            {
+                SwitchState = false;
+                if (AttackCombo < AttackTrueNormalized.Length)
+                {
+                    AttackCombo++;
                     animator.SetInteger("Attack", AttackCombo);
                 }
             }
@@ -99,6 +119,16 @@ public class PlayerLongSword : MonoBehaviour {
         SlashSoundTwo.Play(audioSource);
     }
 
+    void WeaponOn()
+    {
+        SwitchState = true;
+        weapon.StartAttack();
+    }
+    void WeaponOff()
+    {
+        weapon.StopAttack();
+    }
+
     IEnumerator Attack(int Combo)
     {
         yield return new WaitForFixedUpdate();
@@ -139,6 +169,8 @@ public class PlayerLongSword : MonoBehaviour {
     {
         yield return new WaitForSecondsRealtime(1f);
         animator.SetInteger("Attack", 0);
+        animator.ResetTrigger("At");
+        animator.ResetTrigger("HeavyAt");
         AttackCombo = 0;
         SwitchState = true;
         yield return 0;

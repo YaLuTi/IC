@@ -10,6 +10,7 @@ public class WeaponColliderBasic : MonoBehaviour {
 
     public GameObject HitParticle;
     public Transform p;
+    LayerMask layerMask;
 
     [SerializeField]
     List<GameObject> hitObject = new List<GameObject>();
@@ -17,7 +18,8 @@ public class WeaponColliderBasic : MonoBehaviour {
     Collider collider;
 	// Use this for initialization
 	void Start () {
-		
+        layerMask = LayerMask.GetMask("Creature");
+        Physics.IgnoreCollision(this.GetComponent<Collider>(), this.GetComponentInParent<Collider>(), false);
 	}
 	
 	// Update is called once per frame
@@ -41,15 +43,21 @@ public class WeaponColliderBasic : MonoBehaviour {
         {
             hitObject.Add(other.gameObject);
 
-            if (other.tag == "Monster")
+            if (((1 << other.gameObject.layer) & layerMask) != 0)
             {
-                MonsterBasic monster = other.gameObject.GetComponent<MonsterBasic>();
-                monster.Damaged(AttackDamage);
-                Quaternion r = p.rotation;
-                // r.y = -r.y
-                GameObject g = Instantiate(HitParticle, other.ClosestPoint(transform.position), r);
-                Destroy(g, 3f);
-                Debug.Log("Hit");
+                if (other.GetComponent<MonsterBasic>())
+                {
+                    MonsterBasic monster = other.gameObject.GetComponent<MonsterBasic>();
+                    monster.Damaged(AttackDamage);
+                    Quaternion r = p.rotation;
+                    // r.y = -r.y
+                    GameObject g = Instantiate(HitParticle, other.ClosestPoint(transform.position), r);
+                    Destroy(g, 3f);
+                }
+                else if(other.GetComponent<PlayerHP>())
+                {
+
+                }
             }
         }
     }
