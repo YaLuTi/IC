@@ -19,13 +19,13 @@ public class PlayerParticle : MonoBehaviour {
 
     void StepParticleR()
     {
-        GameObject g = Instantiate(StepParticle, RightStep.position, RightStep.rotation);
+        GameObject g = Instantiate(StepParticle, RightStep.position, Quaternion.identity);
         Destroy(g, 3f);
     }
 
     void StepParticleL()
     {
-        GameObject g = Instantiate(StepParticle, LeftStep.position, LeftStep.rotation);
+        GameObject g = Instantiate(StepParticle, LeftStep.position, Quaternion.identity);
         Destroy(g, 3f);
     }
 }

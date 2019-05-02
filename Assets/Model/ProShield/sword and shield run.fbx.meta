@@ -125,6 +125,13 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.14859141
+        functionName: StepParticleL
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.272549
         functionName: PlayStep
         data: 
@@ -132,8 +139,8 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.28347513
-        functionName: StepParticleL
+      - time: 0.63934016
+        functionName: StepParticleR
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -141,13 +148,6 @@ ModelImporter:
         messageOptions: 0
       - time: 0.76666665
         functionName: StepParticleL
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.7881774
-        functionName: StepParticleR
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
