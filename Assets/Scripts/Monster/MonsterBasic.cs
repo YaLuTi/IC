@@ -18,7 +18,8 @@ public class MonsterBasic : MonoBehaviour {
     public float Health = 1f;
     public float Stamina = 10f;
     protected AudioSource audioSource;
-    protected AINav Nav; 
+    protected AINav Nav;
+    protected bool IsDeath = false;
 
     protected List<GameObject> targets;
     protected Animator animator;
@@ -39,6 +40,7 @@ public class MonsterBasic : MonoBehaviour {
 	
 	// Update is called once per frame
 	protected virtual void Update () {
+        if (IsDeath) return;
 
         if(Health <= 0)
         {

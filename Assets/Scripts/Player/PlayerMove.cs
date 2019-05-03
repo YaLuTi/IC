@@ -101,6 +101,7 @@ public class PlayerMove : MonoBehaviour {
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
+        // Debug.Log(h + " " + v);
 
         move = v * camForward + h * cameraTransform.right;
     }
@@ -144,7 +145,7 @@ public class PlayerMove : MonoBehaviour {
     void Turn()
     {
         m_TurnAmount = Mathf.Atan2(move.x, move.z);
-        Debug.Log(m_TurnAmount);
+        // Debug.Log(m_TurnAmount);
         m_ForwardAmount = move.z;
     }
 

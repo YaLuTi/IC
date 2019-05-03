@@ -20,7 +20,7 @@ public class Monster_Heretic : TestMonster {
     float d;
 
     public AudioAssets StepAssets;
-    public AudioAssets SlashAssets;
+    public AudioAssets[] SlashAssets;
 
     enum BattleSolution
     {
@@ -154,7 +154,7 @@ public class Monster_Heretic : TestMonster {
         animator.SetFloat("X", 0.6f);
         animator.SetFloat("Y", 0.1f);
 
-        if(d < 10)
+        if(d < 10 && attackstates == Attackstates.Attacking_OutRange)
         {
             solution = BattleSolution.Close;
             StateLock = true;
@@ -169,7 +169,11 @@ public class Monster_Heretic : TestMonster {
 
     void PlaySlash()
     {
-        SlashAssets.Play(audioSource);
+        Debug.Log(1);
+        for (int i = 0; i < SlashAssets.Length; i++)
+        {
+            SlashAssets[1].Play(audioSource);
+        }
     }
 
     void e_Attacking_OutRange()

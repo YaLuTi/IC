@@ -52,6 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4751252197346200}
   - component: {fileID: 114717946452064236}
+  - component: {fileID: 114231832147614986}
   m_Layer: 0
   m_Name: Claymore
   m_TagString: Untagged
@@ -171,6 +172,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1290757942475954}
   m_Mesh: {fileID: 4300000, guid: e8a32ce0edd46a24fb70b4a188d375b4, type: 3}
+--- !u!114 &114231832147614986
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1755841188013942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce47ff098cfb8144babfa64a63840a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _emit: 1
+  _emitTime: 0
+  _material: {fileID: 2100000, guid: 4a8aadb3914941f4ba34b2ed3481478e, type: 2}
+  _lifeTime: 0.25
+  _colors: []
+  _sizes: []
+  _minVertexDistance: 0.1
+  _maxVertexDistance: 10
+  _maxAngle: 3
+  _autoDestruct: 0
+  subdivisions: 4
+  _base: {fileID: 4925501604839744}
+  _tip: {fileID: 4487404823415914}
 --- !u!114 &114717946452064236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,8 +209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _emit: 1
   _emitTime: 0
-  _material: {fileID: 2100000, guid: 0eff212f416919543825d1ece192d4c6, type: 2}
-  _lifeTime: 1
+  _material: {fileID: 2100000, guid: dd129c9e600fff04985e0ba190e1d262, type: 2}
+  _lifeTime: 0.25
   _colors: []
   _sizes: []
   _minVertexDistance: 0.1

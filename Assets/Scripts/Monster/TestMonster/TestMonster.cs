@@ -15,7 +15,7 @@ public class TestMonster : MonsterBasic {
     protected Vector3 destination;
     public float AngularSpeed = 2f;
 
-    public AudioEvent cutAudio;
+    public AudioEvent[] cutAudio;
 
 	protected override void Start () {
         base.Start();
@@ -62,9 +62,17 @@ public class TestMonster : MonsterBasic {
     public override void Damaged(float damage)
     {
         base.Damaged(damage);
+        if (IsDeath) return;
+        attackstates = Attackstates.Attacking_OutRange;
         Health -= damage;
-        cutAudio.Play(audioSource);
-        StartCoroutine(DamagedEvent());
+
+        for(int i = 0; i < cutAudio.Length; i++)
+        {
+            cutAudio[i].Play(audioSource);
+        }
+
+        animator.SetTrigger("Damaged");
+        //StartCoroutine(DamagedEvent());
     }
 
     IEnumerator DamagedEvent()
@@ -100,7 +108,9 @@ public class TestMonster : MonsterBasic {
     protected override void e_Death()
     {
         base.e_Death();
-        animator.Play("Death");
+        animator.SetTrigger("Death");
+        IsDeath = true;
+        this.enabled = false;
         moveSpeed = 0;
     }
 

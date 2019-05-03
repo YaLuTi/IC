@@ -55,6 +55,7 @@ public class PlayerLongSword : MonoBehaviour {
         {
             StopCoroutine(AttackReseter);
             animator.SetTrigger("At");
+            animator.ResetTrigger("HeavyAt");
             AttackReseter = StartCoroutine(AttackReset());
             if (SwitchState)
             {
@@ -70,6 +71,7 @@ public class PlayerLongSword : MonoBehaviour {
         {
             StopCoroutine(AttackReseter);
             animator.SetTrigger("HeavyAt");
+            animator.ResetTrigger("At");
             AttackReseter = StartCoroutine(AttackReset());
             if (SwitchState)
             {

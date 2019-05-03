@@ -56,7 +56,8 @@ public class WeaponColliderBasic : MonoBehaviour {
                 }
                 else if(other.GetComponent<PlayerHP>())
                 {
-
+                    PlayerHP playerHP = other.gameObject.GetComponent<PlayerHP>();
+                    playerHP.Damaged();
                 }
             }
         }
