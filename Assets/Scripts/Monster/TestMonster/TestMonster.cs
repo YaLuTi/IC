@@ -56,7 +56,7 @@ public class TestMonster : MonsterBasic {
         base.UpdateAttackState();
         if (targets.Count > 0)
         {
-            attackstates = Attackstates.Attacking;
+            attackstates = Attackstates.Attacking_OutRange;
         }
     }
     public override void Damaged(float damage)
@@ -64,6 +64,7 @@ public class TestMonster : MonsterBasic {
         base.Damaged(damage);
         if (IsDeath) return;
         attackstates = Attackstates.Attacking_OutRange;
+        animator.SetBool("IsLock", true);
         Health -= damage;
 
         for(int i = 0; i < cutAudio.Length; i++)

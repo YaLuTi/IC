@@ -72,8 +72,8 @@ public class Monster_Heretic : TestMonster {
     // Solutions
     void Runaway()
     {
-        moveSpeed = 3;
-        animator.SetFloat("Y", 1);
+        moveSpeed += (3 - moveSpeed) * 0.15f;
+        animator.SetFloat("Y", 1, 0.1f, Time.deltaTime);
 
         if (d < MeleeDistance)
         {
@@ -105,7 +105,7 @@ public class Monster_Heretic : TestMonster {
             else
             {
                 animator.ResetTrigger("At");
-                moveSpeed = 1.5f;
+                moveSpeed += (2.5f - moveSpeed) * 0.15f;
                 animator.SetFloat("X", 0.55f, 0.1f, Time.deltaTime);
                 animator.SetFloat("Y", 0.15f, 0.1f, Time.deltaTime);
                 return;
@@ -114,13 +114,13 @@ public class Monster_Heretic : TestMonster {
 
         if (d < DashDistance && JumpSlash_CD > 7 && Mathf.Abs(AngleToPlayer) < 7.5f)
         {
-            moveSpeed = 1.5f;
+            moveSpeed += (1.5f - moveSpeed) * 0.15f;
             JumpSlash_CD = 0;
             animator.SetTrigger("JumpSlash");
         }
         else if (d < 3.5f && JumpSlash_CD > 0.5f && JumpSlash_CD < 1.5f)
         {
-            moveSpeed = 3f;
+            moveSpeed += (3f - moveSpeed) * 0.15f;
             Vector3 direction = (destination - transform.position).normalized;
             Quaternion qDir = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, qDir, 10 * Time.deltaTime);
@@ -128,14 +128,14 @@ public class Monster_Heretic : TestMonster {
         }
         else if(d < DashDistance && JumpSlash_CD < 7)
         {
-            moveSpeed = 3f;
+            moveSpeed += (3f - moveSpeed) * 0.15f;
             animator.SetFloat("X", 0.65f, 0.1f, Time.deltaTime);
             animator.SetFloat("Y", 0.4f, 0.1f, Time.deltaTime);
         }
 
         if (d > DashDistance)
         {
-            moveSpeed = 3f;
+            moveSpeed += (3f - moveSpeed) * 0.15f;
             animator.SetFloat("X", 0.15f, 0.1f, Time.deltaTime);
             animator.SetFloat("Y", 0.85f, 0.1f, Time.deltaTime);
         }
@@ -150,9 +150,9 @@ public class Monster_Heretic : TestMonster {
     void Stay()
     {
         destination = Nav.GetCorners();
-        moveSpeed = 1.5f;
-        animator.SetFloat("X", 0.6f);
-        animator.SetFloat("Y", 0.1f);
+        moveSpeed += (1.5f - moveSpeed) * 0.15f;
+        animator.SetFloat("X", 0.6f, 0.1f, Time.deltaTime);
+        animator.SetFloat("Y", 0.1f, 0.1f, Time.deltaTime);
 
         if(d < 10 && attackstates == Attackstates.Attacking_OutRange)
         {
@@ -169,7 +169,6 @@ public class Monster_Heretic : TestMonster {
 
     void PlaySlash()
     {
-        Debug.Log(1);
         for (int i = 0; i < SlashAssets.Length; i++)
         {
             SlashAssets[1].Play(audioSource);
