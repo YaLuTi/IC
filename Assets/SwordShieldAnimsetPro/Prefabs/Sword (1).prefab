@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4546701564577396}
   - component: {fileID: 33941609382486900}
   - component: {fileID: 23028602376866250}
-  - component: {fileID: 95274325006468316}
+  - component: {fileID: 114329751656159304}
   m_Layer: 0
   m_Name: Sword (1)
   m_TagString: Untagged
@@ -35,13 +35,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1782286505707244}
-  m_LocalRotation: {x: 0.7395336, y: -0.15786958, z: -0.5537344, w: -0.34863386}
-  m_LocalPosition: {x: 0.003, y: 0.075, z: 0.008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 223.669, y: 78.544, z: -12.178986}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23028602376866250
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -84,21 +84,27 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1782286505707244}
   m_Mesh: {fileID: 4300000, guid: 3195899df884fe04c80bc22ab0fef237, type: 3}
---- !u!95 &95274325006468316
-Animator:
-  serializedVersion: 3
+--- !u!114 &114329751656159304
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1782286505707244}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 3195899df884fe04c80bc22ab0fef237, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce47ff098cfb8144babfa64a63840a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _emit: 1
+  _emitTime: 0
+  _material: {fileID: 2100000, guid: 4a8aadb3914941f4ba34b2ed3481478e, type: 2}
+  _lifeTime: 0.25
+  _colors: []
+  _sizes: []
+  _minVertexDistance: 0.1
+  _maxVertexDistance: 10
+  _maxAngle: 3
+  _autoDestruct: 0
+  subdivisions: 4
+  _base: {fileID: 4925501604839744, guid: 6470d8e6c8a65fd44a6a5729b874824e, type: 2}
+  _tip: {fileID: 4487404823415914, guid: 6470d8e6c8a65fd44a6a5729b874824e, type: 2}
