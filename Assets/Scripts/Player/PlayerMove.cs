@@ -57,7 +57,7 @@ public class PlayerMove : MonoBehaviour {
         else
         {
             UnLock();
-            moveSpeed = 6f;
+            moveSpeed = 3f;
         }
     }
 
