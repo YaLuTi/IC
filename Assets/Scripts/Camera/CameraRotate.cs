@@ -106,6 +106,6 @@ public class CameraRotate : MonoBehaviour {
         transform.LookAt(followObj.transform);
         Yangle = Mathf.Min(1, Yangle);
         Yangle = Mathf.Max(-1f, Yangle);
-        rotateVector = new Vector3(Mathf.Sin(angle), Yangle, Mathf.Cos(angle));
+        rotateVector = new Vector3(Mathf.Sin(angle), 0.1f, Mathf.Cos(angle));
     }
 }

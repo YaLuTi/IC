@@ -6,7 +6,7 @@ using UnityEditor;
 [CustomEditor(typeof(FieldOfView))]
 public class FieldOfViewEditor : Editor {
 
-    private void OnSceneGUI()
+    /*private void OnSceneGUI()
     {
         FieldOfView fieldOfView = (FieldOfView)target;
         Handles.color = Color.red;
@@ -17,5 +17,5 @@ public class FieldOfViewEditor : Editor {
 
         Handles.DrawLine(fieldOfView.transform.position, fieldOfView.transform.position + viewAngleA * fieldOfView.Radius);
         Handles.DrawLine(fieldOfView.transform.position, fieldOfView.transform.position + viewAngleB * fieldOfView.Radius);
-    }
+    }*/
 }

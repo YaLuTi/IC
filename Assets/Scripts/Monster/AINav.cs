@@ -15,6 +15,7 @@ public class AINav : MonoBehaviour
     void Start()
     {
         path = new NavMeshPath();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         elapsed = 0.0f;
         lastDistance = 0;
         PlayerMomentum = 0;
