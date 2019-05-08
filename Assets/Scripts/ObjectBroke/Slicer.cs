@@ -17,7 +17,7 @@ public class Slicer : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Weapon"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Weapon") || collision.gameObject.CompareTag("Monster"))
         {
             Instantiate(BreakObject, transform.position, transform.rotation);
             Destroy(this.gameObject);
