@@ -32,7 +32,16 @@ public class AINav : MonoBehaviour
 
     public Vector3 GetCorners()
     {
+        if(path.corners.Length >= 1)
         return path.corners[1];
+        else if(path.corners.Length != 0)
+        {
+            return path.corners[0];
+        }
+        else
+        {
+            return Vector3.zero;
+        }
     }
 
     public void CaculatePlayerMomentum()
