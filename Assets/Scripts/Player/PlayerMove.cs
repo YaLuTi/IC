@@ -181,6 +181,7 @@ public class PlayerMove : MonoBehaviour {
             {
                 DebugDodgeTime = 0;
                 IsDodging = Input.GetButtonDown("JoyStickX");
+                m_Animator.ResetTrigger("At");
                 m_Animator.SetTrigger("Dodge");
             }
         }
@@ -205,6 +206,8 @@ public class PlayerMove : MonoBehaviour {
             if (Input.GetButtonDown("JoyStickX"))
             {
                 IsSteping = Input.GetButtonDown("JoyStickX");
+                m_Animator.ResetTrigger("At");
+                m_Animator.SetTrigger("Step");
             }
         }
     }

@@ -89,9 +89,9 @@ public class PlayerLongSword : MonoBehaviour {
     void DodgeInterrupt()
     {
         // Final attack need another Judgment
-        if (animatorState.IsTag("Attack") && animator.GetBool("Dodge"))
+        if (animatorState.IsTag("Attack") && (animator.GetBool("Dodge") || animator.GetBool("IsSteping")))
         {
-            if (animatorState.normalizedTime > 0.85f)
+            if (animatorState.normalizedTime > 0.4f)
             {
                 StopCoroutine(AttackReseter);
                 animator.SetInteger("Attack", 0);

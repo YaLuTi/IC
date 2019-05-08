@@ -482,6 +482,7 @@ GameObject:
   - component: {fileID: 114422744910926668}
   - component: {fileID: 114054091894332454}
   - component: {fileID: 114084987601494234}
+  - component: {fileID: 114820397679285410}
   - component: {fileID: 136564698920039328}
   m_Layer: 9
   m_Name: Armor-Sera
@@ -1429,6 +1430,17 @@ MonoBehaviour:
   WeaponParent: {fileID: 1254019509171886}
   SpawnWeapon: {fileID: 1581245457431482, guid: dff67340ac2ac5a47b33db224a95757c,
     type: 2}
+--- !u!114 &114820397679285410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1678009116246166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e86a1fff2b2a8c74b875614fa039b435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136564698920039328
 CapsuleCollider:
   m_ObjectHideFlags: 1

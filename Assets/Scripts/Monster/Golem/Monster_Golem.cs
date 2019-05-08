@@ -7,6 +7,7 @@ public class Monster_Golem : TestMonster {
 	// Use this for initialization
 	protected override void Start () {
         base.Start();
+        attackstates = Attackstates.Attacking;
 	}
 	
 	// Update is called once per frame
