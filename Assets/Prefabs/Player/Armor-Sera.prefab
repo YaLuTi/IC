@@ -475,7 +475,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4827288195587718}
-  - component: {fileID: 114102953487648492}
   - component: {fileID: 114041587388272856}
   - component: {fileID: 95688359208097418}
   - component: {fileID: 54171083687225590}
@@ -740,13 +739,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1254019509171886}
-  m_LocalRotation: {x: 0.7395336, y: -0.15786958, z: -0.5537344, w: -0.34863386}
+  m_LocalRotation: {x: -0.42237842, y: -0.5049967, z: -0.2573518, w: 0.7073505}
   m_LocalPosition: {x: 0.003, y: 0.075, z: 0.008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4815874980782098}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 223.669, y: 78.544, z: -12.178986}
+  m_LocalEulerAnglesHint: {x: 239.033, y: 104.996994, z: 186.979}
 --- !u!4 &4145545206408688
 Transform:
   m_ObjectHideFlags: 1
@@ -1293,7 +1292,13 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed by
+    Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
+    'mixamorig:LeftHandIndex1'\n\tTransform 'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform
+    'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftShoulder'\n\tTransform
+    'mixamorig:RightFoot'\n\tTransform 'mixamorig:Head'\n\tand more ...\n\tFrom animation
+    clip 'Golem standing melee attack backhand'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -1410,17 +1415,6 @@ MonoBehaviour:
     type: 2}
   p: {fileID: 4827288195587718}
   hitObject: []
---- !u!114 &114102953487648492
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1678009116246166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e86a1fff2b2a8c74b875614fa039b435, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114422744910926668
 MonoBehaviour:
   m_ObjectHideFlags: 1
