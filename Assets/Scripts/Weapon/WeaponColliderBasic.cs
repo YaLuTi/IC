@@ -57,6 +57,7 @@ public class WeaponColliderBasic : MonoBehaviour {
                 else if(other.GetComponent<PlayerHP>())
                 {
                     PlayerHP playerHP = other.gameObject.GetComponent<PlayerHP>();
+                    GameObject g = Instantiate(HitParticle, other.ClosestPoint(transform.position), Quaternion.identity);
                     playerHP.Damaged();
                 }
             }
