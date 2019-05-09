@@ -39,14 +39,21 @@ public class TestMonster : MonsterBasic {
     protected override void e_Patrol()
     {
         base.e_Patrol();
-        Debug.DrawLine(transform.position, patrolArray[patrolPoint], Color.red);
         // navMesh.SetDestination(patrolArray[patrolPoint]);
-        destination = patrolArray[patrolPoint];
-        float RemainingDistance = Vector3.Distance(transform.position, patrolArray[patrolPoint]);
-        if (RemainingDistance <= 1f)
+        if (patrolArray.Length > 0)
         {
-            patrolPoint++;
-            patrolPoint = patrolPoint % patrolArray.Length;
+            destination = patrolArray[patrolPoint];
+        }
+
+        if (patrolArray.Length > 0)
+        {
+            float RemainingDistance = Vector3.Distance(transform.position, patrolArray[patrolPoint]);
+
+            if (RemainingDistance <= 1f)
+            {
+                patrolPoint++;
+                patrolPoint = patrolPoint % patrolArray.Length;
+            }
         }
     }
 

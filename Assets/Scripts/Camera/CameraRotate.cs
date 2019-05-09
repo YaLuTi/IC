@@ -56,6 +56,11 @@ public class CameraRotate : MonoBehaviour {
                     LockObj = MonstersList[1].gameObject;
                     IsLock = !IsLock;
                 }
+                else
+                {
+                    float angle = (followObj.transform.eulerAngles.y + 180) / 180 * Mathf.PI;
+                    Xangle = angle;
+                }
             }
         }
         if (!IsLock)

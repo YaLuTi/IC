@@ -145,7 +145,7 @@ public class PlayerMove : MonoBehaviour {
     void Turn()
     {
         m_TurnAmount = Mathf.Atan2(move.x, move.z);
-        // Debug.Log(m_TurnAmount);
+        Debug.Log(m_TurnAmount);
         m_ForwardAmount = move.z;
     }
 
@@ -161,29 +161,24 @@ public class PlayerMove : MonoBehaviour {
         transform.rotation = q;*/
     }
 
-    float DebugDodgeTime = 60;
+    float DebugDodgeTime = 0;
 
     void Dodge()
     {
         DebugDodgeTime++;
 
-        if (!Dodgable) return;
+        /*if (!Dodgable) return;
         if (IsDodging)
         {
             IsDodging = false;
             return;
-        }
-
-
-        if (!animatorStateInfo.IsName("Dodging") && DebugDodgeTime >= 60)
-        {
-            if (Input.GetButtonDown("JoyStickX"))
+        }*/
+        if (Input.GetButtonDown("JoyStickX") && DebugDodgeTime >= 40)
             {
                 DebugDodgeTime = 0;
                 IsDodging = Input.GetButtonDown("JoyStickX");
                 m_Animator.ResetTrigger("At");
                 m_Animator.SetTrigger("Dodge");
-            }
         }
 
     }
@@ -197,14 +192,14 @@ public class PlayerMove : MonoBehaviour {
         }
 
         animatorStateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
-        m_Animator.SetFloat("StepX", move.x, 0.1f, Time.deltaTime);
-        m_Animator.SetFloat("StepY", move.z, 0.1f, Time.deltaTime);
 
         if (!animatorStateInfo.IsName("Step"))
         {
 
             if (Input.GetButtonDown("JoyStickX"))
             {
+                m_Animator.SetFloat("StepX", move.x);
+                m_Animator.SetFloat("StepY", move.z);
                 IsSteping = Input.GetButtonDown("JoyStickX");
                 m_Animator.ResetTrigger("At");
                 m_Animator.SetTrigger("Step");
@@ -216,6 +211,7 @@ public class PlayerMove : MonoBehaviour {
     {
         // help the character turn faster (this is in addition to root rotation in the animation)
 
+        if(animatorStateInfo.IsTag("Dodge")) return;
         if (animatorStateInfo.IsTag("Attack") && animatorStateInfo.normalizedTime > 0.2f) return;
         float turnSpeed = Mathf.Lerp(m_StationaryTurnSpeed, m_MovingTurnSpeed, m_ForwardAmount);
         transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
@@ -224,12 +220,12 @@ public class PlayerMove : MonoBehaviour {
     void AnimatorUpdate()
     {
         m_Animator.SetFloat("Speed", move.z, 0.1f, Time.deltaTime);
-        m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
+        m_Animator.SetFloat("Turn", m_TurnAmount, 0.25f, Time.deltaTime);
         m_Animator.SetBool("IsDodging", IsDodging);
         m_Animator.SetBool("IsSteping", IsSteping);
         m_Animator.SetBool("IsLock", IsLock);
-        m_Animator.SetFloat("X", move.x, 0.1f, Time.deltaTime);
-        m_Animator.SetFloat("Y", move.z, 0.1f, Time.deltaTime);
+        m_Animator.SetFloat("X", move.x * 2, 0.05f, Time.deltaTime);
+        m_Animator.SetFloat("Y", move.z * 2, 0.05f, Time.deltaTime);
     }
 
     public void OnAnimatorMove()
