@@ -145,7 +145,6 @@ public class PlayerMove : MonoBehaviour {
     void Turn()
     {
         m_TurnAmount = Mathf.Atan2(move.x, move.z);
-        Debug.Log(m_TurnAmount);
         m_ForwardAmount = move.z;
     }
 
@@ -173,12 +172,16 @@ public class PlayerMove : MonoBehaviour {
             IsDodging = false;
             return;
         }*/
+
+        float angle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg;
+
         if (Input.GetButtonDown("JoyStickX") && DebugDodgeTime >= 40)
-            {
-                DebugDodgeTime = 0;
-                IsDodging = Input.GetButtonDown("JoyStickX");
-                m_Animator.ResetTrigger("At");
-                m_Animator.SetTrigger("Dodge");
+        {
+            transform.Rotate(0, angle, 0);
+            DebugDodgeTime = 0;
+            IsDodging = Input.GetButtonDown("JoyStickX");
+            m_Animator.ResetTrigger("At");
+            m_Animator.SetTrigger("Dodge");
         }
 
     }
