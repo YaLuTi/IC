@@ -79,8 +79,9 @@ public class CameraRotate : MonoBehaviour {
         float v = Input.GetAxis("CameraVertical");
 
         transform.position = Vector3.SmoothDamp(transform.position, followObj.transform.position + (rotateVector * value), ref velocity, smoothTime);
+        Quaternion targetRotation = Quaternion.LookRotation(followObj.transform.position - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.85f);
 
-        transform.LookAt(followObj.transform);
         Xangle += h * rotateSpeed * Time.deltaTime;
         Xangle %= 6.24f;
         Yangle += v * rotateSpeed * Time.deltaTime / 2;

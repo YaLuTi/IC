@@ -34,13 +34,13 @@ public class AINav : MonoBehaviour
     {
         if(path.corners.Length >= 1)
         return path.corners[1];
-        else if(path.corners.Length != 0)
+        else if(path.corners.Length == 0)
         {
             return path.corners[0];
         }
         else
         {
-            return Vector3.zero;
+            return this.transform.position;
         }
     }
 

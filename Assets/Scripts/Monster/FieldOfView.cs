@@ -40,8 +40,8 @@ public class FieldOfView : MonoBehaviour {
 
         for(int i = 0; i < targets.Length; i++)
         {
-
             Transform target = targets[i].transform;
+            if (!target.CompareTag("Player")) return;
             Vector3 dir = (target.position - transform.position).normalized;
             if(Vector3.Angle(transform.forward, dir) < Angle / 2)
             {
