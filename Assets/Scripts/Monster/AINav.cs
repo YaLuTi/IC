@@ -19,6 +19,7 @@ public class AINav : MonoBehaviour
         elapsed = 0.0f;
         lastDistance = 0;
         PlayerMomentum = 0;
+        NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path);
     }
 
     void Update()

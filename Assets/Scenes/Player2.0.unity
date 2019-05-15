@@ -331,7 +331,7 @@ Prefab:
     - target: {fileID: 114059651618021802, guid: e70f050f221a06f40846a00f7678f954,
         type: 2}
       propertyPath: value
-      value: 2.4
+      value: 2.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e70f050f221a06f40846a00f7678f954, type: 2}
@@ -737,6 +737,18 @@ Prefab:
       propertyPath: animationCurves.Array.data[0].curve.m_RotationOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114706421812586104, guid: d4e769353f9f05445ae93f31775d3ae5,
+        type: 2}
+      propertyPath: AttackLowSound
+      value: 
+      objectReference: {fileID: 11400000, guid: b8f614c138353854882194224f182f73,
+        type: 2}
+    - target: {fileID: 114706421812586104, guid: d4e769353f9f05445ae93f31775d3ae5,
+        type: 2}
+      propertyPath: AttackLowTwoSound
+      value: 
+      objectReference: {fileID: 11400000, guid: ddf49f38bcc26024db86ecae4a2eb709,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4e769353f9f05445ae93f31775d3ae5, type: 2}
   m_IsPrefabParent: 0

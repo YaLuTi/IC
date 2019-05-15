@@ -8,6 +8,8 @@ public class Monster_Golem : TestMonster {
     [SerializeField]
     float AttackLowRange = 5f;
 
+    public AudioAssets AttackLowSound;
+    public AudioAssets AttackLowTwoSound;
 
     float d;
 
@@ -51,5 +53,15 @@ public class Monster_Golem : TestMonster {
     public override void UpdateAttackState()
     {
         base.UpdateAttackState();
+    }
+
+    void PlayAttackLow()
+    {
+        AttackLowSound.Play(audioSource);
+    }
+
+    void PlayAttackLowTwo()
+    {
+        AttackLowTwoSound.Play(audioSource);
     }
 }
