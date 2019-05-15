@@ -61,10 +61,10 @@ public class TestMonster : MonsterBasic {
     public override void UpdateAttackState()
     {
         base.UpdateAttackState();
-        if (targets.Count > 0)
+        /*if (targets.Count > 0)
         {
             attackstates = Attackstates.Attacking_OutRange;
-        }
+        }*/
     }
     public override void Damaged(float damage)
     {

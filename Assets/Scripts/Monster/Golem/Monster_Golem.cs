@@ -21,6 +21,8 @@ public class Monster_Golem : TestMonster {
 	// Update is called once per frame
 	protected override void Update () {
         base.Update();
+
+        destination = Nav.GetCorners();
         d = Vector3.Distance(player.transform.position, transform.position);
     }
 
@@ -32,9 +34,16 @@ public class Monster_Golem : TestMonster {
     protected override void e_Attacking()
     {
         base.e_Attacking();
-        destination = Nav.GetCorners();
 
         if(d < AttackLowRange)
+        {
+            animator.SetTrigger("AttackLow");
+        }
+    }
+
+    void e_Attacking_OutRange()
+    {
+        if (d < AttackLowRange)
         {
             animator.SetTrigger("AttackLow");
         }
