@@ -1240,9 +1240,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1612119166946172}
-  m_LocalRotation: {x: -0, y: 0.97684026, z: -0, w: 0.2139698}
-  m_LocalPosition: {x: -1.82, y: -1.0900002, z: 14.37}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalRotation: {x: -0, y: -0.7641711, z: -0, w: 0.64501363}
+  m_LocalPosition: {x: 254.02, y: 6.4465203, z: 23.99}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 4780004095950402}
   - {fileID: 4281132475427386}
@@ -1257,7 +1257,7 @@ Transform:
   - {fileID: 4126492702701912}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -84.66701, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -99.66701, z: 0}
 --- !u!4 &4878352318111030
 Transform:
   m_ObjectHideFlags: 1
@@ -1477,8 +1477,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.842286, y: 4.2202773, z: 1.8650337}
-  m_Center: {x: 0.16391252, y: 2.180411, z: 0.43251708}
+  m_Size: {x: 1.842286, y: 2.940578, z: 1.8650337}
+  m_Center: {x: 0.16391252, y: 1.5405614, z: 0.43251708}
 --- !u!82 &82851898953891742
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1499,7 +1499,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 150
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1534,7 +1534,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1549,7 +1549,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.0027777778
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1659,14 +1659,18 @@ MonoBehaviour:
   AttackLowRange: 4
   WalkAround: 10
   JumpSlashRange: 14
-  testRange: 14
-  StepSound: {fileID: 0}
-  AttackLowSound: {fileID: 11400000, guid: b8f614c138353854882194224f182f73, type: 2}
-  AttackLowTwoSound: {fileID: 11400000, guid: ddf49f38bcc26024db86ecae4a2eb709, type: 2}
-  AttackJumpSlashOneSound: {fileID: 0}
-  AttackJumpSlashTwoSound: {fileID: 0}
-  AttackDownAttackOneSound: {fileID: 0}
-  AttackDownAttackTwoSound: {fileID: 0}
+  testRange: 1
+  StepSound: {fileID: 11400000, guid: 94b53a5b78d234b4bbf545a1fb99a538, type: 2}
+  AttackLowSound: {fileID: 11400000, guid: 43b788c12c6e5c54b99f1d94cccfce82, type: 2}
+  AttackLowTwoSound: {fileID: 11400000, guid: 43b788c12c6e5c54b99f1d94cccfce82, type: 2}
+  AttackJumpSlashOneSound: {fileID: 11400000, guid: b8f614c138353854882194224f182f73,
+    type: 2}
+  AttackJumpSlashTwoSound: {fileID: 11400000, guid: ddf49f38bcc26024db86ecae4a2eb709,
+    type: 2}
+  AttackDownAttackOneSound: {fileID: 11400000, guid: 43b788c12c6e5c54b99f1d94cccfce82,
+    type: 2}
+  AttackDownAttackTwoSound: {fileID: 11400000, guid: b8f614c138353854882194224f182f73,
+    type: 2}
 --- !u!114 &114709897693783870
 MonoBehaviour:
   m_ObjectHideFlags: 1
