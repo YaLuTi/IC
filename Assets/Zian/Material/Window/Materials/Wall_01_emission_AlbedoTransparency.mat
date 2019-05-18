@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: Wall_01_emission_AlbedoTransparency
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _EMISSION _METALLICGLOSSMAP _NORMALMAP
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _EMISSION _NORMALMAP
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -52,7 +52,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: e9bb73485c51e344981bf5a805b74915, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -98,8 +98,8 @@ Material:
     - _DoubleSided: 0
     - _DstBlend: 10
     - _EdgeFlutter: 1
-    - _GlossMapScale: 0.196
-    - _Glossiness: 0.5
+    - _GlossMapScale: 0.16
+    - _Glossiness: 0
     - _Glossiness2: 0.5
     - _GlossyReflections: 1
     - _Lighting: 0
@@ -144,7 +144,7 @@ Material:
     - _ZWrite: 0
     - __dirty: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 0.73333335}
+    - _Color: {r: 1, g: 1, b: 1, a: 0.84705883}
     - _Color2: {r: 1, g: 1, b: 1, a: 1}
     - _DiffuseScatteringCol: {r: 0, g: 0, b: 0, a: 0}
     - _DiffuseScatteringCol2: {r: 0, g: 0, b: 0, a: 0}
