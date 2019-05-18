@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2812dfa140dac764991c927b17d4df09, type: 3}
+  m_Name: TestWalk
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: c1fedc1cf9f292845bb44694e022f9c8, type: 3}
+  - {fileID: 8300000, guid: 64b6f28db554c984c9e5ff5e74dc689d, type: 3}
+  - {fileID: 8300000, guid: 2afc69cef1b22644e9f9c4198c0ce441, type: 3}
+  volume:
+    minValue: 0.24611497
+    maxValue: 0.24611497
+  pitch:
+    minValue: 0.99835944
+    maxValue: 0.99835944
