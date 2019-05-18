@@ -49,16 +49,17 @@ public class WeaponColliderBasic : MonoBehaviour {
                 {
                     MonsterBasic monster = other.gameObject.GetComponent<MonsterBasic>();
                     monster.Damaged(AttackDamage);
-                    Quaternion r = p.rotation;
+                    // Quaternion r = p.rotation;
                     // r.y = -r.y
-                    GameObject g = Instantiate(HitParticle, other.ClosestPoint(transform.position), r);
+                    GameObject g = Instantiate(HitParticle, other.ClosestPoint(transform.position), Quaternion.identity);
                     Destroy(g, 3f);
                 }
                 else if(other.GetComponent<PlayerHP>())
                 {
                     PlayerHP playerHP = other.gameObject.GetComponent<PlayerHP>();
-                    GameObject g = Instantiate(HitParticle, other.ClosestPoint(transform.position), Quaternion.identity);
                     playerHP.Damaged();
+                    if (playerHP.Invulnerability) return;
+                    GameObject g = Instantiate(HitParticle, other.ClosestPoint(transform.position), Quaternion.identity);
                 }
             }
         }

@@ -16,10 +16,12 @@ public class MonsterWeaponTest : MonoBehaviour {
 	}
     void WeaponOn()
     {
+        // Debug.Log("On");
         weapon.StartAttack();
     }
     void WeaponOff()
     {
+        // Debug.Log("Off");
         weapon.StopAttack();
     }
 }

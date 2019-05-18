@@ -5,25 +5,48 @@ using UnityEngine;
 public class Monster_Golem : TestMonster {
 
     // Use this for initialization
+    [Header("AttackValue")]
     [SerializeField]
     float AttackLowRange = 5f;
+    [SerializeField]
+    float WalkAround = 10f;
+    [SerializeField]
+    float JumpSlashRange = 10f;
 
+    public float testRange = 5;
+
+    float speed = 0;
+
+    [Header("Sound Assets")]
+    public AudioAssets StepSound;
     public AudioAssets AttackLowSound;
     public AudioAssets AttackLowTwoSound;
+    public AudioAssets AttackJumpSlashOneSound;
+    public AudioAssets AttackJumpSlashTwoSound;
+    public AudioAssets AttackDownAttackOneSound;
+    public AudioAssets AttackDownAttackTwoSound;
 
     float d;
 
 	protected override void Start () {
         base.Start();
         attackstates = Attackstates.Attacking;
-	}
+        d = Vector3.Distance(player.transform.position, transform.position);
+    }
 	
 	// Update is called once per frame
 	protected override void Update () {
         base.Update();
-
         destination = Nav.GetCorners();
         d = Vector3.Distance(player.transform.position, transform.position);
+        animator.SetFloat("Speed", 1);
+    }
+    void OnDrawGizmosSelected()
+    {
+        {
+            Gizmos.color = new Color(0,1,1,0.3f);
+            Gizmos.DrawSphere(transform.position, testRange);
+        }
     }
 
     protected override void e_Alert()
@@ -35,10 +58,23 @@ public class Monster_Golem : TestMonster {
     {
         base.e_Attacking();
 
-        if(d < AttackLowRange)
+        speed = 0;
+        if (d < JumpSlashRange && d > WalkAround)
+        {
+            animator.SetTrigger("JumpSlash");
+        }else if (d < WalkAround && d > AttackLowRange)
+        {
+            speed = 1;
+            if(d < 6)
+            {
+                animator.SetTrigger("DownAttack");
+            }
+        }
+        else if (d < AttackLowRange)
         {
             animator.SetTrigger("AttackLow");
         }
+
     }
 
     void e_Attacking_OutRange()
@@ -63,6 +99,9 @@ public class Monster_Golem : TestMonster {
     {
         base.UpdateAttackState();
     }
+    
+
+    // Should be like animation curver
 
     void PlayAttackLow()
     {
@@ -72,5 +111,34 @@ public class Monster_Golem : TestMonster {
     void PlayAttackLowTwo()
     {
         AttackLowTwoSound.Play(audioSource);
+    }
+
+    void PlayJumpSlashOne()
+    {
+        AttackJumpSlashOneSound.Play(audioSource);
+    }
+
+    void PlayJumpSlashTwo()
+    {
+        AttackJumpSlashTwoSound.Play(audioSource);
+    }
+    void PlayDownAttackOne()
+    {
+        AttackDownAttackOneSound.Play(audioSource);
+    }
+    void PlayDownAttackTwo()
+    {
+        AttackDownAttackTwoSound.Play(audioSource);
+    }
+
+    void PlayStep()
+    {
+        StepSound.Play(audioSource);
+    }
+
+    void ResetTrigger()
+    {
+        animator.ResetTrigger("AttackLow");
+        animator.ResetTrigger("JumpSlash");
     }
 }

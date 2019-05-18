@@ -30,10 +30,10 @@ public class TestMonster : MonsterBasic {
         UpdateAnimator();
     }
 
-    void UpdateAnimator()
+    protected virtual void UpdateAnimator()
     {
         // animator.SetBool("IsDamaged", false);
-        animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
+        // animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
     }
 
     protected override void e_Patrol()
@@ -70,7 +70,6 @@ public class TestMonster : MonsterBasic {
     {
         base.Damaged(damage);
         if (IsDeath) return;
-        attackstates = Attackstates.Attacking_OutRange;
         animator.SetBool("IsLock", true);
         Health -= damage;
 

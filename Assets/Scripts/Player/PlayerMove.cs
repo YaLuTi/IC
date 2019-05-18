@@ -185,29 +185,29 @@ public class PlayerMove : MonoBehaviour {
         }
 
     }
+    
+    float DebugStepTime = 0;
 
     void Step()
     {
-        if (!Dodgable) return;
+        /*if (!Dodgable) return;
         if (IsSteping)
         {
             IsSteping = false;
-        }
+        }*/
+        DebugStepTime++;
 
-        animatorStateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
-
-        if (!animatorStateInfo.IsName("Step"))
-        {
-
-            if (Input.GetButtonDown("JoyStickX"))
+     animatorStateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
+        
+        if (Input.GetButtonDown("JoyStickX") && DebugStepTime >= 40)
             {
+                DebugStepTime = 0;
                 m_Animator.SetFloat("StepX", move.x);
                 m_Animator.SetFloat("StepY", move.z);
-                IsSteping = Input.GetButtonDown("JoyStickX");
+                // IsSteping = Input.GetButtonDown("JoyStickX");
                 m_Animator.ResetTrigger("At");
                 m_Animator.SetTrigger("Step");
-            }
-        }
+         }
     }
 
     void ApplyExtraTurnRotation()

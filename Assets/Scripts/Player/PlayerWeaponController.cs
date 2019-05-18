@@ -8,7 +8,7 @@ public class PlayerWeaponController : MonoBehaviour {
     [Header("Put Your Weapon Here")]
     public GameObject SpawnWeapon;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         GameObject g = SpawnWeapon;
         g = Instantiate(g);
         g.transform.parent = WeaponParent.transform;

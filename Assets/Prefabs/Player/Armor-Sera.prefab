@@ -248,7 +248,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4143965689704404}
   - component: {fileID: 65285868757632206}
-  - component: {fileID: 114101794557498126}
   m_Layer: 0
   m_Name: WeaponParent
   m_TagString: Untagged
@@ -536,6 +535,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1817346148379268
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4825927336238828}
+  - component: {fileID: 33340296587186112}
+  - component: {fileID: 23231465299584748}
+  m_Layer: 0
+  m_Name: Sorry
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1887669293072584
 GameObject:
   m_ObjectHideFlags: 1
@@ -677,6 +693,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4781792673858158}
+  - {fileID: 4825927336238828}
   m_Father: {fileID: 4042224104781828}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1055,6 +1072,19 @@ Transform:
   m_Father: {fileID: 4362029037376642}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4825927336238828
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1817346148379268}
+  m_LocalRotation: {x: -0.15700749, y: 0.07138568, z: 0.023619892, w: 0.98473084}
+  m_LocalPosition: {x: 0.015, y: 0.139, z: 0.002}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_Children: []
+  m_Father: {fileID: 4072619129677008}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -18.216002, y: 8.059, z: 1.4540001}
 --- !u!4 &4827288195587718
 Transform:
   m_ObjectHideFlags: 1
@@ -1156,6 +1186,48 @@ Transform:
   m_Father: {fileID: 4413613931319508}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23231465299584748
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1817346148379268}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 2100000, guid: 07e69dee15fb6844f9ca7c753be70548, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &33340296587186112
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1817346148379268}
+  m_Mesh: {fileID: 4300000, guid: 6e4e401f41254194cb89cdc3184d898f, type: 3}
 --- !u!54 &54171083687225590
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -1179,7 +1251,7 @@ BoxCollider:
   m_GameObject: {fileID: 1254019509171886}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.3978598, y: 0.4959563, z: 0.0826503}
   m_Center: {x: -0.5999996, y: 0.17149599, z: 0.059999786}
@@ -1399,22 +1471,6 @@ MonoBehaviour:
   - 0.5
   HeavyAttackTrueNormalized: []
   HeavyAttackFalseNormalized: []
---- !u!114 &114101794557498126
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1254019509171886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 140f944180bbe604c832b8491bdc7367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackDamage: 1
-  HitParticle: {fileID: 1357193009995946, guid: d843d7a3c091c8040a1d364962634d12,
-    type: 2}
-  p: {fileID: 4827288195587718}
-  hitObject: []
 --- !u!114 &114422744910926668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1440,6 +1496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86a1fff2b2a8c74b875614fa039b435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Invulnerability: 0
 --- !u!136 &136564698920039328
 CapsuleCollider:
   m_ObjectHideFlags: 1

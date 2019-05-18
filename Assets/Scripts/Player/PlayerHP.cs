@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerHP : MonoBehaviour {
 
     Animator animator;
-	// Use this for initialization
-	void Start () {
+    public bool Invulnerability = false; // Remember change this to private
+    // Use this for initialization
+    void Start () {
         animator = GetComponent<Animator>();
 	}
 	
@@ -17,6 +18,20 @@ public class PlayerHP : MonoBehaviour {
 
     public void Damaged()
     {
+        if (Invulnerability)
+        {
+            Debug.Log("Dodge");
+            return;
+        }
         animator.SetTrigger("Damaged");
+    }
+
+    void SetInvulnerability()
+    {
+        Invulnerability = true;
+    }
+    void ReSetInvulnerability()
+    {
+        Invulnerability = false;
     }
 }

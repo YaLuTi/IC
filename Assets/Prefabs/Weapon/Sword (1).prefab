@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 33070277691044838}
   - component: {fileID: 23764644822753828}
   - component: {fileID: 114778405231435426}
+  - component: {fileID: 114857075094790928}
+  - component: {fileID: 65001643098302322}
   m_Layer: 0
   m_Name: Sword (1)
   m_TagString: Untagged
@@ -84,6 +86,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1581245457431482}
   m_Mesh: {fileID: 4300000, guid: 3195899df884fe04c80bc22ab0fef237, type: 3}
+--- !u!65 &65001643098302322
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1581245457431482}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.15426984, y: 0.22004032, z: 1.1378222}
+  m_Center: {x: -0.0029966347, y: 0, z: 0.42565095}
 --- !u!114 &114778405231435426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,3 +122,19 @@ MonoBehaviour:
   subdivisions: 4
   _base: {fileID: 4925501604839744, guid: 6470d8e6c8a65fd44a6a5729b874824e, type: 2}
   _tip: {fileID: 4487404823415914, guid: 6470d8e6c8a65fd44a6a5729b874824e, type: 2}
+--- !u!114 &114857075094790928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1581245457431482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140f944180bbe604c832b8491bdc7367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackDamage: 1
+  HitParticle: {fileID: 1357193009995946, guid: d843d7a3c091c8040a1d364962634d12,
+    type: 2}
+  p: {fileID: 0}
+  hitObject: []

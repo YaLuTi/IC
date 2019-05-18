@@ -215,5 +215,6 @@ public class Monster_Heretic : TestMonster {
     public override void Damaged(float damage)
     {
         base.Damaged(damage);
+        attackstates = Attackstates.Attacking_OutRange;
     }
 }

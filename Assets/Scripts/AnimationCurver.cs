@@ -7,6 +7,7 @@ public class AnimationCurver : MonoBehaviour {
     public Animator animator;
     AnimatorStateInfo animatorState;
     public AnimationCurveObject[] animationCurves;
+    public int CurrentCurve;
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
@@ -15,6 +16,13 @@ public class AnimationCurver : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         animatorState = animator.GetCurrentAnimatorStateInfo(0);
-        animator.speed = animationCurves[0].curve.Evaluate(animatorState.normalizedTime);
+        if (animatorState.normalizedTime >= 1) return;
+        animator.speed = animationCurves[CurrentCurve].curve.Evaluate(animatorState.normalizedTime);
+        // Debug.Log(animatorState.normalizedTime);
 	}
+
+    void SetCurve(int i)
+    {
+        CurrentCurve = i - 1;
+    }
 }
