@@ -18,6 +18,8 @@ public class PlayerMove : MonoBehaviour {
     public AudioEvent StepSound;
     AudioSource audioSource;
 
+    PlayerHP playerHP;
+
     public float x = 1.45f;
 
     public CameraRotate cameraRotate;
@@ -32,6 +34,7 @@ public class PlayerMove : MonoBehaviour {
     {
         m_Animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        playerHP = GetComponent<PlayerHP>();
     }
 	
 	// Update is called once per frame
@@ -177,9 +180,10 @@ public class PlayerMove : MonoBehaviour {
 
         if (Input.GetButtonDown("JoyStickX") && DebugDodgeTime >= 40)
         {
+            if (!playerHP.ExpendSP(2)) return;
             transform.Rotate(0, angle, 0);
             DebugDodgeTime = 0;
-            IsDodging = Input.GetButtonDown("JoyStickX");
+            // IsDodging = Input.GetButtonDown("JoyStickX");
             m_Animator.ResetTrigger("At");
             m_Animator.SetTrigger("Dodge");
         }
