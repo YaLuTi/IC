@@ -1484,14 +1484,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Invulnerability: 0
-  DamagedParticle: {fileID: 1221325706342982, guid: 3da5b72e78c819b4290273a86568da21,
-    type: 2}
+  DamagedParticle: {fileID: 132858, guid: dcbbdee2152660b41822b2eb0ccb8767, type: 2}
   MaxHP: 10
   HP: 10
   HPslider: {fileID: 0}
   MaxSP: 10
   SP: 10
   SPslider: {fileID: 0}
+  SPRegenSpeed: 0
 --- !u!136 &136564698920039328
 CapsuleCollider:
   m_ObjectHideFlags: 1
