@@ -22,7 +22,7 @@ public class GolemParticle : MonoBehaviour {
         r.x = 0;
         r.z = 0;
         Vector3 p = JumpSlashParticleTransform.position;
-        p.y = 6.4f;
+        p.y = 6.45f;
         Debug.Log(p);
         Instantiate(JumpSlashParticle, p, r);
     }

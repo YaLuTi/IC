@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4261700733784340}
-  - component: {fileID: 114385888204400606}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -245,7 +244,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1805520192668140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 395.14, y: 7.04, z: 25.6}
+  m_LocalPosition: {x: 259.74, y: 6.467129, z: 22.168211}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4027399945077578}
@@ -699,19 +698,6 @@ MonoBehaviour:
   DisableOnMobiles: 1
   RenderMobileDistortion: 0
   ParticleBudgetForMobiles: 0.5
---- !u!114 &114385888204400606
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1028402274503144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 299369f945879d147a3e97f89f51f236, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ActivatedGameObject: {fileID: 0}
-  Delay: 0.8
 --- !u!114 &114609952073224340
 MonoBehaviour:
   m_ObjectHideFlags: 1
