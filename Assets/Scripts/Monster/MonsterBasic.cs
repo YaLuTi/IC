@@ -84,6 +84,11 @@ public class MonsterBasic : MonoBehaviour {
         DamagedAssets.Play(audioSource);
     }
 
+    public void SetAttack()
+    {
+        attackstates = Attackstates.Attacking;
+    }
+
     protected virtual void e_Patrol()
     {
     }

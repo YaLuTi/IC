@@ -31,7 +31,7 @@ public class Monster_Golem : TestMonster {
 
 	protected override void Start () {
         base.Start();
-        attackstates = Attackstates.Attacking;
+        attackstates = Attackstates.Alert;
         d = Vector3.Distance(player.transform.position, transform.position);
     }
 	
@@ -40,7 +40,7 @@ public class Monster_Golem : TestMonster {
         base.Update();
         destination = Nav.GetCorners();
         d = Vector3.Distance(player.transform.position, transform.position);
-        animator.SetFloat("Speed", 1);
+        animator.SetFloat("Speed", speed);
     }
     void OnDrawGizmosSelected()
     {
@@ -59,7 +59,7 @@ public class Monster_Golem : TestMonster {
     {
         base.e_Attacking();
 
-        speed = 0;
+        speed = 1;
         if (d < JumpSlashRange && d > WalkAround)
         {
             animator.SetTrigger("JumpSlash");
