@@ -21,6 +21,7 @@ public class Monster_Golem : TestMonster {
     public AudioAssets StepSound;
     public AudioAssets AttackLowSound;
     public AudioAssets AttackLowTwoSound;
+    public AudioAssets JumpSound;
     public AudioAssets AttackJumpSlashOneSound;
     public AudioAssets AttackJumpSlashTwoSound;
     public AudioAssets AttackDownAttackOneSound;
@@ -111,6 +112,11 @@ public class Monster_Golem : TestMonster {
     void PlayAttackLowTwo()
     {
         AttackLowTwoSound.Play(audioSource);
+    }
+
+    void PlayJump()
+    {
+        JumpSound.Play(audioSource);
     }
 
     void PlayJumpSlashOne()

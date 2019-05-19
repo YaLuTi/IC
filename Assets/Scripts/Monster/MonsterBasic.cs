@@ -9,14 +9,19 @@ using UnityEngine.AI;
 [RequireComponent(typeof(AINav))]
 public class MonsterBasic : MonoBehaviour {
 
+    [Header("AI")]
     public GameObject player;
     public Vector3[] patrolArray;
     protected NavMeshAgent navMesh;
     protected int patrolPoint = 0;
     protected FieldOfView FieldOfView;
+    [Header("MonsterSetting")]
     public float moveSpeed = 1f;
     public float Health = 1f;
     public float Stamina = 10f;
+    [Header("Effect")]
+    public GameObject DamagedParticle;
+    public AudioAssets DamagedAssets;
     protected AudioSource audioSource;
     protected AINav Nav;
     protected bool IsDeath = false;
@@ -72,8 +77,11 @@ public class MonsterBasic : MonoBehaviour {
     {
     }
 
-    public virtual void Damaged(float damage)
+    public virtual void Damaged(float damage, Vector3 p)
     {
+        GameObject g = Instantiate(DamagedParticle, p, Quaternion.identity);
+        Destroy(g, 3);
+        DamagedAssets.Play(audioSource);
     }
 
     protected virtual void e_Patrol()

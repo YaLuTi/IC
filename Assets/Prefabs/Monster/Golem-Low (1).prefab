@@ -162,6 +162,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1271635370137736
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4983444479736414}
+  m_Layer: 9
+  m_Name: StepParticleTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1286829241991542
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +413,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4862724486348698}
+  - component: {fileID: 114380108444470036}
   - component: {fileID: 114836467310943118}
   - component: {fileID: 114150769580241202}
   - component: {fileID: 114834744160987856}
@@ -671,6 +687,21 @@ GameObject:
   - component: {fileID: 4441461164265894}
   m_Layer: 9
   m_Name: mixamorig:LeftArm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1953214238135378
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4691075178990092}
+  m_Layer: 9
+  m_Name: StepParticleTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -957,6 +988,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4686466926402210}
+  - {fileID: 4983444479736414}
   m_Father: {fileID: 4878352318111030}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1070,6 +1102,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4899008335779420}
+  - {fileID: 4691075178990092}
   m_Father: {fileID: 4089470315626322}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1169,6 +1202,19 @@ Transform:
   m_Father: {fileID: 4387229213115042}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4691075178990092
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1953214238135378}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4501047297855112}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4728596688478198
 Transform:
   m_ObjectHideFlags: 1
@@ -1240,8 +1286,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1612119166946172}
-  m_LocalRotation: {x: -0, y: -0.7641711, z: -0, w: 0.64501363}
-  m_LocalPosition: {x: 254.02, y: 6.4465203, z: 23.99}
+  m_LocalRotation: {x: -0, y: 0.97684026, z: -0, w: 0.2139698}
+  m_LocalPosition: {x: -1.82, y: -1.0900002, z: 14.37}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 4780004095950402}
@@ -1382,6 +1428,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4862724486348698}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4983444479736414
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1271635370137736}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4387229213115042}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4998294910871604
 Transform:
@@ -1623,6 +1682,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   ViewTargets: []
+--- !u!114 &114380108444470036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1612119166946172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ebd6f5e696e4945a763eedf84490d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StepParticle: {fileID: 1369401709340560, guid: 9922a3006f27f504a8ad6992ba661791,
+    type: 2}
+  RightStep: {fileID: 4691075178990092}
+  LeftStep: {fileID: 4983444479736414}
 --- !u!114 &114470457048821542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1652,6 +1726,8 @@ MonoBehaviour:
   moveSpeed: 2
   Health: 100
   Stamina: 10
+  DamagedParticle: {fileID: 145962, guid: a61618b17590c45429257dd0092ca327, type: 2}
+  DamagedAssets: {fileID: 11400000, guid: ddf49f38bcc26024db86ecae4a2eb709, type: 2}
   attackstates: 0
   BattleRange: 10
   AngularSpeed: 2
@@ -1660,7 +1736,7 @@ MonoBehaviour:
   WalkAround: 10
   JumpSlashRange: 14
   testRange: 1
-  StepSound: {fileID: 11400000, guid: 94b53a5b78d234b4bbf545a1fb99a538, type: 2}
+  StepSound: {fileID: 11400000, guid: fb6c2836d97adb9428c505c477065512, type: 2}
   AttackLowSound: {fileID: 11400000, guid: 43b788c12c6e5c54b99f1d94cccfce82, type: 2}
   AttackLowTwoSound: {fileID: 11400000, guid: 43b788c12c6e5c54b99f1d94cccfce82, type: 2}
   AttackJumpSlashOneSound: {fileID: 11400000, guid: b8f614c138353854882194224f182f73,

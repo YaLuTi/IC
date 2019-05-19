@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerParticle : MonoBehaviour {
+public class StepParticleSpawner : MonoBehaviour {
 
     public GameObject StepParticle;
     public Transform RightStep;

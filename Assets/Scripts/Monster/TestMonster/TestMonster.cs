@@ -66,9 +66,9 @@ public class TestMonster : MonsterBasic {
             attackstates = Attackstates.Attacking_OutRange;
         }*/
     }
-    public override void Damaged(float damage)
+    public override void Damaged(float damage, Vector3 p)
     {
-        base.Damaged(damage);
+        base.Damaged(damage, p);
         if (IsDeath) return;
         animator.SetBool("IsLock", true);
         Health -= damage;
