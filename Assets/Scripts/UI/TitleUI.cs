@@ -13,7 +13,7 @@ public class TitleUI : MonoBehaviour {
     bool In = false;
 	// Use this for initialization
 	void Start () {
-        panel.color = new Color(0, 0, 0, 1);
+        panel.color = new Color(1, 1, 1, 1);
         audioSource = GetComponent<AudioSource>();
 	}
 	
@@ -49,7 +49,7 @@ public class TitleUI : MonoBehaviour {
                 }
             }
         }
-        panel.color = new Color(0, 0, 0, animationCurve.Evaluate(time));
+        panel.color = new Color(1, 1, 1, animationCurve.Evaluate(time));
 	}
 
     IEnumerator DisplayLoadingScreen(string sceneName)////(1)
