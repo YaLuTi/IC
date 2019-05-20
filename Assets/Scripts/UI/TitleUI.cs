@@ -9,10 +9,12 @@ public class TitleUI : MonoBehaviour {
     public Image panel;
     public AnimationCurve animationCurve;
     float time;
+    AudioSource audioSource;
     bool In = false;
 	// Use this for initialization
 	void Start () {
         panel.color = new Color(0, 0, 0, 1);
+        audioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -21,6 +23,7 @@ public class TitleUI : MonoBehaviour {
         if (Input.anyKey && !In)
         {
             In = true;
+            audioSource.Play();
         }
 
         if (!In)
