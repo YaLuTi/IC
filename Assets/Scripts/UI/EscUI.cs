@@ -5,6 +5,7 @@ using UnityEngine;
 public class EscUI : MonoBehaviour {
 
     bool InMenu;
+    public GameObject EscMenu;
 
     // Use this for initialization
     void Start () {
@@ -18,12 +19,14 @@ public class EscUI : MonoBehaviour {
             if (InMenu)
             {
                 InMenu = false;
+                EscMenu.SetActive(false);
                 Time.timeScale = 1;
                 Time.fixedDeltaTime = 0.02f * Time.timeScale;
             }
             else
             {
                 InMenu = true;
+                EscMenu.SetActive(true);
                 Time.timeScale = 0;
                 Time.fixedDeltaTime = 0.02f * Time.timeScale;
             }

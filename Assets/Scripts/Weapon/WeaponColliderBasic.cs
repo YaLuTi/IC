@@ -7,7 +7,7 @@ public class WeaponColliderBasic : MonoBehaviour {
     bool Attacking = false;
 
     public float AttackDamage = 1f;
-
+    public float DestroyTime = 0.5f;
     public GameObject HitParticle;
     public Transform p;
     LayerMask layerMask;
@@ -52,6 +52,7 @@ public class WeaponColliderBasic : MonoBehaviour {
                     // Quaternion r = p.rotation;
                     // r.y = -r.y
                     GameObject g = Instantiate(HitParticle, other.ClosestPoint(transform.position), Quaternion.identity);
+                    Destroy(g, DestroyTime);
                 }
                 else if(other.GetComponent<PlayerHP>())
                 {
@@ -59,6 +60,7 @@ public class WeaponColliderBasic : MonoBehaviour {
                     playerHP.Damaged(AttackDamage);
                     if (playerHP.Invulnerability) return;
                     GameObject g = Instantiate(HitParticle, other.ClosestPoint(transform.position), Quaternion.identity);
+                    Destroy(g, DestroyTime);
                 }
             }
         }
