@@ -56,12 +56,38 @@ public class PlayerHP : MonoBehaviour {
         animator.SetTrigger("Damaged");
     }
 
-    public bool ExpendSP(float sp)
+    public void ExpendSP(float sp)
     {
         if(SP - sp >= 0)
         {
             SP -= sp;
             SPRegenCount = 0;
+        }
+        else
+        {
+            SP = 0;
+            SPRegenCount = 0;
+        }
+    }
+
+    public bool CheckSP(float sp)
+    {
+        if (SP - sp >= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool OverpullSP()
+    {
+        if (SP > 0)
+        {
+            SPRegenCount = 0;
+            SP = 0;
             return true;
         }
         else

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(FieldOfView))]
 [RequireComponent(typeof(Animator))]
@@ -17,9 +18,11 @@ public class MonsterBasic : MonoBehaviour {
     protected FieldOfView FieldOfView;
     [Header("MonsterSetting")]
     public float moveSpeed = 1f;
-    public float Health = 1f;
+    public float MaxHealth = 1;
+    protected float Health = 1f;
     public float Stamina = 10f;
     [Header("Effect")]
+    public Slider HPSlider;
     public GameObject DamagedParticle;
     public AudioAssets DamagedAssets;
     protected AudioSource audioSource;
@@ -41,6 +44,7 @@ public class MonsterBasic : MonoBehaviour {
         FieldOfView = GetComponent<FieldOfView>();
         audioSource = GetComponent<AudioSource>();
         Nav = GetComponent<AINav>();
+        Health = MaxHealth;
     }
 	
 	// Update is called once per frame
@@ -68,7 +72,10 @@ public class MonsterBasic : MonoBehaviour {
             default:
                 break;
         }
-
+        if(HPSlider != null)
+        {
+            HPSlider.value = Health / MaxHealth;
+        }
         targets = FieldOfView.ViewTargets;
         UpdateAttackState();
 	}

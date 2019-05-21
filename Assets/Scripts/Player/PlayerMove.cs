@@ -180,7 +180,13 @@ public class PlayerMove : MonoBehaviour {
 
         if (Input.GetButtonDown("JoyStickX") && DebugDodgeTime >= 40)
         {
-            if (!playerHP.ExpendSP(2)) return;
+            if (!playerHP.CheckSP(2f))
+            {
+                if (!playerHP.OverpullSP())
+                {
+                    return;
+                }
+            }
             transform.Rotate(0, angle, 0);
             DebugDodgeTime = 0;
             // IsDodging = Input.GetButtonDown("JoyStickX");
@@ -204,13 +210,20 @@ public class PlayerMove : MonoBehaviour {
      animatorStateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
         
         if (Input.GetButtonDown("JoyStickX") && DebugStepTime >= 40)
+        {
+            if (!playerHP.CheckSP(2f))
             {
-                DebugStepTime = 0;
-                m_Animator.SetFloat("StepX", move.x);
-                m_Animator.SetFloat("StepY", move.z);
-                // IsSteping = Input.GetButtonDown("JoyStickX");
-                m_Animator.ResetTrigger("At");
-                m_Animator.SetTrigger("Step");
+                if (!playerHP.OverpullSP())
+                {
+                    return;
+                }
+            }
+            DebugStepTime = 0;
+            m_Animator.SetFloat("StepX", move.x);
+            m_Animator.SetFloat("StepY", move.z);
+            // IsSteping = Input.GetButtonDown("JoyStickX");
+            m_Animator.ResetTrigger("At");
+            m_Animator.SetTrigger("Step");
          }
     }
 

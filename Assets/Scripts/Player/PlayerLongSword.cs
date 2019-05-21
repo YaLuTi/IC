@@ -8,6 +8,7 @@ public class PlayerLongSword : MonoBehaviour {
 
     Animator animator;
     PlayerMove playerMove;
+    PlayerHP playerHP;
     [SerializeField]
     int AttackCombo = 0;
     [SerializeField]
@@ -43,6 +44,7 @@ public class PlayerLongSword : MonoBehaviour {
         AttackReseter = StartCoroutine(AttackReset());
         audioSource = GetComponent<AudioSource>();
         playerMove = GetComponent<PlayerMove>();
+        playerHP = GetComponent<PlayerHP>();
     }
 	
 	// Update is called once per frame
@@ -53,6 +55,7 @@ public class PlayerLongSword : MonoBehaviour {
 
         if (Input.GetButtonDown("R1"))
         {
+            if (!playerHP.CheckSP(1f)) return;
             StopCoroutine(AttackReseter);
             animator.SetTrigger("At");
             animator.ResetTrigger("HeavyAt");
@@ -72,6 +75,7 @@ public class PlayerLongSword : MonoBehaviour {
             StopCoroutine(AttackReseter);
             animator.SetTrigger("HeavyAt");
             animator.ResetTrigger("At");
+            animator.SetBool("HeavyAttackCharging", true);
             AttackReseter = StartCoroutine(AttackReset());
             if (SwitchState)
             {
@@ -82,6 +86,14 @@ public class PlayerLongSword : MonoBehaviour {
                     animator.SetInteger("Attack", AttackCombo);
                 }
             }
+        }
+        if (Input.GetButton("R2"))
+        {
+            animator.SetBool("HeavyAttackCharging", true);
+        }
+        else
+        {
+            animator.SetBool("HeavyAttackCharging", false);
         }
         CheckAnimatorState();
 	}
