@@ -115,6 +115,11 @@ public class TestMonster : MonsterBasic {
     protected override void e_Death()
     {
         base.e_Death();
+        // animator.ResetTrigger()
+        foreach (AnimatorControllerParameter parameter in animator.parameters)
+        {
+            animator.ResetTrigger(parameter.name);
+        }
         animator.SetTrigger("Death");
         IsDeath = true;
         this.enabled = false;
