@@ -116,6 +116,9 @@ public class TestMonster : MonsterBasic {
     {
         base.e_Death();
         // animator.ResetTrigger()
+
+        // Good Stuff
+
         foreach (AnimatorControllerParameter parameter in animator.parameters)
         {
             animator.ResetTrigger(parameter.name);
