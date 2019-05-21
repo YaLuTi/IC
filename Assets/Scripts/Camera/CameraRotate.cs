@@ -76,7 +76,16 @@ public class CameraRotate : MonoBehaviour {
     void NomalCameraMove()
     {
         float h = Input.GetAxis("CameraHorizontal");
+        if(h == 0)
+        {
+            h = Input.GetAxis("Mouse X");
+        }
         float v = Input.GetAxis("CameraVertical");
+        if (v == 0)
+        {
+            v = Input.GetAxis("Mouse Y");
+        }
+
 
         transform.position = Vector3.SmoothDamp(transform.position, followObj.transform.position + (rotateVector * value), ref velocity, smoothTime);
         Quaternion targetRotation = Quaternion.LookRotation(followObj.transform.position - transform.position);

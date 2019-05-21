@@ -31,14 +31,14 @@ public class PlayerHP : MonoBehaviour {
         HPslider.value = HP / MaxHP;
         SPslider.value = SP / MaxSP;
 
-        if(SPRegenCount > 1.5f && SP < MaxSP)
+        if(SPRegenCount > 1f && SP < MaxSP)
         {
             SP += 1.5f * Time.deltaTime;
             if(SP >= MaxSP)
             {
                 SP = MaxSP;
             }
-        }else if (SPRegenCount < 1.5f)
+        }else if (SPRegenCount < 1f)
         {
             SPRegenCount += 1 * Time.deltaTime;
         }
@@ -50,6 +50,10 @@ public class PlayerHP : MonoBehaviour {
         {
             Debug.Log("Dodge");
             return;
+        }
+        foreach (AnimatorControllerParameter parameter in animator.parameters)
+        {
+            animator.ResetTrigger(parameter.name);
         }
         Instantiate(DamagedParticle, transform.position, Quaternion.identity);
         HP -= damage;

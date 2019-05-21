@@ -1374,8 +1374,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1612119166946172}
-  m_LocalRotation: {x: -0, y: 0.97684026, z: -0, w: 0.2139698}
-  m_LocalPosition: {x: -1.82, y: -1.0900002, z: 14.37}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 253.18, y: 6.4465203, z: 23.47}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 4780004095950402}
@@ -1761,7 +1761,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140f944180bbe604c832b8491bdc7367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackDamage: 1
+  AttackDamage: 3
+  DestroyTime: 0.5
   HitParticle: {fileID: 1357193009995946, guid: d843d7a3c091c8040a1d364962634d12,
     type: 2}
   p: {fileID: 4862724486348698}
@@ -1828,8 +1829,9 @@ MonoBehaviour:
   player: {fileID: 0}
   patrolArray: []
   moveSpeed: 2
-  Health: 100
+  MaxHealth: 50
   Stamina: 10
+  HPSlider: {fileID: 0}
   DamagedParticle: {fileID: 1876859476893648, guid: b7c8ee648e6143b4c855a29558fc58c5,
     type: 2}
   DamagedAssets: {fileID: 11400000, guid: ba3d7babf4577804190064555ad812a7, type: 2}

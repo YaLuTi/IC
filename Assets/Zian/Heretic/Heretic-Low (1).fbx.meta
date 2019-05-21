@@ -285,6 +285,7 @@ ModelImporter:
     13700014: Hood
     13700016: KnewHumanoid
     13700018: Robe
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -297,7 +298,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Avatar creation failed:\n\tTransform 'Bone.004' is not an ancestor
+      of 'Bone.001'\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -305,7 +307,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -345,8 +347,859 @@ ModelImporter:
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
-    human: []
-    skeleton: []
+    human:
+    - boneName: KnewHumanoid.Base
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: KnewHumanoid.UpperLeg.L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: KnewHumanoid.UpperLeg.R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: KnewHumanoid.LowerLeg.L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: KnewHumanoid.LowerLeg.R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: KnewHumanoid.Foot.L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: KnewHumanoid.Foot.R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: KnewHumanoid.Hip
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: KnewHumanoid.Spine
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: KnewHumanoid.Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: KnewHumanoid.Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: KnewHumanoid.Shoulder.L
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: KnewHumanoid.Shoulder.R
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: KnewHumanoid.UpperArm.L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: KnewHumanoid.UpperArm.R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: KnewHumanoid.LowerArm.L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: KnewHumanoid.LowerArm.R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone.004
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone.012
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: KnewHumanoid.Toes.L
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: KnewHumanoid.Toes.R
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone.001
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone.002
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone.003
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone.019
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone.020
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone.021
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Heretic-Low (1)(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armature
+      parentName: Heretic-Low (1)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: KnewHumanoid.Base
+      parentName: Armature
+      position: {x: 0, y: -7.4505804e-11, z: 0.00087721576}
+      rotation: {x: -6.123234e-17, y: -0.00000008940697, z: 1, w: -3.3087225e-24}
+      scale: {x: 1.0000061, y: 1.0000021, z: 1.0000021}
+    - name: KnewHumanoid.Knee.L
+      parentName: KnewHumanoid.Base
+      position: {x: 0.0008765486, y: 0.005497607, z: 0.006310068}
+      rotation: {x: 0.00000003090862, y: -0.7071068, z: -0.7071068, w: 0.000000030908616}
+      scale: {x: 1, y: 0.99999964, z: 0.99999964}
+    - name: KnewHumanoid.Knee.L_end
+      parentName: KnewHumanoid.Knee.L
+      position: {x: -0, y: 0.0021803414, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: KnewHumanoid.Elbow.L
+      parentName: KnewHumanoid.Base
+      position: {x: 0.004537146, y: 0.0055246023, z: 0.015336438}
+      rotation: {x: 0.00000003090862, y: -0.7071068, z: -0.7071068, w: 0.000000030908616}
+      scale: {x: 1, y: 0.99999964, z: 0.99999964}
+    - name: KnewHumanoid.Elbow.L_end
+      parentName: KnewHumanoid.Elbow.L
+      position: {x: -0, y: 0.0021803414, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: KnewHumanoid.Knee.R
+      parentName: KnewHumanoid.Base
+      position: {x: -0.0008765486, y: 0.005497607, z: 0.006310068}
+      rotation: {x: 0.00000003090862, y: -0.7071068, z: -0.7071068, w: 0.000000030908616}
+      scale: {x: 1, y: 0.99999964, z: 0.99999964}
+    - name: KnewHumanoid.Knee.R_end
+      parentName: KnewHumanoid.Knee.R
+      position: {x: -0, y: 0.0021803414, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: KnewHumanoid.Elbow.R
+      parentName: KnewHumanoid.Base
+      position: {x: -0.004537146, y: 0.0055246023, z: 0.015336438}
+      rotation: {x: 0.00000003090862, y: -0.7071068, z: -0.7071068, w: 0.000000030908616}
+      scale: {x: 1, y: 0.99999964, z: 0.99999964}
+    - name: KnewHumanoid.Elbow.R_end
+      parentName: KnewHumanoid.Elbow.R
+      position: {x: -0, y: 0.0021803414, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: KnewHumanoid.Foot.IK.L
+      parentName: KnewHumanoid.Base
+      position: {x: 0.0007857393, y: -0.0030179368, z: 0.001505672}
+      rotation: {x: 6.123234e-17, y: -0, z: -1, w: -7.053852e-25}
+      scale: {x: 0.9999957, y: 1.0000058, z: 1.0000058}
+    - name: KnewHumanoid.Foot.IK.L_end
+      parentName: KnewHumanoid.Foot.IK.L
+      position: {x: -0, y: 0.002146294, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: KnewHumanoid.Foot.IK.R
+      parentName: KnewHumanoid.Base
+      position: {x: -0.000595114, y: 0.0023201567, z: 0.0012792405}
+      rotation: {x: 6.123234e-17, y: -0, z: -1, w: -7.053852e-25}
+      scale: {x: 0.9999957, y: 1.0000058, z: 1.0000058}
+    - name: KnewHumanoid.Foot.IK.R_end
+      parentName: KnewHumanoid.Foot.IK.R
+      position: {x: -0, y: 0.002146294, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: KnewHumanoid.Hand.IK.L
+      parentName: KnewHumanoid.Base
+      position: {x: 0.0034915914, y: 0.002396195, z: 0.010987175}
+      rotation: {x: 6.123234e-17, y: -0, z: -1, w: -7.053852e-25}
+      scale: {x: 0.9999957, y: 1.0000058, z: 1.0000058}
+    - name: KnewHumanoid.Hand.IK.L_end
+      parentName: KnewHumanoid.Hand.IK.L
+      position: {x: -0, y: 0.002146294, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: KnewHumanoid.Hand.IK.R
+      parentName: KnewHumanoid.Base
+      position: {x: -0.004094192, y: 0.0020721809, z: 0.010906367}
+      rotation: {x: 6.123234e-17, y: -0, z: -1, w: -7.053852e-25}
+      scale: {x: 0.9999957, y: 1.0000058, z: 1.0000058}
+    - name: KnewHumanoid.Hand.IK.R_end
+      parentName: KnewHumanoid.Hand.IK.R
+      position: {x: -0, y: 0.002146294, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: KnewHumanoid.Waist
+      parentName: KnewHumanoid.Base
+      position: {x: -0.000008355919, y: 0.0020900327, z: 0.010381717}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000087, y: 1.0000058, z: 1.0000058}
+    - name: KnewHumanoid.Hip.L
+      parentName: KnewHumanoid.Waist
+      position: {x: -0, y: -0.0020523947, z: 0}
+      rotation: {x: -0.13855281, y: 0.16478455, z: -0.67670226, w: 0.7040762}
+      scale: {x: 0.9999995, y: 1.0000023, z: 0.9999991}
+    - name: KnewHumanoid.UpperLeg.L
+      parentName: KnewHumanoid.Hip.L
+      position: {x: 6.519258e-11, y: 0.0010445847, z: 4.642061e-10}
+      rotation: {x: -0.05424323, y: -0.8363069, z: 0.545326, w: -0.01637245}
+      scale: {x: 1.0000153, y: 1.000027, z: 1.0000039}
+    - name: KnewHumanoid.LowerLeg.L
+      parentName: KnewHumanoid.UpperLeg.L
+      position: {x: 3.259629e-11, y: 0.004339102, z: -2.5465852e-11}
+      rotation: {x: 0.00084425916, y: -0.000670461, z: 0.0046930425, w: 0.99998844}
+      scale: {x: 0.99999857, y: 1.0000001, z: 1.0000001}
+    - name: KnewHumanoid.Foot.L
+      parentName: KnewHumanoid.LowerLeg.L
+      position: {x: -5.401671e-10, y: 0.0050234855, z: 7.4505804e-11}
+      rotation: {x: 0.24849726, y: 0.65778154, z: -0.26076606, w: 0.66149354}
+      scale: {x: 1.0000101, y: 1.0000114, z: 1.0000052}
+    - name: KnewHumanoid.Toes.L
+      parentName: KnewHumanoid.Foot.L
+      position: {x: -6.228219e-11, y: 0.0014819781, z: -2.6135238e-10}
+      rotation: {x: 0.43864462, y: -0.00000020861623, z: 0.0000001490116, w: 0.89866066}
+      scale: {x: 1.0000151, y: 1.0000374, z: 0.99998003}
+    - name: KnewHumanoid.Toes.L_end
+      parentName: KnewHumanoid.Toes.L
+      position: {x: -0, y: 0.00079124933, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: KnewHumanoid.Toes.IK.L
+      parentName: KnewHumanoid.Foot.L
+      position: {x: 9.918585e-10, y: 0.00016161692, z: -0.0016921075}
+      rotation: {x: 0.43864462, y: -0.00000020861623, z: 0.0000001490116, w: 0.89866066}
+      scale: {x: 1.0000148, y: 1.0000374, z: 0.99998003}
+    - name: KnewHumanoid.Toes.IK.L_end
+      parentName: KnewHumanoid.Toes.IK.L
+      position: {x: -0, y: 0.002146294, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: KnewHumanoid.Hip
+      parentName: KnewHumanoid.Waist
+      position: {x: -0, y: -0.0020523947, z: 0}
+      rotation: {x: -0.000000049559187, y: -0.75438577, z: -0.6564314, w: -0.000000056954537}
+      scale: {x: 0.9999971, y: 0.99999666, z: 0.9999981}
+    - name: KnewHumanoid.Spine
+      parentName: KnewHumanoid.Hip
+      position: {x: 2.8733016e-13, y: 0.00096068264, z: 7.324409e-11}
+      rotation: {x: -0.010589511, y: 0.000000075384776, z: -4.6181732e-11, w: 0.999944}
+      scale: {x: 1.0000006, y: 1.0000015, z: 1.0000015}
+    - name: KnewHumanoid.Chest
+      parentName: KnewHumanoid.Spine
+      position: {x: 4.4237822e-11, y: 0.0012272861, z: 1.9521394e-10}
+      rotation: {x: -0.11433556, y: -0.00000011932985, z: 0.0000000145538595, w: 0.9934422}
+      scale: {x: 0.99999976, y: 1.0000001, z: 0.99999934}
+    - name: KnewHumanoid.Neck
+      parentName: KnewHumanoid.Chest
+      position: {x: -5.820766e-11, y: 0.0034734695, z: -1.5483237e-10}
+      rotation: {x: 0.000000027115968, y: 0.98464423, z: 0.17457297, w: -0.000000072315665}
+      scale: {x: 1.000007, y: 1.000001, z: 1.000007}
+    - name: KnewHumanoid.Head
+      parentName: KnewHumanoid.Neck
+      position: {x: -7.4505804e-11, y: 0.00093380146, z: 0.0000000010826625}
+      rotation: {x: 0.005367547, y: -0.000000026542118, z: -0.0000000063229395, w: 0.9999856}
+      scale: {x: 1.0000113, y: 0.9999989, z: 1.0000068}
+    - name: KnewHumanoid.Head_end
+      parentName: KnewHumanoid.Head
+      position: {x: -0, y: 0.001953704, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: KnewHumanoid.Chest.L
+      parentName: KnewHumanoid.Spine
+      position: {x: 4.4237822e-11, y: 0.0012272861, z: 1.9521394e-10}
+      rotation: {x: -0.20930001, y: 0.6890612, z: -0.024337808, w: 0.6933945}
+      scale: {x: 1.0000076, y: 0.99999964, z: 1.0000055}
+    - name: KnewHumanoid.Shoulder.L
+      parentName: KnewHumanoid.Chest.L
+      position: {x: -1.0593794e-10, y: 0.003176971, z: 5.122274e-11}
+      rotation: {x: -0.63665044, y: 0.07333781, z: 0.16923974, w: 0.74876946}
+      scale: {x: 1.0000081, y: 1.0000072, z: 1.0000112}
+    - name: KnewHumanoid.UpperArm.L
+      parentName: KnewHumanoid.Shoulder.L
+      position: {x: 5.2154064e-10, y: 0.0010094587, z: 0.0000000014156103}
+      rotation: {x: -0.010611831, y: 0.05233172, z: 0.18402232, w: -0.98147064}
+      scale: {x: 1.0000104, y: 0.9999996, z: 1.0000023}
+    - name: KnewHumanoid.LowerArm.L
+      parentName: KnewHumanoid.UpperArm.L
+      position: {x: 2.9802322e-10, y: 0.0029785966, z: -0.0000000016391277}
+      rotation: {x: -0.109988585, y: 0.028422702, z: -0.033533495, w: -0.9929604}
+      scale: {x: 1.0000048, y: 1.000002, z: 1.0000013}
+    - name: Bone
+      parentName: KnewHumanoid.LowerArm.L
+      position: {x: -0.00010348231, y: 0.003589044, z: -0.0006712492}
+      rotation: {x: -0.009680874, y: -0.68940145, z: 0.007828741, w: 0.7242725}
+      scale: {x: 1.000004, y: 1.0000017, z: 0.9999976}
+    - name: Bone.001
+      parentName: Bone
+      position: {x: -2.9802322e-10, y: 0.0021059657, z: 0.0000000011920929}
+      rotation: {x: 0.0753315, y: -0.7130765, z: -0.018504752, w: -0.6967816}
+      scale: {x: 1.0000021, y: 1.0000168, z: 1.0000086}
+    - name: Bone.002
+      parentName: Bone.001
+      position: {x: -0.0000000010430813, y: 0.0017291309, z: 0}
+      rotation: {x: 0.028904121, y: 0.0057307463, z: 0.02762408, w: 0.99918395}
+      scale: {x: 1.000006, y: 1.0000043, z: 1.0000091}
+    - name: Bone.003
+      parentName: Bone.002
+      position: {x: 8.9406965e-10, y: 0.0015951097, z: 1.4901161e-10}
+      rotation: {x: -0.040222082, y: -0.0034989472, z: -0.002919059, w: -0.9991804}
+      scale: {x: 1.0000042, y: 1.0000066, z: 1.0000055}
+    - name: Bone.003_end
+      parentName: Bone.003
+      position: {x: -0, y: 0.0012725003, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.004
+      parentName: KnewHumanoid.LowerArm.L
+      position: {x: -0.00013595603, y: 0.0037152844, z: -0.0008274334}
+      rotation: {x: -0.074363135, y: -0.6693246, z: 0.10268651, w: 0.7320725}
+      scale: {x: 0.9999978, y: 1.0000026, z: 0.9999969}
+    - name: Bone.005
+      parentName: Bone.004
+      position: {x: -1.11758706e-10, y: 0.0018086841, z: 3.72529e-10}
+      rotation: {x: -0.043209706, y: 0.7045025, z: -0.056722466, w: 0.70611036}
+      scale: {x: 1.0000033, y: 1.000014, z: 1.0000076}
+    - name: Bone.006
+      parentName: Bone.005
+      position: {x: 7.4505804e-11, y: 0.001603173, z: 2.6077032e-10}
+      rotation: {x: 0.008979028, y: -0.0005874931, z: 0.017570239, w: 0.9998051}
+      scale: {x: 0.99999356, y: 0.99998957, z: 0.9999941}
+    - name: Bone.006_end
+      parentName: Bone.006
+      position: {x: -0, y: 0.001211173, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.007
+      parentName: KnewHumanoid.LowerArm.L
+      position: {x: 0.000017666927, y: 0.00359969, z: -0.00045612914}
+      rotation: {x: -0.068570755, y: -0.68262637, z: -0.14044552, w: 0.7138589}
+      scale: {x: 1.0000134, y: 1.000009, z: 0.9999948}
+    - name: Bone.008
+      parentName: Bone.007
+      position: {x: -5.9604643e-10, y: 0.0013934731, z: 1.4901161e-10}
+      rotation: {x: -0.08537848, y: -0.7087845, z: 0.012338273, w: -0.7001306}
+      scale: {x: 1.0000006, y: 1.0000018, z: 1.0000006}
+    - name: Bone.009
+      parentName: Bone.008
+      position: {x: -1.4901161e-10, y: 0.0012610997, z: 0}
+      rotation: {x: -0.08923137, y: 0.0017295773, z: -0.055657648, w: -0.9944532}
+      scale: {x: 1.0000036, y: 1.0000013, z: 1.0000057}
+    - name: Bone.009_end
+      parentName: Bone.009
+      position: {x: -0, y: 0.0010174178, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Robe.Arm.L
+      parentName: KnewHumanoid.LowerArm.L
+      position: {x: -0.000011113956, y: 0.002201645, z: -0.0006473547}
+      rotation: {x: -0.17297806, y: -0.6690284, z: 0.070918575, w: 0.7193402}
+      scale: {x: 1.0000067, y: 1.0000149, z: 0.9999966}
+    - name: Robe.Arm.L_end
+      parentName: Robe.Arm.L
+      position: {x: -0, y: 0.0022913488, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: KnewHumanoid.Chest.R
+      parentName: KnewHumanoid.Spine
+      position: {x: 4.4237822e-11, y: 0.0012272861, z: 1.9521394e-10}
+      rotation: {x: -0.20930001, y: -0.6890612, z: 0.024337802, w: 0.6933945}
+      scale: {x: 1.000007, y: 0.9999996, z: 1.0000055}
+    - name: KnewHumanoid.Shoulder.R
+      parentName: KnewHumanoid.Chest.R
+      position: {x: 2.7939677e-11, y: 0.0031769713, z: -3.259629e-11}
+      rotation: {x: 0.6366505, y: 0.073337555, z: 0.16923968, w: -0.7487695}
+      scale: {x: 1.0000067, y: 1.000006, z: 1.0000113}
+    - name: KnewHumanoid.UpperArm.R
+      parentName: KnewHumanoid.Shoulder.R
+      position: {x: -3.72529e-10, y: 0.0010094586, z: 0.0000000017881393}
+      rotation: {x: 0.010611859, y: 0.052331287, z: 0.1840223, w: 0.98147064}
+      scale: {x: 1.0000106, y: 0.9999987, z: 1.0000026}
+    - name: KnewHumanoid.LowerArm.R
+      parentName: KnewHumanoid.UpperArm.R
+      position: {x: -4.4703483e-10, y: 0.0029785985, z: 2.0489097e-10}
+      rotation: {x: 0.042274434, y: 0.024211474, z: -0.07998476, w: 0.9956049}
+      scale: {x: 1.0000018, y: 1.0000055, z: 1.0000017}
+    - name: Bone.010
+      parentName: KnewHumanoid.LowerArm.R
+      position: {x: 0.000015538464, y: 0.0037830083, z: -0.00035407094}
+      rotation: {x: -0.0031198587, y: -0.68051994, z: 0.0681881, w: -0.72954315}
+      scale: {x: 0.99999887, y: 0.9999976, z: 1.0000023}
+    - name: Bone.014
+      parentName: Bone.010
+      position: {x: 1.4901161e-10, y: 0.0017743483, z: -8.1956386e-10}
+      rotation: {x: -0.020444674, y: 0.7091716, z: 0.040093243, w: -0.70359796}
+      scale: {x: 1.0000033, y: 1.0000015, z: 1.0000021}
+    - name: Bone.015
+      parentName: Bone.014
+      position: {x: -9.313225e-11, y: 0.001706322, z: 0}
+      rotation: {x: -0.028683696, y: -0.011843351, z: -0.11211851, w: 0.99321014}
+      scale: {x: 1.0000057, y: 0.99999845, z: 0.9999994}
+    - name: Bone.015_end
+      parentName: Bone.015
+      position: {x: -0, y: 0.0013492177, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.011
+      parentName: KnewHumanoid.LowerArm.R
+      position: {x: -0.000026141795, y: 0.0035079825, z: -0.00054635253}
+      rotation: {x: -0.0641131, y: 0.680524, z: -0.120176144, w: 0.7199544}
+      scale: {x: 1.0000005, y: 1.0000063, z: 1.0000006}
+    - name: Bone.016
+      parentName: Bone.011
+      position: {x: -0, y: 0.0016643247, z: -5.587935e-10}
+      rotation: {x: -0.0027675026, y: -0.72641826, z: -0.043961074, w: 0.68583983}
+      scale: {x: 1.0000062, y: 1.0000073, z: 0.9999997}
+    - name: Bone.017
+      parentName: Bone.016
+      position: {x: 5.587935e-10, y: 0.0014989659, z: 7.4505804e-11}
+      rotation: {x: 0.15072566, y: 0.017671434, z: 0.16090934, w: 0.9752321}
+      scale: {x: 0.99999833, y: 0.9999988, z: 1.0000144}
+    - name: Bone.018
+      parentName: Bone.017
+      position: {x: -4.4703483e-10, y: 0.0013124582, z: -2.9802322e-10}
+      rotation: {x: -0.22693495, y: 0.07264977, z: 0.25250164, w: 0.9377982}
+      scale: {x: 0.9999879, y: 1.0000081, z: 1.0000045}
+    - name: Bone.018_end
+      parentName: Bone.018
+      position: {x: -0, y: 0.0007365525, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.012
+      parentName: KnewHumanoid.LowerArm.R
+      position: {x: -0.0001621664, y: 0.0035031931, z: -0.0002758169}
+      rotation: {x: 0.079507, y: -0.6872587, z: 0.014117672, w: -0.7219106}
+      scale: {x: 1.0000098, y: 1.000013, z: 1.0000026}
+    - name: Bone.019
+      parentName: Bone.012
+      position: {x: 7.45058e-10, y: 0.001055736, z: -9.685754e-10}
+      rotation: {x: -0.07113421, y: 0.69218576, z: -0.031168979, w: -0.7175286}
+      scale: {x: 1.0000107, y: 0.99998885, z: 1.0000086}
+    - name: Bone.020
+      parentName: Bone.019
+      position: {x: -5.401671e-10, y: 0.0012400404, z: -2.9802322e-10}
+      rotation: {x: -0.0319097, y: -0.048450947, z: -0.00056109915, w: 0.9983156}
+      scale: {x: 1.000007, y: 1.0000104, z: 1.0000125}
+    - name: Bone.021
+      parentName: Bone.020
+      position: {x: -0.0000000017136335, y: 0.00089348824, z: -7.4505804e-11}
+      rotation: {x: -0.03316722, y: -0.04841421, z: -0.005918483, w: 0.99825895}
+      scale: {x: 1.0000014, y: 0.9999981, z: 1.0000157}
+    - name: Bone.021_end
+      parentName: Bone.021
+      position: {x: -0, y: 0.0006163014, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Robe.Arm.R
+      parentName: KnewHumanoid.LowerArm.R
+      position: {x: 0.000011111274, y: 0.0022016466, z: -0.000647355}
+      rotation: {x: -0.17297809, y: 0.66902846, z: -0.07091861, w: 0.71934}
+      scale: {x: 0.9999976, y: 1.000009, z: 0.99999946}
+    - name: Robe.Arm.R_end
+      parentName: Robe.Arm.R
+      position: {x: -0, y: 0.0022913488, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.013
+      parentName: KnewHumanoid.LowerArm.R
+      position: {x: 0.0001566778, y: 0.0032191346, z: -0.0008386454}
+      rotation: {x: -0.27386922, y: 0.67938423, z: 0.045098975, w: 0.67926353}
+      scale: {x: 1.0000063, y: 1.0000178, z: 0.9999999}
+    - name: Bone.022
+      parentName: Bone.013
+      position: {x: -1.4901161e-10, y: 0.0017745027, z: 7.45058e-10}
+      rotation: {x: 0.22225949, y: -0.708927, z: -0.026516324, w: 0.66881996}
+      scale: {x: 1.0000064, y: 0.9999967, z: 1.0000154}
+    - name: Bone.023
+      parentName: Bone.022
+      position: {x: -0, y: 0.0010692307, z: 7.45058e-10}
+      rotation: {x: -0.25487137, y: -0.03031253, z: 0.072690904, w: -0.9637623}
+      scale: {x: 0.99999917, y: 1.0000006, z: 0.9999989}
+    - name: Bone.023_end
+      parentName: Bone.023
+      position: {x: -0, y: 0.00071807497, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: KnewHumanoid.Hip.R
+      parentName: KnewHumanoid.Waist
+      position: {x: -0, y: -0.0020523947, z: 0}
+      rotation: {x: -0.13855281, y: -0.16478455, z: 0.67670226, w: 0.7040762}
+      scale: {x: 0.9999995, y: 1.0000023, z: 0.9999991}
+    - name: KnewHumanoid.UpperLeg.R
+      parentName: KnewHumanoid.Hip.R
+      position: {x: -1.16415315e-11, y: 0.0010445839, z: -6.167101e-10}
+      rotation: {x: -0.05424328, y: 0.8363068, z: -0.545326, w: -0.016372351}
+      scale: {x: 1.0000067, y: 1.0000201, z: 0.999997}
+    - name: KnewHumanoid.LowerLeg.R
+      parentName: KnewHumanoid.UpperLeg.R
+      position: {x: 3.0267983e-11, y: 0.0043391017, z: 6.984919e-11}
+      rotation: {x: -0.0008441939, y: -0.00067054766, z: 0.0046930616, w: -0.99998844}
+      scale: {x: 0.99999815, y: 1.0000007, z: 1.0000002}
+    - name: KnewHumanoid.Foot.R
+      parentName: KnewHumanoid.LowerLeg.R
+      position: {x: -9.8953025e-12, y: 0.0050234846, z: 1.6298145e-11}
+      rotation: {x: -0.24849723, y: 0.65778154, z: -0.26076606, w: -0.66149354}
+      scale: {x: 1.0000077, y: 1.0000117, z: 1.0000046}
+    - name: KnewHumanoid.Toes.R
+      parentName: KnewHumanoid.Foot.R
+      position: {x: 2.3283064e-12, y: 0.0014819781, z: 4.86616e-10}
+      rotation: {x: 0.43864465, y: 0.0000002682209, z: -0.00000017881393, w: 0.89866066}
+      scale: {x: 1.0000197, y: 1.0000434, z: 0.9999811}
+    - name: KnewHumanoid.Toes.R_end
+      parentName: KnewHumanoid.Toes.R
+      position: {x: -0, y: 0.00079124933, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: KnewHumanoid.Toes.IK.R
+      parentName: KnewHumanoid.Foot.R
+      position: {x: -0.0000000010378426, y: 0.00016161687, z: -0.0016921064}
+      rotation: {x: 0.43864465, y: 0.0000002682209, z: -0.00000017881393, w: 0.89866066}
+      scale: {x: 1.000017, y: 1.0000415, z: 0.99997866}
+    - name: KnewHumanoid.Toes.IK.R_end
+      parentName: KnewHumanoid.Toes.IK.R
+      position: {x: -0, y: 0.002146294, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Robe.Fr
+      parentName: KnewHumanoid.Waist
+      position: {x: 2.3457686e-10, y: -0.00039750815, z: -0.0005143666}
+      rotation: {x: -0.49350142, y: -0.5064153, z: 0.4935014, w: 0.5064152}
+      scale: {x: 1.0000062, y: 1.0000125, z: 1.0000066}
+    - name: Robe.Fr.001
+      parentName: Robe.Fr
+      position: {x: -2.2417225e-10, y: 0.0038841504, z: -4.1909514e-11}
+      rotation: {x: -0.0100899795, y: -0.70703477, z: -0.010089994, w: 0.7070349}
+      scale: {x: 0.9999983, y: 1.0000025, z: 1.0000055}
+    - name: Robe.Fr.002
+      parentName: Robe.Fr.001
+      position: {x: 2.7939677e-11, y: 0.0029534672, z: 3.1111994e-10}
+      rotation: {x: -0.012504768, y: -0.00000017881392, z: -0.000000020489095, w: 0.9999218}
+      scale: {x: 1.0000002, y: 0.9999999, z: 0.9999992}
+    - name: Robe.Fr.002_end
+      parentName: Robe.Fr.002
+      position: {x: -0, y: 0.0035420528, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Robe.Fr.L
+      parentName: KnewHumanoid.Waist
+      position: {x: 0.0014135636, y: -0.00086458534, z: -0.0005143666}
+      rotation: {x: -0.50257576, y: -0.5076888, z: 0.4921911, w: 0.4974109}
+      scale: {x: 1.0000038, y: 1.0000064, z: 1.0000014}
+    - name: Robe.Fr.L.001
+      parentName: Robe.Fr.L
+      position: {x: -2.5029293e-11, y: 0.0038838903, z: -1.0695657e-11}
+      rotation: {x: -0.027440647, y: -0.7064011, z: 0.010724873, w: 0.7071984}
+      scale: {x: 1.0000015, y: 1.0000147, z: 1.0000118}
+    - name: Robe.Fr.L.002
+      parentName: Robe.Fr.L.001
+      position: {x: -4.4819898e-11, y: 0.0029590502, z: 3.7980497e-11}
+      rotation: {x: -0.002858011, y: 0.00031745434, z: 0.035944395, w: 0.9993497}
+      scale: {x: 0.99999917, y: 1.0000192, z: 1.00002}
+    - name: Robe.Fr.L.002_end
+      parentName: Robe.Fr.L.002
+      position: {x: -0, y: 0.003571981, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Robe.L
+      parentName: KnewHumanoid.Waist
+      position: {x: 0.0019990802, y: -0.0019922089, z: -0.0005143666}
+      rotation: {x: -0.5127375, y: -0.51273763, z: 0.48692942, w: 0.48692936}
+      scale: {x: 1.0000051, y: 1.0000151, z: 1.000007}
+    - name: Robe.L.001
+      parentName: Robe.L
+      position: {x: -9.3132255e-12, y: 0.0038880336, z: -2.910383e-13}
+      rotation: {x: -0.027187552, y: -0.7065838, z: 0.027187647, w: 0.7065841}
+      scale: {x: 1.0000021, y: 1.000006, z: 1.0000101}
+    - name: Robe.L.002
+      parentName: Robe.L.001
+      position: {x: -5.7098076e-11, y: 0.0029736357, z: 3.259629e-11}
+      rotation: {x: -0.000000026077032, y: -0, z: 0.044749096, w: 0.9989983}
+      scale: {x: 1.0000002, y: 1.0000091, z: 1.0000092}
+    - name: Robe.L.002_end
+      parentName: Robe.L.002
+      position: {x: -0, y: 0.0036165486, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Robe.Bk.L
+      parentName: KnewHumanoid.Waist
+      position: {x: 0.0014135636, y: -0.0031198326, z: -0.0005143666}
+      rotation: {x: -0.5114856, y: -0.50385696, z: 0.4961129, w: 0.4882444}
+      scale: {x: 0.9999959, y: 0.99999577, z: 0.99999297}
+    - name: Robe.Bk.L.001
+      parentName: Robe.Bk.L
+      position: {x: -3.0588126e-10, y: 0.0038851853, z: 2.0911102e-10}
+      rotation: {x: 0.005561462, y: -0.70788026, z: 0.04574794, w: 0.7048275}
+      scale: {x: 1.0000015, y: 1.0000029, z: 1.0000023}
+    - name: Robe.Bk.L.002
+      parentName: Robe.Bk.L.001
+      position: {x: -4.8894434e-11, y: 0.0029720785, z: -1.3387762e-10}
+      rotation: {x: 0.048210014, y: -0.0057525337, z: 0.030853296, w: 0.99834406}
+      scale: {x: 1.0000002, y: 1.0000056, z: 1.0000068}
+    - name: Robe.Bk.L.002_end
+      parentName: Robe.Bk.L.002
+      position: {x: -0, y: 0.0036330374, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Robe.Bk
+      parentName: KnewHumanoid.Waist
+      position: {x: 5.995389e-11, y: -0.0035869095, z: -0.0005143666}
+      rotation: {x: -0.5262769, y: -0.47226325, z: 0.526277, w: 0.47226325}
+      scale: {x: 1.0000025, y: 1.0000046, z: 1.0000038}
+    - name: Robe.Bk.001
+      parentName: Robe.Bk
+      position: {x: -2.424622e-10, y: 0.0039056444, z: 3.4924596e-12}
+      rotation: {x: 0.032952398, y: -0.7063385, z: 0.0329524, w: 0.7063386}
+      scale: {x: 0.9999964, y: 1.0000051, z: 1.0000058}
+    - name: Robe.Bk.002
+      parentName: Robe.Bk.001
+      position: {x: -0, y: 0.0030098918, z: 2.724846e-11}
+      rotation: {x: 0.011079417, y: -0.00000005960465, z: 0.0000000018626454, w: 0.99993867}
+      scale: {x: 0.9999999, y: 1.0000132, z: 1.0000135}
+    - name: Robe.Bk.002_end
+      parentName: Robe.Bk.002
+      position: {x: -0, y: 0.003620942, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Robe.Fr.R
+      parentName: KnewHumanoid.Waist
+      position: {x: -0.0014135636, y: -0.00086458534, z: -0.0005143666}
+      rotation: {x: -0.5025758, y: 0.50768876, z: -0.4921911, w: 0.49741086}
+      scale: {x: 1.0000011, y: 1.000004, z: 1.0000014}
+    - name: Robe.Fr.R.001
+      parentName: Robe.Fr.R
+      position: {x: 1.6763806e-10, y: 0.0038838908, z: -1.10303516e-10}
+      rotation: {x: 0.027440704, y: -0.70640117, z: 0.010724813, w: -0.70719826}
+      scale: {x: 1.0000015, y: 1.0000175, z: 1.000013}
+    - name: Robe.Fr.R.002
+      parentName: Robe.Fr.R.001
+      position: {x: -1.8859282e-10, y: 0.0029590495, z: 2.0489097e-10}
+      rotation: {x: -0.00285803, y: -0.00031745437, z: -0.03594438, w: 0.99934965}
+      scale: {x: 0.9999992, y: 1.000017, z: 1.0000191}
+    - name: Robe.Fr.R.002_end
+      parentName: Robe.Fr.R.002
+      position: {x: -0, y: 0.003571981, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Robe.R
+      parentName: KnewHumanoid.Waist
+      position: {x: -0.0019990802, y: -0.0019922089, z: -0.0005143666}
+      rotation: {x: 0.5127375, y: -0.51273763, z: 0.4869294, w: -0.48692933}
+      scale: {x: 1.0000026, y: 1.0000123, z: 1.0000043}
+    - name: Robe.R.001
+      parentName: Robe.R
+      position: {x: 9.3132255e-12, y: 0.003888035, z: -6.024493e-11}
+      rotation: {x: -0.027187547, y: 0.7065838, z: -0.027187588, w: 0.7065841}
+      scale: {x: 1.0000025, y: 1.0000061, z: 1.0000093}
+    - name: Robe.R.002
+      parentName: Robe.R.001
+      position: {x: -1.7695129e-10, y: 0.0029736345, z: 8.032657e-11}
+      rotation: {x: 0.0000000037252903, y: 0.000000029802322, z: -0.04474911, w: 0.9989983}
+      scale: {x: 1.0000006, y: 1.0000103, z: 1.0000113}
+    - name: Robe.R.002_end
+      parentName: Robe.R.002
+      position: {x: -0, y: 0.0036165486, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Robe.Bk.R
+      parentName: KnewHumanoid.Waist
+      position: {x: -0.0014135636, y: -0.0031198326, z: -0.0005143666}
+      rotation: {x: 0.5114856, y: -0.50385696, z: 0.4961129, w: -0.4882444}
+      scale: {x: 0.9999957, y: 0.99999523, z: 0.99999225}
+    - name: Robe.Bk.R.001
+      parentName: Robe.Bk.R
+      position: {x: 5.3551046e-11, y: 0.003885185, z: 1.13504935e-11}
+      rotation: {x: 0.0055614267, y: 0.70788026, z: -0.04574791, w: 0.7048275}
+      scale: {x: 1.0000026, y: 1.0000001, z: 1.0000011}
+    - name: Robe.Bk.R.002
+      parentName: Robe.Bk.R.001
+      position: {x: -1.6472768e-10, y: 0.0029720787, z: 4.8312358e-11}
+      rotation: {x: 0.048210043, y: 0.0057525337, z: -0.030853275, w: 0.99834406}
+      scale: {x: 1.0000006, y: 1.0000051, z: 1.0000055}
+    - name: Robe.Bk.R.002_end
+      parentName: Robe.Bk.R.002
+      position: {x: -0, y: 0.0036330374, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cone
+      parentName: Heretic-Low (1)(Clone)
+      position: {x: -0.88330704, y: 1.3710357, z: 0.007940397}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cone.001
+      parentName: Heretic-Low (1)(Clone)
+      position: {x: -0.8886311, y: 1.2993759, z: 0.0495837}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cone.002
+      parentName: Heretic-Low (1)(Clone)
+      position: {x: -0.9827555, y: 1.323543, z: 0.049583707}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cone.003
+      parentName: Heretic-Low (1)(Clone)
+      position: {x: 0.82519954, y: 1.319773, z: -0.0017961654}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cone.004
+      parentName: Heretic-Low (1)(Clone)
+      position: {x: 0.86548924, y: 1.3693471, z: 0.01959206}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cone.005
+      parentName: Heretic-Low (1)(Clone)
+      position: {x: 0.8615479, y: 1.3189886, z: 0.029160043}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.3101094, y: 1.1360359, z: 1.1209803}
+    - name: Cone.006
+      parentName: Heretic-Low (1)(Clone)
+      position: {x: 0.90713584, y: 1.3539035, z: 0.067595795}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.3101094, y: 1.1360359, z: 1.1209803}
+    - name: Hood
+      parentName: Heretic-Low (1)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: KnewHumanoid
+      parentName: Heretic-Low (1)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Robe
+      parentName: Heretic-Low (1)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -357,10 +1210,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
