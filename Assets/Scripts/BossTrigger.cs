@@ -7,6 +7,7 @@ public class BossTrigger : MonoBehaviour {
     public AudioSource audioSource;
     public AudioClip clip;
     public MonsterBasic monsterBasic;
+    bool IsIn = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -19,6 +20,8 @@ public class BossTrigger : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        if (IsIn) return;
+        IsIn = true;
         monsterBasic.SetAttack();
         audioSource.clip = clip;
         audioSource.Play();

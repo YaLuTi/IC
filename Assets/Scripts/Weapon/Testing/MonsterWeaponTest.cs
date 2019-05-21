@@ -5,9 +5,11 @@ using UnityEngine;
 public class MonsterWeaponTest : MonoBehaviour {
 
     WeaponColliderBasic weapon;
+    MeleeWeaponTrail weaponTrail;
 	// Use this for initialization
 	void Start () {
         weapon = GetComponentInChildren<WeaponColliderBasic>();
+        weaponTrail = GetComponentInChildren<MeleeWeaponTrail>();
 	}
 	
 	// Update is called once per frame
@@ -23,5 +25,15 @@ public class MonsterWeaponTest : MonoBehaviour {
     {
         // Debug.Log("Off");
         weapon.StopAttack();
+    }
+
+    void TrailOn()
+    {
+        weaponTrail.TrailOn();
+    }
+
+    void TrailOff()
+    {
+        weaponTrail.TrailOff();
     }
 }

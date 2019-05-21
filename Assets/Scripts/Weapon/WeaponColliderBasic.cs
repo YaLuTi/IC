@@ -13,7 +13,7 @@ public class WeaponColliderBasic : MonoBehaviour {
     LayerMask layerMask;
 
     [SerializeField]
-    List<GameObject> hitObject = new List<GameObject>();
+    List<Transform> hitObject = new List<Transform>();
 
     Collider collider;
 	// Use this for initialization
@@ -39,15 +39,15 @@ public class WeaponColliderBasic : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        if (Attacking && !hitObject.Contains(other.gameObject))
+        if (Attacking && !hitObject.Contains(other.gameObject.transform.root))
         {
-            hitObject.Add(other.gameObject);
 
             if (((1 << other.gameObject.layer) & layerMask) != 0)
             {
-                if (other.GetComponent<MonsterBasic>())
+                hitObject.Add(other.gameObject.transform.root);
+                if (other.GetComponentInParent<MonsterBasic>())
                 {
-                    MonsterBasic monster = other.gameObject.GetComponent<MonsterBasic>();
+                    MonsterBasic monster = other.gameObject.GetComponentInParent<MonsterBasic>();
                     monster.Damaged(AttackDamage, other.ClosestPoint(transform.position));
                     // Quaternion r = p.rotation;
                     // r.y = -r.y

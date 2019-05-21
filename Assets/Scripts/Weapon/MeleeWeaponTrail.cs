@@ -95,6 +95,7 @@ public class MeleeWeaponTrail : MonoBehaviour
 
         _minVertexDistanceSqr = _minVertexDistance * _minVertexDistance;
         _maxVertexDistanceSqr = _maxVertexDistance * _maxVertexDistance;
+        // _emit = false;
     }
 
     void OnDisable()
@@ -119,7 +120,7 @@ public class MeleeWeaponTrail : MonoBehaviour
         if (!_emit && _points.Count == 0 && _autoDestruct)
         {
             Destroy(_trailObject);
-            Destroy(gameObject);
+            // Destroy(gameObject);
         }
 
         // early out if there is no camera
@@ -354,5 +355,14 @@ public class MeleeWeaponTrail : MonoBehaviour
         {
             pointList.Remove(p);
         }
+    }
+
+    public void TrailOn()
+    {
+        _emit = true;
+    }
+    public void TrailOff()
+    {
+        _emit = false;
     }
 }
