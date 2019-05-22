@@ -25,7 +25,10 @@ public class AINav : MonoBehaviour
     void Update()
     {
         // Update the way to the goal every second.
-        NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path);
+        if (target != null)
+        {
+            NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path);
+        }
         
         for (int i = 0; i < path.corners.Length - 1; i++)
             Debug.DrawLine(path.corners[i], path.corners[i + 1], colors[i % 2]);
@@ -33,6 +36,7 @@ public class AINav : MonoBehaviour
 
     public Vector3 GetCorners()
     {
+        if (target == null) return transform.position;
         if(path.corners.Length >= 1)
         return path.corners[1];
         else if(path.corners.Length == 0)

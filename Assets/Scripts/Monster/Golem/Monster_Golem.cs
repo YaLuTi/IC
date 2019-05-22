@@ -39,7 +39,10 @@ public class Monster_Golem : TestMonster {
 	protected override void Update () {
         base.Update();
         destination = Nav.GetCorners();
-        d = Vector3.Distance(player.transform.position, transform.position);
+        if (player.activeSelf == true)
+        {
+            d = Vector3.Distance(player.transform.position, transform.position);
+        }
         animator.SetFloat("Speed", speed);
     }
     void OnDrawGizmosSelected()
