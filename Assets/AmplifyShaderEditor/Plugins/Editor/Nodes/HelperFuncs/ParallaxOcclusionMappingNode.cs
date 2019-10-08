@@ -232,7 +232,7 @@ namespace AmplifyShaderEditor
 			if( m_pomTexType == POMTexTypes.Texture3D )
 			{
 				string texName = "pomTexCoord" + OutputId;
-				dataCollector.AddToLocalVariables( UniqueId, m_currentPrecisionType, WirePortDataType.FLOAT3, texName, string.Format( "float3({0},{1})", textcoords, arrayIndex ) );
+				dataCollector.AddLocalVariable( UniqueId, m_currentPrecisionType, WirePortDataType.FLOAT3, texName, string.Format( "float3({0},{1})", textcoords, arrayIndex ) );
 				textcoords = texName;
 			}
 
@@ -344,7 +344,7 @@ namespace AmplifyShaderEditor
 			//string functionResult = dataCollector.AddFunctions( m_functionHeader, m_functionBody, ( (m_pomTexType == POMTexTypes.TextureArray) ? "UNITY_PASS_TEX2DARRAY(" + texture + ")": texture), textcoords, dx, dy, normalWorld, worldViewDir, viewDirTan, m_minSamples, m_maxSamples, scale, refPlane, texture+"_ST.xy", curvature, arrayIndex );
 			string functionResult = dataCollector.AddFunctions( m_functionHeader, m_functionBody, textureArgs, textcoords, dx, dy, normalWorld, worldViewDir, viewDirTan, m_inlineMinSamples.GetValueOrProperty(false), m_inlineMinSamples.GetValueOrProperty(false), scale, refPlane, texture + "_ST.xy", curvature, arrayIndex );
 
-			dataCollector.AddToLocalVariables( UniqueId, m_currentPrecisionType, m_pomUVPort.DataType, localVarName, functionResult );
+			dataCollector.AddLocalVariable( UniqueId, m_currentPrecisionType, m_pomUVPort.DataType, localVarName, functionResult );
 
 			return GetOutputVectorItem( 0, outputId, localVarName );
 		}

@@ -235,6 +235,7 @@ namespace AmplifyShaderEditor
 		public static GUIStyle BoldWarningStyle;
 		public static GUIStyle BoldInfoStyle;
 		public static GUIStyle Separator;
+		public static GUIStyle ToolbarMainTitle;
 		public static GUIStyle ToolbarSearchTextfield;
 		public static GUIStyle ToolbarSearchCancelButton;
 		public static GUIStyle MiniButtonTopLeft;
@@ -561,6 +562,8 @@ namespace AmplifyShaderEditor
 			{ ToolButtonType.Options,          new List<string>() { "Open Options menu." } },
 			{ ToolButtonType.Update,           new List<string>() { "Open or create a new shader first.", "Click to enable to update current shader.", "Shader up-to-date." } },
 			{ ToolButtonType.Live,             new List<string>() { "Open or create a new shader first.", "Click to enable live shader preview", "Click to enable live shader and material preview." , "Live preview active, click to disable." } },
+			{ ToolButtonType.TakeScreenshot,   new List<string>() { "Take screenshot", "Take screenshot" }},
+			{ ToolButtonType.Share,            new List<string>() { "Share selection", "Share selection" }},
 			{ ToolButtonType.CleanUnusedNodes, new List<string>() { "No unconnected nodes to clean.", "Remove all nodes not connected( directly or indirectly) to the master node." }},
 			{ ToolButtonType.Help,             new List<string>() { "Show help window." } },
 			{ ToolButtonType.FocusOnMasterNode,new List<string>() { "Focus on active master node." } },
@@ -810,6 +813,7 @@ namespace AmplifyShaderEditor
 			BoldWarningStyle = null;
 			BoldInfoStyle = null;
 			Separator = null;
+			ToolbarMainTitle = null;
 
 			GraphButtonIcon = null;
 			GraphButton = null;
@@ -954,6 +958,7 @@ namespace AmplifyShaderEditor
 			BoldInfoStyle.normal.textColor = Color.white;
 			BoldInfoStyle.alignment = TextAnchor.MiddleCenter;
 
+			ToolbarMainTitle = new GUIStyle( MainSkin.customStyles[ (int)CustomStyle.MainCanvasTitle ] );
 			Separator = new GUIStyle( MainSkin.customStyles[ (int)CustomStyle.FlatBackground ] );
 			MiniButtonTopLeft = new GUIStyle( MainSkin.customStyles[ (int)CustomStyle.MiniButtonTopLeft ] );
 			MiniButtonTopMid = new GUIStyle( MainSkin.customStyles[ (int)CustomStyle.MiniButtonTopMid ] );
@@ -1179,6 +1184,8 @@ namespace AmplifyShaderEditor
 			MiniSamplerButton.fontSize = (int)( 8 * drawInfo.InvertedZoom );
 
 			InternalDataOnPort.fontSize = (int)( 8 * drawInfo.InvertedZoom );
+			ToolbarMainTitle.padding.left = 0;
+			ToolbarMainTitle.padding.right = 0;
 
 			CheckNullMaterials();
 		}
@@ -2132,38 +2139,37 @@ namespace AmplifyShaderEditor
 
 		public static bool DetectNodeLoopsFrom( ParentNode node, Dictionary<int, int> currentNodes )
 		{
-			if( currentNodes.ContainsKey( node.UniqueId ) )
-			{
-				currentNodes.Clear();
-				currentNodes = null;
-				return true;
-			}
-
-			currentNodes.Add( node.UniqueId, 1 );
-			bool foundLoop = false;
 			for( int i = 0; i < node.InputPorts.Count; i++ )
 			{
 				if( node.InputPorts[ i ].IsConnected )
 				{
 					ParentNode newNode = node.InputPorts[ i ].GetOutputNode();
-					if( newNode.InputPorts.Count > 0 )
-					{
-						Dictionary<int, int> newDict = new Dictionary<int, int>();
-						foreach( KeyValuePair<int, int> entry in currentNodes )
-						{
-							newDict.Add( entry.Key, entry.Value );
-						}
-						foundLoop = foundLoop || DetectNodeLoopsFrom( newNode, newDict );
-						if( foundLoop )
-							break;
-					}
+					if( !currentNodes.ContainsKey( newNode.UniqueId ) )
+						RecursiveNodeFill( newNode, currentNodes );
 				}
 			}
 
+			bool found = currentNodes.ContainsKey( node.UniqueId );
 			currentNodes.Clear();
 			currentNodes = null;
 
-			return foundLoop;
+			return found;
+		}
+
+		private static void RecursiveNodeFill( ParentNode node, Dictionary<int, int> currentNodes )
+		{
+			if( !currentNodes.ContainsKey( node.UniqueId ) )
+				currentNodes.Add( node.UniqueId, 1 );
+
+			for( int i = 0; i < node.InputPorts.Count; i++ )
+			{
+				if( node.InputPorts[ i ].IsConnected )
+				{
+					ParentNode newNode = node.InputPorts[ i ].GetOutputNode();
+					if( !currentNodes.ContainsKey( newNode.UniqueId ) )
+						RecursiveNodeFill( newNode, currentNodes );
+				}
+			}
 		}
 
 		public static ParentNode CreateNode( System.Type type, bool registerUndo, Vector2 pos, int nodeId = -1, bool addLast = true )

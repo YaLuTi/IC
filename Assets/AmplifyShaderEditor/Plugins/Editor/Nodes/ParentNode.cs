@@ -165,6 +165,10 @@ namespace AmplifyShaderEditor
 		
 		protected bool m_useSquareNodeTitle = false;
 
+		[SerializeField]
+		protected bool m_continuousPreviewRefresh = false;
+		private bool m_previewIsDirty = true;
+
 		// Error Box Messages
 		private Rect m_errorBox;
 		private bool m_previousErrorMessage = false;
@@ -996,11 +1000,12 @@ namespace AmplifyShaderEditor
 				port.GetOutputNode().ActivateNode( m_activeNode, m_activePort, m_activeType );
 			}
 
+			PreviewIsDirty = true;
 			OnNodeChange();
 			SetSaveIsDirty();
 		}
 
-		public virtual void OnInputPortDisconnected( int portId ) { OnNodeChange(); }
+		public virtual void OnInputPortDisconnected( int portId ) { PreviewIsDirty = true; OnNodeChange(); }
 		public virtual void OnOutputPortDisconnected( int portId ) { }
 
 		public virtual void OnNodeChange()
@@ -1569,6 +1574,7 @@ namespace AmplifyShaderEditor
 			{
 				m_globalShowPreview = ContainerGraph.ParentWindow.GlobalPreview;
 				m_sizeIsDirty = true;
+				ContainerGraph.ParentWindow.RequestRepaint();
 			}
 
 			// Generate Proper Preview Rect
@@ -1651,6 +1657,7 @@ namespace AmplifyShaderEditor
 			if( m_firstPreviewDraw )
 			{
 				m_firstPreviewDraw = false;
+				ContainerGraph.ParentWindow.RequestRepaint();
 				if( m_canExpand && ( m_showPreview || m_globalShowPreview ) )
 				{
 					if( m_autoLocation == PreviewLocation.TopCenter )
@@ -1781,7 +1788,7 @@ namespace AmplifyShaderEditor
 						}
 						else
 						{
-							if( m_containerGraph.ParentWindow.GlobalShowInternalData && !m_inputPorts[ i ].IsConnected && UIUtils.InternalDataOnPort.fontSize > 1f && ( m_inputPorts[ i ].AutoDrawInternalData || ( m_autoDrawInternalPortData && m_useInternalPortData ) ) && m_inputPorts[ i ].DisplayInternalData.Length > 4 )
+							if( m_containerGraph.ParentWindow.GlobalShowInternalData && !m_inputPorts[ i ].IsConnected && UIUtils.InternalDataOnPort.fontSize > 1f && ( m_inputPorts[ i ].AutoDrawInternalData || ( m_autoDrawInternalPortData && m_useInternalPortData ) ) && m_inputPorts[ i ].DisplayInternalData.Length > 4 && m_inputPorts[ i ].DataType != WirePortDataType.OBJECT )
 							{
 								GUI.color = Constants.NodeBodyColor/* * new Color( 1f, 1f, 1f, 0.75f )*/;
 								Rect internalBox = m_inputPorts[ i ].LabelPosition;
@@ -1911,7 +1918,7 @@ namespace AmplifyShaderEditor
 			//GUI.Label( m_remainingBox, string.Empty, UIUtils.Box );
 		}
 
-		public bool DropdownEditing { get { return m_dropdownEditing; } set { m_dropdownEditing = value; } }
+		public bool DropdownEditing { get { return m_dropdownEditing; } set { m_dropdownEditing = value; PreviewIsDirty = true; } }
 		/// <summary>
 		/// Handles gui controls, runs before node layout
 		/// </summary>
@@ -1939,7 +1946,7 @@ namespace AmplifyShaderEditor
 				}
 				else if( m_dropdownEditing )
 				{
-					m_dropdownEditing = false;
+					DropdownEditing = false;
 				}
 			}
 
@@ -2084,7 +2091,6 @@ namespace AmplifyShaderEditor
 			}
 		}
 
-		public virtual void AfterPreviewRefresh() { }
 
 		public bool SafeDraw( DrawInfo drawInfo )
 		{
@@ -2178,6 +2184,7 @@ namespace AmplifyShaderEditor
 							GUI.Label( link, WikiLinkStr, UIUtils.MainSkin.customStyles[ 52 ] );
 						}
 					}
+					ContainerGraph.ParentWindow.RequestRepaint();
 					return true;
 				}
 			}
@@ -2204,6 +2211,7 @@ namespace AmplifyShaderEditor
 			}
 			if( EditorGUI.EndChangeCheck() )
 			{
+				PreviewIsDirty = true;
 				//UIUtils.RecordObject(this);
 				//MarkForPreviewUpdate();
 				return true;
@@ -3357,11 +3365,46 @@ namespace AmplifyShaderEditor
 			}
 		}
 
+		public bool RecursivePreviewUpdate()
+		{
+			for( int i = 0; i < InputPorts.Count; i++ )
+			{
+				ParentNode outNode = InputPorts[ i ].GetOutputNode();
+				if( outNode != null )
+				{
+					if( !ContainerGraph.ParentWindow.VisitedChanged.ContainsKey( outNode.UniqueId ) )
+					{
+						bool result = outNode.RecursivePreviewUpdate();
+						if( result )
+							PreviewIsDirty = true;
+					} else if( ContainerGraph.ParentWindow.VisitedChanged[ outNode.UniqueId ] )
+					{
+						PreviewIsDirty = true;
+					}
+				}
+			}
+			
+			bool needsUpdate = PreviewIsDirty;
+			RenderNodePreview();
+			if( !ContainerGraph.ParentWindow.VisitedChanged.ContainsKey( UniqueId ) )
+				ContainerGraph.ParentWindow.VisitedChanged.Add( UniqueId, needsUpdate );
+			return needsUpdate;
+		}
+
 		public virtual void RenderNodePreview()
 		{
 			//Runs at least one time
 			if( !HasPreviewShader || !m_initialized )
+			{
+				// nodes with no preview don't update at all
+				PreviewIsDirty = false;
 				return;
+			}
+
+			if( !PreviewIsDirty )
+				return;
+
+			//Debug.Log( "PREVIEW " + this );
 
 			SetPreviewInputs();
 
@@ -3436,6 +3479,8 @@ namespace AmplifyShaderEditor
 					RenderTexture.active = temp;
 				}
 			}
+
+			PreviewIsDirty = m_continuousPreviewRefresh;
 		}
 
 		protected void ShowTab( NodeMessageType type, string tooltip )
@@ -3676,5 +3721,6 @@ namespace AmplifyShaderEditor
 		}
 		public bool Alive { get { return m_alive;} set { m_alive = value; } }
 		public string TypeName { get { if( m_nodeAttribs != null ) return m_nodeAttribs.Name;return GetType().ToString(); } }
+		public bool PreviewIsDirty { set { m_previewIsDirty = value; } get { return m_previewIsDirty; } }
 	}
 }

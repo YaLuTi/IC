@@ -262,7 +262,7 @@ namespace AmplifyShaderEditor
 				if( EditorGUI.EndChangeCheck() )
 				{
 					SetupPorts();
-					m_dropdownEditing = false;
+					DropdownEditing = false;
 				}
 			}
 		}

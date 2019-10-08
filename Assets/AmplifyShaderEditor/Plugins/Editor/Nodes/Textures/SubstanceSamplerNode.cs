@@ -76,10 +76,19 @@ namespace AmplifyShaderEditor
 
 		public override void RenderNodePreview()
 		{
+			//Runs at least one time
 			if( !m_initialized )
+			{
+				// nodes with no preview don't update at all
+				PreviewIsDirty = false;
+				return;
+			}
+
+			if( !PreviewIsDirty )
 				return;
 
 			SetPreviewInputs();
+
 			PreviewMaterial.SetInt( "_CustomUVs", m_inputPorts[ 0 ].IsConnected ? 1 : 0 );
 
 			if( m_proceduralMaterial == null )
@@ -100,6 +109,8 @@ namespace AmplifyShaderEditor
 					Graphics.Blit( null, m_outputPorts[ i ].OutputPreviewTexture, PreviewMaterial, 0 );
 				RenderTexture.active = temp;
 			}
+
+			PreviewIsDirty = m_continuousPreviewRefresh;
 		}
 
 		public override void OnOutputPortConnected( int portId, int otherNodeId, int otherPortId )
@@ -204,6 +215,7 @@ namespace AmplifyShaderEditor
 					newValue = EditorGUIUtility.GetObjectPickerObject();
 					if( newValue != (UnityEngine.Object)m_proceduralMaterial )
 					{
+						PreviewIsDirty = true;
 						UndoRecordObject( "Changing value EditorGUIObjectField on node Substance Sample" );
 
 						m_proceduralMaterial = newValue != null ? (ProceduralMaterial)newValue : null;
@@ -216,6 +228,7 @@ namespace AmplifyShaderEditor
 					newValue = EditorGUIUtility.GetObjectPickerObject();
 					if( newValue != (UnityEngine.Object)m_proceduralMaterial )
 					{
+						PreviewIsDirty = true;
 						UndoRecordObject( "Changing value EditorGUIObjectField on node Substance Sample" );
 
 						m_proceduralMaterial = newValue != null ? (ProceduralMaterial)newValue : null;

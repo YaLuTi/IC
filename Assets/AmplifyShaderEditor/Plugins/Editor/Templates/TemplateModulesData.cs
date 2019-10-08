@@ -21,8 +21,10 @@ namespace AmplifyShaderEditor
 		ModuleZOffset,
 		ModuleTag,
 		ModuleGlobals,
+		ModuleSRPBatcher,
 		ModuleFunctions,
 		ModulePragma,
+		ModulePragmaBefore,
 		ModulePass,
 		ModuleInputVert,
 		ModuleInputFrag,
@@ -67,6 +69,9 @@ namespace AmplifyShaderEditor
 		private TemplateTagData m_globalsTag = new TemplateTagData( TemplatesManager.TemplateGlobalsTag, true );
 
 		[SerializeField]
+		private TemplateTagData m_srpBatcherTag = new TemplateTagData( TemplatesManager.TemplateSRPBatcherTag, true );
+
+		[SerializeField]
 		private TemplateTagData m_allModulesTag = new TemplateTagData( TemplatesManager.TemplateAllModulesTag, true );
 
 		[SerializeField]
@@ -74,6 +79,9 @@ namespace AmplifyShaderEditor
 
 		[SerializeField]
 		private TemplateTagData m_pragmaTag = new TemplateTagData( TemplatesManager.TemplatePragmaTag, true );
+
+		[SerializeField]
+		private TemplateTagData m_pragmaBeforeTag = new TemplateTagData( TemplatesManager.TemplatePragmaBeforeTag, true );
 
 		[SerializeField]
 		private TemplateTagData m_passTag = new TemplateTagData( TemplatesManager.TemplatePassTag, true );
@@ -115,9 +123,11 @@ namespace AmplifyShaderEditor
 			m_tagData.Destroy();
 			m_tagData = null;
 			m_globalsTag = null;
+			m_srpBatcherTag = null;
 			m_allModulesTag = null;
 			m_functionsTag = null;
 			m_pragmaTag = null;
+			m_pragmaBeforeTag = null;
 			m_passTag = null;
 			m_inputsVertTag = null;
 			m_inputsFragTag = null;
@@ -147,8 +157,10 @@ namespace AmplifyShaderEditor
 
 			//COMMON TAGS
 			ConfigureCommonTag( m_globalsTag, propertyContainer, idManager, uniquePrefix, offsetIdx, subBody );
+			ConfigureCommonTag( m_srpBatcherTag, propertyContainer, idManager, uniquePrefix, offsetIdx, subBody );
 			ConfigureCommonTag( m_functionsTag, propertyContainer, idManager, uniquePrefix, offsetIdx, subBody );
 			ConfigureCommonTag( m_pragmaTag, propertyContainer, idManager, uniquePrefix, offsetIdx, subBody );
+			ConfigureCommonTag( m_pragmaBeforeTag, propertyContainer, idManager, uniquePrefix, offsetIdx, subBody );
 			if( !TemplateHelperFunctions.GetPassUniqueId( m_passTag, propertyContainer, idManager, uniquePrefix, offsetIdx, subBody, ref m_passUniqueName ) )
 			{
 				ConfigureCommonTag( m_passTag, propertyContainer, idManager, uniquePrefix, offsetIdx, subBody );
@@ -445,9 +457,11 @@ namespace AmplifyShaderEditor
 						m_tagData.DataCheck == TemplateDataCheck.Valid ||
 						m_shaderModel.DataCheck == TemplateDataCheck.Valid ||
 						m_globalsTag.IsValid ||
+						m_srpBatcherTag.IsValid ||
 						m_allModulesTag.IsValid ||
 						m_functionsTag.IsValid ||
 						m_pragmaTag.IsValid ||
+						m_pragmaBeforeTag.IsValid ||
 						m_passTag.IsValid ||
 						m_inputsVertTag.IsValid ||
 						m_inputsFragTag.IsValid;
@@ -461,9 +475,11 @@ namespace AmplifyShaderEditor
 		public TemplateDepthData DepthData { get { return m_depthData; } }
 		public TemplateTagsModuleData TagData { get { return m_tagData; } }
 		public TemplateTagData GlobalsTag { get { return m_globalsTag; } }
+		public TemplateTagData SRPBatcherTag { get { return m_srpBatcherTag; } }
 		public TemplateTagData AllModulesTag { get { return m_allModulesTag; } }
 		public TemplateTagData FunctionsTag { get { return m_functionsTag; } }
 		public TemplateTagData PragmaTag { get { return m_pragmaTag; } }
+		public TemplateTagData PragmaBeforeTag { get { return m_pragmaBeforeTag; } }
 		public TemplateTagData PassTag { get { return m_passTag; } }
 		public TemplateTagData InputsVertTag { get { return m_inputsVertTag; } }
 		public TemplateTagData InputsFragTag { get { return m_inputsFragTag; } }

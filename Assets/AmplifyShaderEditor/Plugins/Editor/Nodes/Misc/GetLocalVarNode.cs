@@ -104,7 +104,7 @@ namespace AmplifyShaderEditor
 				if( EditorGUI.EndChangeCheck() )
 				{
 					UpdateFromSelected();
-					m_dropdownEditing = false;
+					DropdownEditing = false;
 				}
 			}
 		}

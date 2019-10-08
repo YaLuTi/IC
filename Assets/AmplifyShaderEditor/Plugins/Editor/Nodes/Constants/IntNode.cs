@@ -152,6 +152,7 @@ namespace AmplifyShaderEditor
 					m_materialValue = EditorGUIIntField( m_propertyDrawPos, "  ", m_materialValue, UIUtils.MainSkin.textField );
 					if( EditorGUI.EndChangeCheck() )
 					{
+						PreviewIsDirty = true;
 						m_requireMaterialUpdate = true;
 						if( m_currentParameterType != PropertyType.Constant )
 							BeginDelayedDirtyProperty();
@@ -164,7 +165,10 @@ namespace AmplifyShaderEditor
 					m_defaultValue = EditorGUIIntField( m_propertyDrawPos, "  ", m_defaultValue, UIUtils.MainSkin.textField );
 
 					if( EditorGUI.EndChangeCheck() )
+					{
+						PreviewIsDirty = true;
 						BeginDelayedDirtyProperty();
+					}
 				}
 				EditorGUIUtility.labelWidth = labelWidth;
 			}

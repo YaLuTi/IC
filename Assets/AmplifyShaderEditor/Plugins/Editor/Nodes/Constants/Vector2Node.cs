@@ -36,6 +36,7 @@ namespace AmplifyShaderEditor
 			AddOutputVectorPorts( WirePortDataType.FLOAT2, "XY" );
 			m_precisionString = UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, m_outputPorts[ 0 ].DataType );
 			m_previewShaderGUID = "88b4191eb06084d4da85d1dd2f984085";
+			m_srpBatcherCompatible = true;
 		}
 
 		public override void CopyDefaultsToMaterial()
@@ -132,6 +133,7 @@ namespace AmplifyShaderEditor
 				}
 				if ( EditorGUI.EndChangeCheck() )
 				{
+					PreviewIsDirty = true;
 					m_requireMaterialUpdate = m_materialMode;
 					BeginDelayedDirtyProperty();
 				}

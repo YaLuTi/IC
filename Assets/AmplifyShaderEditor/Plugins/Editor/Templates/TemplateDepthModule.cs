@@ -343,6 +343,10 @@ namespace AmplifyShaderEditor
 				m_zTestMode.IntValue = ZBufferOpHelper.ZTestModeDict[ value ];
 				m_zTestMode.Active = false;
 			}
+			get
+			{
+				return (ZTestMode)( m_zTestMode.IntValue - 1 );
+			}
 		}
 		public ZWriteMode ZWriteModeValue
 		{
@@ -350,6 +354,10 @@ namespace AmplifyShaderEditor
 			{
 				m_zWriteMode.IntValue = ZBufferOpHelper.ZWriteModeDict[ value ];
 				m_zWriteMode.Active = false;
+			}
+			get
+			{
+				return (ZWriteMode)( m_zWriteMode.IntValue - 1 );
 			}
 		}
 		public float OffsetFactorValue
@@ -360,6 +368,10 @@ namespace AmplifyShaderEditor
 				m_offsetFactor.FloatValue = value;
 				m_offsetFactor.Active = false;
 			}
+			get
+			{
+				return m_offsetFactor.FloatValue;
+			}
 		}
 
 		public float OffsetUnitsValue
@@ -369,6 +381,10 @@ namespace AmplifyShaderEditor
 				m_offsetEnabled = true;
 				m_offsetUnits.FloatValue = value;
 				m_offsetUnits.Active = false;
+			}
+			get
+			{
+				return m_offsetUnits.FloatValue;
 			}
 		}
 	}

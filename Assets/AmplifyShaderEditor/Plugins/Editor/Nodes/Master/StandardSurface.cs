@@ -686,7 +686,7 @@ namespace AmplifyShaderEditor
 				m_inspectorDefaultStyle = UIUtils.GetCustomStyle( CustomStyle.ResetToDefaultInspectorButton );
 			}
 
-			DrawCustomInspector();
+			DrawCustomInspector( false );
 		}
 
 		private void RecursiveLog()
@@ -2446,6 +2446,7 @@ namespace AmplifyShaderEditor
 						if( m_currentDataCollector.UsingVertexColor )
 							ShaderBody += "\t\t\t\thalf4 color : COLOR0;\n";
 						ShaderBody += "\t\t\t\tUNITY_VERTEX_INPUT_INSTANCE_ID\n";
+						ShaderBody += "\t\t\t\tUNITY_VERTEX_OUTPUT_STEREO\n";
 						ShaderBody += "\t\t\t};\n";
 
 						ShaderBody += "\t\t\tv2f vert( " + m_currentDataCollector.CustomAppDataName + " v )\n";
@@ -2454,6 +2455,7 @@ namespace AmplifyShaderEditor
 
 						ShaderBody += "\t\t\t\tUNITY_SETUP_INSTANCE_ID( v );\n";
 						ShaderBody += "\t\t\t\tUNITY_INITIALIZE_OUTPUT( v2f, o );\n";
+						ShaderBody += "\t\t\t\tUNITY_INITIALIZE_VERTEX_OUTPUT_STEREO( o );\n";
 						ShaderBody += "\t\t\t\tUNITY_TRANSFER_INSTANCE_ID( v, o );\n";
 
 						if( m_currentDataCollector.DirtyPerVertexData || m_currentDataCollector.CustomShadowCoordsList.Count > 0 )

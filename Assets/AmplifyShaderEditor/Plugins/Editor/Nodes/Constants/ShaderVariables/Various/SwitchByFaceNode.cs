@@ -55,7 +55,7 @@ namespace AmplifyShaderEditor
 			string variable = string.Empty;
 			if ( dataCollector.IsTemplate )
 			{
-				variable = dataCollector.TemplateDataCollectorInstance.GetVFace();
+				variable = dataCollector.TemplateDataCollectorInstance.GetVFace( UniqueId );
 			}
 			else
 			{

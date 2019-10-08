@@ -644,7 +644,7 @@ namespace AmplifyShaderEditor
 				if( parameterType != m_currentParameterType )
 				{
 					ChangeParameterType( parameterType );
-					m_dropdownEditing = false;
+					DropdownEditing = false;
 				}
 			}
 
@@ -684,6 +684,7 @@ namespace AmplifyShaderEditor
 					ConfigureInputPorts();
 					ConfigureOutputPorts();
 					BeginDelayedDirtyProperty();
+					PreviewIsDirty = true;
 				}
 				//else if( drawInfo.CurrentEventType == EventType.ExecuteCommand )
 				//{

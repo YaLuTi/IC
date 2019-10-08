@@ -20,7 +20,7 @@ namespace AmplifyShaderEditor
 		{
 			if ( dataCollector.PortCategory == MasterNodePortCategory.Tessellation )
 			{
-				UIUtils.ShowMessage( m_nodeAttribs.Name + " does not work on Tessellation port" );
+				UIUtils.ShowMessage( m_nodeAttribs.Name + " node does not work on Tessellation port" );
 				return "0";
 			}
 
@@ -28,19 +28,19 @@ namespace AmplifyShaderEditor
 			{
 				if ( dataCollector.TesselationActive )
 				{
-					UIUtils.ShowMessage( m_nodeAttribs.Name + " does not work properly on Vertex/Tessellation ports" );
+					UIUtils.ShowMessage( m_nodeAttribs.Name + " node does not work properly on Vertex/Tessellation ports" );
 					return "0";
 				}
 				else
 				{
-					UIUtils.ShowMessage( m_nodeAttribs.Name + " does not work propery on Vertex ports" );
+					UIUtils.ShowMessage( m_nodeAttribs.Name + " node does not work propery on Vertex ports" );
 					return "0";
 				}
 			}
 
 			if ( dataCollector.IsTemplate )
 			{
-				return dataCollector.TemplateDataCollectorInstance.GetVFace();
+				return dataCollector.TemplateDataCollectorInstance.GetVFace( UniqueId );
 			}
 			else
 			{

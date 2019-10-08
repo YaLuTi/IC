@@ -55,6 +55,7 @@ namespace AmplifyShaderEditor
 			m_availableAttribs.Add( new PropertyAttributes( "Int Range", "[IntRange]" ) );
 			m_availableAttribs.Add( new PropertyAttributes( "Enum", "[Enum]" ) );
 			m_previewShaderGUID = "d9ca47581ac157145bff6f72ac5dd73e";
+			m_srpBatcherCompatible = true;
 		}
 
 		protected override void OnUniqueIDAssigned()
@@ -261,6 +262,7 @@ namespace AmplifyShaderEditor
 					}
 					if ( EditorGUI.EndChangeCheck() )
 					{
+						PreviewIsDirty = true;
 						m_requireMaterialUpdate = true;
 						if ( m_currentParameterType != PropertyType.Constant )
 						{
@@ -282,6 +284,7 @@ namespace AmplifyShaderEditor
 					}
 					if ( EditorGUI.EndChangeCheck() )
 					{
+						PreviewIsDirty = true;
 						BeginDelayedDirtyProperty();
 					}
 

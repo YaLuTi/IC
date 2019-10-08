@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: BlendAlphaMud
   m_Shader: {fileID: 4800000, guid: 3f40191a00b9f7144bb650305a146f88, type: 3}
   m_ShaderKeywords: 
@@ -55,8 +56,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TexturesCom_MuddySand2_2x2_1K_albedo:
-        m_Texture: {fileID: 2800000, guid: dfaadd0bb9bd66a4f8b4ce4005021dbb, type: 3}
-        m_Scale: {x: 5, y: 5}
+        m_Texture: {fileID: 2800000, guid: 38276c49fa6837a4ba8a08940fe4ab11, type: 3}
+        m_Scale: {x: 3, y: 3}
         m_Offset: {x: 0, y: 0}
     - _TexturesCom_MuddySand2_2x2_1K_ao:
         m_Texture: {fileID: 2800000, guid: cf28035de432382449901960e12b0a18, type: 3}
@@ -71,7 +72,7 @@ Material:
         m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _TexturesCom_MuddySand2_2x2_1K_roughness:
-        m_Texture: {fileID: 2800000, guid: 8d38d7335b7ce6840a8ce109e1231ecb, type: 3}
+        m_Texture: {fileID: 2800000, guid: e31b54068ad760e4cb22485aff5ed53b, type: 3}
         m_Scale: {x: 5, y: 5}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -80,11 +81,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
-    - _Cutoff: 0.98
+    - _Cutoff: 1.03
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EdgeLength: 15
-    - _Float2: 0.136
+    - _Float2: 0.008
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -98,7 +99,7 @@ Material:
     - _TessMax: 4
     - _TessMin: 2
     - _TessPhongStrength: 0.5
-    - _TessValue: 15.1
+    - _TessValue: 1.9
     - _UVSec: 0
     - _ZWrite: 1
     - __dirty: 0

@@ -103,9 +103,9 @@ namespace AmplifyShaderEditor
 
 		private readonly string[] m_spaceOptions =
 		{
-			"Object Space",
-			"World Space",
-			"View Space",
+			"Object",
+			"World",
+			"View",
 			"Clip",
 			"Tangent"
 		};
@@ -390,7 +390,7 @@ namespace AmplifyShaderEditor
 							GeneratorUtils.GenerateWorldToTangentMatrix( ref dataCollector, UniqueId, m_currentPrecisionType );
 							CalculateTransform( m_from, TransformSpace.World, ref dataCollector, ref varName, ref result );
 							result = string.Format( ASEWorldToTangentFormat, result );
-							varName = AseObjectToTangentPosVarName;
+							varName = AseObjectToTangentPosVarName + OutputId;
 						}
 						break;
 					}
@@ -421,7 +421,7 @@ namespace AmplifyShaderEditor
 						{
 							GeneratorUtils.GenerateWorldToTangentMatrix( ref dataCollector, UniqueId, m_currentPrecisionType );
 							result = string.Format( ASEWorldToTangentFormat, result );
-							varName = AseWorldToTangentPosVarName;
+							varName = AseWorldToTangentPosVarName + OutputId;
 						}
 						break;
 					}
@@ -453,7 +453,7 @@ namespace AmplifyShaderEditor
 							GeneratorUtils.GenerateWorldToTangentMatrix( ref dataCollector, UniqueId, m_currentPrecisionType );
 							CalculateTransform( m_from, TransformSpace.World, ref dataCollector, ref varName, ref result );
 							result = string.Format( ASEWorldToTangentFormat, result );
-							varName = AseViewToTangentPosVarName;
+							varName = AseViewToTangentPosVarName + OutputId;
 						}
 						break;
 					}
@@ -484,7 +484,7 @@ namespace AmplifyShaderEditor
 							GeneratorUtils.GenerateWorldToTangentMatrix( ref dataCollector, UniqueId, m_currentPrecisionType );
 							CalculateTransform( m_from, TransformSpace.World, ref dataCollector, ref varName, ref result );
 							result = string.Format( ASEWorldToTangentFormat, result );
-							varName = AseClipToTangentPosVarName;
+							varName = AseClipToTangentPosVarName + OutputId;
 						}
 						break;
 						default:
@@ -506,27 +506,27 @@ namespace AmplifyShaderEditor
 						{
 							result = string.Format( ASEMulOpFormat, matrixVal, result );
 							CalculateTransform( TransformSpace.World, m_to, ref dataCollector, ref varName, ref result );
-							varName = AseTangentToObjectPosVarName;
+							varName = AseTangentToObjectPosVarName + OutputId;
 						}
 						break;
 						case TransformSpace.World:
 						{
 							result = string.Format( ASEMulOpFormat, matrixVal, result );
-							varName = AseTangentToWorldPosVarName;
+							varName = AseTangentToWorldPosVarName + OutputId;
 						}
 						break;
 						case TransformSpace.View:
 						{
 							result = string.Format( ASEMulOpFormat, matrixVal, result );
 							CalculateTransform( TransformSpace.World, m_to, ref dataCollector, ref varName, ref result );
-							varName = AseTangentToViewPosVarName;
+							varName = AseTangentToViewPosVarName + OutputId;
 						}
 						break;
 						case TransformSpace.Clip:
 						{
 							result = string.Format( ASEMulOpFormat, matrixVal, result );
 							CalculateTransform( TransformSpace.World, m_to, ref dataCollector, ref varName, ref result );
-							varName = AseTangentToClipPosVarName;
+							varName = AseTangentToClipPosVarName + OutputId;
 						}
 						break;
 						case TransformSpace.Tangent:

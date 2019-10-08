@@ -33,6 +33,11 @@ namespace AmplifyShaderEditor
 		[SerializeField]
 		private bool m_createToggle = true;
 
+		private const string IsLocalStr = "Is Local";
+
+		[SerializeField]
+		private bool m_isLocal = false;
+
 		private GUIContent m_checkContent;
 		private GUIContent m_popContent;
 
@@ -452,7 +457,11 @@ namespace AmplifyShaderEditor
 				DrawEnumList();
 			}
 
-			ShowAutoRegister();
+#if UNITY_2019_1_OR_NEWER
+			m_isLocal = EditorGUILayoutToggle( IsLocalStr, m_isLocal );
+#endif
+
+		ShowAutoRegister();
 			EditorGUI.BeginChangeCheck();
 			m_createToggle = EditorGUILayoutToggle( MaterialToggleStr, m_createToggle );
 			if( EditorGUI.EndChangeCheck() )
@@ -488,7 +497,7 @@ namespace AmplifyShaderEditor
 						if( m_keywordModeType != KeywordModeType.KeywordEnum )
 							m_defaultValue = EditorGUILayoutToggle( ToggleDefaultValueStr, m_defaultValue == 1 ) ? 1 : 0;
 						else
-							m_defaultValue = EditorGUILayoutPopup( ToggleDefaultValueStr, m_materialValue, m_keywordEnumList );
+							m_defaultValue = EditorGUILayoutPopup( ToggleDefaultValueStr, m_defaultValue, m_keywordEnumList );
 					}
 					break;
 				}
@@ -632,6 +641,7 @@ namespace AmplifyShaderEditor
 					if( GUI.Button( m_varRect, GUIContent.none, UIUtils.GraphButton ) )
 					{
 						CurrentSelectedInput = CurrentSelectedInput == 1 ? 0 : 1;
+						PreviewIsDirty = true;
 						m_editing = false;
 						if( m_materialMode )
 							m_requireMaterialUpdate = true;
@@ -648,6 +658,7 @@ namespace AmplifyShaderEditor
 					CurrentSelectedInput = EditorGUIPopup( m_varRect, CurrentSelectedInput, m_keywordEnumList, UIUtils.GraphDropDown );
 					if( EditorGUI.EndChangeCheck() )
 					{
+						PreviewIsDirty = true;
 						m_editing = false;
 						if( m_materialMode )
 							m_requireMaterialUpdate = true;
@@ -703,24 +714,34 @@ namespace AmplifyShaderEditor
 				}
 			}
 		}
+		string GetStaticSwitchType()
+		{
+			string staticSwitchType = ( m_multiCompile == 1 ) ? "multi_compile" : "shader_feature";
+#if UNITY_2019_1_OR_NEWER
+			if( m_isLocal )
+				staticSwitchType += "_local";
+#endif
+			return staticSwitchType;
+		}
 
 		void RegisterPragmas( ref MasterNodeDataCollector dataCollector )
 		{
 			if( CurrentVarMode == StaticSwitchVariableMode.Create )
 			{
+				string staticSwitchType = GetStaticSwitchType();
 				if( m_keywordModeType == KeywordModeType.KeywordEnum )
 				{
 					if( m_multiCompile == 1 )
-						dataCollector.AddToPragmas( UniqueId, "multi_compile " + GetKeywordEnumPragmaList() );
+						dataCollector.AddToPragmas( UniqueId, staticSwitchType + " " + GetKeywordEnumPragmaList() );
 					else if( m_multiCompile == 0 )
-						dataCollector.AddToPragmas( UniqueId, "shader_feature " + GetKeywordEnumPragmaList() );
+						dataCollector.AddToPragmas( UniqueId, staticSwitchType + " " + GetKeywordEnumPragmaList() );
 				}
 				else
 				{
 					if( m_multiCompile == 1 )
-						dataCollector.AddToPragmas( UniqueId, "multi_compile __ " + PropertyName + OnOffStr );
+						dataCollector.AddToPragmas( UniqueId, staticSwitchType + " __ " + PropertyName + OnOffStr );
 					else if( m_multiCompile == 0 )
-						dataCollector.AddToPragmas( UniqueId, "shader_feature " + PropertyName + OnOffStr );
+						dataCollector.AddToPragmas( UniqueId, staticSwitchType + " " + PropertyName + OnOffStr );
 				}
 			}
 		}
@@ -834,6 +855,7 @@ namespace AmplifyShaderEditor
 						mat.DisableKeyword( key );
 					}
 					mat.EnableKeyword( PropertyName + "_" + KeywordEnumList( m_materialValue ) );
+					mat.SetFloat( m_propertyName, m_materialValue );
 				}
 				else
 				{
@@ -925,7 +947,11 @@ namespace AmplifyShaderEditor
 			{
 				CurrentVarMode = (StaticSwitchVariableMode)m_variableMode;
 			}
-			
+
+			if( UIUtils.CurrentShaderVersion() > 16700 )
+			{
+				m_isLocal = Convert.ToBoolean( GetCurrentParam( ref nodeParams ) );
+			}
 		}
 
 		public override void ReadFromDeprecated( ref string[] nodeParams, Type oldType = null )
@@ -962,6 +988,7 @@ namespace AmplifyShaderEditor
 				int referenceId = ( m_reference != null ) ? m_reference.UniqueId : -1;
 				IOUtils.AddFieldValueToString( ref nodeInfo, referenceId );
 			}
+			IOUtils.AddFieldValueToString( ref nodeInfo, m_isLocal );
 		}
 
 		public override void RefreshExternalReferences()

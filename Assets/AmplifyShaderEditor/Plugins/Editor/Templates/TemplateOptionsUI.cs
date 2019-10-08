@@ -19,6 +19,9 @@ namespace AmplifyShaderEditor
 		private bool m_isVisible = true;
 
 		[SerializeField]
+		private bool m_wasVisible = true;
+
+		[SerializeField]
 		private int m_currentOption = 0;
 
 		[SerializeField]
@@ -47,7 +50,7 @@ namespace AmplifyShaderEditor
 				{
 					case AseOptionsUIWidget.Dropdown:
 					{
-						m_currentOption = owner.EditorGUILayoutPopup( m_options.Name, m_currentOption, m_options.Options );
+						m_currentOption = owner.EditorGUILayoutPopup( m_options.Name, m_currentOption, m_options.DisplayOptions );
 					}
 					break;
 					case AseOptionsUIWidget.Toggle:
@@ -61,10 +64,36 @@ namespace AmplifyShaderEditor
 					if( OnActionPerformedEvt != null )
 					{
 						if( m_invertActionOnDeselection )
-							OnActionPerformedEvt( false, true, this, m_options.ActionsPerOption[ lastOption ] );
+							OnActionPerformedEvt( false, lastOption != m_options.DisableIdx, this, m_options.ActionsPerOption[ lastOption ] );
 
 						OnActionPerformedEvt( false, false, this, m_options.ActionsPerOption[ m_currentOption ] );
 					}
+				}
+
+			}
+		}
+
+		public void CheckDisable()
+		{
+			//Debug.Log( "-- Check --" );
+			if( m_isVisible )
+			{
+				if( !m_wasVisible )
+				{
+					//Debug.Log( "-- Enable --" );
+					Refresh();
+				}
+
+				m_wasVisible = true;
+			}
+			else if( m_wasVisible )
+			{
+				//Debug.Log( "-- Disable --" );
+				m_wasVisible = false;
+
+				if( OnActionPerformedEvt != null )
+				{
+					OnActionPerformedEvt( false, false, this, m_options.ActionsPerOption[ m_options.DisableIdx ] );
 				}
 			}
 		}
@@ -102,12 +131,14 @@ namespace AmplifyShaderEditor
 					{
 						if( i != m_currentOption )
 						{
-							OnActionPerformedEvt( true, true, this, m_options.ActionsPerOption[ i ] );
+							OnActionPerformedEvt( true, i != m_options.DisableIdx, this, m_options.ActionsPerOption[ i ] );
 						}
 					}
 				}
 
 				OnActionPerformedEvt( true, false, this, m_options.ActionsPerOption[ m_currentOption ] );
+				if( !m_isVisible )
+					OnActionPerformedEvt( false, false, this, m_options.ActionsPerOption[ m_options.DisableIdx ] );
 			}
 		}
 
@@ -139,6 +170,21 @@ namespace AmplifyShaderEditor
 				Refresh();
 			}
 		}
+
+		public int CurrentOptionIdx
+		{
+			set
+			{
+				m_currentOption = Mathf.Clamp( value, 0, m_options.Options.Length - 1 );
+			}
+		}
 		public bool EmptyEvent { get { return OnActionPerformedEvt == null; } }
+		public TemplateActionItemGrid.TemplateActionItemRow CurrentOptionActions
+		{
+			get
+			{
+				return m_options.ActionsPerOption.Rows[m_currentOption];
+			}
+		}
 	}
 }

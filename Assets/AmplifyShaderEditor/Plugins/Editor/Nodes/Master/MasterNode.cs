@@ -144,7 +144,7 @@ namespace AmplifyShaderEditor
 
 		void InitAvailableCategories()
 		{
-			int templateCount =  m_containerGraph.ParentWindow.TemplatesManagerInstance.TemplateCount;
+			int templateCount = m_containerGraph.ParentWindow.TemplatesManagerInstance.TemplateCount;
 			m_availableCategories = new MasterNodeCategoriesData[ templateCount + 1 ];
 			m_availableCategoryLabels = new GUIContent[ templateCount + 1 ];
 
@@ -217,20 +217,51 @@ namespace AmplifyShaderEditor
 			m_masterNodeCategory = EditorGUILayoutPopup( m_categoryLabel, m_masterNodeCategory, m_availableCategoryLabels );
 			if( oldType != m_masterNodeCategory )
 			{
-				m_containerGraph.ParentWindow.ReplaceMasterNode( m_availableCategories[ m_masterNodeCategory ] , false );
+				m_containerGraph.ParentWindow.ReplaceMasterNode( m_availableCategories[ m_masterNodeCategory ], false );
 			}
 		}
 
-		protected void DrawCustomInspector( )
+		protected void DrawCustomInspector( bool dropdown )
 		{
 			EditorGUILayout.BeginHorizontal();
 			m_customInspectorName = EditorGUILayoutTextField( CustomInspectorStr, m_customInspectorName );
-			if( GUILayoutButton( string.Empty, UIUtils.GetCustomStyle( CustomStyle.ResetToDefaultInspectorButton ), GUILayout.Width( 15 ), GUILayout.Height( 15 ) ) )
+			if( !dropdown )
 			{
-				GUIUtility.keyboardControl = 0;
-				m_customInspectorName = Constants.DefaultCustomInspector;
+				if( GUILayoutButton( string.Empty, UIUtils.GetCustomStyle( CustomStyle.ResetToDefaultInspectorButton ), GUILayout.Width( 15 ), GUILayout.Height( 15 ) ) )
+				{
+					GUIUtility.keyboardControl = 0;
+					m_customInspectorName = Constants.DefaultCustomInspector;
+				}
+			}
+			else
+			{
+				if( GUILayoutButton( string.Empty, UIUtils.InspectorPopdropdownFallback, GUILayout.Width( 17 ), GUILayout.Height( 19 ) ) )
+				{
+					EditorGUI.FocusTextInControl( null );
+					GUI.FocusControl( null );
+
+					GenericMenu menu = new GenericMenu();
+					AddMenuItem( menu, Constants.DefaultCustomInspector );
+					#if UNITY_2018_3_OR_NEWER
+					if( ASEPackageManagerHelper.CurrentHDVersion > ASESRPVersions.ASE_SRP_6_9_1 )
+						AddMenuItem( menu, "UnityEditor.Rendering.HighDefinition.HDLitGUI" );
+					else
+					#endif
+						AddMenuItem( menu, "UnityEditor.Experimental.Rendering.HDPipeline.HDLitGUI" );
+					menu.ShowAsContext();
+				}
 			}
 			EditorGUILayout.EndHorizontal();
+		}
+
+		private void AddMenuItem( GenericMenu menu, string newClass )
+		{
+			menu.AddItem( new GUIContent( newClass ), m_customInspectorName.Equals( newClass ), OnSelection, newClass );
+		}
+
+		private void OnSelection( object newClass )
+		{
+			m_customInspectorName = (string)newClass;
 		}
 
 		protected void DrawShaderName()
@@ -457,12 +488,12 @@ namespace AmplifyShaderEditor
 			{
 				if( nodes[ i ].AutoRegisterMode )
 				{
-					nodes[ i ].CheckDependencies( ref m_currentDataCollector, ref examinedNodes);
+					nodes[ i ].CheckDependencies( ref m_currentDataCollector, ref examinedNodes );
 				}
 			}
 			examinedNodes.Clear();
 			examinedNodes = null;
-		} 
+		}
 
 		// What operation this node does
 		public virtual void Execute( Shader selectedShader )
@@ -576,7 +607,7 @@ namespace AmplifyShaderEditor
 			m_propertyNodesVisibleList.Sort( ( x, y ) => { return x.OrderIndex.CompareTo( y.OrderIndex ); } );
 		}
 
-		public void DrawMaterialInputs( GUIStyle toolbarstyle , bool style = true)
+		public void DrawMaterialInputs( GUIStyle toolbarstyle, bool style = true )
 		{
 			m_propertyOrderChanged = false;
 			Color cachedColor = GUI.color;
@@ -665,6 +696,19 @@ namespace AmplifyShaderEditor
 
 			ReorderList( ref nodes );
 			//RecursiveLog();
+		}
+
+		private void RecursiveLog()
+		{
+			List<PropertyNode> nodes = UIUtils.PropertyNodesList();
+			nodes.Sort( ( x, y ) => { return x.OrderIndex.CompareTo( y.OrderIndex ); } );
+			for( int i = 0; i < nodes.Count; i++ )
+			{
+				if( ( nodes[ i ] is ReordenatorNode ) )
+					( nodes[ i ] as ReordenatorNode ).RecursiveLog();
+				else
+					Debug.Log( nodes[ i ].OrderIndex + " " + nodes[ i ].PropertyName );
+			}
 		}
 
 		private void ReorderList( ref List<PropertyNode> nodes )

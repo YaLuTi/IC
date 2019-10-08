@@ -107,9 +107,9 @@ namespace AmplifyShaderEditor
 
 		private readonly string[] m_spaceOptions =
 		{
-			"Object Space",
-			"World Space",
-			"View Space",
+			"Object",
+			"World",
+			"View",
 			"Clip",
 			"Tangent"
 		};
@@ -353,7 +353,7 @@ namespace AmplifyShaderEditor
 							GeneratorUtils.GenerateWorldToTangentMatrix(ref dataCollector, UniqueId,m_currentPrecisionType );
 							CalculateTransform( m_from, TransformSpace.World, ref dataCollector, ref varName, ref result );
 							result = string.Format( ASEWorldToTangentFormat, result );
-							varName = AseObjectToTangentDirVarName;
+							varName = AseObjectToTangentDirVarName + OutputId;
 						}
 						break;
 					}
@@ -383,7 +383,7 @@ namespace AmplifyShaderEditor
 						{
 							GeneratorUtils.GenerateWorldToTangentMatrix( ref dataCollector, UniqueId, m_currentPrecisionType );
 							result = string.Format( ASEWorldToTangentFormat, result );
-							varName = AseWorldToTangentDirVarName;
+							varName = AseWorldToTangentDirVarName + OutputId;
 						}
 						break;
 					}
@@ -413,7 +413,7 @@ namespace AmplifyShaderEditor
 							GeneratorUtils.GenerateWorldToTangentMatrix( ref dataCollector, UniqueId, m_currentPrecisionType );
 							CalculateTransform( m_from, TransformSpace.World, ref dataCollector, ref varName, ref result );
 							result = string.Format( ASEWorldToTangentFormat, result );
-							varName = AseViewToTangentDirVarName;
+							varName = AseViewToTangentDirVarName + OutputId;
 						}
 						break;
 					}
@@ -443,7 +443,7 @@ namespace AmplifyShaderEditor
 							GeneratorUtils.GenerateWorldToTangentMatrix( ref dataCollector, UniqueId, m_currentPrecisionType );
 							CalculateTransform( m_from, TransformSpace.World, ref dataCollector, ref varName, ref result );
 							result = string.Format( ASEWorldToTangentFormat, result );
-							varName = AseClipToTangentDirVarName;
+							varName = AseClipToTangentDirVarName + OutputId;
 						}
 						break;
 						default:
@@ -464,27 +464,27 @@ namespace AmplifyShaderEditor
 						{
 							result = string.Format( ASEMulOpFormat, matrixVal, result );
 							CalculateTransform( TransformSpace.World, m_to, ref dataCollector, ref varName, ref result );
-							varName = AseTangentToObjectDirVarName;
+							varName = AseTangentToObjectDirVarName + OutputId;
 						}
 						break;
 						case TransformSpace.World:
 						{
 							result = string.Format( ASEMulOpFormat, matrixVal, result );
-							varName = AseTangentToWorldDirVarName;
+							varName = AseTangentToWorldDirVarName + OutputId;
 						}
 						break;
 						case TransformSpace.View:
 						{
 							result = string.Format( ASEMulOpFormat, matrixVal, result );
 							CalculateTransform( TransformSpace.World, m_to, ref dataCollector, ref varName, ref result );
-							varName = AseTangentToViewDirVarName;
+							varName = AseTangentToViewDirVarName + OutputId;
 						}
 						break;
 						case TransformSpace.Clip:
 						{
 							result = string.Format( ASEMulOpFormat, matrixVal, result );
 							CalculateTransform( TransformSpace.World, m_to, ref dataCollector, ref varName, ref result );
-							varName = AseTangentToClipDirVarName;
+							varName = AseTangentToClipDirVarName + OutputId;
 						}
 						break;
 						case TransformSpace.Tangent:

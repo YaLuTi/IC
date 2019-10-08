@@ -175,6 +175,11 @@ namespace AmplifyShaderEditor
 		protected double m_doubleClickTime = 0.3;
 		private Rect m_titleClickArea;
 
+		protected bool m_srpBatcherCompatible = false;
+
+		[SerializeField]
+		private bool m_addGlobalToSRPBatcher = false;
+
 		public PropertyNode() : base() { }
 		public PropertyNode( int uniqueId, float x, float y, float width, float height ) : base( uniqueId, x, y, width, height ) { }
 
@@ -954,7 +959,7 @@ namespace AmplifyShaderEditor
 						{
 							ChangeParameterType( parameterType );
 							BeginPropertyFromInspectorCheck();
-							m_dropdownEditing = false;
+							DropdownEditing = false;
 						}
 					}
 				}
@@ -1156,11 +1161,11 @@ namespace AmplifyShaderEditor
 					{
 						if( fullValue )
 						{
-							dataCollector.AddToUniforms( UniqueId, dataName );
+							dataCollector.AddToUniforms( UniqueId, dataName, m_srpBatcherCompatible );
 						}
 						else
 						{
-							dataCollector.AddToUniforms( UniqueId, dataType, dataName );
+							dataCollector.AddToUniforms( UniqueId, dataType, dataName, m_srpBatcherCompatible );
 						}
 					}
 					//dataCollector.AddToUniforms( m_uniqueId, GetUniformValue() );
@@ -1185,11 +1190,11 @@ namespace AmplifyShaderEditor
 					{
 						if( fullValue )
 						{
-							dataCollector.AddToUniforms( UniqueId, dataName );
+							dataCollector.AddToUniforms( UniqueId, dataName, m_addGlobalToSRPBatcher );
 						}
 						else
 						{
-							dataCollector.AddToUniforms( UniqueId, dataType, dataName );
+							dataCollector.AddToUniforms( UniqueId, dataType, dataName, m_addGlobalToSRPBatcher );
 						}
 					}
 					//dataCollector.AddToUniforms( m_uniqueId, GetUniformValue() );
@@ -1201,6 +1206,7 @@ namespace AmplifyShaderEditor
 			if( m_currentParameterType == PropertyType.InstancedProperty && !m_outputPorts[ 0 ].IsLocalValue( dataCollector.PortCategory ) )
 			{
 				string instancedVar = dataCollector.IsSRP ?
+					//m_propertyName :
 					string.Format( IOUtils.LWSRPInstancedPropertiesData, dataCollector.InstanceBlockName, m_propertyName ) :
 					string.Format( IOUtils.InstancedPropertiesData, m_propertyName );
 				RegisterLocalVariable( 0, instancedVar, ref dataCollector, m_propertyName + "_Instance" );
@@ -1295,7 +1301,8 @@ namespace AmplifyShaderEditor
 			{
 				if( isSRP )
 				{
-					return GetUniformValue();
+					return string.Format( IOUtils.LWSRPInstancedPropertiesElement, UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, m_outputPorts[ 0 ].DataType ), m_propertyName );
+					//return GetUniformValue();
 				}
 				else
 				{
@@ -1312,7 +1319,8 @@ namespace AmplifyShaderEditor
 			{
 				if( isSRP )
 				{
-					return GetUniformValue( dataType, value );
+					//return GetUniformValue( dataType, value );
+					return string.Format( IOUtils.LWSRPInstancedPropertiesElement, UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, dataType ), value );
 				}
 				else
 				{
@@ -1632,5 +1640,7 @@ namespace AmplifyShaderEditor
 		}
 		public override string DataToArray { get { return PropertyInspectorName; } }
 		public bool RegisterPropertyOnInstancing { get { return m_registerPropertyOnInstancing; } set { m_registerPropertyOnInstancing = value; } }
+		public bool SrpBatcherCompatible { get { return m_srpBatcherCompatible; } }
+		public bool AddGlobalToSRPBatcher { get { return m_addGlobalToSRPBatcher; } set { m_addGlobalToSRPBatcher = value; } }
 	}
 }

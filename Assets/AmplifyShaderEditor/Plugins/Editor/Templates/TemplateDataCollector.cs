@@ -47,12 +47,14 @@ namespace AmplifyShaderEditor
 		public string Name;
 		public string Declaration;
 		public TemplateSemantics Semantic;
-		public TemplateInputParameters( WirePortDataType type, PrecisionType precision, string name, TemplateSemantics semantic )
+		public TemplateInputParameters( WirePortDataType type, PrecisionType precision, string name, TemplateSemantics semantic, string custom = null )
 		{
 			Type = type;
 			Name = name;
 			Semantic = semantic;
 			Declaration = string.Format( "{0} {1} : {2}", UIUtils.PrecisionWirePortToCgType( precision, type ), Name, Semantic );
+			if( !string.IsNullOrEmpty( custom ) )
+				Declaration = custom;
 		}
 	}
 
@@ -88,6 +90,28 @@ namespace AmplifyShaderEditor
 		private List<PropertyDataCollector> m_lateDirectivesList = new List<PropertyDataCollector>();
 		private Dictionary<string, PropertyDataCollector> m_lateDirectivesDict = new Dictionary<string, PropertyDataCollector>();
 
+		private List<PropertyDataCollector> m_srpBatcherPropertiesList = new List<PropertyDataCollector>();
+		private List<PropertyDataCollector> m_fullSrpBatcherPropertiesList = new List<PropertyDataCollector>();
+		private Dictionary<string, PropertyDataCollector> m_srpBatcherPropertiesDict = new Dictionary<string, PropertyDataCollector>();
+
+		public void CopySRPPropertiesFromDataCollector( int nodeId, TemplateDataCollector dataCollector )
+		{
+			for( int i = 0; i < dataCollector.SrpBatcherPropertiesList.Count; i++ )
+			{
+				AddSRPBatcherProperty( nodeId, dataCollector.SrpBatcherPropertiesList[ i ].PropertyName );
+			}
+		}
+
+		public void AddSRPBatcherProperty( int nodeID, string property )
+		{
+			if( !m_srpBatcherPropertiesDict.ContainsKey( property ) )
+			{
+				PropertyDataCollector newValue = new PropertyDataCollector( nodeID, property );
+				m_srpBatcherPropertiesDict.Add( property, newValue );
+				m_srpBatcherPropertiesList.Add( newValue );
+			}
+		}
+
 		public void SetUVUsage( int uv, WirePortDataType type )
 		{
 			if( uv >= 0 && uv < MaxUV )
@@ -111,6 +135,7 @@ namespace AmplifyShaderEditor
 				m_lateDirectivesList.Add( new PropertyDataCollector( -1, string.Empty ) );
 			}
 		}
+
 		public void AddHDLightInfo()
 		{
 #if !UNITY_2018_3_OR_NEWER
@@ -267,6 +292,14 @@ namespace AmplifyShaderEditor
 			}
 		}
 
+		public void RegisterFragInputParams( WirePortDataType type, PrecisionType precision, string name, TemplateSemantics semantic, string custom )
+		{
+			if( m_fragmentInputParams == null )
+				m_fragmentInputParams = new Dictionary<TemplateSemantics, TemplateInputParameters>();
+
+			m_fragmentInputParams.Add( semantic, new TemplateInputParameters( type, precision, name, semantic, custom ) );
+		}
+
 		public void RegisterFragInputParams( WirePortDataType type, PrecisionType precision, string name, TemplateSemantics semantic )
 		{
 			if( m_fragmentInputParams == null )
@@ -310,13 +343,38 @@ namespace AmplifyShaderEditor
 			return m_fragmentInputParams[ TemplateSemantics.SV_PrimitiveID ].Name;
 		}
 #endif
-		public string GetVFace()
+		public string GetVFace( int uniqueId )
 		{
-			if( m_fragmentInputParams != null && m_fragmentInputParams.ContainsKey( TemplateSemantics.VFACE ) )
-				return m_fragmentInputParams[ TemplateSemantics.VFACE ].Name;
+			#if UNITY_2018_3_OR_NEWER
+			if( IsHDRP && ASEPackageManagerHelper.CurrentHDVersion >= ASESRPVersions.ASE_SRP_6_9_1 )
+			{
+				string result = string.Empty;
+				if( GetCustomInterpolatedData( TemplateInfoOnSematics.VFACE, WirePortDataType.FLOAT, PrecisionType.Float, ref result, true, MasterNodePortCategory.Fragment ) )
+				{
+					m_currentDataCollector.AddToMisc( "#if !defined(ASE_NEED_CULLFACE)" );
+					m_currentDataCollector.AddToMisc( "#define ASE_NEED_CULLFACE 1" );
+					m_currentDataCollector.AddToMisc( "#endif //ASE_NEED_CULLFACE" );
+					return result;
+				} 
+				else
+				{
+					if( m_fragmentInputParams != null && m_fragmentInputParams.ContainsKey( TemplateSemantics.VFACE ) )
+						return m_fragmentInputParams[ TemplateSemantics.VFACE ].Name;
 
-			RegisterFragInputParams( WirePortDataType.FLOAT, PrecisionType.Half, TemplateHelperFunctions.SemanticsDefaultName[ TemplateSemantics.VFACE ], TemplateSemantics.VFACE );
-			return m_fragmentInputParams[ TemplateSemantics.VFACE ].Name;
+					string custom = "FRONT_FACE_TYPE "+ TemplateHelperFunctions.SemanticsDefaultName[ TemplateSemantics.VFACE ] + " : FRONT_FACE_SEMANTIC";
+					RegisterFragInputParams( WirePortDataType.FLOAT, PrecisionType.Half, TemplateHelperFunctions.SemanticsDefaultName[ TemplateSemantics.VFACE ], TemplateSemantics.VFACE, custom );
+					return m_fragmentInputParams[ TemplateSemantics.VFACE ].Name;
+				}
+			} 
+			else
+			#endif
+			{
+				if( m_fragmentInputParams != null && m_fragmentInputParams.ContainsKey( TemplateSemantics.VFACE ) )
+					return m_fragmentInputParams[ TemplateSemantics.VFACE ].Name;
+
+				RegisterFragInputParams( WirePortDataType.FLOAT, PrecisionType.Half, TemplateHelperFunctions.SemanticsDefaultName[ TemplateSemantics.VFACE ], TemplateSemantics.VFACE );
+				return m_fragmentInputParams[ TemplateSemantics.VFACE ].Name;
+			}
 		}
 
 		public bool HasUV( int uvChannel )
@@ -338,7 +396,7 @@ namespace AmplifyShaderEditor
 			bool isVertex = ( m_currentDataCollector.PortCategory == MasterNodePortCategory.Vertex || m_currentDataCollector.PortCategory == MasterNodePortCategory.Tessellation );
 			string uvChannelName = string.Empty;
 			string propertyHelperVar = propertyName + "_ST";
-			m_currentDataCollector.AddToUniforms( uniqueId, "float4", propertyHelperVar );
+			m_currentDataCollector.AddToUniforms( uniqueId, "float4", propertyHelperVar, IsSRP );
 			string uvName = string.Empty;
 			if( m_currentDataCollector.TemplateDataCollectorInstance.HasUV( uvChannel ) )
 			{
@@ -783,7 +841,7 @@ namespace AmplifyShaderEditor
 			}
 			return false;
 		}
-		
+
 		public string GetVertexPosition( WirePortDataType type, PrecisionType precisionType, bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment )
 		{
 			if( HasInfo( TemplateInfoOnSematics.POSITION, useMasterNodeCategory, customCategory ) )
@@ -907,7 +965,7 @@ namespace AmplifyShaderEditor
 			{
 				MasterNodePortCategory category = useMasterNodeCategory ? m_currentDataCollector.PortCategory : customCategory;
 				string name = "ase_tangent";
-				string varName =  RegisterInfoOnSemantic( category, TemplateInfoOnSematics.TANGENT, TemplateSemantics.TANGENT, name, WirePortDataType.FLOAT4, precisionType, false );
+				string varName = RegisterInfoOnSemantic( category, TemplateInfoOnSematics.TANGENT, TemplateSemantics.TANGENT, name, WirePortDataType.FLOAT4, precisionType, false );
 				if( type != WirePortDataType.OBJECT && type != WirePortDataType.FLOAT4 )
 					return TemplateHelperFunctions.AutoSwizzleData( varName, WirePortDataType.FLOAT4, type );
 				else
@@ -941,7 +999,7 @@ namespace AmplifyShaderEditor
 			if( HasCustomInterpolatedData( varName, useMasterNodeCategory, customCategory ) )
 				return varName;
 
-			string vertexTangent = GetVertexTangent(  WirePortDataType.FLOAT4, precisionType, false, MasterNodePortCategory.Vertex );
+			string vertexTangent = GetVertexTangent( WirePortDataType.FLOAT4, precisionType, false, MasterNodePortCategory.Vertex );
 			string formatStr = string.Empty;
 
 			if( IsSRP )
@@ -1046,7 +1104,7 @@ namespace AmplifyShaderEditor
 			m_currentDataCollector.AddToIncludes( uniqueId, Constants.UnityAutoLightLib );
 			m_currentDataCollector.AddToDefines( uniqueId, "ASE_SHADOWS 1" );
 #if UNITY_5_6_OR_NEWER
-				RequestMacroInterpolator( "UNITY_SHADOW_COORDS" );
+			RequestMacroInterpolator( "UNITY_SHADOW_COORDS" );
 #else
 			RequestMacroInterpolator( "SHADOW_COORDS" );
 			m_currentDataCollector.AddToPragmas( uniqueId, "multi_compile_fwdbase" );
@@ -1628,6 +1686,24 @@ namespace AmplifyShaderEditor
 
 			m_currentDataCollector = null;
 
+			if( m_fullSrpBatcherPropertiesList != null )
+			{
+				m_fullSrpBatcherPropertiesList.Clear();
+				m_fullSrpBatcherPropertiesList = null;
+			}
+
+			if( m_srpBatcherPropertiesList != null )
+			{
+				m_srpBatcherPropertiesList.Clear();
+				m_srpBatcherPropertiesList = null;
+			}
+
+			if( m_srpBatcherPropertiesDict != null )
+			{
+				m_srpBatcherPropertiesDict.Clear();
+				m_srpBatcherPropertiesDict = null;
+			}
+
 			if( m_lateDirectivesList != null )
 			{
 				m_lateDirectivesList.Clear();
@@ -1701,6 +1777,26 @@ namespace AmplifyShaderEditor
 			}
 		}
 
+		public void BuildCBuffer( int nodeId )
+		{
+			m_fullSrpBatcherPropertiesList.Clear();
+			if( m_srpBatcherPropertiesList.Count > 0 )
+			{
+				m_fullSrpBatcherPropertiesList.Insert(0, new PropertyDataCollector( nodeId, IOUtils.SRPCBufferPropertiesBegin ));
+				m_fullSrpBatcherPropertiesList.AddRange( m_srpBatcherPropertiesList );
+				m_fullSrpBatcherPropertiesList.Add( new PropertyDataCollector( nodeId, IOUtils.SRPCBufferPropertiesEnd ) );
+			}
+		}
+
+
+		public void DumpSRPBatcher()
+		{
+			for( int i = 0; i < m_srpBatcherPropertiesList.Count; i++ )
+			{
+				Debug.Log( i + "::" + m_srpBatcherPropertiesList[ i ].PropertyName );
+			}
+		}
+
 		public const string GlobalMaxInterpolatorReachedMsg = "Maximum amount of interpolators reached!\nPlease consider optmizing your shader!";
 		public const string MaxInterpolatorSMReachedMsg = "Maximum amount of interpolators reached for current shader model on pass {0}! Please consider increasing the shader model to {1}!";
 		public void CheckInterpolatorOverflow( string currShaderModel, string passName )
@@ -1738,11 +1834,13 @@ namespace AmplifyShaderEditor
 		public TemplateData CurrentTemplateData { get { return m_currentTemplateData; } }
 		public int MultipassSubshaderIdx { get { return m_multipassSubshaderIdx; } }
 		public int MultipassPassIdx { get { return m_multipassPassIdx; } }
-		public TemplateSRPType CurrentSRPType { get { return m_currentSRPType; } }
+		public TemplateSRPType CurrentSRPType { get { return m_currentSRPType; } set { m_currentSRPType = value; } }
 		public bool IsHDRP { get { return m_currentSRPType == TemplateSRPType.HD; } }
 		public bool IsLWRP { get { return m_currentSRPType == TemplateSRPType.Lightweight; } }
 		public bool IsSRP { get { return ( m_currentSRPType == TemplateSRPType.Lightweight || m_currentSRPType == TemplateSRPType.HD ); } }
 		public TemplateInterpData InterpData { get { return m_interpolatorData; } }
 		public List<PropertyDataCollector> LateDirectivesList { get { return m_lateDirectivesList; } }
+		public List<PropertyDataCollector> SrpBatcherPropertiesList { get { return m_srpBatcherPropertiesList; } }
+		public List<PropertyDataCollector> FullSrpBatcherPropertiesList { get { return m_fullSrpBatcherPropertiesList; } }
 	}
 }

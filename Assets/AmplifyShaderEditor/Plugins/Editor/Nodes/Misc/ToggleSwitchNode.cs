@@ -50,6 +50,7 @@ namespace AmplifyShaderEditor
 			m_popContent.image = UIUtils.PopupIcon;
 
 			m_availableAttribs.Clear();
+			//Need to maintain this because of retrocompatibility reasons
 			m_availableAttribs.Add( new PropertyAttributes( "Toggle", "[Toggle]" ) );
 
 			m_drawAttributes = false;
@@ -60,6 +61,8 @@ namespace AmplifyShaderEditor
 
 			m_allowPropertyDuplicates = true;
 			m_showAutoRegisterUI = false;
+
+			m_srpBatcherCompatible = true;
 		}
 
 		protected override void OnUniqueIDAssigned()
@@ -159,6 +162,7 @@ namespace AmplifyShaderEditor
 				m_currentSelectedInput = EditorGUIIntPopup( m_varRect, m_currentSelectedInput, AvailableInputsLabels, AvailableInputsValues, UIUtils.SwitchNodePopUp );
 				if ( EditorGUI.EndChangeCheck() )
 				{
+					PreviewIsDirty = true;
 					UpdateConnection();
 					m_requireMaterialUpdate = true;
 					m_editing = false;
@@ -224,6 +228,7 @@ namespace AmplifyShaderEditor
 		public override void RefreshExternalReferences()
 		{
 			base.RefreshExternalReferences();
+			m_selectedAttribs.Clear();
 			UpdateConnection();
 		}
 		public override string GetPropertyValue()

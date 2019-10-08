@@ -1248,7 +1248,7 @@ namespace AmplifyShaderEditor
 				if( CurrentCanvasMode == NodeAvailability.TemplateShader )
 				{
 					RefreshLinkedMasterNodes();
-					CurrentMasterNode.OnRefreshLinkedPortsComplete();
+					OnRefreshLinkedPortsComplete();
 					//RepositionTemplateNodes( CurrentMasterNode );
 				}
 			}
@@ -3000,7 +3000,14 @@ namespace AmplifyShaderEditor
 				newMasterNode.IsMainOutputNode = true;
 			}
 		}
-
+		public void OnRefreshLinkedPortsComplete()
+		{
+			int mpCount = m_multiPassMasterNodes.Count;
+			for( int i = 0; i < mpCount; i++ )
+			{
+				m_multiPassMasterNodes.NodesList[ i ].OnRefreshLinkedPortsComplete();
+			}
+		}
 		public void RefreshLinkedMasterNodes()
 		{
 			if( DebugConsoleWindow.DeveloperMode )
@@ -3203,7 +3210,7 @@ namespace AmplifyShaderEditor
 			newMasterNode.OnMaterialUpdatedEvent += OnMaterialUpdatedEvent;
 			newMasterNode.OnShaderUpdatedEvent += OnShaderUpdatedEvent;
 			newMasterNode.IsMainOutputNode = true;
-			CurrentMasterNode.OnRefreshLinkedPortsComplete();
+			OnRefreshLinkedPortsComplete();
 			FullCleanUndoStack();
 			return newMasterNode;
 		}
@@ -3337,7 +3344,7 @@ namespace AmplifyShaderEditor
 					}
 				}
 				RefreshLinkedMasterNodes();
-				CurrentMasterNode.OnRefreshLinkedPortsComplete();
+				OnRefreshLinkedPortsComplete();
 			}
 
 			LoadedShaderVersion = VersionInfo.FullNumber;

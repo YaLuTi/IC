@@ -80,7 +80,7 @@ namespace AmplifyShaderEditor
 		[SerializeField]
 		private InlineProperty m_destFactorRGBInline = new InlineProperty();
 
-		// Alpha
+		//Alpha
 		[SerializeField]
 		private int m_currentAlphaIndex = 0;
 

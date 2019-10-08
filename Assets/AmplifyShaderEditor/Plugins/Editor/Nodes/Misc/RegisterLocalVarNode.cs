@@ -212,7 +212,10 @@ namespace AmplifyShaderEditor
 				return m_outputPorts[ 0 ].LocalValue( dataCollector.PortCategory );
 			}
 			string result = m_inputPorts[ 0 ].GeneratePortInstructions( ref dataCollector );
-			RegisterLocalVariable( 0, result, ref dataCollector, m_variableName + OutputId );
+			if( m_inputPorts[ 0 ].DataType == WirePortDataType.OBJECT )
+				m_outputPorts[ 0 ].SetLocalValue( result, dataCollector.PortCategory );
+			else
+				RegisterLocalVariable( 0, result, ref dataCollector, m_variableName + OutputId );
 			return m_outputPorts[ 0 ].LocalValue( dataCollector.PortCategory );
 		}
 

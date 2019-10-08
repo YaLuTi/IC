@@ -292,9 +292,9 @@ namespace AmplifyShaderEditor
 			}
 		}
 
-		public override void OnNodeLayout( DrawInfo drawInfo )
+		public override void OnNodeLogicUpdate( DrawInfo drawInfo )
 		{
-			base.OnNodeLayout( drawInfo );
+			base.OnNodeLogicUpdate( drawInfo );
 
 			if( !m_extensibleInputPorts )
 				return;
@@ -322,8 +322,6 @@ namespace AmplifyShaderEditor
 
 							AddInputPort( m_mainDataType, false, ( ( char ) ( 'A' + m_inputCount - 1 ) ).ToString() );
 							m_inputPorts[ m_inputCount - 1 ].CreatePortRestrictions( m_dynamicRestrictions );
-							if( Selected && ContainerGraph.ParentWindow.ParametersWindow.IsMaximized )
-								Event.current.type = EventType.Used;
 						}
 
 						m_lastInputCount = m_inputCount;

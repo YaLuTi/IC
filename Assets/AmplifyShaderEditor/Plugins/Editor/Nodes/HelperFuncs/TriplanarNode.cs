@@ -165,7 +165,15 @@ namespace AmplifyShaderEditor
 			bool applyScale = false;
 			if( dataCollector.IsTemplate && dataCollector.IsSRP )
 			{
-				func = "UnpackNormalmapRGorAG";
+				if( dataCollector.TemplateDataCollectorInstance.IsHDRP )
+				{
+					func = "UnpackNormalmapRGorAG";
+				}
+				else
+				{
+					func = "UnpackNormalScale";
+				}
+
 				if( !scaleInfo )
 				{
 					scale = " , 1.0";
@@ -510,6 +518,11 @@ namespace AmplifyShaderEditor
 					m_midIndexPort.Visible = true;
 					m_botIndexPort.Visible = true;
 				}
+				else
+				{
+					m_midIndexPort.Visible = false;
+					m_botIndexPort.Visible = false;
+				}
 			}
 			else
 			{
@@ -781,6 +794,7 @@ namespace AmplifyShaderEditor
 					{
 						if( newValue != (UnityEngine.Object)m_botTexture.Value )
 						{
+							PreviewIsDirty = true;
 							UndoRecordObject( "Changing value EditorGUIObjectField on node Triplanar Node" );
 							m_botTexture.Value = newValue != null ? (Texture2D)newValue : null;
 
@@ -792,6 +806,7 @@ namespace AmplifyShaderEditor
 					{
 						if( newValue != (UnityEngine.Object)m_midTexture.Value )
 						{
+							PreviewIsDirty = true;
 							UndoRecordObject( "Changing value EditorGUIObjectField on node Triplanar Node" );
 							m_midTexture.Value = newValue != null ? (Texture2D)newValue : null;
 
@@ -803,6 +818,7 @@ namespace AmplifyShaderEditor
 					{
 						if( newValue != (UnityEngine.Object)m_topTexture.Value )
 						{
+							PreviewIsDirty = true;
 							UndoRecordObject( "Changing value EditorGUIObjectField on node Triplanar Node" );
 							m_topTexture.Value = newValue != null ? (Texture2D)newValue : null;
 

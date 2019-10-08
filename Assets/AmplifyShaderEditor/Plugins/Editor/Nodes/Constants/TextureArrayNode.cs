@@ -481,6 +481,7 @@ namespace AmplifyShaderEditor
 
 				if( EditorGUI.EndChangeCheck() )
 				{
+					PreviewIsDirty = true;
 					CheckTextureImporter( true );
 					SetTitleText( PropertyInspectorName );
 					SetAdditonalTitleText( string.Format( Constants.PropertyValueLabel, GetPropertyValStr() ) );

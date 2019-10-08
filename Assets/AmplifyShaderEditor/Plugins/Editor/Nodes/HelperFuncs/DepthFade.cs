@@ -36,7 +36,7 @@ namespace AmplifyShaderEditor
 
 		public override string GenerateShaderForOutput( int outputId, ref MasterNodeDataCollector dataCollector, bool ignoreLocalvar )
 		{
-			if( dataCollector.PortCategory == MasterNodePortCategory.Vertex || dataCollector.PortCategory == MasterNodePortCategory.Tessellation )
+			if( dataCollector.PortCategory == MasterNodePortCategory.Tessellation )
 			{
 				UIUtils.ShowNoVertexModeNodeMessage( this );
 				return "0";
@@ -64,14 +64,12 @@ namespace AmplifyShaderEditor
 				dataCollector.AddToUniforms( UniqueId, Constants.CameraDepthTextureTexelSize );
 			}
 
-			string screenPos = string.Empty;
 			string screenPosNorm = string.Empty;
 			InputPort vertexPosPort = GetInputPortByUniqueId( 1 );
 			if( vertexPosPort.IsConnected )
 			{
 				string vertexPosVar = "vertexPos" + OutputId;
 				GenerateInputInVertex( ref dataCollector, 1, vertexPosVar, false );
-				screenPos = GeneratorUtils.GenerateScreenPositionForValue( vertexPosVar,OutputId, ref dataCollector, UniqueId, m_currentPrecisionType, !dataCollector.UsingCustomScreenPos );
 				screenPosNorm = GeneratorUtils.GenerateScreenPositionNormalizedForValue( vertexPosVar, OutputId, ref dataCollector, UniqueId, m_currentPrecisionType, !dataCollector.UsingCustomScreenPos );
 			}
 			else
@@ -81,23 +79,20 @@ namespace AmplifyShaderEditor
 					string ppsScreenPos = string.Empty;
 					if( !dataCollector.TemplateDataCollectorInstance.GetCustomInterpolatedData( TemplateInfoOnSematics.SCREEN_POSITION_NORMALIZED, WirePortDataType.FLOAT4, PrecisionType.Float, ref ppsScreenPos, true, MasterNodePortCategory.Fragment ) )
 					{
-						screenPos = GeneratorUtils.GenerateScreenPosition( ref dataCollector, UniqueId, m_currentPrecisionType, !dataCollector.UsingCustomScreenPos );
 						screenPosNorm = GeneratorUtils.GenerateScreenPositionNormalized( ref dataCollector, UniqueId, m_currentPrecisionType, !dataCollector.UsingCustomScreenPos );
 					}
 					else
 					{
-						screenPos = ppsScreenPos;
 						screenPosNorm = ppsScreenPos;
 					}
 				}
 				else
 				{
-					screenPos = GeneratorUtils.GenerateScreenPosition( ref dataCollector, UniqueId, m_currentPrecisionType, !dataCollector.UsingCustomScreenPos );
 					screenPosNorm = GeneratorUtils.GenerateScreenPositionNormalized( ref dataCollector, UniqueId, m_currentPrecisionType, !dataCollector.UsingCustomScreenPos );
 				}
 			}
 
-			string screenDepth = TemplateHelperFunctions.CreateDepthFetch( dataCollector, screenPos );
+			string screenDepth = TemplateHelperFunctions.CreateDepthFetch( dataCollector, screenPosNorm );
 			if( m_convertToLinear )
 			{
 				if( dataCollector.IsTemplate && dataCollector.IsSRP )

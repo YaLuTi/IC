@@ -221,6 +221,11 @@ namespace AmplifyShaderEditor
 				ContainerGraph.ParentWindow.CustomGraph = null;
 				UIUtils.RegisterPropertyNode( m_reordenator );
 				ContainerGraph.ParentWindow.CustomGraph = cachedGraph;
+
+				if( inside )
+				{
+					UIUtils.RegisterPropertyNode( m_reordenator );
+				}
 			}
 
 			m_textLabelWidth = 120;
