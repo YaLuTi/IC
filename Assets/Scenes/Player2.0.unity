@@ -512,7 +512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf843d41a56ca845abc61b1a1cb5dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 10
 --- !u!4 &627100524
 Transform:
   m_ObjectHideFlags: 0
@@ -1970,6 +1969,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CameraDistance
       value: 4.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528869881650788832, guid: 129af262af11b23448418a401baea172,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 129af262af11b23448418a401baea172, type: 3}
