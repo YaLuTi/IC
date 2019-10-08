@@ -18,7 +18,6 @@ public class AnimationCurver : MonoBehaviour {
         animatorState = animator.GetCurrentAnimatorStateInfo(0);
         if (animatorState.normalizedTime >= 1) return;
         animator.speed = animationCurves[CurrentCurve].curve.Evaluate(animatorState.normalizedTime);
-        // Debug.Log(animatorState.normalizedTime);
 	}
 
     void SetCurve(int i)

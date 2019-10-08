@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
+using DG.Tweening;
 
 public class CameraRotate : MonoBehaviour {
 
@@ -10,8 +12,12 @@ public class CameraRotate : MonoBehaviour {
     Collider[] MonstersList;
     float[] distanceList;
 
+    CinemachineVirtualCamera cinemachineVirtualCamera;
+
     [SerializeField]
     public bool IsLock = false;
+    public float HorizontalRotateSpeed = 1f;
+    public float VerticalRotateSpeed = 1f;
 
     public float value;
 
@@ -30,6 +36,7 @@ public class CameraRotate : MonoBehaviour {
             followObj = GameObject.FindGameObjectWithTag("Player");
         }
         distance = followObj.transform.position - this.transform.position;
+        cinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
     }
 	
 	// Update is called once per frame
@@ -54,6 +61,7 @@ public class CameraRotate : MonoBehaviour {
                 if (MonstersList.Length > 1)
                 {
                     LockObj = MonstersList[1].gameObject;
+                    cinemachineVirtualCamera.LookAt = MonstersList[1].gameObject.transform;
                     IsLock = !IsLock;
                 }
                 else
@@ -81,14 +89,16 @@ public class CameraRotate : MonoBehaviour {
             h = Input.GetAxis("Mouse X");
         }*/
         float v = Input.GetAxis("CameraVertical");
+        float e = QuickMath.Clamp0360(transform.eulerAngles.x);
+        if (e + v * VerticalRotateSpeed > 90 && e + v * VerticalRotateSpeed < 180) v = 0;
         /*if (v == 0)
         {
             v = Input.GetAxis("Mouse Y");
         }*/
 
 
-        transform.position = Vector3.SmoothDamp(transform.position, followObj.transform.position + (rotateVector * value), ref velocity, smoothTime);
-        Quaternion targetRotation = Quaternion.LookRotation(followObj.transform.position - transform.position);
+        // transform.position = Vector3.SmoothDamp(transform.position, followObj.transform.position + (rotateVector * value), ref velocity, smoothTime);
+        /*Quaternion targetRotation = Quaternion.LookRotation(followObj.transform.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.85f);
 
         Xangle += h * rotateSpeed * Time.deltaTime;
@@ -96,7 +106,8 @@ public class CameraRotate : MonoBehaviour {
         Yangle += v * rotateSpeed * Time.deltaTime / 2;
         Yangle = Mathf.Min(1, Yangle);
         Yangle = Mathf.Max(-1f, Yangle);
-        rotateVector = new Vector3(Mathf.Sin(Xangle), Yangle, Mathf.Cos(Xangle));
+        rotateVector = new Vector3(Mathf.Sin(Xangle), Yangle, Mathf.Cos(Xangle));*/
+        transform.eulerAngles += new Vector3(v * VerticalRotateSpeed, h * HorizontalRotateSpeed, 0);
     }
 
     void LockCameraMove()
@@ -107,18 +118,24 @@ public class CameraRotate : MonoBehaviour {
         float angle = Mathf.Atan2(LockObj.transform.position.z - followObj.transform.position.z, LockObj.transform.position.x - followObj.transform.position.x) * 180 / Mathf.PI;
 
         // FIX LATER
-        angle = angle / 180 * Mathf.PI;
+        /*angle = angle / 180 * Mathf.PI;
         angle += Mathf.PI / 2;
         angle *= -1;
         if(angle < 0)
         {
             angle += 6.24f;
-        }
+        }*/
+        angle = QuickMath.Clamp0360(angle);
+
+        //Debug.Log(angle);
+        Vector3 a = transform.eulerAngles;
+        a.y = (-angle + 90);
+        transform.DORotate(a, 0.2f);
         Xangle = angle;
 
-        transform.position = Vector3.SmoothDamp(transform.position, followObj.transform.position + (rotateVector * value), ref velocity, smoothTime);
+        // transform.position = Vector3.SmoothDamp(transform.position, followObj.transform.position + (rotateVector * value), ref velocity, smoothTime);
 
-        transform.LookAt(followObj.transform);
+        // transform.LookAt(followObj.transform);
         Yangle = Mathf.Min(1, Yangle);
         Yangle = Mathf.Max(-1f, Yangle);
         rotateVector = new Vector3(Mathf.Sin(angle), 0.1f, Mathf.Cos(angle));

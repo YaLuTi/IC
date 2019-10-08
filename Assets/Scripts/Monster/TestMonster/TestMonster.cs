@@ -146,6 +146,8 @@ public class TestMonster : MonsterBasic {
 
         Vector3 direction = (destination - transform.position).normalized;
         Quaternion qDir = Quaternion.LookRotation(direction);
+        qDir.x = 0;
+        qDir.z = 0;
         transform.rotation = Quaternion.Slerp(transform.rotation, qDir, AngularSpeed * Time.deltaTime);
     }
     

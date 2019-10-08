@@ -28,6 +28,8 @@ public class PlayerHP : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (HPslider == null || SPslider == null) return;
         HPslider.value = HP / MaxHP;
         SPslider.value = SP / MaxSP;
 

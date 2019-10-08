@@ -6,6 +6,11 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour {
 
     public float moveSpeed;
+
+    [Header("Game Value")]
+    public float Default_MoveSpeed;
+    public float Lock_MoveSpeed;
+
     public Transform cameraTransform;
     Vector3 camForward;
     Vector3 move;
@@ -24,8 +29,15 @@ public class PlayerMove : MonoBehaviour {
 
     public CameraRotate cameraRotate;
 
+    [Header("AnimationEventValue")]
+    public AnimationEvent Stand;
+    public AnimationEvent LockStand;
+    public AnimationEvent Walk;
+    public AnimationEvent LockWalk;
+
     float m_TurnAmount;
     float m_ForwardAmount;
+    public bool Rotateable = true;
     bool IsDodging;
     bool IsSteping;
     bool IsLock = false;
@@ -55,12 +67,12 @@ public class PlayerMove : MonoBehaviour {
         if (IsLock)
         {
             Lock();
-            moveSpeed = 2.5f;
+            moveSpeed = Lock_MoveSpeed;
         }
         else
         {
             UnLock();
-            moveSpeed = 3f;
+            moveSpeed = Default_MoveSpeed;
         }
     }
 
@@ -92,10 +104,14 @@ public class PlayerMove : MonoBehaviour {
         if (move.magnitude > 1f) move.Normalize();
         move = transform.InverseTransformDirection(move);
 
-        Turn();
+        if (Rotateable)
+        {
+            Turn();
+            ApplyExtraTurnRotation();
+        }
+
         Dodge();
 
-        ApplyExtraTurnRotation();
 
         AnimatorUpdate();
     }
@@ -145,6 +161,7 @@ public class PlayerMove : MonoBehaviour {
         }
     }
 
+    // Need Fix
     void Turn()
     {
         m_TurnAmount = Mathf.Atan2(move.x, move.z);
@@ -163,20 +180,23 @@ public class PlayerMove : MonoBehaviour {
         transform.rotation = q;*/
     }
 
+
+    // Remake
     float DebugDodgeTime = 0;
 
     void Dodge()
     {
+        
         DebugDodgeTime++;
 
-        /*if (!Dodgable) return;
-        if (IsDodging)
-        {
-            IsDodging = false;
-            return;
-        }*/
+        // if (!Dodgable) return;
+        // if (IsDodging)
+        // {
+        //  IsDodging = false;
+        //  return;
+        // }
 
-        float angle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg;
+        /*float angle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg;
 
         if (Input.GetButtonDown("JoyStickX") && DebugDodgeTime >= 40)
         {
@@ -192,7 +212,7 @@ public class PlayerMove : MonoBehaviour {
             // IsDodging = Input.GetButtonDown("JoyStickX");
             m_Animator.ResetTrigger("At");
             m_Animator.SetTrigger("Dodge");
-        }
+        }*/
 
     }
     
@@ -207,7 +227,7 @@ public class PlayerMove : MonoBehaviour {
         }*/
         DebugStepTime++;
 
-     animatorStateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
+     /*animatorStateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
         
         if (Input.GetButtonDown("JoyStickX") && DebugStepTime >= 40)
         {
@@ -224,7 +244,7 @@ public class PlayerMove : MonoBehaviour {
             // IsSteping = Input.GetButtonDown("JoyStickX");
             m_Animator.ResetTrigger("At");
             m_Animator.SetTrigger("Step");
-         }
+         }*/
     }
 
     void ApplyExtraTurnRotation()
@@ -239,10 +259,10 @@ public class PlayerMove : MonoBehaviour {
 
     void AnimatorUpdate()
     {
-        m_Animator.SetFloat("Speed", move.z, 0.1f, Time.deltaTime);
+        m_Animator.SetFloat("Speed", move.z, 0.05f, Time.deltaTime);
         m_Animator.SetFloat("Turn", m_TurnAmount, 0.25f, Time.deltaTime);
-        m_Animator.SetBool("IsDodging", IsDodging);
-        m_Animator.SetBool("IsSteping", IsSteping);
+        // m_Animator.SetBool("IsDodging", IsDodging);
+        // m_Animator.SetBool("IsSteping", IsSteping);
         m_Animator.SetBool("IsLock", IsLock);
         m_Animator.SetFloat("X", move.x * 2, 0.05f, Time.deltaTime);
         m_Animator.SetFloat("Y", move.z * 2, 0.05f, Time.deltaTime);

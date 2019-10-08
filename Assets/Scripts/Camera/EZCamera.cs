@@ -19,11 +19,11 @@ public class EZCamera : MonoBehaviour {
         Vector3 hh = Input.GetAxis("Horizontal") * transform.right;
         Vector3 vv = Input.GetAxis("Vertical") * transform.forward;
         float yy = 0;
-        if (Input.GetButton("JoyStickX"))
+        if (Input.GetButton("Fire1"))
         {
             yy = 1;
         }
-        if (Input.GetButton("JoyStickTriangle"))
+        if (Input.GetButton("Fire2"))
         {
             yy = -1;
         }
