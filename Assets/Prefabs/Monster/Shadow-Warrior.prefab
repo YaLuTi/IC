@@ -1733,7 +1733,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031527483390413139}
-  m_LocalRotation: {x: -0, y: 0.9585358, z: -0, w: 0.28497228}
+  m_LocalRotation: {x: 0, y: 0.95853674, z: 0, w: 0.28496912}
   m_LocalPosition: {x: 5.151691, y: -1.09, z: -4.08959}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children:
@@ -1890,7 +1890,7 @@ MonoBehaviour:
   IsAttacking: 0
   solution: 0
   moveSpeed: 2
-  MaxHealth: 8
+  MaxHealth: 5
   Stamina: 10
   HPSlider: {fileID: 0}
   DamagedParticle: {fileID: 1876859476893648, guid: b7c8ee648e6143b4c855a29558fc58c5,
@@ -1900,9 +1900,9 @@ MonoBehaviour:
   BattleRange: 10
   AngularSpeed: 1
   cutAudio: []
-  LongAttackRange: 5
-  RotateAttackRange: 3
-  MeleeAttackRange: 0
+  LongAttackRange: 4
+  RotateAttackRange: 2
+  MeleeAttackRange: 1
 --- !u!114 &1031527482831574149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1933,7 +1933,7 @@ MonoBehaviour:
   Angle: 160
   TargetMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1024
   ObjMask:
     serializedVersion: 2
     m_Bits: 1
@@ -2980,6 +2980,37 @@ Transform:
   m_Father: {fileID: 1031527483390710929}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2007250081
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032687194720293398}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7021191, y: 2.7191672, z: 0.3123397}
+  m_Center: {x: -0.3014761, y: 0.3526685, z: -0.048591394}
+--- !u!114 &2007250080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032687194720293398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140f944180bbe604c832b8491bdc7367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackDamage: 2
+  DestroyTime: 0.5
+  HitParticle: {fileID: 1357193009995946, guid: d843d7a3c091c8040a1d364962634d12,
+    type: 3}
+  p: {fileID: 0}
+  hitObject: []
 --- !u!1001 &1031527482843043772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3049,6 +3080,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf9ddfe9e961f0c4a8907960a945aa18, type: 3}
+--- !u!1 &1032687194720293398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1248289220216234, guid: bf9ddfe9e961f0c4a8907960a945aa18,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031527482843043772}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1026971043080693820 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4556922712129408, guid: bf9ddfe9e961f0c4a8907960a945aa18,

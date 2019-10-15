@@ -18,7 +18,8 @@ public class WeaponColliderBasic : MonoBehaviour {
     Collider collider;
 	// Use this for initialization
 	void Start () {
-        layerMask = LayerMask.GetMask("Creature");
+        string[] s = { "Player", "Creature" };
+        layerMask = LayerMask.GetMask(s);
         Physics.IgnoreCollision(this.GetComponent<Collider>(), this.GetComponentInParent<Collider>(), false);
 	}
 	

@@ -4030,43 +4030,6 @@ Transform:
   m_Father: {fileID: 1250476934}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2007250076 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1032687194720293398, guid: 65748da7c071e1948acf7ff8be933667,
-    type: 3}
-  m_PrefabInstance: {fileID: 5457100801509539181}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2007250080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007250076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 140f944180bbe604c832b8491bdc7367, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackDamage: 2
-  DestroyTime: 0.5
-  HitParticle: {fileID: 1357193009995946, guid: d843d7a3c091c8040a1d364962634d12,
-    type: 3}
-  p: {fileID: 0}
-  hitObject: []
---- !u!65 &2007250081
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007250076}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.7021191, y: 2.7191672, z: 0.3123397}
-  m_Center: {x: -0.3014761, y: 0.3526685, z: -0.048591394}
 --- !u!1 &2011419248
 GameObject:
   m_ObjectHideFlags: 0
@@ -4447,26 +4410,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1031527483390413140, guid: 65748da7c071e1948acf7ff8be933667,
-        type: 3}
-      propertyPath: MaxHealth
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1031527483390413140, guid: 65748da7c071e1948acf7ff8be933667,
-        type: 3}
-      propertyPath: LongAttackRange
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1031527483390413140, guid: 65748da7c071e1948acf7ff8be933667,
-        type: 3}
-      propertyPath: RotateAttackRange
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1031527483390413140, guid: 65748da7c071e1948acf7ff8be933667,
-        type: 3}
-      propertyPath: MeleeAttackRange
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65748da7c071e1948acf7ff8be933667, type: 3}
