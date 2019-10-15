@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour {
 
+    MonsterBasic monster;
     public float Radius;
 
     [Range(0, 360)]
@@ -14,19 +15,25 @@ public class FieldOfView : MonoBehaviour {
 
     public List<GameObject> ViewTargets = new List<GameObject>();
 
-   /* private void Start()
-    {
-        StartCoroutine(View(.2f));
-    }
+    /* private void Start()
+     {
+         StartCoroutine(View(.2f));
+     }
 
-    IEnumerator View(float delay)
+     IEnumerator View(float delay)
+     {
+         while (true)
+         {
+             yield return new WaitForSeconds(delay);
+             GetTarget();
+         }
+     }*/
+     
+
+    private void Start()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(delay);
-            GetTarget();
-        }
-    }*/
+        monster = GetComponent<MonsterBasic>();
+    }
 
     private void Update()
     {
@@ -41,7 +48,7 @@ public class FieldOfView : MonoBehaviour {
         for(int i = 0; i < targets.Length; i++)
         {
             Transform target = targets[i].transform;
-            if (!target.CompareTag("Player")) return;
+            if (!target.CompareTag("Player")) continue;
             Vector3 dir = (target.position - transform.position).normalized;
             if(Vector3.Angle(transform.forward, dir) < Angle / 2)
             {
@@ -50,6 +57,7 @@ public class FieldOfView : MonoBehaviour {
                 if (!Physics.Raycast(transform.position, dir, Distance, ObjMask))
                 {
                     ViewTargets.Add(targets[i].gameObject);
+                    monster.e_FoundPlayer();
                 }
             }
         }

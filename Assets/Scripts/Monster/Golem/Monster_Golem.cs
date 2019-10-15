@@ -29,13 +29,14 @@ public class Monster_Golem : TestMonster {
 
     float d;
 
+    // Set State
 	protected override void Start () {
         base.Start();
         attackstates = Attackstates.Alert;
         d = Vector3.Distance(player.transform.position, transform.position);
     }
 	
-	// Update is called once per frame
+	// Set nav corner and speed
 	protected override void Update () {
         base.Update();
         destination = Nav.GetCorners();

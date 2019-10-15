@@ -55,7 +55,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 45
+    FieldOfView: 50
     OrthographicSize: 10
     NearClipPlane: 0.2
     FarClipPlane: 1000
@@ -86,8 +86,8 @@ MonoBehaviour:
   followObj: {fileID: 0}
   LockObj: {fileID: 0}
   IsLock: 0
-  HorizontalRotateSpeed: 1
-  VerticalRotateSpeed: 0.5
+  HorizontalRotateSpeed: 3
+  VerticalRotateSpeed: 2
   value: 0
   smoothTime: 0.3
   rotateSpeed: 3
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_TransparentLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_MinimumDistanceFromTarget: 1
+  m_MinimumDistanceFromTarget: 0.01
   m_AvoidObstacles: 1
   m_DistanceLimit: 0
   m_MinimumOcclusionTime: 0
@@ -184,10 +184,10 @@ MonoBehaviour:
   m_LookaheadIgnoreY: 0
   m_XDamping: 0.2
   m_YDamping: 0.2
-  m_ZDamping: 0.2
+  m_ZDamping: 1.3
   m_ScreenX: 0.5
-  m_ScreenY: 0.555
-  m_CameraDistance: 4.38
+  m_ScreenY: 0.56
+  m_CameraDistance: 3.1
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0

@@ -16,6 +16,17 @@ public class MonsterBasic : MonoBehaviour {
     protected NavMeshAgent navMesh;
     protected int patrolPoint = 0;
     protected FieldOfView FieldOfView;
+    public bool IsAttacking = false;
+
+    public enum BattleSolution
+    {
+        MeleeAttack,
+        Runaway,
+        Close
+    }
+    [SerializeField]
+    public BattleSolution solution;
+
     [Header("MonsterSetting")]
     public float moveSpeed = 1f;
     public float MaxHealth = 1;
@@ -109,6 +120,10 @@ public class MonsterBasic : MonoBehaviour {
     {
     }
     protected virtual void e_Death()
+    {
+
+    }
+    public virtual void e_FoundPlayer()
     {
 
     }

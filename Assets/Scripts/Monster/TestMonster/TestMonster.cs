@@ -55,6 +55,11 @@ public class TestMonster : MonsterBasic {
                 patrolPoint = patrolPoint % patrolArray.Length;
             }
         }
+
+        if(patrolArray.Length == 0)
+        {
+            animator.SetFloat("Speed", 0);
+        }
     }
 
 
@@ -132,7 +137,7 @@ public class TestMonster : MonsterBasic {
     // Need fix to NavPath
     private void InstantlyTurn()
     {
-        //When on target -> dont rotate!
+        // When on target -> dont rotate!
         /*if ((destination - transform.position).magnitude < 0.1f) return;
 
         Vector3 direction = (destination - transform.position).normalized;

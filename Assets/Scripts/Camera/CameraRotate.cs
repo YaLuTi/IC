@@ -61,7 +61,7 @@ public class CameraRotate : MonoBehaviour {
                 if (MonstersList.Length > 1)
                 {
                     LockObj = MonstersList[1].gameObject;
-                    cinemachineVirtualCamera.LookAt = MonstersList[1].gameObject.transform;
+                    // cinemachineVirtualCamera.LookAt = MonstersList[1].gameObject.transform;
                     IsLock = !IsLock;
                 }
                 else

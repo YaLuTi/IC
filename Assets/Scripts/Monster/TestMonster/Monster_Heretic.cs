@@ -22,20 +22,12 @@ public class Monster_Heretic : TestMonster {
     public AudioAssets StepAssets;
     public AudioAssets[] SlashAssets;
 
-    enum BattleSolution
-    {
-        Stay,
-        Runaway,
-        Close
-    }
 
-    [SerializeField]
-    BattleSolution solution;
 
     // Use this for initialization
     void Start () {
         base.Start();
-        solution = BattleSolution.Stay;
+        // solution = BattleSolution.Stay;
     }
 	
 
@@ -61,9 +53,9 @@ public class Monster_Heretic : TestMonster {
             case BattleSolution.Close:
                 Close();
                 break;
-            case BattleSolution.Stay:
+            /*case BattleSolution.Stay:
                 Stay();
-                break;
+                break;*/
             default:
                 break;
         }
@@ -91,7 +83,7 @@ public class Monster_Heretic : TestMonster {
     {
         destination = Nav.GetCorners();
 
-        if (d < MeleeDistance)
+        /*if (d < MeleeDistance)
         {
             if (Mathf.Abs(AngleToPlayer) < 20 && d < 1.75f)
             {
@@ -138,7 +130,7 @@ public class Monster_Heretic : TestMonster {
             moveSpeed += (3f - moveSpeed) * 0.15f;
             animator.SetFloat("X", 0.15f, 0.1f, Time.deltaTime);
             animator.SetFloat("Y", 0.85f, 0.1f, Time.deltaTime);
-        }
+        }*/
 
         if(d > 20)
         {
@@ -193,7 +185,7 @@ public class Monster_Heretic : TestMonster {
             }
             else
             {
-                solution = BattleSolution.Stay;
+                // solution = BattleSolution.Stay;
             }
         }
     }
