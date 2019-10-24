@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour {
     [Header("Game Value")]
     public float Default_MoveSpeed;
     public float Lock_MoveSpeed;
+    public float MoveSpeedMultiplier = 1;
 
     public Transform cameraTransform;
     Vector3 camForward;
@@ -38,7 +39,7 @@ public class PlayerMove : MonoBehaviour {
     float m_TurnAmount;
     float m_ForwardAmount;
     public bool Rotateable = true;
-    bool IsDodging;
+    public bool IsDodging;
     bool IsSteping;
     bool IsLock = false;
     // Use this for initialization
@@ -259,7 +260,7 @@ public class PlayerMove : MonoBehaviour {
 
     void AnimatorUpdate()
     {
-        m_Animator.SetFloat("Speed", move.z, 0.05f, Time.deltaTime);
+        m_Animator.SetFloat("Speed", move.z, 0.1f, Time.deltaTime);
         m_Animator.SetFloat("Turn", m_TurnAmount, 0.25f, Time.deltaTime);
         // m_Animator.SetBool("IsDodging", IsDodging);
         // m_Animator.SetBool("IsSteping", IsSteping);
@@ -274,7 +275,7 @@ public class PlayerMove : MonoBehaviour {
         // this allows us to modify the positional speed before it's applied.
         if (Time.deltaTime > 0)
         {
-            Vector3 v = (m_Animator.deltaPosition * 0.01f * moveSpeed) / Time.deltaTime;
+            Vector3 v = (m_Animator.deltaPosition * 0.01f * moveSpeed * MoveSpeedMultiplier) / Time.deltaTime;
             transform.position += v;
         }
     }

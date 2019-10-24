@@ -7,10 +7,12 @@ public class PlayerCombatEventer : MonoBehaviour
     // Start is called before the first frame update
     Animator animator;
     AnimationEvent PlayingEvent;
-    AnimationEvent NextEvent;
+    public AnimationEvent NextEvent;
     AnimatorStateInfo StateInfo;
     PlayerHP playerHP;
     PlayerMove playerMove;
+
+    public int ComboCount = 0;
 
     bool AnimatorChange = true; // Unity Animator need transtion. Use this to know is Animator already change.
     void Start()
@@ -29,10 +31,14 @@ public class PlayerCombatEventer : MonoBehaviour
             if (PlayingEvent.Tag == "Dodge") playerMove.Rotateable = false;
             if (animator.IsInTransition(0)) return;
             StateInfo = animator.GetCurrentAnimatorStateInfo(0);
-            if (PlayingEvent.Tag == "Attack") animator.SetBool("IsOnCombo", true);
+            if (PlayingEvent.Tag == "Attack")
+            {
+                ComboCount = 40;
+                animator.SetBool("IsOnCombo", true);
+            }
             if (StateInfo.normalizedTime > PlayingEvent.EndTime)
             {
-                if (PlayingEvent.Tag == "Attack") animator.SetBool("IsOnCombo", false);
+                // if (PlayingEvent.Tag == "Attack") animator.SetBool("IsOnCombo", false);
                 if (PlayingEvent.Tag == "Dodge") playerMove.Rotateable = true;
                 PlayingEvent = null;
                 if(NextEvent != null)
@@ -40,9 +46,16 @@ public class PlayerCombatEventer : MonoBehaviour
                     PlayingEvent = NextEvent;
                     NextEvent = null;
                 }
-                Debug.Log("Clear");
             }
             // Debug.Log(StateInfo.normalizedTime);
+        }
+        if(ComboCount > 0)
+        {
+            ComboCount--;
+            if(ComboCount == 0)
+            {
+                animator.SetBool("IsOnCombo", false);
+            }
         }
     }
 
@@ -63,6 +76,12 @@ public class PlayerCombatEventer : MonoBehaviour
                 animator.SetTrigger("Attack");
                 return true;
             }
+            if(NextEvent != null && animationEvent.Tag == "Dodge")
+            {
+                NextEvent = animationEvent;
+                animator.ResetTrigger("Attack");
+                return true;
+            }
             if (!playerHP.CheckSP(animationEvent.CostStamina)) return false;
             if (animator.IsInTransition(0))
             {
@@ -71,7 +90,7 @@ public class PlayerCombatEventer : MonoBehaviour
             if (animationEvent.Tag == "Dodge")
             {
                 StateInfo = animator.GetCurrentAnimatorStateInfo(0);
-                if (StateInfo.normalizedTime > PlayingEvent.ReadyTime && StateInfo.normalizedTime < PlayingEvent.EndTime) return false;
+                if (StateInfo.normalizedTime < PlayingEvent.EndTime) return false;
             }
             if (PlayingEvent.InterruptLevel > animationEvent.InterruptLevel) return false;
             if (PlayingEvent.InterruptLevel == animationEvent.InterruptLevel && PlayingEvent.InterruptLevel != 0)

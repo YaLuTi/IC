@@ -38,6 +38,7 @@ public class WeaponColliderBasic : MonoBehaviour {
         Attacking = false;
     }
 
+    // Very 耗能
     private void OnTriggerStay(Collider other)
     {
         if (Attacking && !hitObject.Contains(other.gameObject.transform.root))
