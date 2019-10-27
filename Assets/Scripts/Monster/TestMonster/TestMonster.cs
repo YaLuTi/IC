@@ -75,7 +75,7 @@ public class TestMonster : MonsterBasic {
     {
         base.Damaged(damage, p);
         if (IsDeath) return;
-        animator.SetBool("IsLock", true);
+        // animator.SetBool("IsLock", true);
         Health -= damage;
 
         for(int i = 0; i < cutAudio.Length; i++)
@@ -83,6 +83,10 @@ public class TestMonster : MonsterBasic {
             cutAudio[i].Play(audioSource);
         }
 
+        foreach (AnimatorControllerParameter parameter in animator.parameters)
+        {
+            animator.ResetTrigger(parameter.name);
+        }
         animator.SetTrigger("Damaged");
         //StartCoroutine(DamagedEvent());
     }
@@ -128,7 +132,7 @@ public class TestMonster : MonsterBasic {
         {
             animator.ResetTrigger(parameter.name);
         }
-        animator.SetTrigger("Death");
+        animator.SetBool("IsDeath", true);
         IsDeath = true;
         this.enabled = false;
         moveSpeed = 0;

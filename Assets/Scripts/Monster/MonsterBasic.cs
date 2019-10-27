@@ -17,10 +17,12 @@ public class MonsterBasic : MonoBehaviour {
     protected int patrolPoint = 0;
     protected FieldOfView FieldOfView;
     public bool IsAttacking = false;
+    public bool IsStun = false;
 
     public enum BattleSolution
     {
         MeleeAttack,
+        LongRange,
         Runaway,
         Close
     }

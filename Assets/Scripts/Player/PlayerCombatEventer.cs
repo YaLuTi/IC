@@ -33,7 +33,7 @@ public class PlayerCombatEventer : MonoBehaviour
             StateInfo = animator.GetCurrentAnimatorStateInfo(0);
             if (PlayingEvent.Tag == "Attack")
             {
-                ComboCount = 40;
+                ComboCount = 30;
                 animator.SetBool("IsOnCombo", true);
             }
             if (StateInfo.normalizedTime > PlayingEvent.EndTime)
@@ -44,6 +44,7 @@ public class PlayerCombatEventer : MonoBehaviour
                 if(NextEvent != null)
                 {
                     PlayingEvent = NextEvent;
+                    if (PlayingEvent.Tag == "Dodge") animator.SetTrigger("IsDodging");
                     NextEvent = null;
                 }
             }
@@ -76,12 +77,6 @@ public class PlayerCombatEventer : MonoBehaviour
                 animator.SetTrigger("Attack");
                 return true;
             }
-            if(NextEvent != null && animationEvent.Tag == "Dodge")
-            {
-                NextEvent = animationEvent;
-                animator.ResetTrigger("Attack");
-                return true;
-            }
             if (!playerHP.CheckSP(animationEvent.CostStamina)) return false;
             if (animator.IsInTransition(0))
             {
@@ -90,6 +85,13 @@ public class PlayerCombatEventer : MonoBehaviour
             if (animationEvent.Tag == "Dodge")
             {
                 StateInfo = animator.GetCurrentAnimatorStateInfo(0);
+                if (NextEvent != null && PlayingEvent.Tag == "Attack")
+                {
+                    Debug.Log("D");
+                    NextEvent = animationEvent;
+                    animator.ResetTrigger("Attack");
+                    return true;
+                }
                 if (StateInfo.normalizedTime < PlayingEvent.EndTime) return false;
             }
             if (PlayingEvent.InterruptLevel > animationEvent.InterruptLevel) return false;

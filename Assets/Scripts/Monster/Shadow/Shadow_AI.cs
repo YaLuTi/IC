@@ -51,10 +51,13 @@ public class Shadow_AI : TestMonster
         solution = BattleSolution.MeleeAttack;
 
         // if (IsAttacking) return;
+        if (IsStun) return;
         switch (solution)
         {
             case BattleSolution.MeleeAttack:
                 animator.SetFloat("Speed", 1);
+
+
                 if (LongAttacking)
                 {
                     LongAttackCount += Time.deltaTime;
@@ -110,11 +113,17 @@ public class Shadow_AI : TestMonster
                 animator.ResetTrigger(parameter.name);
             }
         }
-        animator.SetBool("IsDeath", true);
     }
     protected override void e_Patrol()
     {
         base.e_Patrol();
+    }
+
+    public override void Damaged(float damage, Vector3 p)
+    {
+        base.Damaged(damage, p);
+        IsStun = true;
+        LongAttacking = false;
     }
 
     protected override void UpdateAnimator()

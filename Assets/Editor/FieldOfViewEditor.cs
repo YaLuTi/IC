@@ -6,16 +6,17 @@ using UnityEditor;
 [CustomEditor(typeof(FieldOfView))]
 public class FieldOfViewEditor : Editor {
 
-    /*private void OnSceneGUI()
+    private void OnSceneGUI()
     {
         FieldOfView fieldOfView = (FieldOfView)target;
-        Handles.color = Color.red;
+        Handles.color = Color.white;
         Handles.DrawWireArc(fieldOfView.transform.position, Vector3.up, Vector3.forward, 360, fieldOfView.Radius);
 
         Vector3 viewAngleA = fieldOfView.DirFromAngle(-fieldOfView.Angle / 2, false);
         Vector3 viewAngleB = fieldOfView.DirFromAngle(+fieldOfView.Angle / 2, false);
 
+        Handles.color = Color.red;
         Handles.DrawLine(fieldOfView.transform.position, fieldOfView.transform.position + viewAngleA * fieldOfView.Radius);
         Handles.DrawLine(fieldOfView.transform.position, fieldOfView.transform.position + viewAngleB * fieldOfView.Radius);
-    }*/
+    }
 }
