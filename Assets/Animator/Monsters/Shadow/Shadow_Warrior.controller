@@ -106,20 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7308f22f3df46fb4dad85f4e40bc82ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114251793804070866
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a655cbd48c316b45ba5023d347c12df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartTime: 0.35
-  EndTime: 0.42
 --- !u!114 &114292077578904688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,6 +132,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7308f22f3df46fb4dad85f4e40bc82ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114387006057065504
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a655cbd48c316b45ba5023d347c12df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartTime: 0.35
+  EndTime: 0.42
+--- !u!114 &114469799716393678
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a655cbd48c316b45ba5023d347c12df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartTime: 0
+  EndTime: 0
 --- !u!114 &114528249799693016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -974,8 +988,8 @@ AnimatorState:
   m_Transitions:
   - {fileID: 1101856743265604244}
   m_StateMachineBehaviours:
-  - {fileID: 114251793804070866}
   - {fileID: 114898964901267256}
+  - {fileID: 114387006057065504}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -998,7 +1012,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: New State 2
-  m_Speed: 0.3
+  m_Speed: 0.45
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101721630267341316}
@@ -1241,7 +1255,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Rotate
-  m_Speed: 0.3
+  m_Speed: 0.45
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101742182289586286}
@@ -1388,7 +1402,7 @@ AnimatorStateMachine:
     m_Position: {x: 324, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102514313651429298}
-    m_Position: {x: 660, y: 60, z: 0}
+    m_Position: {x: 756, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102645236818634922}
     m_Position: {x: 588, y: -84, z: 0}

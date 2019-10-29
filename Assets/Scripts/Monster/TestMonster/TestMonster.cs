@@ -25,7 +25,10 @@ public class TestMonster : MonsterBasic {
 	protected override void Update () {
 
         base.Update();
-        InstantlyTurn();
+        if (attackstates != Attackstates.NuN || attackstates != Attackstates.Death)
+        {
+            InstantlyTurn();
+        }
         
         UpdateAnimator();
     }
@@ -39,10 +42,11 @@ public class TestMonster : MonsterBasic {
     protected override void e_Patrol()
     {
         base.e_Patrol();
-        // navMesh.SetDestination(patrolArray[patrolPoint]);
         if (patrolArray.Length > 0)
         {
-            destination = patrolArray[patrolPoint];
+            Nav.target = patrolArray[patrolPoint];
+            destination = Nav.GetCorners();
+            // navMesh.SetDestination(patrolArray[patrolPoint]);
         }
 
         if (patrolArray.Length > 0)
@@ -88,6 +92,19 @@ public class TestMonster : MonsterBasic {
             animator.ResetTrigger(parameter.name);
         }
         animator.SetTrigger("Damaged");
+
+        Collider[] targets = Physics.OverlapSphere(transform.position, 10, LayerMask.GetMask("Creature"));
+
+        for (int i = 0; i < targets.Length; i++)
+        {
+            MonsterBasic monster = targets[i].GetComponent<MonsterBasic>();
+            if(monster != null && !monster.IsEventMonster)
+            {
+                monster.SetAttack();
+            }
+        }
+
+        SetAttack();
         //StartCoroutine(DamagedEvent());
     }
 
@@ -108,6 +125,8 @@ public class TestMonster : MonsterBasic {
     {
         base.e_Attacking();
 
+        Nav.target = player.transform.position;
+        destination = Nav.GetCorners();
         /*destination = Nav.GetCorners();
         
 
@@ -119,6 +138,12 @@ public class TestMonster : MonsterBasic {
         {
             animator.SetTrigger("At");
         }*/
+    }
+
+    protected override void e_NuN()
+    {
+        base.e_NuN();
+        animator.SetFloat("Speed", 0);
     }
 
     protected override void e_Death()

@@ -6,7 +6,7 @@ public class PlayerCombatEventer : MonoBehaviour
 {
     // Start is called before the first frame update
     Animator animator;
-    AnimationEvent PlayingEvent;
+    public AnimationEvent PlayingEvent;
     public AnimationEvent NextEvent;
     AnimatorStateInfo StateInfo;
     PlayerHP playerHP;
@@ -33,7 +33,7 @@ public class PlayerCombatEventer : MonoBehaviour
             StateInfo = animator.GetCurrentAnimatorStateInfo(0);
             if (PlayingEvent.Tag == "Attack")
             {
-                ComboCount = 30;
+                ComboCount = 20;
                 animator.SetBool("IsOnCombo", true);
             }
             if (StateInfo.normalizedTime > PlayingEvent.EndTime)
@@ -71,7 +71,7 @@ public class PlayerCombatEventer : MonoBehaviour
         if (PlayingEvent != null)
         {
             // IMPORTANT  Now can't do low stamina dodge
-            if (NextEvent == null && animationEvent.Tag == "Attack")
+            if (NextEvent == null && animationEvent.Tag == "Attack" && PlayingEvent.Tag == "Attack")
             {
                 NextEvent = animationEvent;
                 animator.SetTrigger("Attack");

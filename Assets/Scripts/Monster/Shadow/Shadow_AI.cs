@@ -18,13 +18,13 @@ public class Shadow_AI : TestMonster
         base.Start();
         animator.SetFloat("Speed", moveSpeed);
         // attackstates = Attackstates.Attacking;
+        destination = Nav.GetCorners();
     }
 
     protected override void Update()
     {
         PlayerDistance = Mathf.Abs(Vector3.Distance(player.transform.position, transform.position));
         base.Update();
-        destination = Nav.GetCorners();
         CD();
     }
 

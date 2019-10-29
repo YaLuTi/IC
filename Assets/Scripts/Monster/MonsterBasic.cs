@@ -34,6 +34,7 @@ public class MonsterBasic : MonoBehaviour {
     public float MaxHealth = 1;
     protected float Health = 1f;
     public float Stamina = 10f;
+    public bool IsEventMonster = false;
     [Header("Effect")]
     public Slider HPSlider;
     public GameObject DamagedParticle;
@@ -50,7 +51,7 @@ public class MonsterBasic : MonoBehaviour {
     protected Attackstates attackstates;
 	// Use this for initialization
 	protected virtual void Start () {
-        attackstates = Attackstates.Patrol;
+        // attackstates = Attackstates.Patrol;
         player = GameObject.FindGameObjectWithTag("Player");
         animator = GetComponent<Animator>();
         navMesh = GetComponent<NavMeshAgent>();
@@ -81,6 +82,9 @@ public class MonsterBasic : MonoBehaviour {
                 break;
             case Attackstates.Death:
                 e_Death();
+                break;
+            case Attackstates.NuN:
+                e_NuN();
                 break;
             default:
                 break;
@@ -122,6 +126,10 @@ public class MonsterBasic : MonoBehaviour {
     {
     }
     protected virtual void e_Death()
+    {
+
+    }
+    protected virtual void e_NuN()
     {
 
     }

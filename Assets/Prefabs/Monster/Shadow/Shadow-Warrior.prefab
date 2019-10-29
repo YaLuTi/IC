@@ -317,7 +317,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031527483390412947}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.37, z: 0.1}
@@ -393,7 +393,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031527483390412951}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.4, z: 0.2}
@@ -536,7 +536,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031527483390412959}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.34, z: 0.1}
@@ -796,7 +796,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031527483390412975}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.69, z: 0.1}
@@ -1335,7 +1335,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031527483390413009}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.3112541, y: 0.59048575, z: 0.24974632}
@@ -1410,7 +1410,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031527483390413013}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.15
@@ -1622,7 +1622,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031527483390413019}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.26, z: 0.1}
@@ -1698,7 +1698,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031527483390413023}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.36, z: 0.1}
@@ -1713,12 +1713,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1031527483390711155}
   - component: {fileID: 1031527483383003927}
-  - component: {fileID: 1031527482831574151}
   - component: {fileID: 1031527482831574148}
   - component: {fileID: 1031527483390413140}
   - component: {fileID: 1031527482831574149}
   - component: {fileID: 1031527482831574150}
   - component: {fileID: 5457100802422951051}
+  - component: {fileID: 1979582481}
+  - component: {fileID: 1979582484}
   m_Layer: 9
   m_Name: Shadow-Warrior
   m_TagString: Monster
@@ -1761,22 +1762,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!54 &1031527482831574151
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031527483390413139}
-  serializedVersion: 2
-  m_Mass: 1e+9
-  m_Drag: 0
-  m_AngularDrag: 0.5
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!82 &1031527482831574148
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1886,8 +1871,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  patrolArray: []
+  patrolArray:
+  - {x: 5.151691, y: -1.09, z: -4.08959}
+  - {x: 6, y: -1.09, z: 4.8}
   IsAttacking: 0
+  IsStun: 0
   solution: 0
   moveSpeed: 2
   MaxHealth: 5
@@ -1896,9 +1884,9 @@ MonoBehaviour:
   DamagedParticle: {fileID: 1876859476893648, guid: b7c8ee648e6143b4c855a29558fc58c5,
     type: 3}
   DamagedAssets: {fileID: 11400000, guid: ba3d7babf4577804190064555ad812a7, type: 2}
-  attackstates: 0
+  attackstates: 4
   BattleRange: 10
-  AngularSpeed: 1
+  AngularSpeed: 4
   cutAudio: []
   LongAttackRange: 4
   RotateAttackRange: 2
@@ -1915,7 +1903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1e87c4ae109d34f8b2c3eceaa5f774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {x: 0, y: 0, z: 0}
   PlayerMomentum: 0
 --- !u!114 &1031527482831574150
 MonoBehaviour:
@@ -1929,8 +1917,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9323534712f21a049891d507d8a55528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Radius: 8
-  Angle: 160
+  Radius: 0
+  Angle: 43
   TargetMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -2396,6 +2384,36 @@ MonoBehaviour:
     spineStiffness: 0.5
     pullBodyVertical: 0.5
     pullBodyHorizontal: 0
+--- !u!54 &1979582481
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031527483390413139}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!136 &1979582484
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031527483390413139}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.4867065
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.77485394, z: 0}
 --- !u!1 &1031527483390413141
 GameObject:
   m_ObjectHideFlags: 0
@@ -2531,7 +2549,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031527483390413155}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.69, z: 0.1}
@@ -2668,7 +2686,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031527483390413163}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.4, z: 0.2}

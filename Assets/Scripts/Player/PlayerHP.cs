@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using XInputDotNetPure;
+
 
 public class PlayerHP : MonoBehaviour {
 
@@ -27,8 +29,8 @@ public class PlayerHP : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
+	void Update ()
+    {
         if (HPslider == null || SPslider == null) return;
         HPslider.value = HP / MaxHP;
         SPslider.value = SP / MaxSP;
