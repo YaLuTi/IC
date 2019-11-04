@@ -361,22 +361,22 @@ PrefabInstance:
     - target: {fileID: 1031527483390711155, guid: 65748da7c071e1948acf7ff8be933667,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1031527483390711155, guid: 65748da7c071e1948acf7ff8be933667,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.95853674
+      value: 0.97867554
       objectReference: {fileID: 0}
     - target: {fileID: 1031527483390711155, guid: 65748da7c071e1948acf7ff8be933667,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1031527483390711155, guid: 65748da7c071e1948acf7ff8be933667,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.28496912
+      value: -0.20541209
       objectReference: {fileID: 0}
     - target: {fileID: 1031527483390711155, guid: 65748da7c071e1948acf7ff8be933667,
         type: 3}
@@ -391,12 +391,22 @@ PrefabInstance:
     - target: {fileID: 1031527483390711155, guid: 65748da7c071e1948acf7ff8be933667,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 146.886
+      value: 203.70699
       objectReference: {fileID: 0}
     - target: {fileID: 1031527483390711155, guid: 65748da7c071e1948acf7ff8be933667,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031527482831574150, guid: 65748da7c071e1948acf7ff8be933667,
+        type: 3}
+      propertyPath: Radius
+      value: 5.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031527482831574150, guid: 65748da7c071e1948acf7ff8be933667,
+        type: 3}
+      propertyPath: Angle
+      value: 143
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65748da7c071e1948acf7ff8be933667, type: 3}
@@ -1295,6 +1305,7 @@ MonoBehaviour:
   moveSpeed: 1
   MaxHealth: 1
   Stamina: 10
+  IsEventMonster: 0
   HPSlider: {fileID: 0}
   DamagedParticle: {fileID: 0}
   DamagedAssets: {fileID: 0}
@@ -2260,7 +2271,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1068519959}
   m_LocalRotation: {x: -0, y: -0, z: -0.3397404, w: 0.9405193}
-  m_LocalPosition: {x: 0.91, y: -0.73, z: -5.532991}
+  m_LocalPosition: {x: -3.44, y: -1.23, z: -5.532991}
   m_LocalScale: {x: 5.1927, y: 1, z: 2.0927}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3307,16 +3318,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114230619761517108, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114230619761517108, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 224052273010644056, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3436,6 +3437,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114230619761517108, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114230619761517108, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d, type: 3}
@@ -4563,16 +4574,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1581245457431482, guid: dff67340ac2ac5a47b33db224a95757c,
         type: 3}
-    - target: {fileID: 1914541610575434647, guid: 87505ee78753d4d488d6c720cc77fe84,
-        type: 3}
-      propertyPath: RightStep
-      value: 
-      objectReference: {fileID: 862102765}
-    - target: {fileID: 1914541610575434647, guid: 87505ee78753d4d488d6c720cc77fe84,
-        type: 3}
-      propertyPath: LeftStep
-      value: 
-      objectReference: {fileID: 1598076904}
     - target: {fileID: 1914541610575434649, guid: 87505ee78753d4d488d6c720cc77fe84,
         type: 3}
       propertyPath: HPslider
@@ -4583,6 +4584,16 @@ PrefabInstance:
       propertyPath: SPslider
       value: 
       objectReference: {fileID: 1636606100}
+    - target: {fileID: 1914541610575434647, guid: 87505ee78753d4d488d6c720cc77fe84,
+        type: 3}
+      propertyPath: RightStep
+      value: 
+      objectReference: {fileID: 862102765}
+    - target: {fileID: 1914541610575434647, guid: 87505ee78753d4d488d6c720cc77fe84,
+        type: 3}
+      propertyPath: LeftStep
+      value: 
+      objectReference: {fileID: 1598076904}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87505ee78753d4d488d6c720cc77fe84, type: 3}
 --- !u!1001 &2521634163884578479

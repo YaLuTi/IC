@@ -120,6 +120,69 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartTime: 0.11
   EndTime: 0.25
+--- !u!114 &114331297016808028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588ebf372aaecd747b68f6ff3ed4db97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.0024375916
+      value: 0.50146484
+      inSlope: 0.26571715
+      outSlope: 0.26571715
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.18093027
+    - serializedVersion: 3
+      time: 0.13828649
+      value: 0.30743524
+      inSlope: 0.41318235
+      outSlope: 0.41318235
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.3525041
+      value: 1.5092071
+      inSlope: -0.03105676
+      outSlope: -0.03105676
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.17660479
+    - serializedVersion: 3
+      time: 0.51237524
+      value: 1.0104944
+      inSlope: -1.3066467
+      outSlope: -1.3066467
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9951477
+      value: 0.49949646
+      inSlope: -1.0584652
+      outSlope: -1.0584652
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114366775084739442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,8 +207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a655cbd48c316b45ba5023d347c12df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartTime: 0.35
-  EndTime: 0.42
+  StartTime: 0.34
+  EndTime: 0.41
 --- !u!114 &114469799716393678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -990,6 +1053,7 @@ AnimatorState:
   m_StateMachineBehaviours:
   - {fileID: 114898964901267256}
   - {fileID: 114387006057065504}
+  - {fileID: 114331297016808028}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -998,7 +1062,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 96f96d59351adc743ae0efa01a0ecc30, type: 3}
+  m_Motion: {fileID: 7400000, guid: 828ed9f65b14ce54694a84afb2823201, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1456,7 +1520,7 @@ AnimatorStateMachine:
     m_Position: {x: 564, y: -240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102161293229962926}
-    m_Position: {x: 228, y: -60, z: 0}
+    m_Position: {x: 216, y: -96, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102061757295364382}
     m_Position: {x: 576, y: -120, z: 0}
