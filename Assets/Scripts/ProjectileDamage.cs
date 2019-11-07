@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ProjectileDamage : MonoBehaviour
 {
+    public LayerMask layerMask;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +20,17 @@ public class ProjectileDamage : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (((1 << collision.gameObject.layer) & layerMask) != 0)
         {
-            collision.gameObject.GetComponent<PlayerHP>().Damaged(4);
+            Debug.Log(1);
+            if (collision.gameObject.tag == "Player")
+            {
+                collision.gameObject.GetComponent<PlayerHP>().Damaged(4);
+            }else if (collision.gameObject.tag == "Monster")
+            {
+                Debug.Log("D");
+                collision.gameObject.GetComponent<MonsterBasic>().Damaged(1, collision.contacts[0].point);
+            }
         }
-        Debug.Log(1);
     }
 }

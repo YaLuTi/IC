@@ -22,6 +22,10 @@ public class MouseToVectorEditor : Editor {
 
     public override void OnInspectorGUI()
     {
+        EditorGUILayout.Space();
+        EditorGUILayout.Space();
+        EditorGUILayout.Space();
+        EditorGUILayout.Space();
         base.OnInspectorGUI();
         EditorGUILayout.Vector3Field("MousePointPosition", mousePosition);
     }

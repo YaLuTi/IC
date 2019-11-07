@@ -10,6 +10,14 @@ using UnityEngine.UI;
 [RequireComponent(typeof(AINav))]
 public class MonsterBasic : MonoBehaviour {
 
+    [Header("Effect")]
+    public GameObject DamagedParticle;
+    [Header("Audio")]
+    public AudioClip[] DamagedAudios;
+    public RangedFloat volume;
+    [MinMaxRange(0f, 2f)]
+    public RangedFloat pitch;
+
     [Header("AI")]
     public GameObject player;
     public Vector3[] patrolArray;
@@ -30,15 +38,12 @@ public class MonsterBasic : MonoBehaviour {
     public BattleSolution solution;
 
     [Header("MonsterSetting")]
+    public Slider HPSlider;
     public float moveSpeed = 1f;
     public float MaxHealth = 1;
     protected float Health = 1f;
     public float Stamina = 10f;
     public bool IsEventMonster = false;
-    [Header("Effect")]
-    public Slider HPSlider;
-    public GameObject DamagedParticle;
-    public AudioAssets DamagedAssets;
     protected AudioSource audioSource;
     protected AINav Nav;
     protected bool IsDeath = false;
@@ -105,7 +110,12 @@ public class MonsterBasic : MonoBehaviour {
     {
         GameObject g = Instantiate(DamagedParticle, p, Quaternion.identity);
         Destroy(g, 3);
-        DamagedAssets.Play(audioSource);
+        if (DamagedAudios.Length == 0) return;
+
+        audioSource.clip = DamagedAudios[Random.Range(0, DamagedAudios.Length)];
+        audioSource.volume = Random.Range(volume.minValue, volume.maxValue);
+        audioSource.pitch = Random.Range(pitch.minValue, pitch.maxValue);
+        audioSource.PlayOneShot(audioSource.clip);
     }
 
     public void SetAttack()

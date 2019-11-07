@@ -14,9 +14,8 @@ public class Animator_ProjectileSpawner : StateMachineBehaviour
     {
         if(animatorStateInfo.normalizedTime >= ActiveTime && !Shoot)
         {
-            transforms = animator.gameObject.GetComponent<ProjectileTransform>();
-            Transform t = transforms.GetTransform(FirePosition);
-            Instantiate(projectile, t.position, t.rotation);
+
+            animator.GetComponent<ProjectileTransform>().FireProjectile(0);
             Shoot = true;
         }
     }

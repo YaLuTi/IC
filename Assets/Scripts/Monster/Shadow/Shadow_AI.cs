@@ -57,7 +57,7 @@ public class Shadow_AI : TestMonster
             case BattleSolution.MeleeAttack:
                 animator.SetFloat("Speed", 1);
 
-
+                /*
                 if (LongAttacking)
                 {
                     LongAttackCount += Time.deltaTime;
@@ -71,28 +71,27 @@ public class Shadow_AI : TestMonster
                         animator.SetTrigger("LongAttackReady");
                         LongAttacking = false; LongAttackCount = 0;
                     }
-                }
+                }*/
                 if (PlayerDistance < RotateAttackRange && !IsAttacking && RotateAttackCD >= 5f)
                 {
                     RotateAttackCD = 0;
                     animator.SetTrigger("RotateAttack");
                     IsAttacking = true;
                 }
+                
                 if (PlayerDistance < LongAttackRange && !IsAttacking && LongAttackCD >= 7.5f)
                 {
                     LongAttackCD = 0;
-                    animator.SetTrigger("LongAttackPrepare");
-                    LongAttacking = true;
+                    animator.SetTrigger("LongAttackReady");
+                    // LongAttacking = true;
                     IsAttacking = true;
                 }
-                if(LongAttackCD < 7.5f && RotateAttackCD < 5f)
+                if(PlayerDistance < MeleeAttackRange && !IsAttacking)
                 {
-                    if(PlayerDistance < 2 && !IsAttacking)
-                    {
-                        animator.SetTrigger("MeleeAttack");
-                        IsAttacking = true;
-                    }
+                    animator.SetTrigger("MeleeAttack");
+                    IsAttacking = true;
                 }
+                
                 break;
             default:
                 break;

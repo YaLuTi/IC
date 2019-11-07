@@ -27,8 +27,8 @@ public class EZCamera : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        Vector3 hh = Input.GetAxis("Horizontal") * transform.right;
-        Vector3 vv = Input.GetAxis("Vertical") * transform.forward;
+        Vector3 hh = (Input.GetAxis("Horizontal")) * transform.right;
+        Vector3 vv = (Input.GetAxis("Vertical")) * transform.forward;
         float yy = 0;
 
         if (Input.GetButton("Fire2"))
@@ -59,8 +59,8 @@ public class EZCamera : MonoBehaviour {
 
         transform.position += (hh + vv + new Vector3(0, yy, 0)) * moveSpeed * MoveSpeedMultiplier;
 
-        float h = Input.GetAxis("Mouse X");
-        float v = Input.GetAxis("Mouse Y");
+        float h = Input.GetAxis("Mouse X") + Input.GetAxis("CameraHorizontal");
+        float v = Input.GetAxis("Mouse Y") - Input.GetAxis("CameraVertical");
 
         Vector3 e = transform.eulerAngles;
         e += new Vector3(-v, h, 0) * RotateSpeed;
