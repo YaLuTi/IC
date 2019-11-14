@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{C11A4639-4078-4405-8938-9A53AA211065}" SchemaVersion="94" RootDocumentID="{756C3D5D-F862-4F55-AAAD-916DFFA0A47E}">
+	<SoundcasterSessions>
+		<WorkUnit Name="Test" ID="{C11A4639-4078-4405-8938-9A53AA211065}" OwnerID="{756C3D5D-F862-4F55-AAAD-916DFFA0A47E}" PersistMode="Nested">
+			<ChildrenList>
+				<SoundcasterSession Name="New Soundcaster Session" ID="{84B9D51C-E839-4170-B81D-1DA0AB866222}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="FireIdleLoop" ID="{0E508761-064C-4FBA-B0BF-7EFCF3D9D3D3}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundcasterSessions>
+</WwiseDocument>

@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 64
   m_IsActive: 1
 --- !u!4 &7960544081483407795
 Transform:
@@ -33,19 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6086999294356297286
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6086999295303553312}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.36535025, y: 0.29541183, z: 2.346545}
-  m_Center: {x: -3.9360259, y: 0.22270596, z: -0.00000074505806}
 --- !u!65 &6086999294522011891
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -72,6 +59,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.36535025, y: 0.15736157, z: 2.346545}
   m_Center: {x: -3.5706756, y: 0.15368077, z: -0.000000017695129}
+--- !u!65 &6086999294356297286
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6086999295303553312}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.36535025, y: 0.29541183, z: 2.346545}
+  m_Center: {x: -3.9360259, y: 0.22270596, z: -0.00000074505806}
 --- !u!1001 &6086999294929620315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: fd476973398574249bb318d1309c10f8, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4
+      value: 68
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fd476973398574249bb318d1309c10f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -162,7 +162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: fd476973398574249bb318d1309c10f8, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4
+      value: 68
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fd476973398574249bb318d1309c10f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -239,7 +239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 208d3cf6201fa844fa58d5613479d3ca, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4
+      value: 68
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 208d3cf6201fa844fa58d5613479d3ca, type: 3}
       propertyPath: m_LocalPosition.x

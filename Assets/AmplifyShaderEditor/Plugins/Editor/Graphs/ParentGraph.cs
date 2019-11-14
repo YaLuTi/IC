@@ -42,7 +42,7 @@ namespace AmplifyShaderEditor
 		public event MasterNode.OnMaterialUpdated OnShaderUpdatedEvent;
 
 		private bool m_afterDeserializeFlag = true;
-
+		private bool m_lateOptionsRefresh = false;
 		private bool m_foundDuplicates = false;
 
 		//[SerializeField]
@@ -1242,12 +1242,13 @@ namespace AmplifyShaderEditor
 				m_nodes[ i ].OnNodeLogicUpdate( drawInfo );
 			}
 
-			if( m_afterDeserializeFlag )
+			if( m_afterDeserializeFlag || m_lateOptionsRefresh )
 			{
 				m_afterDeserializeFlag = false;
+				m_lateOptionsRefresh = false;
 				if( CurrentCanvasMode == NodeAvailability.TemplateShader )
 				{
-					RefreshLinkedMasterNodes();
+					RefreshLinkedMasterNodes( true );
 					OnRefreshLinkedPortsComplete();
 					//RepositionTemplateNodes( CurrentMasterNode );
 				}
@@ -3008,7 +3009,7 @@ namespace AmplifyShaderEditor
 				m_multiPassMasterNodes.NodesList[ i ].OnRefreshLinkedPortsComplete();
 			}
 		}
-		public void RefreshLinkedMasterNodes()
+		public void RefreshLinkedMasterNodes( bool optionsUpdate = false )
 		{
 			if( DebugConsoleWindow.DeveloperMode )
 				Debug.Log( "Refresh linked master nodes" );
@@ -3066,7 +3067,7 @@ namespace AmplifyShaderEditor
 				}
 
 				m_multiPassMasterNodes.NodesList[ i ].Docking = visiblePorts <= 0;
-				if( !m_isLoading )
+				if( optionsUpdate )
 					m_multiPassMasterNodes.NodesList[ i ].ForceOptionsRefresh();
 			}
 		}
@@ -3204,7 +3205,7 @@ namespace AmplifyShaderEditor
 			}
 
 			if( refreshLinkedMasterNodes )
-				RefreshLinkedMasterNodes();
+				RefreshLinkedMasterNodes( true );
 
 			m_masterNodeId = newMasterNode.UniqueId;
 			newMasterNode.OnMaterialUpdatedEvent += OnMaterialUpdatedEvent;
@@ -3343,7 +3344,8 @@ namespace AmplifyShaderEditor
 						//currentPosition.y += newMasterNode.HeightEstimate + 10;
 					}
 				}
-				RefreshLinkedMasterNodes();
+				
+				RefreshLinkedMasterNodes( false );
 				OnRefreshLinkedPortsComplete();
 			}
 
@@ -3495,6 +3497,11 @@ namespace AmplifyShaderEditor
 			m_multiPassMasterNodes.NodesList[ mainOutputId ].CheckTemplateChanges();
 		}
 
+		public void SetLateOptionsRefresh()
+		{
+			m_lateOptionsRefresh = true;
+		}
+
 		public bool IsNormalDependent { get { return m_normalDependentCount > 0; } }
 
 		public void MarkToDeselect() { m_markedToDeSelect = true; }
@@ -3526,6 +3533,8 @@ namespace AmplifyShaderEditor
 			}
 		}
 		
+
+
 		public NodeAvailability CurrentCanvasMode { get { return m_currentCanvasMode; } set { m_currentCanvasMode = value; ParentWindow.LateRefreshAvailableNodes(); } }
 		public OutputNode CurrentOutputNode { get { return GetNode( m_masterNodeId ) as OutputNode; } }
 		public FunctionOutput CurrentFunctionOutput { get { return GetNode( m_masterNodeId ) as FunctionOutput; } }

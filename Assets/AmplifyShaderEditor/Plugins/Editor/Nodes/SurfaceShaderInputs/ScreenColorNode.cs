@@ -327,7 +327,7 @@ namespace AmplifyShaderEditor
 			{
 				for( int i = 0; i < ASEDeclareMacro.Length; i++ )
 				{
-					dataCollector.AddToMisc( ASEDeclareMacro[ i ]);
+					dataCollector.AddToDirectives( ASEDeclareMacro[ i ]);
 				}
 			}
 #endif
@@ -350,11 +350,11 @@ namespace AmplifyShaderEditor
 				dataCollector.AddToUniforms( UniqueId, DeclareOpaqueTextureSampler );
 #endif
 				valueName = FetchVarName + OutputId;
-				dataCollector.AddToDefines( UniqueId, OpaqueTextureDefine );
+				dataCollector.AddToDirectives( OpaqueTextureDefine, -1 , AdditionalLineType.Define);
 				string uvCoords = GetUVCoords( ref dataCollector, ignoreLocalVar, false );
 				if( dataCollector.TemplateDataCollectorInstance.IsLWRP )
 				{
-					dataCollector.AddLocalVariable( UniqueId, m_currentPrecisionType, WirePortDataType.FLOAT4, valueName, string.Format( LWFetchOpaqueTexture, uvCoords ) );
+					dataCollector.AddLocalVariable( UniqueId, CurrentPrecisionType, WirePortDataType.FLOAT4, valueName, string.Format( LWFetchOpaqueTexture, uvCoords ) );
 				}
 				else
 				{
@@ -414,7 +414,7 @@ namespace AmplifyShaderEditor
 #else
 			string samplerOp = SamplerType + ( isProjecting ? "proj" : "" ) + "( " + propertyName + ", " + uvValue + " )";
 #endif
-			dataCollector.AddLocalVariable( UniqueId, UIUtils.PrecisionWirePortToCgType( m_currentPrecisionType, m_outputPorts[ 0 ].DataType ) + " " + ScreenColorStr + OutputId + " = " + samplerOp + ";" );
+			dataCollector.AddLocalVariable( UniqueId, UIUtils.PrecisionWirePortToCgType( CurrentPrecisionType, m_outputPorts[ 0 ].DataType ) + " " + ScreenColorStr + OutputId + " = " + samplerOp + ";" );
 			return ScreenColorStr + OutputId;
 		}
 
@@ -431,12 +431,12 @@ namespace AmplifyShaderEditor
 				string customScreenPos = null;
 
 				if( dataCollector.IsTemplate )
-					customScreenPos = dataCollector.TemplateDataCollectorInstance.GetScreenPos();
+					customScreenPos = dataCollector.TemplateDataCollectorInstance.GetScreenPos( CurrentPrecisionType );
 
 				if( isProjecting )
-					result = GeneratorUtils.GenerateGrabScreenPosition( ref dataCollector, UniqueId, m_currentPrecisionType, !dataCollector.UsingCustomScreenPos, customScreenPos );
+					result = GeneratorUtils.GenerateGrabScreenPosition( ref dataCollector, UniqueId, CurrentPrecisionType, !dataCollector.UsingCustomScreenPos, customScreenPos );
 				else
-					result = GeneratorUtils.GenerateGrabScreenPositionNormalized( ref dataCollector, UniqueId, m_currentPrecisionType, !dataCollector.UsingCustomScreenPos, customScreenPos );
+					result = GeneratorUtils.GenerateGrabScreenPositionNormalized( ref dataCollector, UniqueId, CurrentPrecisionType, !dataCollector.UsingCustomScreenPos, customScreenPos );
 			}
 
 			if( isProjecting && !dataCollector.IsSRP )

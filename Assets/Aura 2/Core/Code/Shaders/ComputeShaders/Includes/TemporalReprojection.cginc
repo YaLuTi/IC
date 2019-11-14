@@ -154,7 +154,7 @@ void ReprojectPreviousFrame(inout FP3 accumulationColor, FP3 unjitteredUnbiasedW
 	reprojectedPositionIsVisible = reprojectedPositionIsVisible && (reprojectedPreviousMaximumDepthSlice >= reprojectedId.z);
 	#endif
 
-	[branch]
+	BRANCH
     if (reprojectedPositionIsVisible)
     {
 		FP4 previousData = previousFrameLightingVolumeTexture.SampleLevel(_LinearClamp, reprojectedNormalizedPosition.xyz, 0);

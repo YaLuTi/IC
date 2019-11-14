@@ -49,7 +49,6 @@ namespace AmplifyShaderEditor
 
 		private bool m_reRegisterTemplateData = false;
 		private bool m_fireTemplateChange = false;
-		private bool m_fireDisableCheck = false;
 		private bool m_fetchMasterNodeCategory = false;
 
 		[SerializeField]
@@ -193,8 +192,9 @@ namespace AmplifyShaderEditor
 			base.CommonInit( uniqueId );
 			m_masterNodeCategory = 1;// First Template
 			m_marginPreviewLeft = 20;
-			m_shaderNameIsTitle = false;
+			m_shaderNameIsTitle = true;
 			m_customInspectorName = string.Empty;
+			m_customPrecision = true;
 		}
 
 		public override void ReleaseResources()
@@ -339,7 +339,7 @@ namespace AmplifyShaderEditor
 				{
 					SetAdditonalTitleText( string.Empty );
 				}
-				else
+				else if( m_templateMultiPass.SubShaders[ 0 ].MainPass != m_passIdx )
 				{
 					SetAdditonalTitleText( string.Format( SubTitleFormatterStr, m_subShaderIdx, m_passIdx ) );
 				}
@@ -370,8 +370,6 @@ namespace AmplifyShaderEditor
 				m_invisibleOptions = m_templateMultiPass.SubShaders[ m_subShaderIdx ].Passes[ m_passIdx ].InvisibleOptions;
 
 				m_originalPassName = m_templateMultiPass.SubShaders[ m_subShaderIdx ].Passes[ m_passIdx ].PassNameContainer.Data;
-
-				m_shaderNameIsTitle = ( m_templateMultiPass.SubShaders[ m_subShaderIdx ].Passes.Count == 1 );
 
 				if( m_templateMultiPass.SubShaders[ m_subShaderIdx ].LODContainer.Index > -1 )
 				{
@@ -424,11 +422,13 @@ namespace AmplifyShaderEditor
 				//RegisterProperties();
 				if( writeDefaultData )
 				{
-					ShaderName = m_templateMultiPass.DefaultShaderName;
+					//ShaderName = m_templateMultiPass.DefaultShaderName;
+					ShaderName = m_shaderName;
 					m_passName = m_templateMultiPass.SubShaders[ m_subShaderIdx ].Passes[ m_passIdx ].PassNameContainer.Data;
-					if( !m_templateMultiPass.IsSinglePass && !m_shaderNameIsTitle )
+					if( !m_templateMultiPass.IsSinglePass /*&& !m_shaderNameIsTitle*/ )
 					{
-						SetClippedTitle( m_passName );
+						if( m_templateMultiPass.SubShaders[ 0 ].MainPass != m_passIdx )
+							SetClippedTitle( m_passName );
 					}
 				}
 
@@ -454,8 +454,6 @@ namespace AmplifyShaderEditor
 			m_passOptions.SetReadOptions();
 			if( m_isMainOutputNode )
 				m_subShaderOptions.SetReadOptions();
-
-			m_fireDisableCheck = true;
 		}
 
 		bool UpdatePortInfo()
@@ -586,6 +584,7 @@ namespace AmplifyShaderEditor
 					}
 					else
 					{
+						module.BlendOpHelper.CurrentAlphaIndex = 1;
 						module.BlendOpHelper.SourceFactorAlpha = item.ActionBlendAlphaSource;
 						module.BlendOpHelper.DestFactorAlpha = item.ActionBlendAlphaDest;
 					}
@@ -803,14 +802,6 @@ namespace AmplifyShaderEditor
 					m_fetchMasterNodeCategory = false;
 					SetCategoryIdxFromTemplate();
 				}
-			}
-
-			if( m_fireDisableCheck )
-			{
-				m_fireDisableCheck = false;
-				m_passOptions.CheckDisable();
-				if( m_isMainOutputNode )
-					m_subShaderOptions.CheckDisable();
 			}
 
 			if( m_fireTemplateChange )
@@ -1256,17 +1247,13 @@ namespace AmplifyShaderEditor
 				}
 
 				EditorGUI.BeginChangeCheck();
-				DrawPrecisionProperty();
+				DrawPrecisionProperty( false );
 				if( EditorGUI.EndChangeCheck() )
 					ContainerGraph.CurrentPrecision = m_currentPrecisionType;
 				m_drawInstancedHelper.Draw( this );
 				m_fallbackHelper.Draw( this );
-				DrawCustomInspector( m_templateMultiPass.SRPtype == TemplateSRPType.HD );
-				EditorGUI.BeginChangeCheck();
+				DrawCustomInspector( m_templateMultiPass.SRPtype != TemplateSRPType.BuiltIn );
 				m_subShaderOptions.DrawCustomOptions( this );
-				if( EditorGUI.EndChangeCheck() )
-					m_fireDisableCheck = true;
-
 				m_dependenciesHelper.Draw( this, true );
 			}
 			//EditorGUILayout.LabelField( m_subShaderIdxStr );
@@ -1336,8 +1323,8 @@ namespace AmplifyShaderEditor
 				{
 					m_passName = m_templateMultiPass.SubShaders[ m_subShaderIdx ].Passes[ m_passIdx ].PassNameContainer.Data;
 				}
-				if( !m_templateMultiPass.IsSinglePass )
-					SetClippedTitle( m_passName );
+				//if( !m_templateMultiPass.IsSinglePass )
+				//	SetClippedTitle( m_passName );
 			}
 			EditorGUILayout.LabelField( Pass.Modules.PassUniqueName );
 			if( m_passModule.HasValidData )
@@ -1346,13 +1333,9 @@ namespace AmplifyShaderEditor
 			}
 
 			m_usePass.Draw( this, false );
-
-			EditorGUI.BeginChangeCheck();
 			m_passOptions.DrawCustomOptions( this );
-			if( EditorGUI.EndChangeCheck() )
-				m_fireDisableCheck = true;
-
 		}
+
 		bool CreateInstructionsForList( TemplateData templateData, ref List<InputPort> ports, ref string shaderBody, ref List<string> vertexInstructions, ref List<string> fragmentInstructions )
 		{
 			if( ports.Count == 0 )
@@ -1369,17 +1352,17 @@ namespace AmplifyShaderEditor
 					{
 						if( ports[ i ].Name.Contains( "Normal" ) )
 						{
-							m_currentDataCollector.AddToDefines( UniqueId, SRPMaterialNormalMapKeyword );
+							m_currentDataCollector.AddToDirectives( SRPMaterialNormalMapKeyword, -1, AdditionalLineType.Define );
 						}
 
 						if( ports[ i ].Name.Contains( "Alpha Clip Threshold" ) )
 						{
-							m_currentDataCollector.AddToDefines( UniqueId, SRPMaterialBlendModeAlphaClipThresholdKeyword );
+							m_currentDataCollector.AddToDirectives( SRPMaterialBlendModeAlphaClipThresholdKeyword, -1, AdditionalLineType.Define );
 						}
 
 						if( ports[ i ].Name.Contains( "Specular" ) )
 						{
-							m_currentDataCollector.AddToDefines( UniqueId, SRPLWMaterialSpecularKeyword );
+							m_currentDataCollector.AddToDirectives( SRPLWMaterialSpecularKeyword, -1, AdditionalLineType.Define );
 						}
 					}
 					//else if( m_templateMultiPass.SubShaders[ m_subShaderIdx ].Modules.SRPType == TemplateSRPType.HD )
@@ -1716,6 +1699,29 @@ namespace AmplifyShaderEditor
 		public void FillPropertyData( MasterNodeDataCollector dataCollector = null )
 		{
 			MasterNodeDataCollector currDataCollector = ( dataCollector == null ) ? m_currentDataCollector : dataCollector;
+
+#if UNITY_2019_2_OR_NEWER
+			// Temporary hack
+			if( m_templateMultiPass.SRPtype == TemplateSRPType.HD && ASEPackageManagerHelper.CurrentHDVersion > ASESRPVersions.ASE_SRP_6_9_0 )
+			{
+				if( m_templateMultiPass.AvailableShaderProperties.Find( x => x.PropertyName.Equals( "_AlphaCutoff" ) ) == null )
+				{
+					if( !currDataCollector.ContainsProperty("_AlphaCutoff") )
+					{
+						currDataCollector.AddToProperties( UniqueId, "[HideInInspector] _AlphaCutoff(\"Alpha Cutoff \", Range(0, 1)) = 0.5", -1 );
+					}
+				}
+
+				if( m_templateMultiPass.AvailableShaderProperties.Find( x => x.PropertyName.Equals( "_EmissionColor" ) ) == null )
+				{
+					if( !currDataCollector.ContainsProperty( "_EmissionColor" ) )
+					{
+						currDataCollector.AddToProperties( UniqueId, "[HideInInspector] _EmissionColor(\"Emission Color\", Color) = (1,1,1,1)", -1 );
+					}
+				}
+			}
+#endif
+
 			m_templateMultiPass.SetPropertyData( currDataCollector.BuildUnformatedPropertiesStringArr() );
 		}
 
@@ -1775,13 +1781,13 @@ namespace AmplifyShaderEditor
 				afterNativesIncludePragmaDefineList.AddRange( m_currentDataCollector.DefinesList );
 				//includePragmaDefineList.AddRange( m_optionsDefineContainer.DefinesList );
 				afterNativesIncludePragmaDefineList.AddRange( m_currentDataCollector.PragmasList );
-				afterNativesIncludePragmaDefineList.AddRange( m_currentDataCollector.AfterNativeMiscList );
+				afterNativesIncludePragmaDefineList.AddRange( m_currentDataCollector.AfterNativeDirectivesList );
 				
 				//includePragmaDefineList.AddRange( m_currentDataCollector.MiscList );
 
 				List<PropertyDataCollector> beforeNatives = new List<PropertyDataCollector>();
 				beforeNatives.AddRange( m_optionsDefineContainer.DefinesList );
-				beforeNatives.AddRange( m_currentDataCollector.BeforeNativeMiscList );
+				beforeNatives.AddRange( m_currentDataCollector.BeforeNativeDirectivesList );
 
 				m_templateMultiPass.SetPassData( TemplateModuleDataType.ModulePragmaBefore, m_subShaderIdx, m_passIdx, beforeNatives );
 				m_templateMultiPass.SetPassData( TemplateModuleDataType.ModulePragma, m_subShaderIdx, m_passIdx, afterNativesIncludePragmaDefineList );
@@ -1838,6 +1844,11 @@ namespace AmplifyShaderEditor
 
 		void SetHDInfoOnPass()
 		{
+#if UNITY_2019_3_OR_NEWER
+			if( ASEPackageManagerHelper.CurrentHDVersion > ASESRPVersions.ASE_SRP_6_9_1 )
+				return;
+#endif
+
 			if( m_currentDataCollector.TemplateDataCollectorInstance.CurrentSRPType == TemplateSRPType.HD )
 			{
 				TemplateModulesHelper subShaderHelper = null;
@@ -2206,10 +2217,10 @@ namespace AmplifyShaderEditor
 					m_drawInstancedHelper.ReadFromString( ref m_currentReadParamIdx, ref nodeParams );
 				}
 
-				if( m_templateMultiPass != null && !m_templateMultiPass.IsSinglePass )
-				{
-					SetClippedTitle( m_passName );
-				}
+				//if( m_templateMultiPass != null && !m_templateMultiPass.IsSinglePass )
+				//{
+				//	SetClippedTitle( m_passName );
+				//}
 			}
 			catch( Exception e )
 			{
@@ -2217,6 +2228,7 @@ namespace AmplifyShaderEditor
 			}
 
 			m_containerGraph.CurrentCanvasMode = NodeAvailability.TemplateShader;
+			m_containerGraph.CurrentPrecision = m_currentPrecisionType;
 		}
 
 		public override void WriteToString( ref string nodeInfo, ref string connectionsInfo )
@@ -2436,6 +2448,62 @@ namespace AmplifyShaderEditor
 			}
 
 		}
+
+		public override void ReadInputDataFromString( ref string[] nodeParams )
+		{
+			//For a Template Master Node an input port data must be set by its template and not meta data
+			if( UIUtils.CurrentShaderVersion() > 17007 )
+				return;
+
+			int count = 0;
+			if( UIUtils.CurrentShaderVersion() > 7003 )
+			{
+				try
+				{
+					count = Convert.ToInt32( nodeParams[ m_currentReadParamIdx++ ] );
+				}
+				catch( Exception e )
+				{
+					Debug.LogException( e );
+				}
+			}
+			else
+			{
+				count = ( m_oldInputCount < 0 ) ? m_inputPorts.Count : m_oldInputCount;
+			}
+
+			for( int i = 0; i < count && i < nodeParams.Length && m_currentReadParamIdx < nodeParams.Length; i++ )
+			{
+				if( UIUtils.CurrentShaderVersion() < 5003 )
+				{
+					int newId = VersionConvertInputPortId( i );
+					if( UIUtils.CurrentShaderVersion() > 23 )
+					{
+						 m_currentReadParamIdx++;
+					}
+
+					 m_currentReadParamIdx++;
+					if( m_inputPorts[ newId ].IsEditable && UIUtils.CurrentShaderVersion() >= 3100 && m_currentReadParamIdx < nodeParams.Length )
+					{
+						m_currentReadParamIdx++;
+					}
+				}
+				else
+				{
+					m_currentReadParamIdx++;
+					m_currentReadParamIdx++;
+					m_currentReadParamIdx++;
+					bool isEditable = Convert.ToBoolean( nodeParams[ m_currentReadParamIdx++ ] );
+					if( isEditable && m_currentReadParamIdx < nodeParams.Length )
+					{
+						m_currentReadParamIdx++;
+					}
+				}
+			}
+		}
+
+		//For a Template Master Node an input port data must be set by its template and not meta data
+		public override void WriteInputDataToString( ref string nodeInfo ){}
 
 		public override float HeightEstimate
 		{

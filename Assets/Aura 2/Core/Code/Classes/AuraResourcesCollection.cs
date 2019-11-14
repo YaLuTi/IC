@@ -100,6 +100,24 @@ namespace Aura2API
         /// </summary>
         public Texture2D dummyTexture;
         /// <summary>
+        /// Dummy RenderTexture with 2x2 black R8 pixels and UAV/enableRandomWrite flag set
+        /// </summary>
+        public RenderTexture _dummyTextureUAV;
+        public RenderTexture DummyTextureUAV
+        {
+            get
+            {
+                if(_dummyTextureUAV == null)
+                {
+                    _dummyTextureUAV = new RenderTexture(2, 2, 0, RenderTextureFormat.R8, RenderTextureReadWrite.Linear);
+                    _dummyTextureUAV.enableRandomWrite = true;
+                    _dummyTextureUAV.Create();
+                }
+
+                return _dummyTextureUAV;
+            }
+        }
+        /// <summary>
         /// Dummy Texture2DArray with 2x2x1 white pixels
         /// </summary>
         public Texture2DArray dummyTextureArray;

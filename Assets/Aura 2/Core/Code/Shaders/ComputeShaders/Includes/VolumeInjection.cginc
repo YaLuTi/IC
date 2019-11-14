@@ -24,7 +24,7 @@ FP GetShapeGradient(VolumeData volumeData, inout FP3 position)
 {
     FP gradient = 1;
 
-    [branch]
+    BRANCH
 	if (volumeData.shape == 1)
 	{
 		position = TransformPoint(position, ConvertMatrixFloatsToMatrix(volumeData.transform));
@@ -65,7 +65,7 @@ void ComputeVolumeContribution(VolumeData volumeData, FP3 jitteredWorldPosition,
 {
     FP gradient = GetShapeGradient(volumeData, jitteredWorldPosition);
 
-    [branch]
+    BRANCH
 	if (gradient > 0)
 	{	
         FP densityMask = 1.0f;
@@ -75,7 +75,7 @@ void ComputeVolumeContribution(VolumeData volumeData, FP3 jitteredWorldPosition,
 		FP4 tintMask = FP4(1.0f, 1.0f, 1.0f, 1.0f);
 		FP boostMask = 1.0f;
 				
-        [branch]
+        BRANCH
         if (useTexture2DMasks && volumeData.texture2DMaskData.index > -1)
         {
             FP3 samplingPosition = TransformPoint(jitteredWorldPosition, ConvertMatrixFloatsToMatrix(volumeData.texture2DMaskData.transform));
@@ -89,7 +89,7 @@ void ComputeVolumeContribution(VolumeData volumeData, FP3 jitteredWorldPosition,
 			boostMask *= LevelValue(volumeData.boostTexture2DMaskLevelsParameters, textureMask.w);
 		}
 		
-        [branch]
+        BRANCH
         if (useTexture3DMasks && volumeData.texture3DMaskData.index > -1)
         {
             FP3 samplingPosition = GetCombinedTexture3dCoordinates(jitteredWorldPosition, texture3DMaskAtlasTextureSize.x, texture3DMaskAtlasTextureSize.z, (FP) volumeData.texture3DMaskData.index, ConvertMatrixFloatsToMatrix(volumeData.texture3DMaskData.transform));
@@ -103,7 +103,7 @@ void ComputeVolumeContribution(VolumeData volumeData, FP3 jitteredWorldPosition,
 			boostMask *= LevelValue(volumeData.boostTexture3DMaskLevelsParameters, textureMask.w);
 		}
         
-        [branch]
+        BRANCH
         if (useVolumesNoise && volumeData.noiseData.enable)
         {
             FP3 noisePosition = TransformPoint(unjitteredWorldPosition, ConvertMatrixFloatsToMatrix(volumeData.noiseData.transform));
@@ -119,44 +119,44 @@ void ComputeVolumeContribution(VolumeData volumeData, FP3 jitteredWorldPosition,
         
         gradient = pow(gradient, volumeData.falloffExponent);
     
-        [branch]
+        BRANCH
 	    if (volumeData.injectDensity)
 	    {
 		    density += volumeData.densityValue * gradient * densityMask;
 	    }
     
-        [branch]
+        BRANCH
         if (volumeData.injectScattering)
         {
             scattering += -volumeData.scatteringValue * gradient * scatteringMask;
         }
     
-        [branch]
+        BRANCH
 	    if (volumeData.injectColor)
 	    {
 	        color += volumeData.colorValue * gradient * colorMask;
         }
     
-        [branch]
+        BRANCH
         if (volumeData.injectAmbient)
         {
             ambientLightingMultiplier += volumeData.ambientLightingValue * gradient * ambientMask;
         }
 
-		[branch]
+		BRANCH
 		if (volumeData.useAsLightProbesProxyVolume)
 		{
 			globalIlluminationMask = max(globalIlluminationMask, gradient);
 			lightProbesMultiplier += volumeData.lightProbesMultiplier * gradient;
 		}
 
-		[branch]
+		BRANCH
 		if (volumeData.injectTint)
 		{
 			tint = lerp(tint, tint * tintMask.xyz * volumeData.tintColor, gradient * tintMask.w);
 		}
 
-		[branch]
+		BRANCH
 		if (volumeData.injectBoost)
 		{
 			directIlluminationMultiplier *= lerp( 1.0f, volumeData.boostValue, gradient * boostMask);
@@ -166,7 +166,7 @@ void ComputeVolumeContribution(VolumeData volumeData, FP3 jitteredWorldPosition,
 
 void ComputeVolumesInjection(FP3 jitteredWorldPosition, FP3 unjitteredWorldPosition, inout FP3 color, inout FP density, inout FP scattering, inout FP globalIlluminationMask, inout FP lightProbesMultiplier, inout FP ambientLightingMultiplier, inout FP3 tint, inout FP directIlluminationMultiplier)
 {
-    [allow_uav_condition]
+	ALLOW_UAV_CONDITION
 	for (uint i = 0; i < volumeCount; ++i)
 	{
         ComputeVolumeContribution(volumeDataBuffer[i], jitteredWorldPosition, unjitteredWorldPosition, density, scattering, color, globalIlluminationMask, lightProbesMultiplier, ambientLightingMultiplier, tint, directIlluminationMultiplier);

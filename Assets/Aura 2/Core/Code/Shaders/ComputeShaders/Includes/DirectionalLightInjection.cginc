@@ -131,18 +131,18 @@ void ComputeDirectionalLightInjection(DirectionalLightParameters lightParameters
 	    
     FP3 lightPos = mul(ConvertMatrixFloatsToMatrix(lightParameters.worldToLightMatrix), FP4(worldPosition, 1)).xyz;
 	
-    [branch]
+    BRANCH
 	if (useDirectionalLightsShadows && lightParameters.shadowmapIndex > -1)
 	{
 		ComputeShadow(attenuation, lightParameters, worldPosition, distanceToCam);
 	}
 	
-    [branch]
+    BRANCH
     if (useLightsCookies && lightParameters.cookieMapIndex > -1)
 	{
 		lightPos.xy /= lightParameters.cookieParameters.x;
 		lightPos.xy += 0.5;
-        [branch]
+        BRANCH
 		if (lightParameters.cookieParameters.y > 0)
 		{
 			lightPos.xy = saturate(lightPos.xy);
@@ -161,7 +161,7 @@ void ComputeDirectionalLightInjection(DirectionalLightParameters lightParameters
 
 void ComputeDirectionalLightsInjection(FP3 worldPosition, FP distanceToCam, FP3 viewVector, inout FP3 accumulationColor, bool useScattering, FP scattering)
 {
-    [allow_uav_condition]
+	ALLOW_UAV_CONDITION
 	for (uint i = 0; i < directionalLightCount; ++i)
 	{
         ComputeDirectionalLightInjection(directionalLightDataBuffer[i], worldPosition, distanceToCam, viewVector, accumulationColor, useScattering, scattering);

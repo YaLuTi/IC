@@ -34,7 +34,6 @@ namespace AmplifyShaderEditor
 			m_insideSize.Set(50,20);
 			m_selectedLocation = PreviewLocation.BottomCenter;
 			AddOutputVectorPorts( WirePortDataType.FLOAT2, "XY" );
-			m_precisionString = UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, m_outputPorts[ 0 ].DataType );
 			m_previewShaderGUID = "88b4191eb06084d4da85d1dd2f984085";
 			m_srpBatcherCompatible = true;
 		}
@@ -190,7 +189,7 @@ namespace AmplifyShaderEditor
 		public override string GenerateShaderForOutput( int outputId, ref MasterNodeDataCollector dataCollector, bool ignoreLocalvar )
 		{
 			base.GenerateShaderForOutput( outputId,ref dataCollector, ignoreLocalvar );
-			m_precisionString = UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, m_outputPorts[ 0 ].DataType );
+			m_precisionString = UIUtils.PrecisionWirePortToCgType( CurrentPrecisionType, m_outputPorts[ 0 ].DataType );
 
 			if ( m_currentParameterType != PropertyType.Constant )
 				return GetOutputVectorItem( 0, outputId, PropertyData( dataCollector.PortCategory ) );

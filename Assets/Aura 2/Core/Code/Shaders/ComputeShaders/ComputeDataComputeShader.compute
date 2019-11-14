@@ -125,7 +125,7 @@ void ComputeDataBuffer (uint3 dispatchThreadID : SV_DispatchThreadID)
 	FP directIlluminationMultiplier = 1.0f;
 	
 	// Computes Volumes' contributions
-	[branch]
+	BRANCH
     if (useVolumes)
 	{
         ComputeVolumesInjection(jitteredWorldPosition, worldPosition, accumulationColor.xyz, density, scattering, globalIlluminationMask, lightProbesMultiplier, ambientLightingMultiplier, tint, directIlluminationMultiplier); // Don't jitter volume's noise
@@ -133,13 +133,13 @@ void ComputeDataBuffer (uint3 dispatchThreadID : SV_DispatchThreadID)
 		
     FP3 globalIlluminationColor = FP3(0, 0, 0);
 	// Computes the ambient lighting's contribution
-	[branch]
+	BRANCH
     if (useAmbientLighting)
     {
         globalIlluminationColor = ComputeAmbientLighting(viewVector, scattering) * ambientLightingMultiplier;
     }
 	// Computes the light probes' contribution
-	[branch]
+	BRANCH
     if (useLightProbes && globalIlluminationMask > 0)
     {
         globalIlluminationColor += ComputeLightProbesInjection(viewVector, normalizedLocalPos.xyz, scattering) * lightProbesMultiplier;
@@ -148,7 +148,7 @@ void ComputeDataBuffer (uint3 dispatchThreadID : SV_DispatchThreadID)
                 
 	FP3 directIlluminationColor = FP3(0, 0, 0);
 	// Computes Directional Lights' contribution
-	[branch]
+	BRANCH
     if (useDirectionalLights)
 	{
         FP distanceToCam = GetCameraSpaceDepth(normalizedLocalPos.z);
@@ -156,14 +156,14 @@ void ComputeDataBuffer (uint3 dispatchThreadID : SV_DispatchThreadID)
     }
         		
 	// Computes Spot Lights' contribution
-	[branch]
+	BRANCH
     if (useSpotLights)
 	{
         ComputeSpotLightsInjection(jitteredWorldPosition, jitteredViewVector.xyz, directIlluminationColor, useScattering, scattering);
     }
                 
 	// Computes Point Lights' contribution
-	[branch]
+	BRANCH
     if (usePointLights)
 	{
         ComputePointLightsInjection(jitteredWorldPosition, jitteredViewVector.xyz, directIlluminationColor, useScattering, scattering);
@@ -172,7 +172,7 @@ void ComputeDataBuffer (uint3 dispatchThreadID : SV_DispatchThreadID)
 	accumulationColor.xyz += directIlluminationColor * directIlluminationMultiplier;
 		
 	// Reprojects data onto previous frame
-	[branch]
+	BRANCH
     if (useReprojection)
     {
 		FP3 unbiasedWorldPosition = GetWorldPosition(normalizedLocalPos.xyw, frustumCorners);

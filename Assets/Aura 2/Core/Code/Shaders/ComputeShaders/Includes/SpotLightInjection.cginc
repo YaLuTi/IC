@@ -32,7 +32,7 @@ void ComputeSpotLightInjection(SpotLightParameters lightParameters, FP3 worldPos
 	FP cosAngle = dot(lightParameters.lightDirection.xyz, lightVector);
 	FP dist = distance(lightParameters.lightPosition.xyz, worldPosition);
 
-    [branch]
+    BRANCH
 	if (dist > lightParameters.lightRange || cosAngle < lightParameters.lightCosHalfAngle)
 	{
 		return;
@@ -51,7 +51,7 @@ void ComputeSpotLightInjection(SpotLightParameters lightParameters, FP3 worldPos
 		angleAttenuation = pow(angleAttenuation, lightParameters.angularFalloffParameters.y);
 		attenuation *= angleAttenuation;
         
-        [branch]
+        BRANCH
         if (useSpotLightsShadows && lightParameters.shadowMapIndex > -1)
 		{
 			FP shadowAttenuation = SampleSpotShadowMap(lightParameters, lightPos, 0);
@@ -60,7 +60,7 @@ void ComputeSpotLightInjection(SpotLightParameters lightParameters, FP3 worldPos
 			attenuation *= shadowAttenuation;
 		}
         
-		[branch]
+		BRANCH
         if (useLightsCookies &&  lightParameters.cookieMapIndex > -1)
 		{        
 			FP cookieMapValue = spotCookieMapsArray.SampleLevel(_LinearRepeat, FP3(lightPos.xy / lightPos.w, lightParameters.cookieMapIndex), 0).x;        
@@ -75,7 +75,7 @@ void ComputeSpotLightInjection(SpotLightParameters lightParameters, FP3 worldPos
 
 void ComputeSpotLightsInjection(FP3 worldPosition, FP3 viewVector, inout FP3 accumulationColor, bool useScattering, FP scattering)
 {
-    [allow_uav_condition]
+	ALLOW_UAV_CONDITION
 	for (uint i = 0; i < spotLightCount; ++i)
 	{
         ComputeSpotLightInjection(spotLightDataBuffer[i], worldPosition, viewVector, accumulationColor, useScattering, scattering);

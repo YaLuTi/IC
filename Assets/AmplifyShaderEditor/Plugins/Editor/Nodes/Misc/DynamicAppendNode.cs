@@ -300,7 +300,7 @@ namespace AmplifyShaderEditor
 			}
 
 			result = string.Format( OutputFormatStr,
-									UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, m_selectedOutputType ),
+									UIUtils.PrecisionWirePortToCgType( CurrentPrecisionType, m_selectedOutputType ),
 									result );
 
 			RegisterLocalVariable( 0, result, ref dataCollector, "appendResult" + OutputId );

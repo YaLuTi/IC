@@ -14,6 +14,8 @@
 *                                                                          *
 ***************************************************************************/
 
+using System;
+
 namespace Aura2API
 {
     /// <summary>
@@ -24,7 +26,8 @@ namespace Aura2API
         Lowest = 0,
         Low = 1,
         Medium = 2,
-        High = 3/*,
-        Highest = 4*/ // Not available on all platforms
+        High = 3,
+        [Obsolete("This setting will temporarilly fallback on \"High\" for compatibility reasons.")]
+        Highest = 3/*4 // Not available on all platforms*/
     }
 }

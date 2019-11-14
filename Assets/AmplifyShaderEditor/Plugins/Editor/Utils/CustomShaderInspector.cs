@@ -419,7 +419,11 @@ namespace UnityEditor
 			{
 				return;
 			}
+#if UNITY_2019_3_OR_NEWER
+			ShaderInspectorEx.ShaderErrorListUI( s, ShaderUtil.GetShaderMessages( s ), ref this.m_ScrollPosition );
+#else
 			CustomShaderInspector.ShaderErrorListUI( s, ShaderUtilEx.GetShaderErrors( s ), ref this.m_ScrollPosition );
+#endif
 		}
 
 		private void ShowCompiledCodeButton( Shader s )
@@ -751,6 +755,13 @@ namespace UnityEditor
 	{
 		private static System.Type type = null;
 		public static  System.Type Type { get { return ( type == null ) ? type = System.Type.GetType( "UnityEditor.ShaderInspector, UnityEditor" ) : type; } }
+
+#if UNITY_2019_3_OR_NEWER
+		public static void ShaderErrorListUI( UnityEngine.Object shader, ShaderMessage[] messages, ref Vector2 scrollPosition )
+		{
+			Type.InvokeMember( "ShaderErrorListUI", BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.InvokeMethod, null, null, new object[] { shader, messages, scrollPosition } );
+		}
+#endif
 	}
 
 	public static class GUISkinEx

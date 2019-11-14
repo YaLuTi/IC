@@ -772,7 +772,7 @@ namespace AmplifyShaderEditor
 
 			//node.RegisterPragmas( ref dataCollector );
 
-			string outType = UIUtils.PrecisionWirePortToCgType(  m_currentPrecisionType, m_outputPorts[ 0 ].DataType );
+			string outType = UIUtils.PrecisionWirePortToCgType( CurrentPrecisionType, m_outputPorts[ 0 ].DataType );
 
 			if( node.KeywordModeTypeValue == KeywordModeType.KeywordEnum )
 			{

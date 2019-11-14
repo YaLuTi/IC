@@ -347,7 +347,7 @@ namespace AmplifyShaderEditor
 				dataCollector.AddFunction( UnityVoroniNoiseFunctionsBody[ 0 ], UnityVoroniNoiseFunctionsBody, false );
 				string varName = "unityVoronoy" + OutputId;
 				string varValue = string.Format( UnityVoronoiNoiseFunc, uvValue, angleOffset, cellDensity );
-				dataCollector.AddLocalVariable( UniqueId, m_currentPrecisionType, WirePortDataType.FLOAT2, varName, varValue );
+				dataCollector.AddLocalVariable( UniqueId, CurrentPrecisionType, WirePortDataType.FLOAT2, varName, varValue );
 				m_outputPorts[ 0 ].SetLocalValue( varName + ".x", dataCollector.PortCategory );
 				m_outputPorts[ 1 ].SetLocalValue( varName + ".y", dataCollector.PortCategory );
 				return m_outputPorts[ outputId ].LocalValue( dataCollector.PortCategory );
@@ -390,7 +390,16 @@ namespace AmplifyShaderEditor
 				if( m_inputPorts[ 0 ].IsConnected )
 					uvs = m_inputPorts[ 0 ].GeneratePortInstructions( ref dataCollector );
 				else
-					uvs = GeneratorUtils.GenerateAutoUVs( ref dataCollector, UniqueId, 0 );
+				{
+					if( dataCollector.IsTemplate )
+					{
+						uvs = dataCollector.TemplateDataCollectorInstance.GenerateAutoUVs( 0 );
+					}
+					else
+					{
+						uvs = GeneratorUtils.GenerateAutoUVs( ref dataCollector, UniqueId, 0 );
+					}
+				}
 
 				dataCollector.AddLocalVariable( UniqueId, string.Format( "float2 coords{0} = {1} * {2};", OutputId, uvs, scaleValue ) );
 				dataCollector.AddLocalVariable( UniqueId, string.Format( "float2 id{0} = 0;", OutputId ) );

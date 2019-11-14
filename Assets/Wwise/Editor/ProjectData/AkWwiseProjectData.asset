@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d76e3bc21662c84cb67c9abebc42a4f, type: 3}
+  m_Name: AkWwiseProjectData
+  m_EditorClassIdentifier: 
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: aa05ca5819953845ba1121cab50a1524
+    GuidInternal: 
+    m_lastTime: -8586278702047116504
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 5b0a9973d499ee4cbe532ad9a9f5daed
+    GuidInternal: 
+    m_lastTime: -8586278702047827262
+    List: []
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 9f26bc22348f9c45a664652c288baac3
+    GuidInternal: 
+    m_lastTime: -8586278687219494595
+    List:
+    - name: Main
+      guid: 5d35b09681007a41a7bb0f7696c558c7
+      id: 3161908922
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Main
+        ObjectType: 7
+      Path: Default Work Unit\Main
+  EventWwu:
+  - PhysicalPath: Events\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 0a82cd74adb1cd4a966ed017b0009a39
+    GuidInternal: 
+    m_lastTime: -8586278693864374164
+    List:
+    - name: Main_event
+      guid: e43356ec2b79a244a50799d40f389e70
+      id: 1811523627
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Main_event
+        ObjectType: 3
+      Path: Default Work Unit\Main_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+  - PhysicalPath: Events\Props.wwu
+    ParentPhysicalPath: 
+    guid: 962c7d3b795222448851d1763a33f194
+    GuidInternal: 
+    m_lastTime: -8586278687219005902
+    List:
+    - name: TorchFire
+      guid: 0af6a80d5b4371438eeb9eb29abd1250
+      id: 2041519613
+      PathAndIcons:
+      - ElementName: Props
+        ObjectType: 12
+      - ElementName: TorchFire
+        ObjectType: 3
+      Path: Props\TorchFire
+      maxAttenuation: 100
+      maxDuration: -1
+      minDuration: -1
+  RtpcWwu:
+  - PhysicalPath: Game Parameters\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: d4b389ff4d5b2944a926dadbe8acc345
+    GuidInternal: 
+    m_lastTime: -8586278702047226245
+    List: []
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 4c772a2a5309584991c45754297b2ebb
+    GuidInternal: 
+    m_lastTime: -8586278702046597920
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: f48690bd3064a94e95ca35b7b7287103
+    GuidInternal: 
+    m_lastTime: -8586278702046976779
+    List: []
+  TriggerWwu:
+  - PhysicalPath: Triggers\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: a0a0d359fc658446b42275c3e40dfa42
+    GuidInternal: 
+    m_lastTime: -8586278702046538083
+    List: []
+  ExpandedItems:
+  - /IC_WwiseProject
+  - /IC_WwiseProject/Events
+  - /IC_WwiseProject/Events/Default Work Unit
+  - /IC_WwiseProject/Events/Props
+  autoPopulateEnabled: 1
+  CurrentPluginConfig: 

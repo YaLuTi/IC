@@ -286,11 +286,11 @@ FP CornetteShanksPhaseFunction(FP cosAngle, FP coefficient, FP squareCoefficient
 FP GetScatteringFactor(FP3 lightVector, FP3 viewVector, bool useScattering, bool useDefaultScattering, FP coefficient, FP scatteringOverride)
 {
 	bool shouldComputeScattering = useDefaultScattering ? useScattering : (scatteringOverride > -2 ? true : false);
-	[branch]
+	BRANCH
 	if (shouldComputeScattering)
 	{
 		FP cosAngle = saturate(dot(-lightVector, viewVector));
-		[branch]
+		BRANCH
 		if (scatteringOverride > -1)
 		{
 			coefficient = scatteringOverride;

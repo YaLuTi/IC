@@ -66,7 +66,7 @@ void ComputeVisibleCells(uint3 dispatchThreadID : SV_DispatchThreadID, uint3 gro
 		appendedCellsBuffer.Append(cell); // Make sure it's appended once again after cell is deeper ("safe cell" for jitter/reprojection and sampling interpolation)
 
 #if defined(OCCLUSION)
-		[branch]
+		BRANCH
 		if (normalizedLocalPos.z > occlusionNormalizedDepth)
 		{
 			break; // if cell is not closer than scene anymore, the next ones won't be either

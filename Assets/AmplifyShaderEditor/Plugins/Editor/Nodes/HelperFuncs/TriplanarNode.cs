@@ -1026,18 +1026,18 @@ namespace AmplifyShaderEditor
 			{
 				if( m_arraySupport )
 				{
-					dataCollector.AddToMisc( Constants.CustomASEStandardSamplerParams );
+					dataCollector.AddToDirectives( Constants.CustomASEStandardSamplerParams );
 					for( int i = 0; i < Constants.CustomASESRPTextureArrayMacros.Length; i++ )
-						dataCollector.AddToMisc( Constants.CustomASESRPTextureArrayMacros[ i ] );
+						dataCollector.AddToDirectives( Constants.CustomASESRPTextureArrayMacros[ i ] );
 				}
 				else
 				{
-					dataCollector.AddToMisc( Constants.CustomASEStandardSamplerParams );
+					dataCollector.AddToDirectives( Constants.CustomASEStandardSamplerParams );
 				}
 			}
 			else
 			{
-				dataCollector.AddToMisc( Constants.CustomASEStandardSamplerParams );
+				dataCollector.AddToDirectives( Constants.CustomASEStandardSamplerParams );
 			}
 			dataCollector.AddPropertyNode( m_topTexture );
 			dataCollector.AddPropertyNode( m_midTexture );
@@ -1093,7 +1093,7 @@ namespace AmplifyShaderEditor
 			if( !isVertex )
 			{
 				dataCollector.AddToInput( UniqueId, SurfaceInputs.WORLD_POS );
-				dataCollector.AddToInput( UniqueId, SurfaceInputs.WORLD_NORMAL, m_currentPrecisionType );
+				dataCollector.AddToInput( UniqueId, SurfaceInputs.WORLD_NORMAL, CurrentPrecisionType );
 				dataCollector.AddToInput( UniqueId, SurfaceInputs.INTERNALDATA, addSemiColon: false );
 				dataCollector.ForceNormal = true;
 			}
@@ -1240,15 +1240,15 @@ namespace AmplifyShaderEditor
 			string norm = GeneratorUtils.GenerateWorldNormal( ref dataCollector, UniqueId );
 			string worldToTangent = string.Empty;
 			if( m_normalCorrection )
-				worldToTangent = GeneratorUtils.GenerateWorldToTangentMatrix( ref dataCollector, UniqueId, m_currentPrecisionType );
+				worldToTangent = GeneratorUtils.GenerateWorldToTangentMatrix( ref dataCollector, UniqueId, CurrentPrecisionType );
 
 			if( m_selectedTriplanarSpace == TriplanarSpace.Object )
 			{
 				if( m_normalCorrection )
 				{
-					string vt = GeneratorUtils.GenerateVertexTangent( ref dataCollector, UniqueId, m_currentPrecisionType, WirePortDataType.FLOAT3 );
-					string vbt = GeneratorUtils.GenerateVertexBitangent( ref dataCollector, UniqueId, m_currentPrecisionType );
-					norm = GeneratorUtils.GenerateVertexNormal( ref dataCollector, UniqueId, m_currentPrecisionType );
+					string vt = GeneratorUtils.GenerateVertexTangent( ref dataCollector, UniqueId, CurrentPrecisionType, WirePortDataType.FLOAT3 );
+					string vbt = GeneratorUtils.GenerateVertexBitangent( ref dataCollector, UniqueId, CurrentPrecisionType );
+					norm = GeneratorUtils.GenerateVertexNormal( ref dataCollector, UniqueId, CurrentPrecisionType );
 					dataCollector.AddLocalVariable( UniqueId, "float3x3 objectToTangent = float3x3("+ vt + ", "+ vbt + ", "+ norm + ");" );
 					pos = GeneratorUtils.GenerateVertexPosition( ref dataCollector, UniqueId, WirePortDataType.FLOAT3 );
 					worldToTangent = "objectToTangent";
@@ -1256,7 +1256,7 @@ namespace AmplifyShaderEditor
 				else
 				{
 					pos = GeneratorUtils.GenerateVertexPosition( ref dataCollector, UniqueId, WirePortDataType.FLOAT3 );
-					norm = GeneratorUtils.GenerateVertexNormal( ref dataCollector, UniqueId, m_currentPrecisionType );
+					norm = GeneratorUtils.GenerateVertexNormal( ref dataCollector, UniqueId, CurrentPrecisionType );
 				}
 			}
 

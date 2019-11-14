@@ -108,7 +108,6 @@ namespace AmplifyShaderEditor
         public override string GenerateShaderForOutput( int outputId, ref MasterNodeDataCollector dataCollector, bool ignoreLocalvar )
         {
             base.GenerateShaderForOutput( outputId, ref dataCollector, ignoreLocalvar );
-            m_inputPorts[ 0 ].GeneratePortInstructions( ref dataCollector );
             string texTransform = string.Empty;
 
             if( m_inputPorts[ 0 ].IsConnected )
@@ -126,7 +125,7 @@ namespace AmplifyShaderEditor
                 UIUtils.ShowMessage( "Please specify a texture sample on the Texture Transform Size node", MessageSeverity.Warning );
             }
 
-            dataCollector.AddToUniforms( UniqueId, "uniform float4 " + texTransform + ";" );
+            dataCollector.AddToUniforms( UniqueId, "float4 " + texTransform + ";", true );
 
             switch( outputId )
             {

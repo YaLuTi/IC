@@ -175,23 +175,23 @@ namespace AmplifyShaderEditor
 			{
 				varName = "ditherCustomScreenPos" + OutputId;
 				string customScreenPosVal = m_inputPorts[ 2 ].GeneratePortInstructions( ref dataCollector );
-				dataCollector.AddLocalVariable( UniqueId, m_currentPrecisionType, WirePortDataType.FLOAT4, varName, customScreenPosVal );
+				dataCollector.AddLocalVariable( UniqueId, CurrentPrecisionType, WirePortDataType.FLOAT4, varName, customScreenPosVal );
 			}
 			else
 			{
 				if( dataCollector.TesselationActive && isFragment )
 				{
-					varName = GeneratorUtils.GenerateClipPositionOnFrag( ref dataCollector, UniqueId, m_currentPrecisionType );
+					varName = GeneratorUtils.GenerateClipPositionOnFrag( ref dataCollector, UniqueId, CurrentPrecisionType );
 				}
 				else
 				{
 					if( dataCollector.IsTemplate )
 					{
-						varName = dataCollector.TemplateDataCollectorInstance.GetScreenPosNormalized();
+						varName = dataCollector.TemplateDataCollectorInstance.GetScreenPosNormalized( CurrentPrecisionType );
 					}
 					else
 					{
-						varName = GeneratorUtils.GenerateScreenPositionNormalized( ref dataCollector, UniqueId, m_currentPrecisionType, !dataCollector.UsingCustomScreenPos );
+						varName = GeneratorUtils.GenerateScreenPositionNormalized( ref dataCollector, UniqueId, CurrentPrecisionType, !dataCollector.UsingCustomScreenPos );
 					}
 				}
 			}
@@ -202,11 +202,11 @@ namespace AmplifyShaderEditor
 			{
 				default:
 				case 0:
-				dataCollector.AddLocalVariable( UniqueId, m_currentPrecisionType, WirePortDataType.FLOAT2, "clipScreen" + OutputId, surfInstruction );
+				dataCollector.AddLocalVariable( UniqueId, CurrentPrecisionType, WirePortDataType.FLOAT2, "clipScreen" + OutputId, surfInstruction );
 				functionResult = dataCollector.AddFunctions( m_functionHeader, m_functionBody, "fmod(" + "clipScreen" + OutputId + ".x, 4)", "fmod(" + "clipScreen" + OutputId + ".y, 4)" );
 				break;
 				case 1:
-				dataCollector.AddLocalVariable( UniqueId, m_currentPrecisionType, WirePortDataType.FLOAT2, "clipScreen" + OutputId, surfInstruction );
+				dataCollector.AddLocalVariable( UniqueId, CurrentPrecisionType, WirePortDataType.FLOAT2, "clipScreen" + OutputId, surfInstruction );
 				functionResult = dataCollector.AddFunctions( m_functionHeader, m_functionBody, "fmod(" + "clipScreen" + OutputId + ".x, 8)", "fmod(" + "clipScreen" + OutputId + ".y, 8)" );
 				break;
 				case 2:
@@ -227,7 +227,7 @@ namespace AmplifyShaderEditor
 				break;
 			}
 
-			dataCollector.AddLocalVariable( UniqueId, "float dither" + OutputId + " = "+ functionResult+";" );
+			dataCollector.AddLocalVariable( UniqueId, CurrentPrecisionType, WirePortDataType.FLOAT, "dither" + OutputId, functionResult );
 
 			if( m_inputPorts[ 0 ].IsConnected )
 			{

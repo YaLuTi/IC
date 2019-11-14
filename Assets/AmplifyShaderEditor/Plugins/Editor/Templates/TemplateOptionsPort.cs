@@ -68,6 +68,16 @@ namespace AmplifyShaderEditor
 							//dataCollector.AddToDefines( -1, m_options.ActionsPerOption[ optionId ][ i ].ActionData, false );
 						}
 						break;
+						case AseOptionsActionType.SetShaderProperty:
+						{
+							TemplateShaderPropertyData data = owner.CurrentTemplate.GetShaderPropertyData( m_options.ActionsPerOption[ optionId ][ i ].ActionData );
+							if( data != null )
+							{
+								string newPropertyValue = data.CreatePropertyForValue( m_options.ActionsPerOption[ optionId ][ i ].ActionBuffer );
+								owner.CurrentTemplate.IdManager.SetReplacementText( data.FullValue, newPropertyValue );
+							}
+						}
+						break;
 					}
 				}
 			}
@@ -87,7 +97,6 @@ namespace AmplifyShaderEditor
 				port = targetNode.InputPorts.Find( x => x.Name.Equals( m_options.Name ) );
 			}
 
-			
 			if( port != null )
 			{
 				int optionId = port.HasOwnOrLinkConnection ? 0 : 1;
@@ -106,6 +115,16 @@ namespace AmplifyShaderEditor
 							case AseOptionsActionType.SetUndefine:
 							{
 								owner.OptionsDefineContainer.AddDefine( "#undef " + m_options.ActionsPerOption[ optionId ][ i ].ActionData, true );
+							}
+							break;
+							case AseOptionsActionType.SetShaderProperty:
+							{
+								TemplateShaderPropertyData data = owner.CurrentTemplate.GetShaderPropertyData( m_options.ActionsPerOption[ optionId ][ i ].ActionData );
+								if( data != null )
+								{
+									string newPropertyValue = data.CreatePropertyForValue( m_options.ActionsPerOption[ optionId ][ i ].ActionBuffer );
+									owner.CurrentTemplate.IdManager.SetReplacementText( data.FullValue, newPropertyValue );
+								}
 							}
 							break;
 						}

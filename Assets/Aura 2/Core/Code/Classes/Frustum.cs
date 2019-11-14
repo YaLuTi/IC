@@ -498,7 +498,7 @@ namespace Aura2API
                 }
 
                 _computeVisibleCellsComputeShader.SetTexture(0, "occlusionTexture", Aura.ResourcesCollection.dummyTexture);
-                _computeVisibleCellsComputeShader.SetTexture(0, "maximumSliceAmountTexture", Aura.ResourcesCollection.dummyTexture);
+                _computeVisibleCellsComputeShader.SetTexture(0, "maximumSliceAmountTexture", Aura.ResourcesCollection.DummyTextureUAV);
                 _computeVisibleCellsComputeShader.SetBuffer(0, "appendedCellsBuffer", _dispatchBuffers[5]);
                 _computeVisibleCellsComputeShader.DispatchIndirect(0, _dispatchBuffers[3]);
 

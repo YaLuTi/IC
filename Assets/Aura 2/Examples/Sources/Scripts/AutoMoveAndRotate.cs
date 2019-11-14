@@ -10,12 +10,12 @@ namespace /*UnityStandardAssets.Utility*/Aura2API //Original from Unity, changed
         public bool ignoreTimescale;
         private float m_LastRealTime;
 
-        private float _timestamp;
+        //private float _timestamp;
 
         private void Start()
         {
             m_LastRealTime = Time.realtimeSinceStartup;
-            _timestamp = Time.time;
+            //_timestamp = Time.time;
         }
 
 

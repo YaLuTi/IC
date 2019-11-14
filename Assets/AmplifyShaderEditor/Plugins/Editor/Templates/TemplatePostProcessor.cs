@@ -39,6 +39,11 @@ namespace AmplifyShaderEditor
 				templatesManager = UIUtils.CurrentWindow.TemplatesManagerInstance;
 			}
 
+			if( templatesManager == null )
+			{
+				return;
+			}
+
 			if( !templatesManager.Initialized )
 			{
 				templatesManager.Init();

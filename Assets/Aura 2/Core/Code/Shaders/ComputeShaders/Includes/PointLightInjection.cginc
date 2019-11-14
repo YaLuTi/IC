@@ -50,7 +50,7 @@ void ComputePointLightInjection(PointLightParameters lightParameters, FP3 worldP
     FP3 normalizedLightVector = normalize(lightVector);
 	FP dist = distance(lightParameters.lightPosition, worldPosition);
 
-	[branch]
+	BRANCH
 	if (dist > lightParameters.lightRange)
 	{
 		return; 
@@ -64,7 +64,7 @@ void ComputePointLightInjection(PointLightParameters lightParameters, FP3 worldP
 		
         FP2 polarCoordinates = GetNormalizedYawPitchFromNormalizedVector(normalizedLightVector);
 		
-		[branch]
+		BRANCH
         if (usePointLightsShadows && lightParameters.shadowMapIndex > -1)
 		{
 			FP shadowAttenuation = SamplePointShadowMap(lightParameters, lightVector, polarCoordinates);
@@ -73,7 +73,7 @@ void ComputePointLightInjection(PointLightParameters lightParameters, FP3 worldP
 			attenuation *= shadowAttenuation;
 		}
 
-		[branch]
+		BRANCH
         if (useLightsCookies && lightParameters.cookieMapIndex > -1)
 		{        
 			FP cookieMapValue = pointCookieMapsArray.SampleLevel(_LinearClamp, FP3(polarCoordinates, lightParameters.cookieMapIndex), 0).x;
@@ -88,7 +88,7 @@ void ComputePointLightInjection(PointLightParameters lightParameters, FP3 worldP
 
 void ComputePointLightsInjection(FP3 worldPosition, FP3 viewVector, inout FP3 accumulationColor, bool useScattering, FP scattering)
 {
-	[allow_uav_condition]
+	ALLOW_UAV_CONDITION
 	for (uint i = 0; i < pointLightCount; ++i)
 	{
         ComputePointLightInjection(pointLightDataBuffer[i], worldPosition, viewVector, accumulationColor, useScattering, scattering);

@@ -154,6 +154,13 @@ namespace AmplifyShaderEditor
 			//}
 		}
 
+		public override void PropagateNodeData( NodeData nodeData, ref MasterNodeDataCollector dataCollector )
+		{
+			base.PropagateNodeData( nodeData, ref dataCollector );
+			if( m_from != m_to && ( m_from == TransformSpace.Tangent || m_to == TransformSpace.Tangent ) )
+				dataCollector.DirtyNormal = true;
+		}
+
 		void CalculateTransform( TransformSpace from, TransformSpace to, ref MasterNodeDataCollector dataCollector, ref string varName, ref string result )
 		{
 			switch( from )
@@ -362,6 +369,12 @@ namespace AmplifyShaderEditor
 			string result = m_inputPorts[ 0 ].GeneratePortInstructions( ref dataCollector );
 			string varName = string.Empty;
 
+			if( m_from == m_to )
+			{
+				RegisterLocalVariable( 0, result, ref dataCollector );
+				return GetOutputVectorItem( 0, outputId, m_outputPorts[ 0 ].LocalValue( dataCollector.PortCategory ) );
+			}
+
 			switch( m_from )
 			{
 				case TransformSpace.Object:
@@ -387,7 +400,7 @@ namespace AmplifyShaderEditor
 						break;
 						case TransformSpace.Tangent:
 						{
-							GeneratorUtils.GenerateWorldToTangentMatrix( ref dataCollector, UniqueId, m_currentPrecisionType );
+							GeneratorUtils.GenerateWorldToTangentMatrix( ref dataCollector, UniqueId, CurrentPrecisionType );
 							CalculateTransform( m_from, TransformSpace.World, ref dataCollector, ref varName, ref result );
 							result = string.Format( ASEWorldToTangentFormat, result );
 							varName = AseObjectToTangentPosVarName + OutputId;
@@ -419,7 +432,7 @@ namespace AmplifyShaderEditor
 						break;
 						case TransformSpace.Tangent:
 						{
-							GeneratorUtils.GenerateWorldToTangentMatrix( ref dataCollector, UniqueId, m_currentPrecisionType );
+							GeneratorUtils.GenerateWorldToTangentMatrix( ref dataCollector, UniqueId, CurrentPrecisionType );
 							result = string.Format( ASEWorldToTangentFormat, result );
 							varName = AseWorldToTangentPosVarName + OutputId;
 						}
@@ -450,7 +463,7 @@ namespace AmplifyShaderEditor
 						break;
 						case TransformSpace.Tangent:
 						{
-							GeneratorUtils.GenerateWorldToTangentMatrix( ref dataCollector, UniqueId, m_currentPrecisionType );
+							GeneratorUtils.GenerateWorldToTangentMatrix( ref dataCollector, UniqueId, CurrentPrecisionType );
 							CalculateTransform( m_from, TransformSpace.World, ref dataCollector, ref varName, ref result );
 							result = string.Format( ASEWorldToTangentFormat, result );
 							varName = AseViewToTangentPosVarName + OutputId;
@@ -481,7 +494,7 @@ namespace AmplifyShaderEditor
 						case TransformSpace.Clip: break;
 						case TransformSpace.Tangent:
 						{
-							GeneratorUtils.GenerateWorldToTangentMatrix( ref dataCollector, UniqueId, m_currentPrecisionType );
+							GeneratorUtils.GenerateWorldToTangentMatrix( ref dataCollector, UniqueId, CurrentPrecisionType );
 							CalculateTransform( m_from, TransformSpace.World, ref dataCollector, ref varName, ref result );
 							result = string.Format( ASEWorldToTangentFormat, result );
 							varName = AseClipToTangentPosVarName + OutputId;
@@ -496,9 +509,9 @@ namespace AmplifyShaderEditor
 				{
 					string matrixVal = string.Empty;
 					if( m_inverseTangentType == InverseTangentType.Fast )
-						matrixVal = GeneratorUtils.GenerateTangentToWorldMatrixFast( ref dataCollector, UniqueId, m_currentPrecisionType );
+						matrixVal = GeneratorUtils.GenerateTangentToWorldMatrixFast( ref dataCollector, UniqueId, CurrentPrecisionType );
 					else
-						matrixVal = GeneratorUtils.GenerateTangentToWorldMatrixPrecise( ref dataCollector, UniqueId, m_currentPrecisionType );
+						matrixVal = GeneratorUtils.GenerateTangentToWorldMatrixPrecise( ref dataCollector, UniqueId, CurrentPrecisionType );
 
 					switch( m_to )
 					{
@@ -542,7 +555,7 @@ namespace AmplifyShaderEditor
 			{
 				if( m_perspectiveDivide )
 				{
-					dataCollector.AddLocalVariable( UniqueId, m_currentPrecisionType, WirePortDataType.FLOAT4, varName, result );
+					dataCollector.AddLocalVariable( UniqueId, CurrentPrecisionType, WirePortDataType.FLOAT4, varName, result );
 					result = string.Format( AseClipToNDC, varName );
 					varName += "NDC";
 				}

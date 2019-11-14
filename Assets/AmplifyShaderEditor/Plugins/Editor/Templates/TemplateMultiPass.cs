@@ -240,9 +240,11 @@ namespace AmplifyShaderEditor
 
 			for( int subShaderIdx = 0; subShaderIdx < subShaderCount; subShaderIdx++ )
 			{
+				m_subShaders[ subShaderIdx ].Modules.RegisterInternalUnityInlines( ref m_availableShaderProperties , ref duplicatesHelper );
 				int passCount = m_subShaders[ subShaderIdx ].Passes.Count;
 				for( int passIdx = 0; passIdx < passCount; passIdx++ )
 				{
+					m_subShaders[ subShaderIdx ].Passes[ passIdx ].Modules.RegisterInternalUnityInlines( ref m_availableShaderProperties, ref duplicatesHelper );
 					m_subShaders[ subShaderIdx ].Passes[ passIdx ].IsMainPass = ( mainSubShaderIdx == subShaderIdx && mainPassIdx == passIdx );
 				}
 			}

@@ -92,7 +92,9 @@ namespace AmplifyShaderEditor
 		GraphButton,
 		NodeWindowOffSquare,
 		NodeHeaderSquare,
-		NodeWindowOnSquare
+		NodeWindowOnSquare,
+		ConsoleLogMessage,
+		ConsoleLogCircle
 	}
 
 	public enum MasterNodePortCategory
@@ -260,6 +262,9 @@ namespace AmplifyShaderEditor
 		public static GUIStyle GraphDropDown;
 
 		public static GUIStyle EmptyStyle = new GUIStyle();
+
+		public static GUIStyle ConsoleLogMessage;
+		public static GUIStyle ConsoleLogCircle;
 
 		public static GUIStyle TooltipBox;
 		public static GUIStyle Box;
@@ -638,7 +643,7 @@ namespace AmplifyShaderEditor
 		{
 			{PrecisionType.Float,	"float"},
 			{PrecisionType.Half,	"half"},
-			{PrecisionType.Fixed,	"half"}
+			{PrecisionType.Inherit,	"float"}
 		};
 
 		private static Dictionary<VariableQualifiers, string> m_qualifierToCg = new Dictionary<VariableQualifiers, string>()
@@ -818,6 +823,9 @@ namespace AmplifyShaderEditor
 			GraphButtonIcon = null;
 			GraphButton = null;
 			GraphDropDown = null;
+
+			ConsoleLogMessage = null;
+			ConsoleLogCircle = null;
 
 			MiniButtonTopLeft = null;
 			MiniButtonTopMid = null;
@@ -1004,6 +1012,9 @@ namespace AmplifyShaderEditor
 			Textfield = new GUIStyle( GUI.skin.textField );
 			//ShaderIcon = EditorGUIUtility.IconContent( "Shader Icon" ).image;
 			//MaterialIcon = EditorGUIUtility.IconContent( "Material Icon" ).image;
+
+			ConsoleLogMessage = new GUIStyle( MainSkin.customStyles[ (int)CustomStyle.ConsoleLogMessage ] );
+			ConsoleLogCircle = new GUIStyle( MainSkin.customStyles[ (int)CustomStyle.ConsoleLogCircle ] );
 
 			NodeWindowOffSquare = GetCustomStyle( CustomStyle.NodeWindowOffSquare );
 			NodeHeaderSquare = GetCustomStyle( CustomStyle.NodeHeaderSquare );
@@ -1237,17 +1248,7 @@ namespace AmplifyShaderEditor
 
 		public static string FinalPrecisionWirePortToCgType( PrecisionType precisionType, WirePortDataType type )
 		{
-			PrecisionType finalPrecision = GetFinalPrecision( precisionType );
-			if( type == WirePortDataType.OBJECT )
-				return string.Empty;
-
-			if( type == WirePortDataType.INT )
-				return m_wirePortToCgType[ type ];
-
-			if( type == WirePortDataType.UINT )
-				return m_wirePortToCgType[ type ];
-
-			return string.Format( m_precisionWirePortToCgType[ type ], m_precisionTypeToCg[ finalPrecision ] );
+			return PrecisionWirePortToCgType( precisionType, type );
 		}
 
 		public static string PrecisionWirePortToCgType( PrecisionType precisionType, WirePortDataType type )
@@ -1321,8 +1322,8 @@ namespace AmplifyShaderEditor
 			{
 				return ( parameterName != null ) ? parameterName : value.ToString();
 			}
-
-			PrecisionType currentPrecision = GetFinalPrecision( nodePrecision );
+			
+			PrecisionType currentPrecision = nodePrecision;
 			string precisionStr = m_precisionTypeToCg[ currentPrecision ];
 			string newTypeStr = m_wirePortToCgType[ newType ];
 			newTypeStr = m_textInfo.ToTitleCase( newTypeStr );
@@ -2354,6 +2355,38 @@ namespace AmplifyShaderEditor
 				return CurrentWindow.DuplicatePrevBufferInstance.CheckUniformNameOwner( name );
 			}
 			return -1;
+		}
+
+		public static string GetUniqueUniformName( string name )
+		{
+			int num = 0;
+			Regex reg = new Regex( @"([0-9]+)$" );
+			Match match = reg.Match( name );
+			if( match.Success )
+			{
+				string s = match.Groups[ 1 ].Captures[ 0 ].Value;
+				num = int.Parse( s );
+				name = name.Replace( s, "" );
+			}
+
+			for( int i = num + 1; i < 1000; i++ )
+			{
+				string testName = name + i;
+
+				if( CheckInvalidUniformName( testName ) )
+				{
+					continue;
+				}
+
+				if( CurrentWindow != null )
+				{
+					if( CurrentWindow.DuplicatePrevBufferInstance.IsUniformNameAvailable( testName ) )
+					{
+						return testName;
+					}
+				}
+			}
+			return name;
 		}
 
 		public static bool RegisterLocalVariableName( int nodeId, string name )

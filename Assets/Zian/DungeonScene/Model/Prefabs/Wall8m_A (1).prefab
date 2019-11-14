@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 87
   m_IsActive: 1
 --- !u!4 &8810760624121160993
 Transform:
@@ -90,8 +90,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.223718, y: 5.5, z: 8.000002}
-  m_Center: {x: 0.6118582, y: 2.75, z: 4.000001}
+  m_Size: {x: 1.6187357, y: 5.5, z: 8.000002}
+  m_Center: {x: 0.4143493, y: 2.75, z: 4.000001}
 --- !u!1001 &8810760624270662313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102,6 +102,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3966bf99d8cb9014dbd691a33a2f57eb, type: 3}
       propertyPath: m_Name
       value: 'Wall8mSurbase_A '
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3966bf99d8cb9014dbd691a33a2f57eb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 87
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3966bf99d8cb9014dbd691a33a2f57eb, type: 3}
       propertyPath: m_LocalPosition.x

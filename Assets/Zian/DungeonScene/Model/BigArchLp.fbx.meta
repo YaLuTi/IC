@@ -4,14 +4,83 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: BigArchLp_LOD0
+    100004: BigArchLp_LOD1
+    100006: BigArchLp_LOD2
+    100008: BigArchLp_LOD3
+    100010: PillarLp_LOD0
+    100012: PillarLp_LOD1
+    100014: PillarLp_LOD2
+    100016: PillarLp_LOD3
     400000: //RootNode
+    400002: BigArchLp_LOD0
+    400004: BigArchLp_LOD1
+    400006: BigArchLp_LOD2
+    400008: BigArchLp_LOD3
+    400010: PillarLp_LOD0
+    400012: PillarLp_LOD1
+    400014: PillarLp_LOD2
+    400016: PillarLp_LOD3
     2100000: Cube_041
     2100002: Cube_041.001
+    2100004: PillarLp_LOD0
+    2100006: PillarLp_LOD1
+    2100008: PillarLp_LOD2
+    2100010: PillarLp_LOD3
+    2100012: BigArchLp_LOD0
+    2100014: BigArchLp_LOD1
+    2100016: BigArchLp_LOD2
+    2100018: BigArchLp_LOD3
     2300000: //RootNode
+    2300002: BigArchLp_LOD0
+    2300004: BigArchLp_LOD1
+    2300006: BigArchLp_LOD2
+    2300008: BigArchLp_LOD3
+    2300010: PillarLp_LOD0
+    2300012: PillarLp_LOD1
+    2300014: PillarLp_LOD2
+    2300016: PillarLp_LOD3
     3300000: //RootNode
+    3300002: BigArchLp_LOD0
+    3300004: BigArchLp_LOD1
+    3300006: BigArchLp_LOD2
+    3300008: BigArchLp_LOD3
+    3300010: PillarLp_LOD0
+    3300012: PillarLp_LOD1
+    3300014: PillarLp_LOD2
+    3300016: PillarLp_LOD3
     4300000: Cube_041
     4300002: Cube_041.001
-  externalObjects: {}
+    4300004: PillarLp_LOD0
+    4300006: PillarLp_LOD1
+    4300008: PillarLp_LOD2
+    4300010: PillarLp_LOD3
+    4300012: BigArchLp_LOD0
+    4300014: BigArchLp_LOD1
+    4300016: BigArchLp_LOD2
+    4300018: BigArchLp_LOD3
+    20500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BigArchLp_LOD0
+    second: {fileID: 2100000, guid: b4efbe216d4bc4442afb3581eba3eddf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BigArchLp_LOD1
+    second: {fileID: 2100000, guid: f360a7bac713ca843b4d36bc6317f852, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BigArchLp_LOD2
+    second: {fileID: 2100000, guid: 6edc88c1fd4810b4cabd20dc20328523, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BigArchLp_LOD3
+    second: {fileID: 2100000, guid: 1258fd56c8f2c164f9412f671b2172e1, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -41,7 +110,11 @@ ModelImporter:
     clipAnimations: []
     isReadable: 1
   meshes:
-    lODScreenPercentages: []
+    lODScreenPercentages:
+    - 0.25
+    - 0.125
+    - 0.0625
+    - 0.01
     globalScale: 1
     meshCompression: 0
     addColliders: 0
@@ -51,7 +124,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -59,9 +132,9 @@ ModelImporter:
     preserveHierarchy: 0
     indexFormat: 0
     secondaryUVAngleDistortion: 8
-    secondaryUVAreaDistortion: 15.000001
+    secondaryUVAreaDistortion: 15
     secondaryUVHardAngle: 88
-    secondaryUVPackMargin: 4
+    secondaryUVPackMargin: 40
     useFileScale: 1
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 0

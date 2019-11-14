@@ -111,7 +111,6 @@ namespace AmplifyShaderEditor
 			m_drawPicker = true;
 			m_customPrefix = "Texture Array ";
 			m_selectedLocation = PreviewLocation.TopCenter;
-			m_precisionString = UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, m_outputPorts[ 0 ].DataType );
 			m_previewShaderGUID = "2e6d093df2d289f47b827b36efb31a81";
 			m_showAutoRegisterUI = false;
 		}
@@ -645,7 +644,7 @@ namespace AmplifyShaderEditor
 			{
 				if( dataCollector.IsTemplate )
 				{
-					uvs = dataCollector.TemplateDataCollectorInstance.GetTextureCoord( m_uvSet, ( instanced ? m_referenceSampler.PropertyName : PropertyName ), UniqueId, m_currentPrecisionType );
+					uvs = dataCollector.TemplateDataCollectorInstance.GetTextureCoord( m_uvSet, ( instanced ? m_referenceSampler.PropertyName : PropertyName ), UniqueId, CurrentPrecisionType );
 				}
 				else
 				{

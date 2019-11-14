@@ -411,6 +411,8 @@ namespace AmplifyShaderEditor
 																};
 		public static string LightweigthPBRGUID = "1976390536c6c564abb90fe41f6ee334";
 		public static string LightweigthUnlitGUID = "e2514bdcf5e5399499a9eb24d175b9db";
+		public static string UniversalPBRGUID = "94348b07e5e8bab40bd6c8a1e3df54cd";
+		public static string UniversalUnlitGUID = "2992e84f91cbeb14eab234972e07ea9d";
 		public static string HDLitGUID = "091c43ba8bd92c9459798d59b089ce4e";
 		public static string HDPBRGUID = "bb308bce79762c34e823049efce65141";
 		public static string HDUnlitGUID = "dfe2f27ac20b08c469b2f95c236be0c3";
@@ -423,6 +425,8 @@ namespace AmplifyShaderEditor
 			{ "32120270d1b3a8746af2aca8bc749736","Legacy/Custom RT Update"},
 			{ LightweigthPBRGUID,"LW/PBR"},
 			{ LightweigthUnlitGUID,"LW/Unlit"},
+			{ UniversalPBRGUID,"Universal/PBR"},
+			{ UniversalUnlitGUID,"Universal/Unlit"},
 			{ "53b46d85872c5b24c8f4f0a1c3fe4c87","HD/Lit"},
 			{ HDLitGUID,"Deprecated/HD/Lit"},
 			{ HDPBRGUID,"Deprecated/HD/PBR"},

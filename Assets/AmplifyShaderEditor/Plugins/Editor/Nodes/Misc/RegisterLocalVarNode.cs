@@ -45,6 +45,7 @@ namespace AmplifyShaderEditor
 			AddInputPort( WirePortDataType.FLOAT, false, Constants.EmptyPortValue );
 			AddOutputPort( WirePortDataType.FLOAT, Constants.EmptyPortValue );
 			m_textLabelWidth = 85;
+			m_customPrecision = true;
 
 			if( m_containerGraph != null )
 				m_variableName += m_containerGraph.LocalVarNodes.NodesList.Count;

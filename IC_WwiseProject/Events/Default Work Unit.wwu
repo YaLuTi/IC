@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{74CD820A-B1AD-4ACD-966E-D017B0009A39}" SchemaVersion="94">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{74CD820A-B1AD-4ACD-966E-D017B0009A39}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Main_event" ID="{EC5633E4-792B-44A2-A507-99D40F389E70}">
+					<ChildrenList>
+						<Action Name="" ID="{F4351EAB-692F-4740-9933-673874DD879D}" ShortID="775134020">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ambientdungeon" ID="{F28CFC02-0734-4DAB-BDC6-405F383BFCA6}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

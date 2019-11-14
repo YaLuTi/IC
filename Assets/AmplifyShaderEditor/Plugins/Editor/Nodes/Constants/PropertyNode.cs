@@ -59,7 +59,7 @@ namespace AmplifyShaderEditor
 		protected readonly string[] LabelToolbarTitle = { "Material", "Default" };
 		protected readonly string[] EnumModesStr = { "Create Enums", "Use Engine Enum Class" };
 		protected readonly int[] EnumModeIntValues = { 0, 1 };
-
+		private const string FetchToCreateDuplicatesMsg = "Reverting property name from {0} to {1} as its being registered by another property node.";
 		[SerializeField]
 		protected PropertyType m_currentParameterType;
 
@@ -194,6 +194,7 @@ namespace AmplifyShaderEditor
 			m_freeType = true;
 			m_freeName = true;
 			m_propertyNameIsDirty = true;
+			m_customPrecision = true;
 			m_availableAttribs.Add( new PropertyAttributes( "Hide in Inspector", "[HideInInspector]" ) );
 			m_availableAttribs.Add( new PropertyAttributes( "HDR", "[HDR]" ) );
 			m_availableAttribs.Add( new PropertyAttributes( "Gamma", "[Gamma]" ) );
@@ -753,7 +754,7 @@ namespace AmplifyShaderEditor
 				EditorGUI.BeginChangeCheck();
 				DrawPrecisionProperty();
 				if( EditorGUI.EndChangeCheck() )
-					m_precisionString = UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, m_outputPorts[ 0 ].DataType );
+					m_precisionString = UIUtils.PrecisionWirePortToCgType( CurrentPrecisionType, m_outputPorts[ 0 ].DataType );
 
 				GUI.enabled = guiEnabled;
 
@@ -1044,10 +1045,19 @@ namespace AmplifyShaderEditor
 				if( string.IsNullOrEmpty( m_propertyName ) )
 					return;
 
-				if( UIUtils.IsUniformNameAvailable( m_propertyName ) )
-					UIUtils.RegisterUniformName( UniqueId, m_propertyName );
+				string newPropertyName = UIUtils.GetUniqueUniformName( m_propertyName );
+				if( newPropertyName != m_propertyName )
+				{
+					UIUtils.RegisterUniformName( UniqueId, newPropertyName );
+					m_propertyName = newPropertyName;
+				}
 				else
-					UIUtils.GetFirstAvailableName( UniqueId, m_outputPorts[ 0 ].DataType, out m_propertyName, out m_propertyInspectorName, !string.IsNullOrEmpty( m_customPrefix ), m_customPrefix );
+				{
+					if( UIUtils.IsUniformNameAvailable( m_propertyName ) )
+						UIUtils.RegisterUniformName( UniqueId, m_propertyName );
+					else
+						UIUtils.GetFirstAvailableName( UniqueId, m_outputPorts[ 0 ].DataType, out m_propertyName, out m_propertyInspectorName, !string.IsNullOrEmpty( m_customPrefix ), m_customPrefix );
+				}
 
 			}
 			else
@@ -1100,8 +1110,8 @@ namespace AmplifyShaderEditor
 				{
 					m_propertyName = m_oldName;
 				}
-
 			}
+
 			if( m_propertyName.Equals( propertyName ) )
 				return;
 
@@ -1129,7 +1139,7 @@ namespace AmplifyShaderEditor
 
 		protected string CreateLocalVarDec( string value )
 		{
-			return string.Format( Constants.PropertyLocalVarDec, UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, m_outputPorts[ 0 ].DataType ), m_propertyName, value );
+			return string.Format( Constants.PropertyLocalVarDec, UIUtils.PrecisionWirePortToCgType( CurrentPrecisionType, m_outputPorts[ 0 ].DataType ), m_propertyName, value );
 		}
 
 		public virtual void CheckIfAutoRegister( ref MasterNodeDataCollector dataCollector )
@@ -1301,16 +1311,16 @@ namespace AmplifyShaderEditor
 			{
 				if( isSRP )
 				{
-					return string.Format( IOUtils.LWSRPInstancedPropertiesElement, UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, m_outputPorts[ 0 ].DataType ), m_propertyName );
+					return string.Format( IOUtils.LWSRPInstancedPropertiesElement, UIUtils.PrecisionWirePortToCgType( CurrentPrecisionType, m_outputPorts[ 0 ].DataType ), m_propertyName );
 					//return GetUniformValue();
 				}
 				else
 				{
-					return string.Format( IOUtils.InstancedPropertiesElement, UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, m_outputPorts[ 0 ].DataType ), m_propertyName );
+					return string.Format( IOUtils.InstancedPropertiesElement, UIUtils.PrecisionWirePortToCgType( CurrentPrecisionType, m_outputPorts[ 0 ].DataType ), m_propertyName );
 				}
 			}
 			else
-				return string.Format( IOUtils.InstancedPropertiesElementTabs, UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, m_outputPorts[ 0 ].DataType ), m_propertyName );
+				return string.Format( IOUtils.InstancedPropertiesElementTabs, UIUtils.PrecisionWirePortToCgType( CurrentPrecisionType, m_outputPorts[ 0 ].DataType ), m_propertyName );
 		}
 
 		public string GetInstancedUniformValue( bool isTemplate, bool isSRP, WirePortDataType dataType, string value )
@@ -1320,15 +1330,15 @@ namespace AmplifyShaderEditor
 				if( isSRP )
 				{
 					//return GetUniformValue( dataType, value );
-					return string.Format( IOUtils.LWSRPInstancedPropertiesElement, UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, dataType ), value );
+					return string.Format( IOUtils.LWSRPInstancedPropertiesElement, UIUtils.PrecisionWirePortToCgType( CurrentPrecisionType, dataType ), value );
 				}
 				else
 				{
-					return string.Format( IOUtils.InstancedPropertiesElement, UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, dataType ), value );
+					return string.Format( IOUtils.InstancedPropertiesElement, UIUtils.PrecisionWirePortToCgType( CurrentPrecisionType, dataType ), value );
 				}
 			}
 			else
-				return string.Format( IOUtils.InstancedPropertiesElementTabs, UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, dataType ), value );
+				return string.Format( IOUtils.InstancedPropertiesElementTabs, UIUtils.PrecisionWirePortToCgType( CurrentPrecisionType, dataType ), value );
 		}
 
 		public virtual string GetUniformValue()
@@ -1336,7 +1346,7 @@ namespace AmplifyShaderEditor
 			bool excludeUniformKeyword = ( m_currentParameterType == PropertyType.InstancedProperty ) ||
 											m_containerGraph.IsSRP;
 			int index = excludeUniformKeyword ? 1 : 0;
-			return string.Format( Constants.UniformDec[ index ], UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, m_outputPorts[ 0 ].DataType ), m_propertyName );
+			return string.Format( Constants.UniformDec[ index ], UIUtils.PrecisionWirePortToCgType( CurrentPrecisionType, m_outputPorts[ 0 ].DataType ), m_propertyName );
 		}
 
 		public string GetUniformValue( WirePortDataType dataType, string value )
@@ -1344,12 +1354,12 @@ namespace AmplifyShaderEditor
 			bool excludeUniformKeyword = ( m_currentParameterType == PropertyType.InstancedProperty ) ||
 											m_containerGraph.IsSRP;
 			int index = excludeUniformKeyword ? 1 : 0;
-			return string.Format( Constants.UniformDec[ index ], UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, dataType ), value );
+			return string.Format( Constants.UniformDec[ index ], UIUtils.PrecisionWirePortToCgType( CurrentPrecisionType, dataType ), value );
 		}
 
 		public virtual bool GetUniformData( out string dataType, out string dataName, ref bool fullValue )
 		{
-			dataType = UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, m_outputPorts[ 0 ].DataType );
+			dataType = UIUtils.PrecisionWirePortToCgType( CurrentPrecisionType, m_outputPorts[ 0 ].DataType );
 			dataName = m_propertyName;
 			fullValue = false;
 			return true;
@@ -1580,21 +1590,33 @@ namespace AmplifyShaderEditor
 			{
 				if( value != m_variableMode )
 				{
+					m_variableMode = value;
 					if( value == VariableMode.Fetch )
 					{
 						m_oldName = m_propertyName;
 					}
 					else
 					{
-						m_propertyName = m_oldName;
-						m_propertyInspectorName = m_oldName;
+						if( !m_propertyName.Equals( m_oldName ) )
+						{
+							if( UIUtils.IsUniformNameAvailable( m_propertyName ) )
+							{
+								UIUtils.ReleaseUniformName( UniqueId, m_oldName );
+								UIUtils.RegisterUniformName( UniqueId, m_propertyName );
+							}
+							else
+							{
+								UIUtils.ShowMessage( string.Format( FetchToCreateDuplicatesMsg, m_propertyName, m_oldName ), MessageSeverity.Warning );
+								m_propertyName = m_oldName;
+							}
+							m_propertyNameIsDirty = true;
+							OnPropertyNameChanged();
+						}
 					}
-					m_variableMode = value;
-					m_propertyNameIsDirty = true;
-					OnPropertyNameChanged();
 				}
 			}
 		}
+
 		public string PropertyData( MasterNodePortCategory portCategory )
 		{
 			return ( m_currentParameterType == PropertyType.InstancedProperty ) ? m_outputPorts[ 0 ].LocalValue( portCategory ) : m_propertyName;

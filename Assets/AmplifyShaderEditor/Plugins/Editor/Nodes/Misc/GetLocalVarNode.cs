@@ -221,7 +221,7 @@ namespace AmplifyShaderEditor
 			}
 			else
 			{
-				Debug.LogError( "Attempting to access inexistant local variable" );
+				UIUtils.ShowMessage( "Get Local Var node without reference. Attempting to access inexistant local variable.",MessageSeverity.Error );
 				return "0";
 			}
 		}

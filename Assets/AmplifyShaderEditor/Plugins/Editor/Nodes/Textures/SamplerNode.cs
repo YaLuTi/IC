@@ -171,7 +171,7 @@ namespace AmplifyShaderEditor
 			m_errorMessageTooltip = "A texture object marked as normal map is connected to this sampler. Please consider turning on the Unpack Normal Map option";
 			m_errorMessageTypeIsError = NodeMessageType.Warning;
 			m_textLabelWidth = 135;
-
+			m_customPrecision = false;
 		}
 
 		public override void SetPreviewInputs()
@@ -1060,7 +1060,7 @@ namespace AmplifyShaderEditor
 
 		public string SetFetchedData( ref MasterNodeDataCollector dataCollector, bool ignoreLocalVar, int outputId, string portProperty = null )
 		{
-			m_precisionString = UIUtils.PrecisionWirePortToCgType( UIUtils.GetFinalPrecision( m_currentPrecisionType ), m_colorPort.DataType );
+			m_precisionString = UIUtils.PrecisionWirePortToCgType( CurrentPrecisionType, m_colorPort.DataType );
 			string propertyName = CurrentPropertyReference;
 			if( !string.IsNullOrEmpty( portProperty ) && portProperty != "0.0" )
 			{
@@ -1172,10 +1172,7 @@ namespace AmplifyShaderEditor
 						string virtualSampler = SampleVirtualTexture( vtex, Constants.VirtualCoordNameStr + virtualCoordId );
 						string virtualVariable = dataCollector.AddVirtualLocalVariable( UniqueId, "virtualNode" + OutputId, virtualSampler );
 
-						if( dataCollector.PortCategory == MasterNodePortCategory.Vertex || dataCollector.PortCategory == MasterNodePortCategory.Tessellation )
-							dataCollector.AddToVertexLocalVariables( UniqueId, "float4 " + virtualVariable + " = " + virtualSampler + ";" );
-						else
-							dataCollector.AddToLocalVariables( UniqueId, "float4 " + virtualVariable + " = " + virtualSampler + ";" );
+						dataCollector.AddLocalVariable( UniqueId, CurrentPrecisionType, WirePortDataType.FLOAT4, virtualVariable, virtualSampler );
 
 						AddNormalMapTag( ref virtualVariable );
 
@@ -1197,7 +1194,7 @@ namespace AmplifyShaderEditor
 									virtualVariable += ".b";
 								else
 								{
-									dataCollector.AddLocalVariable( UniqueId, "float4 virtual_cast_" + OutputId + " = " + virtualVariable + ".b;" );
+									dataCollector.AddLocalVariable( UniqueId, CurrentPrecisionType, WirePortDataType.FLOAT4, "virtual_cast_" + OutputId, virtualVariable + ".b" );
 									virtualVariable = "virtual_cast_" + OutputId;
 								}
 								//virtualVariable = UIUtils.CastPortType( dataCollector.PortCategory, m_currentPrecisionType, new NodeCastInfo( UniqueId, outputId ), virtualVariable, WirePortDataType.FLOAT, WirePortDataType.FLOAT4, virtualVariable );
@@ -1209,7 +1206,7 @@ namespace AmplifyShaderEditor
 									virtualVariable += ".r";
 								else
 								{
-									dataCollector.AddLocalVariable( UniqueId, "float4 virtual_cast_" + OutputId + " = " + virtualVariable + ".r;" );
+									dataCollector.AddLocalVariable( UniqueId, CurrentPrecisionType, WirePortDataType.FLOAT4, "virtual_cast_" + OutputId, virtualVariable + ".r" );
 									virtualVariable = "virtual_cast_" + OutputId;
 								}
 							}
@@ -1647,7 +1644,7 @@ namespace AmplifyShaderEditor
 				if( m_containerGraph.SamplingThroughMacros )
 					return uvs + "," + lodLevel;
 				else
-					return UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, WirePortDataType.FLOAT4 ) + "( " + uvs + uvAppendix + lodLevel + ")";
+					return UIUtils.PrecisionWirePortToCgType( PrecisionType.Float, WirePortDataType.FLOAT4 ) + "( " + uvs + uvAppendix + lodLevel + ")";
 			}
 			else
 			{
@@ -1657,7 +1654,7 @@ namespace AmplifyShaderEditor
 					if( m_containerGraph.SamplingThroughMacros )
 						return uvs + "," + lodLevel;
 					else
-						return UIUtils.FinalPrecisionWirePortToCgType( m_currentPrecisionType, WirePortDataType.FLOAT4 ) + "( " + uvs + uvAppendix + lodLevel + ")";
+						return UIUtils.PrecisionWirePortToCgType( PrecisionType.Float, WirePortDataType.FLOAT4 ) + "( " + uvs + uvAppendix + lodLevel + ")";
 				}
 				else if( m_mipMode == MipType.Derivative )
 				{

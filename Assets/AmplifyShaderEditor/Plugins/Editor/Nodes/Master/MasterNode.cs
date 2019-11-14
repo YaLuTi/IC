@@ -13,7 +13,7 @@ namespace AmplifyShaderEditor
 	{
 		Float = 0,
 		Half,
-		Fixed
+		Inherit
 	}
 
 	public enum AvailableShaderTypes
@@ -223,6 +223,13 @@ namespace AmplifyShaderEditor
 
 		protected void DrawCustomInspector( bool dropdown )
 		{
+#if !UNITY_2018_3_OR_NEWER
+			dropdown = false;
+#else
+			if( ASEPackageManagerHelper.CurrentHDVersion <= ASESRPVersions.ASE_SRP_5_16_1 )
+				dropdown = false;
+#endif
+
 			EditorGUILayout.BeginHorizontal();
 			m_customInspectorName = EditorGUILayoutTextField( CustomInspectorStr, m_customInspectorName );
 			if( !dropdown )
@@ -242,12 +249,19 @@ namespace AmplifyShaderEditor
 
 					GenericMenu menu = new GenericMenu();
 					AddMenuItem( menu, Constants.DefaultCustomInspector );
-					#if UNITY_2018_3_OR_NEWER
+#if UNITY_2018_3_OR_NEWER
 					if( ASEPackageManagerHelper.CurrentHDVersion > ASESRPVersions.ASE_SRP_6_9_1 )
+					{
 						AddMenuItem( menu, "UnityEditor.Rendering.HighDefinition.HDLitGUI" );
+						AddMenuItem( menu, "UnityEditor.ShaderGraph.PBRMasterGUI" );
+					}
 					else
-					#endif
+					{
 						AddMenuItem( menu, "UnityEditor.Experimental.Rendering.HDPipeline.HDLitGUI" );
+					}
+#else
+					AddMenuItem( menu, "UnityEditor.Experimental.Rendering.HDPipeline.HDLitGUI" );
+#endif
 					menu.ShowAsContext();
 				}
 			}
@@ -420,7 +434,6 @@ namespace AmplifyShaderEditor
 			base.WriteToString( ref nodeInfo, ref connectionsInfo );
 			//IOUtils.AddFieldValueToString( ref nodeInfo, m_isMainMasterNode );
 			IOUtils.AddFieldValueToString( ref nodeInfo, m_shaderModelIdx );
-			IOUtils.AddFieldValueToString( ref nodeInfo, m_currentPrecisionType );
 			IOUtils.AddFieldValueToString( ref nodeInfo, m_customInspectorName );
 			IOUtils.AddFieldValueToString( ref nodeInfo, m_shaderLOD );
 			IOUtils.AddFieldValueToString( ref nodeInfo, m_masterNodeCategory );
@@ -432,10 +445,20 @@ namespace AmplifyShaderEditor
 			if( UIUtils.CurrentShaderVersion() > 21 )
 			{
 				m_shaderModelIdx = Convert.ToInt32( GetCurrentParam( ref nodeParams ) );
-				m_currentPrecisionType = (PrecisionType)Enum.Parse( typeof( PrecisionType ), GetCurrentParam( ref nodeParams ) );
-				if( m_currentPrecisionType == PrecisionType.Fixed )
+				if( UIUtils.CurrentShaderVersion() < 17005 )
 				{
-					m_currentPrecisionType = PrecisionType.Half;
+					string val = GetCurrentParam( ref nodeParams );
+					if( m_customPrecision )
+					{
+						if( val.Equals( "Fixed" ) )
+							m_currentPrecisionType = PrecisionType.Half;
+						else
+							m_currentPrecisionType = (PrecisionType)Enum.Parse( typeof( PrecisionType ), val );
+					}
+					else
+					{
+						m_currentPrecisionType = PrecisionType.Inherit;
+					}
 				}
 			}
 
@@ -657,7 +680,16 @@ namespace AmplifyShaderEditor
 
 					drawElementCallback = ( Rect rect, int index, bool isActive, bool isFocused ) =>
 					{
-						EditorGUI.LabelField( rect, m_propertyNodesVisibleList[ index ].PropertyInspectorName );
+						var first = rect;
+						first.width *= 0.60f;
+						EditorGUI.LabelField( first, m_propertyNodesVisibleList[ index ].PropertyInspectorName );
+						var second = rect;
+						second.width *= 0.4f;
+						second.x += first.width;
+						if( GUI.Button( second, m_propertyNodesVisibleList[ index ].PropertyName, new GUIStyle( "AssetLabel Partial" ) ) )
+						{
+							UIUtils.FocusOnNode( m_propertyNodesVisibleList[ index ], 1, false );
+						}
 					},
 
 					onReorderCallback = ( list ) =>

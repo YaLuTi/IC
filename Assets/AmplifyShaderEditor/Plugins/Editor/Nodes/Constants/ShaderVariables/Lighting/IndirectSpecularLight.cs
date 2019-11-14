@@ -102,7 +102,7 @@ namespace AmplifyShaderEditor
 					if( m_inputPorts[ 0 ].IsConnected )
 					{
 						if( m_normalSpace == ViewSpace.Tangent )
-							worldNormal = dataCollector.TemplateDataCollectorInstance.GetWorldNormal( UniqueId, m_currentPrecisionType, m_inputPorts[ 0 ].GeneratePortInstructions( ref dataCollector ), OutputId );
+							worldNormal = dataCollector.TemplateDataCollectorInstance.GetWorldNormal( UniqueId, CurrentPrecisionType, m_inputPorts[ 0 ].GeneratePortInstructions( ref dataCollector ), OutputId );
 						else
 							worldNormal = m_inputPorts[ 0 ].GeneratePortInstructions( ref dataCollector );
 					}
@@ -132,7 +132,7 @@ namespace AmplifyShaderEditor
 					dataCollector.AddLocalVariable( UniqueId, "#endif //specdataif1" );
 
 					dataCollector.AddLocalVariable( UniqueId, "Unity_GlossyEnvironmentData g" + OutputId + " = UnityGlossyEnvironmentSetup( " + tempsmoothness + ", " + worldViewDir + ", " + worldNormal + ", float3(0,0,0));" );
-					dataCollector.AddLocalVariable( UniqueId, m_currentPrecisionType, WirePortDataType.FLOAT3, "indirectSpecular" + OutputId, "UnityGI_IndirectSpecular( data, " + tempocclusion + ", " + worldNormal + ", g" + OutputId + " )" );
+					dataCollector.AddLocalVariable( UniqueId, CurrentPrecisionType, WirePortDataType.FLOAT3, "indirectSpecular" + OutputId, "UnityGI_IndirectSpecular( data, " + tempocclusion + ", " + worldNormal + ", g" + OutputId + " )" );
 					return "indirectSpecular" + OutputId;
 				}
 				else
@@ -144,7 +144,7 @@ namespace AmplifyShaderEditor
 						if( m_inputPorts[ 0 ].IsConnected )
 						{
 							if( m_normalSpace == ViewSpace.Tangent )
-								worldNormal = dataCollector.TemplateDataCollectorInstance.GetWorldNormal( UniqueId, m_currentPrecisionType, m_inputPorts[ 0 ].GeneratePortInstructions( ref dataCollector ), OutputId );
+								worldNormal = dataCollector.TemplateDataCollectorInstance.GetWorldNormal( UniqueId, CurrentPrecisionType, m_inputPorts[ 0 ].GeneratePortInstructions( ref dataCollector ), OutputId );
 							else
 								worldNormal = m_inputPorts[ 0 ].GeneratePortInstructions( ref dataCollector );
 						}
@@ -174,7 +174,7 @@ namespace AmplifyShaderEditor
 			string normal = string.Empty;
 			if( m_inputPorts[ 0 ].IsConnected )
 			{
-				dataCollector.AddToInput( UniqueId, SurfaceInputs.WORLD_NORMAL, m_currentPrecisionType );
+				dataCollector.AddToInput( UniqueId, SurfaceInputs.WORLD_NORMAL, CurrentPrecisionType );
 				dataCollector.AddToInput( UniqueId, SurfaceInputs.INTERNALDATA, addSemiColon: false );
 				dataCollector.ForceNormal = true;
 
@@ -189,7 +189,7 @@ namespace AmplifyShaderEditor
 			{
 				if( dataCollector.IsFragmentCategory )
 				{
-					dataCollector.AddToInput( UniqueId, SurfaceInputs.WORLD_NORMAL, m_currentPrecisionType );
+					dataCollector.AddToInput( UniqueId, SurfaceInputs.WORLD_NORMAL, CurrentPrecisionType );
 					if( dataCollector.DirtyNormal )
 					{
 						dataCollector.AddToInput( UniqueId, SurfaceInputs.INTERNALDATA, addSemiColon: false );
@@ -228,7 +228,7 @@ namespace AmplifyShaderEditor
 			}
 
 			dataCollector.AddLocalVariable( UniqueId, "Unity_GlossyEnvironmentData g" + OutputId + " = UnityGlossyEnvironmentSetup( " + smoothness + ", " + viewDir + ", " + normal + ", float3(0,0,0));" );
-			dataCollector.AddLocalVariable( UniqueId, m_currentPrecisionType, WirePortDataType.FLOAT3, "indirectSpecular" + OutputId, "UnityGI_IndirectSpecular( data, " + occlusion + ", " + normal + ", g" + OutputId + " )" );
+			dataCollector.AddLocalVariable( UniqueId, CurrentPrecisionType, WirePortDataType.FLOAT3, "indirectSpecular" + OutputId, "UnityGI_IndirectSpecular( data, " + occlusion + ", " + normal + ", g" + OutputId + " )" );
 
 			return "indirectSpecular" + OutputId;
 		}

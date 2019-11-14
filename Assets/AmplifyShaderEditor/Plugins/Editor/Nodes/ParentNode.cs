@@ -31,6 +31,7 @@ namespace AmplifyShaderEditor
 		public const int PreviewHeight = 128;
 
 		protected readonly string[] PrecisionLabels = { "Float", "Half" };
+		protected readonly string[] PrecisionLabelsExtra = { "Float", "Half", "Inherit" };
 
 		private const double NodeClickTime = 0.2;
 		protected GUIContent PrecisionContent = new GUIContent( "Precision", "Changes the precision of internal calculations, using lower types saves some performance\nDefault: Float" );
@@ -47,7 +48,10 @@ namespace AmplifyShaderEditor
 		public delegate void OnSRPAction( int outputId, ref MasterNodeDataCollector dataCollector );
 
 		[SerializeField]
-		protected PrecisionType m_currentPrecisionType = PrecisionType.Float;
+		protected PrecisionType m_currentPrecisionType = PrecisionType.Inherit;
+
+		[SerializeField]
+		protected bool m_customPrecision = false;
 
 		[SerializeField]
 		protected InteractionMode m_defaultInteractionMode = InteractionMode.Other;
@@ -1133,10 +1137,12 @@ namespace AmplifyShaderEditor
 			FireStoppedMovingEvent( true, m_defaultInteractionMode );
 		}
 
-		protected void DrawPrecisionProperty()
+		protected void DrawPrecisionProperty( bool withInherit = true )
 		{
-			//m_currentPrecisionType = (PrecisionType)EditorGUILayoutEnumPopup( PrecisionContante, m_currentPrecisionType );
-			m_currentPrecisionType = (PrecisionType)EditorGUILayoutPopup( PrecisionContent.text, (int)m_currentPrecisionType, PrecisionLabels );
+			if( withInherit )
+				m_currentPrecisionType = (PrecisionType)EditorGUILayoutPopup( PrecisionContent.text, (int)m_currentPrecisionType, PrecisionLabelsExtra );
+			else
+				m_currentPrecisionType = (PrecisionType)EditorGUILayoutPopup( PrecisionContent.text, (int)m_currentPrecisionType, PrecisionLabels );
 		}
 
 		public virtual void DrawTitle( Rect titlePos )
@@ -2482,7 +2488,7 @@ namespace AmplifyShaderEditor
 			{
 				if( outPort.DataType != WirePortDataType.OBJECT && outPort.DataType != inputPortType )
 				{
-					return UIUtils.CastPortType( ref dataCollector, m_currentPrecisionType, new NodeCastInfo( m_uniqueId, outputId ), null, outPort.DataType, inputPortType, outPort.LocalValue( dataCollector.PortCategory ) );
+					return UIUtils.CastPortType( ref dataCollector, CurrentPrecisionType, new NodeCastInfo( m_uniqueId, outputId ), null, outPort.DataType, inputPortType, outPort.LocalValue( dataCollector.PortCategory ) );
 				}
 				else
 				{
@@ -2495,7 +2501,7 @@ namespace AmplifyShaderEditor
 
 			if( outPort.DataType != WirePortDataType.OBJECT && outPort.DataType != inputPortType )
 			{
-				result = UIUtils.CastPortType( ref dataCollector, m_currentPrecisionType, new NodeCastInfo( m_uniqueId, outputId ), null, outPort.DataType, inputPortType, result );
+				result = UIUtils.CastPortType( ref dataCollector, CurrentPrecisionType, new NodeCastInfo( m_uniqueId, outputId ), null, outPort.DataType, inputPortType, result );
 			}
 			return result;
 		}
@@ -2532,11 +2538,11 @@ namespace AmplifyShaderEditor
 
 				if( createInterpolator )
 				{
-					dataCollector.TemplateDataCollectorInstance.RegisterCustomInterpolatedData( dataName, dataType, m_currentPrecisionType, dataValue );
+					dataCollector.TemplateDataCollectorInstance.RegisterCustomInterpolatedData( dataName, dataType, CurrentPrecisionType, dataValue );
 				}
 				else
 				{
-					dataCollector.AddToVertexLocalVariables( -1, m_currentPrecisionType, dataType, dataName, dataValue );
+					dataCollector.AddToVertexLocalVariables( -1, CurrentPrecisionType, dataType, dataName, dataValue );
 				}
 
 				return dataName;
@@ -2551,7 +2557,7 @@ namespace AmplifyShaderEditor
 				}
 
 				if( createInterpolator )
-					dataCollector.AddToInput( UniqueId, dataName, dataType, m_currentPrecisionType );
+					dataCollector.AddToInput( UniqueId, dataName, dataType, CurrentPrecisionType );
 
 				MasterNodePortCategory portCategory = dataCollector.PortCategory;
 				dataCollector.PortCategory = MasterNodePortCategory.Vertex;
@@ -2561,7 +2567,7 @@ namespace AmplifyShaderEditor
 				}
 				else
 				{
-					dataCollector.AddLocalVariable( UniqueId, m_currentPrecisionType, dataType, dataName, dataValue );
+					dataCollector.AddLocalVariable( UniqueId, CurrentPrecisionType, dataType, dataName, dataValue );
 				}
 				dataCollector.PortCategory = portCategory;
 				return createInterpolator ? Constants.InputVarStr + "." + dataName : dataName;
@@ -2599,11 +2605,11 @@ namespace AmplifyShaderEditor
 
 				if( createInterpolator )
 				{
-					dataCollector.TemplateDataCollectorInstance.RegisterCustomInterpolatedData( varName, inputPort.DataType, m_currentPrecisionType, data );
+					dataCollector.TemplateDataCollectorInstance.RegisterCustomInterpolatedData( varName, inputPort.DataType, CurrentPrecisionType, data );
 				}
 				else
 				{
-					dataCollector.AddToVertexLocalVariables( -1, m_currentPrecisionType, inputPort.DataType, varName, data );
+					dataCollector.AddToVertexLocalVariables( -1, CurrentPrecisionType, inputPort.DataType, varName, data );
 				}
 
 				return varName;
@@ -2618,7 +2624,7 @@ namespace AmplifyShaderEditor
 				}
 
 				if( createInterpolator )
-					dataCollector.AddToInput( UniqueId, varName, inputPort.DataType, m_currentPrecisionType );
+					dataCollector.AddToInput( UniqueId, varName, inputPort.DataType, CurrentPrecisionType );
 
 				MasterNodePortCategory portCategory = dataCollector.PortCategory;
 				dataCollector.PortCategory = MasterNodePortCategory.Vertex;
@@ -2634,7 +2640,7 @@ namespace AmplifyShaderEditor
 				}
 				else
 				{
-					dataCollector.AddLocalVariable( UniqueId, m_currentPrecisionType, inputPort.DataType, varName, vertexVarValue );
+					dataCollector.AddLocalVariable( UniqueId, CurrentPrecisionType, inputPort.DataType, varName, vertexVarValue );
 				}
 
 				dataCollector.PortCategory = portCategory;
@@ -2686,7 +2692,7 @@ namespace AmplifyShaderEditor
 			}
 
 			bool vertexMode = dataCollector.PortCategory == MasterNodePortCategory.Vertex || dataCollector.PortCategory == MasterNodePortCategory.Tessellation;
-			string localVar = port.ConfigOutputLocalValue( m_currentPrecisionType, value, customName, dataCollector.PortCategory );
+			string localVar = port.ConfigOutputLocalValue( CurrentPrecisionType, value, customName, dataCollector.PortCategory );
 
 			if( vertexMode )
 			{
@@ -2935,10 +2941,6 @@ namespace AmplifyShaderEditor
 			}
 			m_repopulateDictionaries = true;
 			m_sizeIsDirty = true;
-			if( m_currentPrecisionType == PrecisionType.Fixed )
-			{
-				m_currentPrecisionType = PrecisionType.Half;
-			}
 		}
 
 		public virtual void ReadFromDeprecated( ref string[] nodeParams, Type oldType = null ) { }
@@ -2962,9 +2964,18 @@ namespace AmplifyShaderEditor
 
 			if( UIUtils.CurrentShaderVersion() > 22 )
 			{
-				m_currentPrecisionType = (PrecisionType)Enum.Parse( typeof( PrecisionType ), GetCurrentParam( ref nodeParams ) );
-				if( m_currentPrecisionType == PrecisionType.Fixed )
-					m_currentPrecisionType = PrecisionType.Half;
+				string val = GetCurrentParam( ref nodeParams );
+				if( m_customPrecision )
+				{
+					if( val.Equals("Fixed") )
+						m_currentPrecisionType = PrecisionType.Half;
+					else
+					m_currentPrecisionType = (PrecisionType)Enum.Parse( typeof( PrecisionType ), val );
+				}
+				else
+				{
+					m_currentPrecisionType = PrecisionType.Inherit;
+				}
 			}
 
 			if( UIUtils.CurrentShaderVersion() > 5004 )
@@ -3584,7 +3595,8 @@ namespace AmplifyShaderEditor
 		public virtual void CalculateCustomGraphDepth() { }
 		public int GraphDepth { get { return m_graphDepth; } }
 
-		public PrecisionType CurrentPrecisionType { get { return m_currentPrecisionType; } }
+		public PrecisionType CurrentPrecisionType { get { return m_currentPrecisionType == PrecisionType.Inherit ? ContainerGraph.CurrentPrecision : m_currentPrecisionType; } }
+
 
 		public Material PreviewMaterial
 		{

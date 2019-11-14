@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{22BC269F-8F34-459C-A664-652C288BAAC3}" SchemaVersion="94">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{22BC269F-8F34-459C-A664-652C288BAAC3}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Main" ID="{96B0355D-0081-417A-A7BB-0F7696C558C7}">
+					<ObjectInclusionList>
+						<ObjectRef Name="TorchFire" ID="{0DA8F60A-435B-4371-8EEB-9EB29ABD1250}" WorkUnitID="{3B7D2C96-5279-4422-8851-D1763A33F194}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Main_event" ID="{EC5633E4-792B-44A2-A507-99D40F389E70}" WorkUnitID="{74CD820A-B1AD-4ACD-966E-D017B0009A39}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

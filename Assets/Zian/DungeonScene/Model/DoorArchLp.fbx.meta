@@ -4,12 +4,53 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: DoorArchLp_LOD0
+    100004: DoorArchLp_LOD1
+    100006: DoorArchLp_LOD2
+    100008: DoorArchLp_LOD3
     400000: //RootNode
-    2100000: Cube_011
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cube_011
-  externalObjects: {}
+    400002: DoorArchLp_LOD0
+    400004: DoorArchLp_LOD1
+    400006: DoorArchLp_LOD2
+    400008: DoorArchLp_LOD3
+    2100000: DoorArchLp_LOD0
+    2100002: DoorArchLp_LOD1
+    2100004: DoorArchLp_LOD2
+    2100006: DoorArchLp_LOD3
+    2300000: DoorArchLp_LOD0
+    2300002: DoorArchLp_LOD1
+    2300004: DoorArchLp_LOD2
+    2300006: DoorArchLp_LOD3
+    3300000: DoorArchLp_LOD0
+    3300002: DoorArchLp_LOD1
+    3300004: DoorArchLp_LOD2
+    3300006: DoorArchLp_LOD3
+    4300000: DoorArchLp_LOD0
+    4300002: DoorArchLp_LOD1
+    4300004: DoorArchLp_LOD2
+    4300006: DoorArchLp_LOD3
+    20500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorArchLp_LOD0
+    second: {fileID: 2100000, guid: 8a5bf7d36ddd3ff4785f2fbdedef1811, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorArchLp_LOD1
+    second: {fileID: 2100000, guid: 9651bdc7e47fe434eaedf6f10f216e1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorArchLp_LOD2
+    second: {fileID: 2100000, guid: bd5477f4fc2d59c4faaf9480a43d9041, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorArchLp_LOD3
+    second: {fileID: 2100000, guid: 7fb208f03eb4ea84585da7901e3a3c94, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -39,7 +80,11 @@ ModelImporter:
     clipAnimations: []
     isReadable: 1
   meshes:
-    lODScreenPercentages: []
+    lODScreenPercentages:
+    - 0.25
+    - 0.125
+    - 0.0625
+    - 0.01
     globalScale: 1
     meshCompression: 0
     addColliders: 0
@@ -49,7 +94,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -57,9 +102,9 @@ ModelImporter:
     preserveHierarchy: 0
     indexFormat: 0
     secondaryUVAngleDistortion: 8
-    secondaryUVAreaDistortion: 15.000001
+    secondaryUVAreaDistortion: 15
     secondaryUVHardAngle: 88
-    secondaryUVPackMargin: 4
+    secondaryUVPackMargin: 40
     useFileScale: 1
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 0

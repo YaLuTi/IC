@@ -13,7 +13,6 @@ namespace AmplifyShaderEditor
 {
 	public enum ASESRPVersions
 	{
-		ASE_SRP_RECENT = 000000,
 		ASE_SRP_3_0_0 = 030000,
 		ASE_SRP_3_1_0 = 030100,
 		ASE_SRP_3_3_0 = 030300,
@@ -32,6 +31,10 @@ namespace AmplifyShaderEditor
 		ASE_SRP_5_16_1 = 051601,
 		ASE_SRP_6_9_0 = 060900,
 		ASE_SRP_6_9_1 = 060901,
+		ASE_SRP_7_0_1 = 070001,
+		ASE_SRP_7_1_1 = 070101,
+		ASE_SRP_7_1_2 = 070102,
+		ASE_SRP_RECENT = 999999,
 	}
 
 	public enum ASEImportState
@@ -65,6 +68,7 @@ namespace AmplifyShaderEditor
 
 		private static string HDPackageId = "com.unity.render-pipelines.high-definition";
 		private static string LWPackageId = "com.unity.render-pipelines.lightweight";
+		private static string UniversalPackageId = "com.unity.render-pipelines.universal";
 		private static string HDEditorPrefsId = "ASEHDEditorPrefsId";
 		private static string LWEditorPrefsId = "ASELightweigthEditorPrefsId ";
 
@@ -133,6 +137,12 @@ namespace AmplifyShaderEditor
 			{"6.9.0-preview",   ASESRPVersions.ASE_SRP_6_9_0},
 			{"6.9.1",           ASESRPVersions.ASE_SRP_6_9_1},
 			{"6.9.1-preview",   ASESRPVersions.ASE_SRP_6_9_1},
+			{"7.0.1",           ASESRPVersions.ASE_SRP_7_0_1},
+			{"7.0.1-preview",   ASESRPVersions.ASE_SRP_7_0_1},
+			{"7.1.1",           ASESRPVersions.ASE_SRP_7_1_1},
+			{"7.1.1-preview",   ASESRPVersions.ASE_SRP_7_1_1},
+			{"7.1.2",           ASESRPVersions.ASE_SRP_7_1_2},
+			{"7.1.2-preview",   ASESRPVersions.ASE_SRP_7_1_2},
 		};
 
 
@@ -157,7 +167,10 @@ namespace AmplifyShaderEditor
 			{ASESRPVersions.ASE_SRP_5_16_1, "4c816894a3147d343891060451241bfe"},
 			{ASESRPVersions.ASE_SRP_6_9_0,	"4c816894a3147d343891060451241bfe"},
 			{ASESRPVersions.ASE_SRP_6_9_1,  "4c816894a3147d343891060451241bfe"},
-			{ASESRPVersions.ASE_SRP_RECENT, "4c816894a3147d343891060451241bfe"}
+			{ASESRPVersions.ASE_SRP_7_0_1,  "57fcea0ed8b5eb347923c4c21fa31b57"},
+			{ASESRPVersions.ASE_SRP_7_1_1,  "57fcea0ed8b5eb347923c4c21fa31b57"},
+			{ASESRPVersions.ASE_SRP_7_1_2,  "57fcea0ed8b5eb347923c4c21fa31b57"},
+			{ASESRPVersions.ASE_SRP_RECENT, "57fcea0ed8b5eb347923c4c21fa31b57"}
 		};
 
 		private static Dictionary<ASESRPVersions, string> m_srpToASEPackageHD = new Dictionary<ASESRPVersions, string>()
@@ -180,6 +193,9 @@ namespace AmplifyShaderEditor
 			{ASESRPVersions.ASE_SRP_5_16_1, "2d7fe4f7c19e90f41b893bc01fc17230"},
 			{ASESRPVersions.ASE_SRP_6_9_0,	"9a5e61a8b3421b944863d0946e32da0a"},
 			{ASESRPVersions.ASE_SRP_6_9_1,	"9a5e61a8b3421b944863d0946e32da0a"},
+			{ASESRPVersions.ASE_SRP_7_0_1,  "9a5e61a8b3421b944863d0946e32da0a"},
+			{ASESRPVersions.ASE_SRP_7_1_1,  "9a5e61a8b3421b944863d0946e32da0a"},
+			{ASESRPVersions.ASE_SRP_7_1_2,  "9a5e61a8b3421b944863d0946e32da0a"},
 			{ASESRPVersions.ASE_SRP_RECENT, "9a5e61a8b3421b944863d0946e32da0a"}
 		};
 
@@ -350,6 +366,32 @@ namespace AmplifyShaderEditor
 							}
 						}
 
+						if( pi.name.Equals( UniversalPackageId ) )
+						{
+							m_currentLWVersion = ASESRPVersions.ASE_SRP_RECENT;
+							m_lwPackageInfo = pi;
+							if( m_srpVersionConverter.ContainsKey( pi.version ) )
+							{
+								ASESRPVersions oldVersion = (ASESRPVersions)EditorPrefs.GetInt( LWEditorPrefsId );
+								m_currentLWVersion = m_srpVersionConverter[ pi.version ];
+								EditorPrefs.SetInt( LWEditorPrefsId, (int)m_currentLWVersion );
+								bool foundNewVersion = oldVersion != m_currentLWVersion;
+								if( !File.Exists( AssetDatabase.GUIDToAssetPath( TemplatesManager.UniversalPBRGUID ) ) ||
+									!File.Exists( AssetDatabase.GUIDToAssetPath( TemplatesManager.UniversalUnlitGUID ) ) ||
+									foundNewVersion
+									)
+								{
+									if( foundNewVersion )
+										Debug.Log( LightweightNewVersionDetected );
+
+									m_importingPackage = ASEImportState.Lightweight;
+									string guid = m_srpToASEPackageLW.ContainsKey( m_currentLWVersion ) ? m_srpToASEPackageLW[ m_currentLWVersion ] : m_srpToASEPackageLW[ ASESRPVersions.ASE_SRP_RECENT ];
+									string packagePath = AssetDatabase.GUIDToAssetPath( guid );
+									StartImporting( packagePath );
+								}
+							}
+						}
+
 						if( pi.name.Equals( HDPackageId ) )
 						{
 							m_currentHDVersion = ASESRPVersions.ASE_SRP_RECENT;
@@ -388,7 +430,7 @@ namespace AmplifyShaderEditor
 
 			if( dataCollector.CurrentSRPType == TemplateSRPType.HD )
 			{
-				dataCollector.AddToDefines( -1, string.Format( SPKeywordFormat, (int)m_currentHDVersion ) );
+				dataCollector.AddToDirectives( string.Format( SPKeywordFormat, (int)m_currentHDVersion ) ,-1, AdditionalLineType.Define );
 				if( m_currentHDVersion < ASESRPVersions.ASE_SRP_4_9_0 )
 				{
 					dataCollector.AddFunction( GetNormalWSFunc[ 0 ], GetNormalWSFunc, false );
@@ -401,7 +443,7 @@ namespace AmplifyShaderEditor
 			}
 
 			if( dataCollector.CurrentSRPType == TemplateSRPType.Lightweight )
-				dataCollector.AddToDefines( -1, string.Format( SPKeywordFormat, (int)m_currentLWVersion ) );
+				dataCollector.AddToDirectives( string.Format( SPKeywordFormat, (int)m_currentLWVersion ), -1, AdditionalLineType.Define );
 		}
 		public static ASESRPVersions CurrentHDVersion { get { return m_currentHDVersion; } }
 		public static ASESRPVersions CurrentLWVersion { get { return m_currentLWVersion; } }
