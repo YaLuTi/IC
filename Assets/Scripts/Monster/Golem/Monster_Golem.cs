@@ -7,15 +7,35 @@ public class Monster_Golem : TestMonster {
     // Use this for initialization
     [Header("AttackValue")]
     [SerializeField]
-    float AttackLowRange = 5f;
+    float CloseDistance = 5f;
     [SerializeField]
-    float WalkAround = 10f;
+    float MidDistance = 10f;
     [SerializeField]
-    float JumpSlashRange = 10f;
+    float LongDistance = 15f;
+
+    [SerializeField]
+    float ComboLowRange = 5f;
+    [SerializeField]
+    float ComboLowCD = 450f;
+    [SerializeField]
+    float ShortAttackRange = 5f;
+    [SerializeField]
+    float ShortAttackCD = 300f;
+    [SerializeField]
+    float ComboRotateRange = 9f;
+    [SerializeField]
+    float ComboRotateCD = 10f;
+    [SerializeField]
+    float JumpSlashRange = 15f;
+    [SerializeField]
+    float JumpSlashCD = 15f;
+    [SerializeField]
+    float CounterSlashCD = 200f;
 
     public float testRange = 5;
 
-    float speed = 0;
+    float speed = 1;
+    public float anger = 0;
 
     [Header("Sound Assets")]
     public AudioAssets StepSound;
@@ -27,23 +47,25 @@ public class Monster_Golem : TestMonster {
     public AudioAssets AttackDownAttackOneSound;
     public AudioAssets AttackDownAttackTwoSound;
 
-    float d;
+    public float d;
 
     // Set State
-	protected override void Start () {
+	protected override void Start ()
+    {
         base.Start();
-        attackstates = Attackstates.Alert;
-        d = Vector3.Distance(player.transform.position, transform.position);
+        d = Mathf.Abs(Vector3.Distance(player.transform.position, transform.position));
+        destination = Nav.GetCorners();
     }
 	
 	// Set nav corner and speed
-	protected override void Update () {
+	protected override void Update ()
+    {
         base.Update();
-        destination = Nav.GetCorners();
         if (player.activeSelf == true)
         {
             d = Vector3.Distance(player.transform.position, transform.position);
         }
+        CD();
         animator.SetFloat("Speed", speed);
     }
     void OnDrawGizmosSelected()
@@ -64,7 +86,7 @@ public class Monster_Golem : TestMonster {
         base.e_Attacking();
 
         speed = 1;
-        if (d < JumpSlashRange && d > WalkAround)
+        /*if (d < JumpSlashRange && d > WalkAround)
         {
             animator.SetTrigger("JumpSlash");
         }else if (d < WalkAround && d > AttackLowRange)
@@ -78,16 +100,176 @@ public class Monster_Golem : TestMonster {
         else if (d < AttackLowRange)
         {
             animator.SetTrigger("AttackLow");
+        }*/
+        if (IsAttacking) return;
+       if(d < CloseDistance)
+        {
+            // SetXY(0, 1);
+            if (d < 4 && ShortAttackCD >= 300)
+            {
+                IsAttacking = true;
+                ShortAttackCD = 0;
+                animator.SetTrigger("ShortAttack");
+                return;
+            }
+            else if (d < 7 && ComboLowCD >= 450)
+            {
+                IsAttacking = true;
+                ComboLowCD = 0;
+                animator.SetTrigger("AttackLow");
+                return;
+            }
+            else if(d > 4 && ShortAttackCD >= 300)
+            {
+                SetXY(0, 1);
+                anger++;
+            }
+            else if (d < 4 && anger >= 100)
+            {
+                if (CounterSlashCD >= 150)
+                {
+                    IsAttacking = true;
+                    anger = 0;
+                    CounterSlashCD = 0;
+                    animator.SetTrigger("SlashOne");
+                }else if(ShortAttackCD >= 100)
+                {
+                    IsAttacking = true;
+                    ShortAttackCD = 0;
+                    animator.SetTrigger("ShortAttack");
+                    return;
+                }
+                return;
+            }
+            else if(d < 7 && ComboLowCD < 450 && ShortAttackCD < 300)
+            {
+                SetXY(0, -1);
+                anger++;
+            }
+            else
+            {
+                SetXY(1, 0);
+                // Need a value to avoid it keep rotate
+            }
+            
         }
+        else if(d < MidDistance)
+        {
+            if(anger > 0)
+            {
+                anger--;
+            }
+            if (d > 9 && JumpSlashCD >= 600)
+            {
+                if(d < 12)
+                {
+                    SetXY(0, -1);
+                }
+                else
+                {
+                    IsAttacking = true;
+                    JumpSlashCD = 0;
+                    animator.SetTrigger("JumpSlash");
+                    return;
+                }
+            }
+            else if(d > 9)
+            {
+                if(JumpSlashCD < 300)
+                {
+                    SetXY(0, 1);
+                }else if (JumpSlashCD > 300)
+                {
+                    SetXY(1, 0);
+                }
+                else
+                {
+                    SetXY(0, 1);
+                }
+            }
+            else if (d < 9 && ComboRotateCD >= 500)
+            {
+                IsAttacking = true;
+                ComboRotateCD = 0;
+                animator.SetTrigger("ComboAttack");
+                return;
+            }
+            else
+            {
+                if(ComboLowCD >= 450 || ShortAttackCD >= 300)
+                {
+                    SetXY(0, 1);
+                }
+                else
+                {
+                    SetXY(1, 0);
+                }
+            }
+        }
+        else
+        {
+            if (anger > 0)
+            {
+                anger--;
+            }
+            if (d < 15 && JumpSlashCD >= 600)
+            {
+                IsAttacking = true;
+                JumpSlashCD = 0;
+                animator.SetTrigger("JumpSlash");
+                return;
+            }
+            else if (d > 20 && JumpSlashCD >= 600)
+            {
+                SetXY(0, 2);
+            }else if (d < 20 && animator.GetFloat("Y") < 2 && JumpSlashCD >= 600)
+            {
+                SetXY(0, 1);
+            }
+            else
+            {
+                SetXY(0, 1);
+            }
+        }
+    }
 
+    void SetXY(float x, float y)
+    {
+        animator.SetFloat("X", x, 0.5f, Time.deltaTime);
+        animator.SetFloat("Y", y, 0.5f, Time.deltaTime);
+    }
+
+    public override void Damaged(float damage, Vector3 p)
+    {
+        base.Damaged(damage, p);
+        if (d < CloseDistance)
+        {
+            anger += 50;
+        }
+    }
+
+    void CD()
+    {
+        if (IsAttacking) return;
+        if (ComboLowCD < 450)
+        {
+            ComboLowCD++;
+        }
+        if (ShortAttackCD < 300)
+        {
+            ShortAttackCD++;
+        }
+        ComboRotateCD++;
+        JumpSlashCD++;
+        CounterSlashCD++;
     }
 
     void e_Attacking_OutRange()
     {
-        if (d < AttackLowRange)
+        /*if (d < AttackLowRange)
         {
             animator.SetTrigger("AttackLow");
-        }
+        }*/
     }
 
     protected override void e_Death()

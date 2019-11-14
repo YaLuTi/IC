@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class AINav : MonoBehaviour
 {
     public Vector3 target = Vector3.zero;
+    public bool HighRate = false;
     Vector3 LastTarget = Vector3.zero;
     bool y = false;
 
@@ -28,7 +29,7 @@ public class AINav : MonoBehaviour
     {
         // Update the way to the goal every second.
         if (target == Vector3.zero) return;
-        if (target != null && LastTarget != target)
+        if (target != null && LastTarget != target && !HighRate)
         {
             NavMesh.CalculatePath(transform.position, target, NavMesh.AllAreas, path);
             NavMeshHit hit;

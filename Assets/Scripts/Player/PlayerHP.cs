@@ -21,6 +21,7 @@ public class PlayerHP : MonoBehaviour {
     public float SP = 10;
     public Slider SPslider;
     public float SPRegenSpeed;
+    public float SPRegenCoolDown;
     float SPRegenCount;
 
     // Use this for initialization
@@ -32,14 +33,14 @@ public class PlayerHP : MonoBehaviour {
 	void Update ()
     {
 
-        if(SPRegenCount > 1f && SP < MaxSP)
+        if(SPRegenCount > SPRegenCoolDown && SP < MaxSP)
         {
-            SP += 1.5f * Time.deltaTime;
+            SP += SPRegenSpeed * Time.deltaTime;
             if(SP >= MaxSP)
             {
                 SP = MaxSP;
             }
-        }else if (SPRegenCount < 1f)
+        }else if (SPRegenCount < SPRegenCoolDown)
         {
             SPRegenCount += 1 * Time.deltaTime;
         }
@@ -62,6 +63,18 @@ public class PlayerHP : MonoBehaviour {
         Instantiate(DamagedParticle, transform.position, Quaternion.identity);
         HP -= damage;
         animator.SetTrigger("Damaged");
+    }
+
+    public void Healed(float heal)
+    {
+        if(HP < MaxHP)
+        {
+            HP += heal * Time.deltaTime;
+        }
+        if(HP >= MaxHP)
+        {
+            HP = MaxHP;
+        }
     }
 
     public void ExpendSP(float sp)

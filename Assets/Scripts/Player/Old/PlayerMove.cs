@@ -41,7 +41,7 @@ public class PlayerMove : MonoBehaviour {
     public bool Rotateable = true;
     public bool IsDodging;
     bool IsSteping;
-    bool IsLock = false;
+    public bool IsLock = false;
     // Use this for initialization
     void Start ()
     {
@@ -260,13 +260,21 @@ public class PlayerMove : MonoBehaviour {
 
     void AnimatorUpdate()
     {
-        m_Animator.SetFloat("Speed", move.z, 0.1f, Time.deltaTime);
+        if (IsLock)
+        {
+            m_Animator.SetFloat("Speed", Mathf.Abs(move.z) + Mathf.Abs(move.x), 0.1f, Time.deltaTime);
+        }
+        else
+        {
+            m_Animator.SetFloat("Speed", move.z, 0.1f, Time.deltaTime);
+        }
         m_Animator.SetFloat("Turn", m_TurnAmount, 0.25f, Time.deltaTime);
         // m_Animator.SetBool("IsDodging", IsDodging);
         // m_Animator.SetBool("IsSteping", IsSteping);
         m_Animator.SetBool("IsLock", IsLock);
-        m_Animator.SetFloat("X", move.x * 2, 0.05f, Time.deltaTime);
-        m_Animator.SetFloat("Y", move.z * 2, 0.05f, Time.deltaTime);
+        m_Animator.SetFloat("X", move.x * 2, 0.2f, Time.deltaTime);
+        m_Animator.SetFloat("Y", move.z * 2, 0.2f, Time.deltaTime);
+        m_Animator.SetBool("Focus", cameraRotate.IsFocus);
     }
 
     public void OnAnimatorMove()

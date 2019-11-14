@@ -173,9 +173,9 @@ public class TestMonster : MonsterBasic {
         Quaternion qDir = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, qDir, Time.deltaTime * 1f);*/
 
-        
+        if (!RotateAble) return;
         AnimatorStateInfo animatorStateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        if (animatorStateInfo.IsTag("Attack")) return;
+        // if (animatorStateInfo.IsTag("Attack")) return;
         if ((destination - transform.position).magnitude < 0.1f) return;
 
         Vector3 direction = (destination - transform.position).normalized;

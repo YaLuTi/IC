@@ -16,6 +16,7 @@ public class CameraRotate : MonoBehaviour {
 
     [SerializeField]
     public bool IsLock = false;
+    public bool IsFocus = false;
     public float HorizontalRotateSpeed = 1f;
     public float VerticalRotateSpeed = 1f;
 
@@ -27,7 +28,7 @@ public class CameraRotate : MonoBehaviour {
     public float Xangle = 0.5f;
     public float Yangle = 0.5f;
     private Vector3 velocity = Vector3.zero;
-    Vector3 rotateVector = new Vector3();
+    Vector3 rotateVector = new Vector3(); CinemachineFramingTransposer transposer;
 
     void Start ()
     {
@@ -37,6 +38,7 @@ public class CameraRotate : MonoBehaviour {
         }
         distance = followObj.transform.position - this.transform.position;
         cinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
+        transposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
     }
 	
 	// Update is called once per frame
@@ -70,6 +72,22 @@ public class CameraRotate : MonoBehaviour {
                     Xangle = angle;
                 }
             }
+        }
+        if (Input.GetButton("L2"))
+        {
+            transposer.m_CameraDistance += (1.8f - transposer.m_CameraDistance) * 0.2f;
+            transposer.m_ScreenX += (0.3f - transposer.m_ScreenX) * 0.2f;
+            transposer.m_ScreenY += (0.7f - transposer.m_ScreenY) * 0.2f;
+            transposer.m_ZDamping = 0.1f;
+            IsFocus = true;
+        }
+        else
+        {
+            transposer.m_CameraDistance += (3.1f - transposer.m_CameraDistance) * 0.2f;
+            transposer.m_ScreenX += (0.5f - transposer.m_ScreenX) * 0.2f;
+            transposer.m_ScreenY += (0.56f - transposer.m_ScreenY) * 0.2f;
+            transposer.m_ZDamping = 0.5f;
+            IsFocus = false;
         }
         if (!IsLock)
         {
