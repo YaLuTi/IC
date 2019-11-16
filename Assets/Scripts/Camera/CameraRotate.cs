@@ -73,6 +73,14 @@ public class CameraRotate : MonoBehaviour {
                 }
             }
         }
+        if (!IsLock)
+        {
+            NomalCameraMove();
+        }
+        else
+        {
+            LockCameraMove();
+        }
         if (Input.GetButton("L2"))
         {
             transposer.m_CameraDistance += (1.8f - transposer.m_CameraDistance) * 0.2f;
@@ -88,14 +96,6 @@ public class CameraRotate : MonoBehaviour {
             transposer.m_ScreenY += (0.56f - transposer.m_ScreenY) * 0.2f;
             transposer.m_ZDamping = 0.5f;
             IsFocus = false;
-        }
-        if (!IsLock)
-        {
-            NomalCameraMove();
-        }
-        else
-        {
-            LockCameraMove();
         }
     }
 
@@ -148,6 +148,7 @@ public class CameraRotate : MonoBehaviour {
         //Debug.Log(angle);
         Vector3 a = transform.eulerAngles;
         a.y = (-angle + 90);
+        if (IsFocus) a.y -= 30;
         transform.DORotate(a, 0.2f);
         Xangle = angle;
 

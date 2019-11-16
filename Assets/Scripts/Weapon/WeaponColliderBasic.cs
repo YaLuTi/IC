@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponColliderBasic : MonoBehaviour {
 
-    bool Attacking = false;
+    public bool Attacking = false;
 
     public float AttackDamage = 1f;
     public float DestroyTime = 0.5f;

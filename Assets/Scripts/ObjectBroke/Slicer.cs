@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Slicer : MonoBehaviour {
+    
+    public bool Walk = false;
+    public bool Rool = false;
+    public bool Attack = false;
 
     public GameObject BreakObject;
 	// Use this for initialization
@@ -17,10 +21,37 @@ public class Slicer : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Weapon") || collision.gameObject.CompareTag("Monster"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Monster"))
         {
-            Instantiate(BreakObject, transform.position, transform.rotation);
-            Destroy(this.gameObject);
+            if (Walk)
+            {
+                Instantiate(BreakObject, transform.position, transform.rotation);
+                Destroy(this.gameObject);
+            }
+        }
+        if(Rool && collision.gameObject.CompareTag("Player"))
+        {
+            PlayerMove p = collision.gameObject.GetComponent<PlayerMove>();
+            if (p.IsDodging)
+            {
+                Instantiate(BreakObject, transform.position, transform.rotation);
+                Destroy(this.gameObject);
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (Attack)
+        {
+            if (other.gameObject.CompareTag("Weapon"))
+            {
+                if (other.gameObject.GetComponent<WeaponColliderBasic>().Attacking)
+                {
+                    Instantiate(BreakObject, transform.position, transform.rotation);
+                    Destroy(this.gameObject);
+                }
+            }
         }
     }
 }

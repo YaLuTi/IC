@@ -1,22 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1262171824888404}
-  m_IsPrefabParent: 1
 --- !u!1 &1262171824888404
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4983879580949266}
   - component: {fileID: 33365451992497586}
@@ -32,9 +22,10 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4983879580949266
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262171824888404}
   m_LocalRotation: {x: -0, y: -0.38268274, z: -0, w: 0.9238798}
   m_LocalPosition: {x: 330.49872, y: 6.4605713, z: 26.482}
@@ -43,11 +34,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -45.000004, z: 0}
+--- !u!33 &33365451992497586
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262171824888404}
+  m_Mesh: {fileID: 4300000, guid: cc0807a4cd82e024f96d99f87fa6df16, type: 3}
 --- !u!23 &23146860721561078
 MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262171824888404}
   m_Enabled: 1
   m_CastShadows: 1
@@ -57,6 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
+  m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a617600576d6a7a42b00c5d6a69e691a, type: 2}
   m_StaticBatchInfo:
@@ -78,31 +79,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33365451992497586
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1262171824888404}
-  m_Mesh: {fileID: 4300000, guid: cc0807a4cd82e024f96d99f87fa6df16, type: 3}
---- !u!114 &114234357202949446
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1262171824888404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed453dda7f5073743bc3ea22c8fef3bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BreakObject: {fileID: 1977552217541472, guid: 65f1f222040b73c45a4cfa493f49225e,
-    type: 2}
 --- !u!136 &136287810703882602
 CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262171824888404}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -111,3 +93,20 @@ CapsuleCollider:
   m_Height: 1.5193375
   m_Direction: 1
   m_Center: {x: -0.000000059604645, y: 0.7762688, z: 0}
+--- !u!114 &114234357202949446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262171824888404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed453dda7f5073743bc3ea22c8fef3bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Walk: 1
+  Rool: 1
+  Attack: 1
+  BreakObject: {fileID: 1977552217541472, guid: 65f1f222040b73c45a4cfa493f49225e,
+    type: 3}
