@@ -14,6 +14,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="BarrelBreak" ID="{D3090A9E-8E0C-4952-B4BA-D0075356E474}">
+					<ChildrenList>
+						<Action Name="" ID="{632D34A2-2814-4953-BDF3-95A447E569A7}" ShortID="403845734">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BarrelSound" ID="{CFA8B8EA-EAFC-4AFE-9807-A23DEF177CDA}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PotBreak" ID="{CAA9746E-2F1A-40AE-BF95-B5D00030D6F6}">
+					<ChildrenList>
+						<Action Name="" ID="{DB3770BD-D479-4D7D-A0D8-D29F38B8095D}" ShortID="854389473">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="PotBreak" ID="{17D51D7E-F774-4D41-B76C-47EE99150C7A}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

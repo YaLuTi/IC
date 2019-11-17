@@ -60,6 +60,379 @@
 						<ActiveSource Name="FireIdleLoop" ID="{F804B6BC-9C13-4095-9D48-690938D641B0}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
+				<RandomSequenceContainer Name="BarrelSound" ID="{CFA8B8EA-EAFC-4AFE-9807-A23DEF177CDA}" ShortID="768174804">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+						<Property Name="GameAuxSendVolume" Type="Real64">
+							<ValueList>
+								<Value>7</Value>
+							</ValueList>
+						</Property>
+						<Property Name="HdrActiveRange" Type="Real64">
+							<ValueList>
+								<Value>24</Value>
+							</ValueList>
+						</Property>
+						<Property Name="HdrEnvelopeSensitivity" Type="Real64" Value="78"/>
+						<Property Name="HoldEmitterPositionOrientation" Type="bool" Value="True"/>
+						<Property Name="ListenerRelativeRouting" Type="bool" Value="False"/>
+						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+							<ObjectRef Name="Room_Small" ID="{577F1466-A63B-47F7-98BD-C56E433F8B5D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+						</Reference>
+						<Reference Name="Effect1" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+							<ObjectRef Name="High_Impact" ID="{2AFD6FB0-C906-4683-A377-FEEEF72967B0}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="BarrelBreak2" ID="{C4F79E4D-7136-432E-BB1F-1282411EAD40}" ShortID="70307955">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>380</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+									<ObjectRef Name="Room_Small" ID="{577F1466-A63B-47F7-98BD-C56E433F8B5D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="Effect1">
+									<Custom>
+										<Effect Name="Wwise_Time_Stretch_(Custom)" ID="{4EBE5353-2374-4840-9B32-33F45D3370EE}" ShortID="962179877" PluginName="Wwise Time Stretch" CompanyID="0" PluginID="130" PluginType="3">
+											<PropertyList>
+												<Property Name="TimeStretch" Type="Real32" Value="106"/>
+											</PropertyList>
+										</Effect>
+									</Custom>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BarrelBreak2" ID="{AFBE84D2-130A-4EE5-A2B9-92A7454132C3}" ShortID="614328910">
+									<Language>SFX</Language>
+									<AudioFile>BarrelBreak2.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="BarrelBreak2" ID="{AFBE84D2-130A-4EE5-A2B9-92A7454132C3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="BarrelBreak2_01" ID="{9789D9A9-8F23-4641-9591-35FECBC57D2B}" ShortID="948405450">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>250</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+									<ObjectRef Name="Room_Small" ID="{577F1466-A63B-47F7-98BD-C56E433F8B5D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="Effect1">
+									<Custom>
+										<Effect Name="Wwise_Time_Stretch_(Custom)" ID="{7EF7556E-220C-4D61-A36B-C2A88979E80D}" ShortID="148620930" PluginName="Wwise Time Stretch" CompanyID="0" PluginID="130" PluginType="3">
+											<PropertyList>
+												<Property Name="TimeStretch" Type="Real32" Value="96"/>
+											</PropertyList>
+										</Effect>
+									</Custom>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BarrelBreak2" ID="{3E7E5150-E108-4339-AB83-0E943DBCAB3F}" ShortID="9171003">
+									<Language>SFX</Language>
+									<AudioFile>BarrelBreak2.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="614328910"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="BarrelBreak2" ID="{3E7E5150-E108-4339-AB83-0E943DBCAB3F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="BarrelBreak2_02" ID="{A2B0C062-04C7-4CEC-AB05-4CE7F2F9C3BE}" ShortID="381860759">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>280</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
+									<ObjectRef Name="Room_Small" ID="{577F1466-A63B-47F7-98BD-C56E433F8B5D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="Effect1">
+									<Custom>
+										<Effect Name="Wwise_Time_Stretch_(Custom)" ID="{9D0219A3-F738-4D62-92A1-00297DCC3F08}" ShortID="731479684" PluginName="Wwise Time Stretch" CompanyID="0" PluginID="130" PluginType="3">
+											<PropertyList>
+												<Property Name="TimeStretch" Type="Real32" Value="115"/>
+											</PropertyList>
+										</Effect>
+									</Custom>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BarrelBreak2" ID="{4045D8A4-0B28-4E65-9C4C-DB19912D3079}" ShortID="446560256">
+									<Language>SFX</Language>
+									<AudioFile>BarrelBreak2.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="614328910"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="BarrelBreak2" ID="{4045D8A4-0B28-4E65-9C4C-DB19912D3079}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="BarrelBreak2_03" ID="{5699C8BC-F819-40A6-AF0A-89C675AEF4E0}" ShortID="684090076">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>14</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>380</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+									<ObjectRef Name="Room_Small" ID="{577F1466-A63B-47F7-98BD-C56E433F8B5D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="Effect1">
+									<Custom>
+										<Effect Name="Wwise_Time_Stretch_(Custom)" ID="{E3A0B806-9E7C-4299-8669-6198AEF9B35F}" ShortID="659206986" PluginName="Wwise Time Stretch" CompanyID="0" PluginID="130" PluginType="3">
+											<PropertyList>
+												<Property Name="TimeStretch" Type="Real32" Value="89"/>
+											</PropertyList>
+										</Effect>
+									</Custom>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BarrelBreak2" ID="{A0B2CF03-835F-45CA-829F-2FD8F032046B}" ShortID="359563176">
+									<Language>SFX</Language>
+									<AudioFile>BarrelBreak2.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="614328910"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="BarrelBreak2" ID="{A0B2CF03-835F-45CA-829F-2FD8F032046B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="PotBreak" ID="{17D51D7E-F774-4D41-B76C-47EE99150C7A}" ShortID="785261341">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="PotBreak1" ID="{41937727-94B6-4E1C-AC1C-442D4B226F23}" ShortID="689660073">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>100</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
+									<ObjectRef Name="Room_Medium_High_Absorbtion" ID="{E22DBBB6-7656-4B93-A28D-C003FD416889}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PotBreak1" ID="{F053B51F-8C4E-475F-9829-414C15784B24}" ShortID="63831569">
+									<Language>SFX</Language>
+									<AudioFile>PotBreak1.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PotBreak1" ID="{F053B51F-8C4E-475F-9829-414C15784B24}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="PotBreak1_01" ID="{A58C6E5E-E909-4213-8894-AF0C2BC4D28B}" ShortID="645536720">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
+									<ObjectRef Name="Room_Medium_High_Absorbtion" ID="{E22DBBB6-7656-4B93-A28D-C003FD416889}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="Effect1">
+									<Custom>
+										<Effect Name="Wwise_Time_Stretch_(Custom)" ID="{06031450-348B-44CA-B724-57873E8DE0F4}" ShortID="177450968" PluginName="Wwise Time Stretch" CompanyID="0" PluginID="130" PluginType="3">
+											<PropertyList>
+												<Property Name="TimeStretch" Type="Real32" Value="106"/>
+											</PropertyList>
+										</Effect>
+									</Custom>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PotBreak1" ID="{EF8F99DA-A789-4BCD-BE3A-28ECDCA3B906}" ShortID="305876447">
+									<Language>SFX</Language>
+									<AudioFile>PotBreak1.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="63831569"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PotBreak1" ID="{EF8F99DA-A789-4BCD-BE3A-28ECDCA3B906}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="PotBreak1_02" ID="{14C57F26-7915-4DB6-978F-A9C5649AF8EB}" ShortID="363704124">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-80</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
+									<ObjectRef Name="Room_Medium_High_Absorbtion" ID="{E22DBBB6-7656-4B93-A28D-C003FD416889}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="Effect1">
+									<Custom>
+										<Effect Name="Wwise_Time_Stretch_(Custom)" ID="{873A0F89-3403-47EA-9CD1-9C79825B2682}" ShortID="508776482" PluginName="Wwise Time Stretch" CompanyID="0" PluginID="130" PluginType="3">
+											<PropertyList>
+												<Property Name="TimeStretch" Type="Real32" Value="93"/>
+											</PropertyList>
+										</Effect>
+									</Custom>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PotBreak1" ID="{7D581379-E9BC-4507-8A86-A615D891E31A}" ShortID="859600778">
+									<Language>SFX</Language>
+									<AudioFile>PotBreak1.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="63831569"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PotBreak1" ID="{7D581379-E9BC-4507-8A86-A615D891E31A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="PotBreak1_03" ID="{09E85D1E-F265-4DF9-AC61-75CE22EBCD3E}" ShortID="390945097">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>30</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="Effect0" CompanyID="4095" PluginID="65535" PluginType="15">
+									<ObjectRef Name="Room_Medium_High_Absorbtion" ID="{E22DBBB6-7656-4B93-A28D-C003FD416889}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="Effect1">
+									<Custom>
+										<Effect Name="Wwise_Time_Stretch_(Custom)" ID="{3D610F8E-8FC3-4580-AACA-4B6A7E8EDE60}" ShortID="161747618" PluginName="Wwise Time Stretch" CompanyID="0" PluginID="130" PluginType="3">
+											<PropertyList>
+												<Property Name="TimeStretch" Type="Real32" Value="108"/>
+											</PropertyList>
+										</Effect>
+									</Custom>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PotBreak1" ID="{B2DB0545-FAC7-4DDC-91F5-C73228455B2E}" ShortID="106776634">
+									<Language>SFX</Language>
+									<AudioFile>PotBreak1.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="63831569"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PotBreak1" ID="{B2DB0545-FAC7-4DDC-91F5-C73228455B2E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
