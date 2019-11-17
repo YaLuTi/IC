@@ -86,7 +86,7 @@ public class CameraRotate : MonoBehaviour {
             transposer.m_CameraDistance += (1.8f - transposer.m_CameraDistance) * 0.2f;
             transposer.m_ScreenX += (0.3f - transposer.m_ScreenX) * 0.2f;
             transposer.m_ScreenY += (0.7f - transposer.m_ScreenY) * 0.2f;
-            transposer.m_ZDamping = 0.1f;
+            // transposer.m_ZDamping = 0.1f;
             IsFocus = true;
         }
         else
@@ -94,7 +94,8 @@ public class CameraRotate : MonoBehaviour {
             transposer.m_CameraDistance += (3.1f - transposer.m_CameraDistance) * 0.2f;
             transposer.m_ScreenX += (0.5f - transposer.m_ScreenX) * 0.2f;
             transposer.m_ScreenY += (0.56f - transposer.m_ScreenY) * 0.2f;
-            transposer.m_ZDamping = 0.5f;
+            // BANG
+            // transposer.m_ZDamping = 0.5f;
             IsFocus = false;
         }
     }

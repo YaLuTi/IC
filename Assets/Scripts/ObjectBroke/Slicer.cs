@@ -29,7 +29,11 @@ public class Slicer : MonoBehaviour {
                 Destroy(this.gameObject);
             }
         }
-        if(Rool && collision.gameObject.CompareTag("Player"))
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (Rool && collision.gameObject.CompareTag("Player"))
         {
             PlayerMove p = collision.gameObject.GetComponent<PlayerMove>();
             if (p.IsDodging)
@@ -40,7 +44,7 @@ public class Slicer : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (Attack)
         {

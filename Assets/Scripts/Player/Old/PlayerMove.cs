@@ -267,6 +267,7 @@ public class PlayerMove : MonoBehaviour {
         else
         {
             m_Animator.SetFloat("Speed", move.z, 0.1f, Time.deltaTime);
+            m_Animator.SetFloat("SpeedAmount", Mathf.Abs(move.z), 0.1f, Time.deltaTime);
         }
         m_Animator.SetFloat("Turn", m_TurnAmount, 0.25f, Time.deltaTime);
         // m_Animator.SetBool("IsDodging", IsDodging);

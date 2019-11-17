@@ -2572,6 +2572,11 @@ PrefabInstance:
       propertyPath: Rool
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114234357202949446, guid: 318330c4ebc445a41b297ae260ef823f,
+        type: 3}
+      propertyPath: Walk
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 318330c4ebc445a41b297ae260ef823f, type: 3}
 --- !u!4 &776383396 stripped
@@ -4845,6 +4850,11 @@ PrefabInstance:
     - target: {fileID: 114234357202949446, guid: 318330c4ebc445a41b297ae260ef823f,
         type: 3}
       propertyPath: Rool
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114234357202949446, guid: 318330c4ebc445a41b297ae260ef823f,
+        type: 3}
+      propertyPath: Attack
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
