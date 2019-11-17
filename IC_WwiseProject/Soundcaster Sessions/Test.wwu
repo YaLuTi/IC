@@ -9,6 +9,14 @@
 							<ObjectRef Name="FireIdleLoop" ID="{0E508761-064C-4FBA-B0BF-7EFCF3D9D3D3}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
 							<Position X="0" Y="0"/>
 						</Module>
+						<Module>
+							<ObjectRef Name="BarrelBreak2" ID="{C4F79E4D-7136-432E-BB1F-1282411EAD40}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PotBreak1" ID="{41937727-94B6-4E1C-AC1C-442D4B226F23}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+							<Position X="2" Y="0"/>
+						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>

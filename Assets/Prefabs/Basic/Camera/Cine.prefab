@@ -86,6 +86,7 @@ MonoBehaviour:
   followObj: {fileID: 0}
   LockObj: {fileID: 0}
   IsLock: 0
+  IsFocus: 0
   HorizontalRotateSpeed: 3
   VerticalRotateSpeed: 2
   value: 0
@@ -184,7 +185,7 @@ MonoBehaviour:
   m_LookaheadIgnoreY: 0
   m_XDamping: 0.2
   m_YDamping: 0.2
-  m_ZDamping: 0.5
+  m_ZDamping: 1.2
   m_ScreenX: 0.5
   m_ScreenY: 0.56
   m_CameraDistance: 3.1

@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1970618756281543922}
   - component: {fileID: 2618986846589483892}
-  - component: {fileID: 3348708889395863806}
+  - component: {fileID: 8127270940188858715}
   m_Layer: 0
   m_Name: BarrelLp
   m_TagString: Untagged
@@ -124,9 +124,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed453dda7f5073743bc3ea22c8fef3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BreakObject: {fileID: 1048052809182446226, guid: fa2d97b68038cd847a26c6fe282b5b62,
+  Walk: 0
+  Rool: 1
+  Attack: 1
+  BreakObject: {fileID: 8063490324233757579, guid: fa2d97b68038cd847a26c6fe282b5b62,
     type: 3}
---- !u!65 &3348708889395863806
+--- !u!65 &8127270940188858715
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,8 +140,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0175133, y: 1.395895, z: 1}
-  m_Center: {x: 0.008756638, y: 0.035140514, z: 0}
+  m_Size: {x: 1, y: 1.3092067, z: 1}
+  m_Center: {x: 0, y: 0.035885453, z: 0}
 --- !u!1 &1970618756281774292
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +168,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970618756281774292}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.597, z: -0.35004508}
+  m_LocalPosition: {x: -0, y: -0.538, z: -0.35004508}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1970618756281543922}

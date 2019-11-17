@@ -21,10 +21,20 @@
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<IncludedEvents>
+				<Event Id="3764932550" Name="BarrelBreak" ObjectPath="\Events\Props\BarrelBreak" DurationType="OneShot" DurationMin="1.477196" DurationMax="1.592391"/>
 				<Event Id="1811523627" Name="Main_event" ObjectPath="\Events\Default Work Unit\Main_event" DurationType="Infinite"/>
+				<Event Id="2727481903" Name="PotBreak" ObjectPath="\Events\Props\PotBreak" DurationType="OneShot" DurationMin="1.402456" DurationMax="1.556122"/>
 				<Event Id="2041519613" Name="TorchFire" ObjectPath="\Events\Props\TorchFire" MaxAttenuation="100.000000" DurationType="Infinite"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="63831569" Language="SFX">
+					<ShortName>PotBreak1.wav</ShortName>
+					<Path>SFX\PotBreak1_10C4C929.wem</Path>
+				</File>
+				<File Id="614328910" Language="SFX">
+					<ShortName>BarrelBreak2.wav</ShortName>
+					<Path>SFX\BarrelBreak2_10C4C929.wem</Path>
+				</File>
 				<File Id="673948184" Language="SFX">
 					<ShortName>ambientdungeon.wav</ShortName>
 					<Path>SFX\ambientdungeon_D79FB2B7.wem</Path>

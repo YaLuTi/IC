@@ -1,8 +1,24 @@
 Event	ID	Name			Wwise Object Path	Notes
 	1811523627	Main_event			\Default Work Unit\Main_event	
 	2041519613	TorchFire			\Props\TorchFire	
+	2727481903	PotBreak			\Props\PotBreak	
+	3764932550	BarrelBreak			\Props\BarrelBreak	
+
+Effect plug-ins	ID	Name	Type				Notes
+	148620930	Wwise_Time_Stretch_(Custom)	Wwise Time Stretch			
+	161747618	Wwise_Time_Stretch_(Custom)	Wwise Time Stretch			
+	177450968	Wwise_Time_Stretch_(Custom)	Wwise Time Stretch			
+	508776482	Wwise_Time_Stretch_(Custom)	Wwise Time Stretch			
+	659206986	Wwise_Time_Stretch_(Custom)	Wwise Time Stretch			
+	731479684	Wwise_Time_Stretch_(Custom)	Wwise Time Stretch			
+	962179877	Wwise_Time_Stretch_(Custom)	Wwise Time Stretch			
+	2891462749	Room_Medium_High_Absorbtion	Wwise RoomVerb			
+	2995775460	Room_Small	Wwise RoomVerb			
+	3043085106	High_Impact	Wwise Compressor			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	63831569	PotBreak1	E:\IC\IC_WwiseProject\.cache\Mac\SFX\PotBreak1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PotBreak\PotBreak1		262168
+	614328910	BarrelBreak2	E:\IC\IC_WwiseProject\.cache\Mac\SFX\BarrelBreak2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BarrelSound\BarrelBreak2		162332
 	673948184	ambientdungeon	E:\IC\IC_WwiseProject\.cache\Mac\SFX\ambientdungeon_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\ambientdungeon		41780772
 	1031287844	FireIdleLoop	E:\IC\IC_WwiseProject\.cache\Mac\SFX\FireIdleLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\FireIdleLoop		1739160
 

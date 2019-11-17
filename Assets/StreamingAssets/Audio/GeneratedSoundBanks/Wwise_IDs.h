@@ -13,7 +13,9 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID BARRELBREAK = 3764932550U;
         static const AkUniqueID MAIN_EVENT = 1811523627U;
+        static const AkUniqueID POTBREAK = 2727481903U;
         static const AkUniqueID TORCHFIRE = 2041519613U;
     } // namespace EVENTS
 
