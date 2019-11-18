@@ -4,7 +4,7 @@ using UnityEngine;
 public class UnityAnswers_CustomUnityEditorDuplicator : MonoBehaviour
 {
 
-    [MenuItem("Editor Extensions/Duplicate Selected and make it as a sibling #%d")]
+    [MenuItem("Editor Extensions/Duplicate Selected and make it as a child #%d")]
     static void DoSomethingWithAShortcutKey()
     {
         GameObject[] objects = new GameObject[Selection.gameObjects.Length];
