@@ -204,9 +204,9 @@ public class Monster_Heretic : TestMonster {
         }
     }
 
-    public override void Damaged(float damage, Vector3 p)
+    public override void Damaged(float damage, Vector3 p, Vector3 Attacker)
     {
-        base.Damaged(damage, p);
+        base.Damaged(damage, p, Attacker);
         attackstates = Attackstates.Attacking_OutRange;
     }
 }

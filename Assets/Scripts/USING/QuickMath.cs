@@ -13,4 +13,9 @@ public class QuickMath : MonoBehaviour
         }
         return result;
     }
+
+    public static float TwoPointGetAngle(Vector3 p1, Vector3 p2)
+    {
+        return Mathf.Atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Mathf.PI;
+    }
 }

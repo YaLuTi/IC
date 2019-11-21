@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class CameraRotate : MonoBehaviour {
 
     public GameObject followObj;
     public GameObject LockObj;
+    public Image LockSprite;
+    public Camera camera;
+    public RectTransform canvas;
+
+    Vector2 uiOffset;
 
     Collider[] MonstersList;
     float[] distanceList;
@@ -39,6 +45,7 @@ public class CameraRotate : MonoBehaviour {
         distance = followObj.transform.position - this.transform.position;
         cinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
         transposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+        this.uiOffset = new Vector2((float)canvas.sizeDelta.x / 2f, (float)canvas.sizeDelta.y / 2f);
     }
 	
 	// Update is called once per frame
@@ -49,6 +56,7 @@ public class CameraRotate : MonoBehaviour {
             if (IsLock)
             {
                 IsLock = false;
+                LockSprite.gameObject.SetActive(false);
             }
             else
             {
@@ -56,15 +64,25 @@ public class CameraRotate : MonoBehaviour {
                 distanceList = new float[MonstersList.Length];
                 for (int i = 0; i < MonstersList.Length; i++)
                 {
-                    distanceList[i] = (MonstersList[i].transform.position - transform.position).sqrMagnitude;
+                    distanceList[i] = Vector3.Angle(transform.forward, (MonstersList[i].transform.position - transform.position).normalized);//(MonstersList[i].transform.position - transform.position).sqrMagnitude;
                 }
                 System.Array.Sort(distanceList, MonstersList);
 
                 if (MonstersList.Length > 1)
                 {
-                    LockObj = MonstersList[1].gameObject;
-                    // cinemachineVirtualCamera.LookAt = MonstersList[1].gameObject.transform;
-                    IsLock = !IsLock;
+                    for(int i = 0; i < MonstersList.Length; i++)
+                    {
+                        Debug.Log(Vector3.Angle(transform.forward, (MonstersList[i].transform.position - transform.position).normalized));
+                        if (Physics.Raycast(transform.position, ((MonstersList[i].transform.position - transform.position).normalized), 15, LayerMask.GetMask("Default"))) continue;
+                        if (Vector3.Angle(transform.forward, (MonstersList[i].transform.position - transform.position).normalized) < 90 / 2)
+                        {
+                            LockObj = MonstersList[i].transform.root.Find("Center").gameObject;
+                            // cinemachineVirtualCamera.LookAt = MonstersList[1].gameObject.transform;
+                            IsLock = !IsLock;
+                            LockSprite.gameObject.SetActive(true);
+                            break;
+                        }
+                    }
                 }
                 else
                 {
@@ -79,6 +97,9 @@ public class CameraRotate : MonoBehaviour {
         }
         else
         {
+            Vector2 ViewportPosition = camera.WorldToViewportPoint(LockObj.transform.position);
+            Vector2 proportionalPosition = new Vector2(ViewportPosition.x * canvas.sizeDelta.x, ViewportPosition.y * canvas.sizeDelta.y);
+            LockSprite.rectTransform.localPosition = proportionalPosition - uiOffset;
             LockCameraMove();
         }
         if (Input.GetButton("L2"))

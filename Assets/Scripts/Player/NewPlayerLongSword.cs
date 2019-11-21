@@ -10,18 +10,21 @@ public class NewPlayerLongSword : MonoBehaviour
     public AnimationEvent Block;
     public AnimationEvent Drink;
     public AnimationEvent LightAttack_One;
+    public AnimationEvent LightAttack_Two;
     public AnimationEvent HeavyAttack;
 
     // Basic
     PlayerCombatEventer combatEventer;
     PlayerHP playerHP;
     PlayerMove playerMove;
+    Animator animator;
     WeaponColliderBasic weapon;
 
     // Value
     float DodgeCooldown = 20f;
     float _DodgeCooldownCount = 20f;
     float DodgeReverseSpeed = 1;
+    int combo = 0;
     bool Drinking = false;
 
     void Start()
@@ -30,11 +33,16 @@ public class NewPlayerLongSword : MonoBehaviour
         playerHP = GetComponent<PlayerHP>();
         playerMove = GetComponent<PlayerMove>();
         weapon = GetComponentInChildren<WeaponColliderBasic>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!animator.GetBool("IsOnCombo"))
+        {
+            combo = 0;
+        }
         if (playerMove.IsLock)
         {
             if (Input.GetButtonUp("JoyStickX") && _DodgeCooldownCount >= DodgeCooldown && (playerHP.CheckSP(3) || playerHP.OverpullSP()))
@@ -62,7 +70,20 @@ public class NewPlayerLongSword : MonoBehaviour
         }
         if (Input.GetButtonDown("R1") && playerHP.CheckSP(2))
         {
-            combatEventer.SetAnimation(LightAttack_One);
+            if (combo == 0)
+            {
+                if (combatEventer.SetAnimation(LightAttack_One))
+                {
+                    combo = 1;
+                }
+            }
+            else if(combo == 1)
+            {
+                if (combatEventer.SetAnimation(LightAttack_Two))
+                {
+                    combo = 0;
+                }
+            }
         }
         if (Input.GetButtonDown("R2") && playerHP.CheckSP(2))
         {
@@ -71,6 +92,11 @@ public class NewPlayerLongSword : MonoBehaviour
         if (Input.GetButtonDown("L1") && playerHP.CheckSP(2))
         {
             combatEventer.SetAnimation(Block);
+            animator.SetBool("IsBlock", true);
+        }
+        if (Input.GetButtonUp("L1"))
+        {
+            animator.SetBool("IsBlock", false);
         }
         Value();
     }

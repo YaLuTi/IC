@@ -50,7 +50,7 @@ public class WeaponColliderBasic : MonoBehaviour {
                 if (other.GetComponentInParent<MonsterBasic>())
                 {
                     MonsterBasic monster = other.gameObject.GetComponentInParent<MonsterBasic>();
-                    monster.Damaged(AttackDamage, other.ClosestPoint(transform.position));
+                    monster.Damaged(AttackDamage, other.ClosestPoint(transform.position), transform.position);
                     // Quaternion r = p.rotation;
                     // r.y = -r.y
                     GameObject g = Instantiate(HitParticle, other.ClosestPoint(transform.position), Quaternion.identity);

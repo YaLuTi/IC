@@ -118,9 +118,9 @@ public class Shadow_AI : TestMonster
         base.e_Patrol();
     }
 
-    public override void Damaged(float damage, Vector3 p)
+    public override void Damaged(float damage, Vector3 p, Vector3 Attacker)
     {
-        base.Damaged(damage, p);
+        base.Damaged(damage, p, Attacker);
         IsStun = true;
         LongAttacking = false;
     }

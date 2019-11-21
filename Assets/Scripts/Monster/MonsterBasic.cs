@@ -107,9 +107,10 @@ public class MonsterBasic : MonoBehaviour {
     {
     }
 
-    public virtual void Damaged(float damage, Vector3 p)
+    public virtual void Damaged(float damage, Vector3 p, Vector3 Attacker)
     {
         GameObject g = Instantiate(DamagedParticle, p, Quaternion.identity);
+        g.transform.LookAt(player.transform.position);
         Destroy(g, 3);
         if (DamagedAudios.Length == 0) return;
 

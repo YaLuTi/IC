@@ -29,7 +29,7 @@ public class ProjectileDamage : MonoBehaviour
             }else if (collision.gameObject.tag == "Monster")
             {
                 Debug.Log("D");
-                collision.gameObject.GetComponent<MonsterBasic>().Damaged(1, collision.contacts[0].point);
+                collision.gameObject.GetComponent<MonsterBasic>().Damaged(1, collision.contacts[0].point, transform.position);
             }
         }
     }

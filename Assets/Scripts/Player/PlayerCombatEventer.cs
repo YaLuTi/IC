@@ -6,12 +6,14 @@ public class PlayerCombatEventer : MonoBehaviour
 {
     // Start is called before the first frame update
     Animator animator;
-    public AnimationEvent PlayingEvent;
-    public AnimationEvent NextEvent;
+    AnimationEvent PlayingEvent;
+    AnimationEvent NextEvent;
+    AnimationEvent empty;
     AnimatorStateInfo StateInfo;
     PlayerHP playerHP;
     PlayerMove playerMove;
 
+    bool IsStateChange = false;
     public int ComboCount = 0;
 
     bool AnimatorChange = true; // Unity Animator need transtion. Use this to know is Animator already change.
@@ -20,37 +22,62 @@ public class PlayerCombatEventer : MonoBehaviour
         animator = GetComponent<Animator>();
         playerHP = GetComponent<PlayerHP>();
         playerMove = GetComponent<PlayerMove>();
-        StateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        PlayingEvent = empty;
+        NextEvent = empty;
     }
+
+    private void OnGUI()
+    {
+        if(PlayingEvent != empty)
+        {
+            GUI.TextArea(new Rect(10, 10, 100, 20), PlayingEvent.EventName);
+        }
+        else
+        {
+            GUI.TextArea(new Rect(10, 10, 100, 20), "");
+        }
+        if(NextEvent != empty)
+        {
+            GUI.TextArea(new Rect(10, 30, 100, 20), NextEvent.EventName);
+        }
+        else
+        {
+            GUI.TextArea(new Rect(10, 30, 100, 20), "");
+        }
+    } 
 
     // Update is called once per frame
     void Update()
     {
-        if(PlayingEvent != null)
+        if (PlayingEvent != empty)
         {
             if (PlayingEvent.Tag == "Dodge") playerMove.Rotateable = false;
             if (animator.IsInTransition(0)) return;
             StateInfo = animator.GetCurrentAnimatorStateInfo(0);
-            if (PlayingEvent.Tag == "Attack")
-            {
-                ComboCount = 20;
-                // animator.SetBool("IsOnCombo", true);
-            }
-            Debug.Log(StateInfo.normalizedTime);
-            if (StateInfo.normalizedTime > PlayingEvent.EndTime)
+            // Debug.Log(StateInfo.normalizedTime);
+            /*if (StateInfo.IsName(PlayingEvent.EventName)) IsStateChange = true;
+            if (!IsStateChange) return;*/
+            if (StateInfo.normalizedTime > PlayingEvent.EndTime && StateInfo.IsName(PlayingEvent.EventName))
             {
                 // if (PlayingEvent.Tag == "Attack") animator.SetBool("IsOnCombo", false);
                 if (PlayingEvent.Tag == "Dodge") playerMove.Rotateable = true;
-                PlayingEvent = null;
-                if(NextEvent != null)
+                PlayingEvent = empty;
+                if(NextEvent != empty)
                 {
                     PlayingEvent = NextEvent;
+                    IsStateChange = true; 
+                   
                     playerHP.ExpendSP(PlayingEvent.CostStamina);
-                    if (PlayingEvent.Tag == "Dodge") animator.SetTrigger("IsDodging");
-                    NextEvent = null;
+                    if (PlayingEvent.Tag == "Dodge")
+                    {
+                        animator.ResetTrigger("Attack");
+                        animator.SetTrigger("IsDodging");
+                    }
+                    if(PlayingEvent.Tag == "Attack") animator.SetTrigger("Attack"); 
+                    NextEvent = empty;
+                    // Debug.Log(PlayingEvent.AnimatorTriggerName);
                 }
             }
-            // Debug.Log(StateInfo.normalizedTime);
         }
         /*if(ComboCount > 0)
         {
@@ -70,16 +97,19 @@ public class PlayerCombatEventer : MonoBehaviour
     // 3 - Damaged
     public bool SetAnimation(AnimationEvent animationEvent)
     {
-        if (PlayingEvent != null)
+        // Debug.Log(animationEvent.TriggerButton);
+        if (PlayingEvent != empty)
         {
-            // IMPORTANT  Now can't do low stamina dodge
-            if (NextEvent == null && animationEvent.Tag == "Attack" && PlayingEvent.Tag == "Attack")
+            // Debug.Log("C1");
+            if (!playerHP.CheckSP(animationEvent.CostStamina)) return false;
+            if (NextEvent == empty && animationEvent.Tag == "Attack" && PlayingEvent.Tag == "Attack")
             {
+                // Debug.Log("OOOOOOOOOOOOOOOOOOOOOOAAAAAAAAAAAAA");
                 NextEvent = animationEvent;
-                animator.SetTrigger("Attack");
+                // 要把這個Set移到NowPlaying動畫結束 不然翻滾也不能用而且在Transtion中會出Bug
+                // animator.SetTrigger("Attack");
                 return true;
             }
-            if (!playerHP.CheckSP(animationEvent.CostStamina)) return false;
             if (animator.IsInTransition(0))
             {
                 return false;
@@ -87,14 +117,18 @@ public class PlayerCombatEventer : MonoBehaviour
             if (animationEvent.Tag == "Dodge")
             {
                 StateInfo = animator.GetCurrentAnimatorStateInfo(0);
-                if (NextEvent != null && PlayingEvent.Tag == "Attack")
+                // if (StateInfo.normalizedTime < PlayingEvent.EndTime) return false;
+                if (NextEvent == empty) NextEvent = animationEvent;
+                if (NextEvent != empty && PlayingEvent.Tag == "Attack")
                 {
                     Debug.Log("D");
                     NextEvent = animationEvent;
-                    animator.ResetTrigger("Attack");
                     return true;
                 }
-                if (StateInfo.normalizedTime < PlayingEvent.EndTime) return false;
+            }
+            if (NextEvent != empty)
+            {
+                return false;
             }
             if (PlayingEvent.InterruptLevel > animationEvent.InterruptLevel) return false;
             if (PlayingEvent.InterruptLevel == animationEvent.InterruptLevel && PlayingEvent.InterruptLevel != 0)
@@ -110,7 +144,9 @@ public class PlayerCombatEventer : MonoBehaviour
         }
         else
         {
+            Debug.Log("C2");
             PlayingEvent = animationEvent;
+            IsStateChange = false;
             if (PlayingEvent.AnimatorTriggerName != null) animator.SetTrigger(PlayingEvent.AnimatorTriggerName);
             return true;
         }
@@ -128,6 +164,8 @@ public class AnimationEvent
     public float CostStamina;
     public float ReadyTime;
     public float EndTime;
+
+
 }
 
 
