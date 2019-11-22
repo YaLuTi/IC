@@ -9953,66 +9953,6 @@ PrefabInstance:
       propertyPath: cameraRotate
       value: 
       objectReference: {fileID: 1025915497}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: Block.InterruptLevel
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: Dodge.EventName
-      value: Dodging
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: LightAttack_Two.EventName
-      value: LightAttack_Two
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: LightAttack_Two.TriggerButton
-      value: R1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: LightAttack_Two.AnimatorTriggerName
-      value: Attack
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: LightAttack_Two.Tag
-      value: Attack
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: LightAttack_Two.InterruptLevel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: LightAttack_Two.CostStamina
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: LightAttack_Two.ReadyTime
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: LightAttack_Two.EndTime
-      value: 0.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: Block.EndTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289958783658696, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: SpawnWeapon
-      value: 
-      objectReference: {fileID: 100000, guid: 35731ae22c3e91b4faef2e8db3c036e7, type: 3}
     - target: {fileID: 6200289958783658690, guid: d39c411218dd30b42b351e5f27ea3e80,
         type: 3}
       propertyPath: HPslider
@@ -10023,41 +9963,6 @@ PrefabInstance:
       propertyPath: SPslider
       value: 
       objectReference: {fileID: 1636606100}
-    - target: {fileID: 6200289958788634134, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.48767284
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289958788634134, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.52716047
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289958788634134, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.15765676
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289958788634134, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.6778063
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289958788634134, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 235.824
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289958788634134, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 86.79099
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289958788634134, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 212.33301
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d39c411218dd30b42b351e5f27ea3e80, type: 3}
 --- !u!1001 &6409603681902591689

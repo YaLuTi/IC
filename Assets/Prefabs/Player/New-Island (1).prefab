@@ -79,24 +79,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261e48d2a50e2e3479320637b1abbe64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayingEvent:
-    EventName: 
-    TriggerButton: 
-    AnimatorTriggerName: 
-    Tag: 
-    InterruptLevel: 0
-    CostStamina: 0
-    ReadyTime: 0
-    EndTime: 0
-  NextEvent:
-    EventName: 
-    TriggerButton: 
-    AnimatorTriggerName: 
-    Tag: 
-    InterruptLevel: 0
-    CostStamina: 0
-    ReadyTime: 0
-    EndTime: 0
   ComboCount: 0
 --- !u!114 &6200289957559571555
 MonoBehaviour:
@@ -111,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dodge:
-    EventName: Dodge
+    EventName: Dodging
     TriggerButton: JoyStickX
     AnimatorTriggerName: IsDodging
     Tag: Dodge
@@ -133,10 +115,10 @@ MonoBehaviour:
     TriggerButton: L1
     AnimatorTriggerName: Block
     Tag: Block
-    InterruptLevel: 1
+    InterruptLevel: 0
     CostStamina: 0
     ReadyTime: 0
-    EndTime: 1
+    EndTime: 0
   Drink:
     EventName: Drink
     TriggerButton: DPadY
@@ -155,6 +137,24 @@ MonoBehaviour:
     CostStamina: 2
     ReadyTime: 0.2
     EndTime: 0.4
+  LightAttack_Two:
+    EventName: LightAttack_Two
+    TriggerButton: R1
+    AnimatorTriggerName: Attack
+    Tag: Attack
+    InterruptLevel: 1
+    CostStamina: 2
+    ReadyTime: 0.1
+    EndTime: 0.37
+  FocusAttack_One:
+    EventName: 
+    TriggerButton: 
+    AnimatorTriggerName: 
+    Tag: 
+    InterruptLevel: 0
+    CostStamina: 0
+    ReadyTime: 0
+    EndTime: 0
   HeavyAttack:
     EventName: HeavyAttack
     TriggerButton: R2
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponParent: {fileID: 6200289958788634133}
-  SpawnWeapon: {fileID: 1581245457431482, guid: dff67340ac2ac5a47b33db224a95757c,
+  SpawnWeapon: {fileID: 433433355608783728, guid: f08fd9b04710cd14bb4e528c77d27ac7,
     type: 3}
 --- !u!82 &6200289958783658694
 AudioSource:
@@ -3077,13 +3077,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6200289958788634133}
-  m_LocalRotation: {x: -0.32438847, y: -0.54903626, z: -0.03623449, w: 0.7694274}
+  m_LocalRotation: {x: -0.48767284, y: -0.52716047, z: -0.15765676, w: 0.6778063}
   m_LocalPosition: {x: 0.003, y: 0.057, z: 0.013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6200289958784087867}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 212.614, y: 102.80299, z: 200.897}
+  m_LocalEulerAnglesHint: {x: 235.824, y: 86.79099, z: 212.33301}
 --- !u!1 &6200289958998233198
 GameObject:
   m_ObjectHideFlags: 0
