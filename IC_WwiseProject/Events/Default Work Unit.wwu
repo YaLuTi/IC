@@ -14,6 +14,20 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Main_Pause" ID="{C08AC8CA-090D-478B-8F02-935743C761C5}">
+					<ChildrenList>
+						<Action Name="" ID="{3F673AB5-65F8-4846-857F-FF191D468276}" ShortID="749956635">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="7"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ambientdungeon" ID="{F28CFC02-0734-4DAB-BDC6-405F383BFCA6}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

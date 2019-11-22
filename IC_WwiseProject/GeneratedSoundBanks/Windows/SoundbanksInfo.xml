@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="134">
 	<RootPaths>
-		<ProjectRoot>E:\IC\IC_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>E:\IC\IC_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>E:\IC\IC_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\Unity\ZenTi\IC_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Unity\ZenTi\IC_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>E:\IC\IC_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Unity\ZenTi\IC_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -22,6 +22,7 @@
 			<Path>Main.bnk</Path>
 			<IncludedEvents>
 				<Event Id="3764932550" Name="BarrelBreak" ObjectPath="\Events\Props\BarrelBreak" DurationType="OneShot" DurationMin="1.477196" DurationMax="1.592391"/>
+				<Event Id="580146960" Name="BossFight" ObjectPath="\Events\BGM\BossFight" DurationType="OneShot" DurationMin="16.695646" DurationMax="16.695646"/>
 				<Event Id="1811523627" Name="Main_event" ObjectPath="\Events\Default Work Unit\Main_event" DurationType="Infinite"/>
 				<Event Id="2727481903" Name="PotBreak" ObjectPath="\Events\Props\PotBreak" DurationType="OneShot" DurationMin="1.402456" DurationMax="1.556122"/>
 				<Event Id="2041519613" Name="TorchFire" ObjectPath="\Events\Props\TorchFire" MaxAttenuation="100.000000" DurationType="Infinite"/>
@@ -38,6 +39,10 @@
 				<File Id="673948184" Language="SFX">
 					<ShortName>ambientdungeon.wav</ShortName>
 					<Path>SFX\ambientdungeon_D79FB2B7.wem</Path>
+				</File>
+				<File Id="970753656" Language="SFX">
+					<ShortName>273_loop2_dream-comes-true_0016.wav</ShortName>
+					<Path>SFX\273_loop2_dream-comes-true_0016_10C4C929.wem</Path>
 				</File>
 				<File Id="1031287844" Language="SFX">
 					<ShortName>FireIdleLoop.wav</ShortName>

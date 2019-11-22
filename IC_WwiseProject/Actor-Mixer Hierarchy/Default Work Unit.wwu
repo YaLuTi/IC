@@ -26,6 +26,31 @@
 							<AudioFile>ambientdungeon.wav</AudioFile>
 						</AudioFileSource>
 					</ChildrenList>
+					<StateInfo>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="AmbientDungeonState" ID="{84019A59-0638-47E8-9C7E-CA783DCC4BB2}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="On" ID="{22A5A57D-1446-47B7-92DE-4F552F8C0F2E}"/>
+								<CustomState Name="" ID="{326FF1CE-5AC9-47D5-BF77-FDFD49315FCE}" ShortID="58279045">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64" Value="-14"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Off" ID="{E406F32E-3111-47DF-B83B-FEB43BDC1BF6}"/>
+								<CustomState Name="" ID="{8F03F6F8-E249-4E5A-BA5F-9781050CCDD8}" ShortID="169406831">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64" Value="-100"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
 					<ActiveSourceList>
 						<ActiveSource Name="ambientdungeon" ID="{1DFA9AB2-39A1-47DD-BCBB-DA67BD430EA7}" Platform="Linked"/>
 					</ActiveSourceList>
@@ -433,6 +458,32 @@
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
+				<Sound Name="273_loop2_dream-comes-true_0016" ID="{67F7A5B9-B302-448E-926D-C87A96EF9A32}" ShortID="759934657">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-19</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="273_loop2_dream-comes-true_0016" ID="{4B44C431-B456-429A-B581-DFFE08847996}" ShortID="970753656">
+							<Language>SFX</Language>
+							<AudioFile>273_loop2_dream-comes-true_0016.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="273_loop2_dream-comes-true_0016" ID="{4B44C431-B456-429A-B581-DFFE08847996}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

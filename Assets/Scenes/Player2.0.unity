@@ -9068,6 +9068,75 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.055939376, y: -1.0731374, z: 0.07561505}
     m_Extent: {x: 0.34557372, y: 3.458693, z: 0.25050735}
   m_DirtyAABB: 0
+--- !u!1001 &1155665779017054902
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 433433355608783728, guid: f08fd9b04710cd14bb4e528c77d27ac7,
+        type: 3}
+      propertyPath: m_Name
+      value: MedievalLongSword
+      objectReference: {fileID: 0}
+    - target: {fileID: 433433355608549200, guid: f08fd9b04710cd14bb4e528c77d27ac7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 433433355608549200, guid: f08fd9b04710cd14bb4e528c77d27ac7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 433433355608549200, guid: f08fd9b04710cd14bb4e528c77d27ac7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 433433355608549200, guid: f08fd9b04710cd14bb4e528c77d27ac7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 433433355608549200, guid: f08fd9b04710cd14bb4e528c77d27ac7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.00000002669254
+      objectReference: {fileID: 0}
+    - target: {fileID: 433433355608549200, guid: f08fd9b04710cd14bb4e528c77d27ac7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00000002669254
+      objectReference: {fileID: 0}
+    - target: {fileID: 433433355608549200, guid: f08fd9b04710cd14bb4e528c77d27ac7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 433433355608549200, guid: f08fd9b04710cd14bb4e528c77d27ac7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 433433355608549200, guid: f08fd9b04710cd14bb4e528c77d27ac7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 433433355608549200, guid: f08fd9b04710cd14bb4e528c77d27ac7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 433433355608549200, guid: f08fd9b04710cd14bb4e528c77d27ac7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f08fd9b04710cd14bb4e528c77d27ac7, type: 3}
 --- !u!1001 &1349967475998162928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9939,6 +10008,11 @@ PrefabInstance:
       propertyPath: Block.EndTime
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6200289958783658696, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: SpawnWeapon
+      value: 
+      objectReference: {fileID: 100000, guid: 35731ae22c3e91b4faef2e8db3c036e7, type: 3}
     - target: {fileID: 6200289958783658690, guid: d39c411218dd30b42b351e5f27ea3e80,
         type: 3}
       propertyPath: HPslider

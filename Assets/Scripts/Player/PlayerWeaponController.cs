@@ -20,4 +20,9 @@ public class PlayerWeaponController : MonoBehaviour {
 	void Update () {
 		
 	}
+    
+    void ChangeWeapon(GameObject weapon)
+    {
+
+    }
 }

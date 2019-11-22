@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{2A2A774C-0953-4958-91C4-5754297B2EBB}" SchemaVersion="94">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{2A2A774C-0953-4958-91C4-5754297B2EBB}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{2A2A774C-0953-4958-91C4-5754297B2EBB}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="AmbientDungeonState" ID="{84019A59-0638-47E8-9C7E-CA783DCC4BB2}">
+					<ChildrenList>
+						<State Name="None" ID="{1F815A48-D5FC-4F67-8C16-5803BF218665}"/>
+						<State Name="On" ID="{22A5A57D-1446-47B7-92DE-4F552F8C0F2E}"/>
+						<State Name="Off" ID="{E406F32E-3111-47DF-B83B-FEB43BDC1BF6}"/>
+					</ChildrenList>
+					<TransitionList>
+						<Transition>
+							<StartState Name="On" ID="{22A5A57D-1446-47B7-92DE-4F552F8C0F2E}"/>
+							<EndState Name="Off" ID="{E406F32E-3111-47DF-B83B-FEB43BDC1BF6}"/>
+							<Time>1</Time>
+							<IsShared>false</IsShared>
+						</Transition>
+						<Transition>
+							<StartState Name="Off" ID="{E406F32E-3111-47DF-B83B-FEB43BDC1BF6}"/>
+							<EndState Name="On" ID="{22A5A57D-1446-47B7-92DE-4F552F8C0F2E}"/>
+							<Time>1</Time>
+							<IsShared>false</IsShared>
+						</Transition>
+					</TransitionList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</States>
 </WwiseDocument>

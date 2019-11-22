@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{37C46A15-9591-416C-80CB-E9A949ACA85B}" SchemaVersion="94">
+	<Events>
+		<WorkUnit Name="BGM" ID="{37C46A15-9591-416C-80CB-E9A949ACA85B}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="BossFight" ID="{7D56BE9C-F22E-42E0-8CBA-B77FD17AB387}">
+					<ChildrenList>
+						<Action Name="" ID="{4C32943E-0B26-4666-9EB2-3827B0615027}" ShortID="712191945">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="273_loop2_dream-comes-true_0016" ID="{67F7A5B9-B302-448E-926D-C87A96EF9A32}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

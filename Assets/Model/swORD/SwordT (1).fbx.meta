@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8879bd0ef8b61284f97211b851440788
+guid: 9b4c11c5be4745a43a9e2d58f92dfc6c
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -9,7 +9,12 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: SwordBottom
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 4c063aa09fba9024f8f92cf808b0606c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

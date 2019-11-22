@@ -11,6 +11,7 @@ public class NewPlayerLongSword : MonoBehaviour
     public AnimationEvent Drink;
     public AnimationEvent LightAttack_One;
     public AnimationEvent LightAttack_Two;
+    public AnimationEvent FocusAttack_One;
     public AnimationEvent HeavyAttack;
 
     // Basic

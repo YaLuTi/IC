@@ -17,21 +17,21 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: aa05ca5819953845ba1121cab50a1524
     GuidInternal: 
-    m_lastTime: -8586278702047116504
+    m_lastTime: -8586278669678428974
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 5b0a9973d499ee4cbe532ad9a9f5daed
     GuidInternal: 
-    m_lastTime: -8586278702047827262
+    m_lastTime: -8586278669688710052
     List: []
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 9f26bc22348f9c45a664652c288baac3
     GuidInternal: 
-    m_lastTime: -8586278687219494595
+    m_lastTime: -8586272751905272224
     List:
     - name: Main
       guid: 5d35b09681007a41a7bb0f7696c558c7
@@ -43,11 +43,29 @@ MonoBehaviour:
         ObjectType: 7
       Path: Default Work Unit\Main
   EventWwu:
+  - PhysicalPath: Events\BGM.wwu
+    ParentPhysicalPath: 
+    guid: 156ac43791956c4180cbe9a949aca85b
+    GuidInternal: 
+    m_lastTime: -8586272751905142574
+    List:
+    - name: BossFight
+      guid: 9cbe567d2ef2e0428cbab77fd17ab387
+      id: 580146960
+      PathAndIcons:
+      - ElementName: BGM
+        ObjectType: 12
+      - ElementName: BossFight
+        ObjectType: 3
+      Path: BGM\BossFight
+      maxAttenuation: 0
+      maxDuration: 16.695646
+      minDuration: 16.695646
   - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 0a82cd74adb1cd4a966ed017b0009a39
     GuidInternal: 
-    m_lastTime: -8586278693864374164
+    m_lastTime: -8586272745088031548
     List:
     - name: Main_event
       guid: e43356ec2b79a244a50799d40f389e70
@@ -61,12 +79,48 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Main_Pause
+      guid: cac88ac00d098b478f02935743c761c5
+      id: 1906236073
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Main_Pause
+        ObjectType: 3
+      Path: Default Work Unit\Main_Pause
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   - PhysicalPath: Events\Props.wwu
     ParentPhysicalPath: 
     guid: 962c7d3b795222448851d1763a33f194
     GuidInternal: 
-    m_lastTime: -8586278687219005902
+    m_lastTime: -8586275923474591686
     List:
+    - name: BarrelBreak
+      guid: 9e0a09d30c8e5249b4bad0075356e474
+      id: 3764932550
+      PathAndIcons:
+      - ElementName: Props
+        ObjectType: 12
+      - ElementName: BarrelBreak
+        ObjectType: 3
+      Path: Props\BarrelBreak
+      maxAttenuation: 0
+      maxDuration: 1.592391
+      minDuration: 1.477196
+    - name: PotBreak
+      guid: 6e74a9ca1a2fae40bf95b5d00030d6f6
+      id: 2727481903
+      PathAndIcons:
+      - ElementName: Props
+        ObjectType: 12
+      - ElementName: PotBreak
+        ObjectType: 3
+      Path: Props\PotBreak
+      maxAttenuation: 0
+      maxDuration: 1.556122
+      minDuration: 1.402456
     - name: TorchFire
       guid: 0af6a80d5b4371438eeb9eb29abd1250
       id: 2041519613
@@ -84,33 +138,64 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: d4b389ff4d5b2944a926dadbe8acc345
     GuidInternal: 
-    m_lastTime: -8586278702047226245
+    m_lastTime: -8586278669698149122
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 4c772a2a5309584991c45754297b2ebb
     GuidInternal: 
-    m_lastTime: -8586278702046597920
-    List: []
+    m_lastTime: -8586272737570074046
+    List:
+    - name: AmbientDungeonState
+      guid: 599a01843806e8479c7eca783dcc4bb2
+      id: 3244577782
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: AmbientDungeonState
+        ObjectType: 9
+      Path: Default Work Unit\AmbientDungeonState
+      values:
+      - name: None
+        guid: 485a811ffcd5674f8c165803bf218665
+        id: 748895195
+        PathAndIcons:
+        - ElementName: None
+          ObjectType: 8
+      - name: Off
+        guid: 2ef306e41131df47b83bfeb43bdc1bf6
+        id: 930712164
+        PathAndIcons:
+        - ElementName: Off
+          ObjectType: 8
+      - name: On
+        guid: 7da5a5224614b74792de4f552f8c0f2e
+        id: 1651971902
+        PathAndIcons:
+        - ElementName: On
+          ObjectType: 8
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: f48690bd3064a94e95ca35b7b7287103
     GuidInternal: 
-    m_lastTime: -8586278702046976779
+    m_lastTime: -8586278669678518733
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: a0a0d359fc658446b42275c3e40dfa42
     GuidInternal: 
-    m_lastTime: -8586278702046538083
+    m_lastTime: -8586278669678518733
     List: []
   ExpandedItems:
   - /IC_WwiseProject
-  - /IC_WwiseProject/Events
-  - /IC_WwiseProject/Events/Default Work Unit
-  - /IC_WwiseProject/Events/Props
+  - /IC_WwiseProject/States
+  - /IC_WwiseProject/States/Default Work Unit
+  - /IC_WwiseProject/States/Default Work Unit/AmbientDungeonState
   autoPopulateEnabled: 1
   CurrentPluginConfig: 
