@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5219236186556921575}
   - component: {fileID: 5219236186555921447}
   - component: {fileID: 7145118095279968436}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Wall4m_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,6 +106,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3966bf99d8cb9014dbd691a33a2f57eb, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 87
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3966bf99d8cb9014dbd691a33a2f57eb, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3966bf99d8cb9014dbd691a33a2f57eb, type: 3}
       propertyPath: m_LocalPosition.x
