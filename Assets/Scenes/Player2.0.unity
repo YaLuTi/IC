@@ -9963,6 +9963,181 @@ PrefabInstance:
       propertyPath: SPslider
       value: 
       objectReference: {fileID: 1636606100}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_One.EventName
+      value: FocusAttack_One
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_One.TriggerButton
+      value: R1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_One.AnimatorTriggerName
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_One.Tag
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_One.InterruptLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_One.CostStamina
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_One.ReadyTime
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_One.EndTime
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_Two.EventName
+      value: FocusAttack_Two
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_Two.TriggerButton
+      value: R1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_Two.AnimatorTriggerName
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_Two.Tag
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_Two.InterruptLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_Two.CostStamina
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_Two.ReadyTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_Two.EndTime
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_Three.EventName
+      value: FocusAttack_Three
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_Three.TriggerButton
+      value: R1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_Three.AnimatorTriggerName
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_Three.Tag
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_Three.InterruptLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_Three.CostStamina
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_Three.ReadyTime
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: FocusAttack_Three.EndTime
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289958778381891, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: -0.0010616779
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289958778381891, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.00014464557
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289958778381891, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.01280117
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289958778381891, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.0033404827
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289958778381891, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.001361616
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289958778381891, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.0051136017
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289958778381895, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.00031995773
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289958778381895, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.018496513
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289958778381895, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.00091290474
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289958778381895, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.001458644
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200289958778381895, guid: d39c411218dd30b42b351e5f27ea3e80,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.0013909092
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d39c411218dd30b42b351e5f27ea3e80, type: 3}
 --- !u!1001 &6409603681902591689

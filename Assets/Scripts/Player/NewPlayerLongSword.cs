@@ -12,6 +12,8 @@ public class NewPlayerLongSword : MonoBehaviour
     public AnimationEvent LightAttack_One;
     public AnimationEvent LightAttack_Two;
     public AnimationEvent FocusAttack_One;
+    public AnimationEvent FocusAttack_Two;
+    public AnimationEvent FocusAttack_Three;
     public AnimationEvent HeavyAttack;
 
     // Basic
@@ -71,18 +73,45 @@ public class NewPlayerLongSword : MonoBehaviour
         }
         if (Input.GetButtonDown("R1") && playerHP.CheckSP(2))
         {
-            if (combo == 0)
+            if (animator.GetBool("Focus"))
             {
-                if (combatEventer.SetAnimation(LightAttack_One))
+                if(combo == 0)
                 {
-                    combo = 1;
+                    if (combatEventer.SetAnimation(FocusAttack_One))
+                    {
+                        combo = 1;
+                    }
+                }
+                else if(combo == 1)
+                {
+                    if (combatEventer.SetAnimation(FocusAttack_Two))
+                    {
+                        combo = 2;
+                    }
+                }
+                else if (combo == 2)
+                {
+                    if (combatEventer.SetAnimation(FocusAttack_Three))
+                    {
+                        combo = -1;
+                    }
                 }
             }
-            else if(combo == 1)
+            else
             {
-                if (combatEventer.SetAnimation(LightAttack_Two))
+                if (combo == 0)
                 {
-                    combo = 0;
+                    if (combatEventer.SetAnimation(LightAttack_One))
+                    {
+                        combo = 2;
+                    }
+                }
+                else if (combo == 2)
+                {
+                    if (combatEventer.SetAnimation(LightAttack_Two))
+                    {
+                        combo = 0;
+                    }
                 }
             }
         }
