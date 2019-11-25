@@ -418,7 +418,7 @@ PrefabInstance:
     - target: {fileID: 1031527483390413139, guid: 65748da7c071e1948acf7ff8be933667,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1031527483390711155, guid: 65748da7c071e1948acf7ff8be933667,
         type: 3}
@@ -6538,7 +6538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1628127421650852
 GameObject:
   m_ObjectHideFlags: 0
@@ -9976,7 +9976,7 @@ PrefabInstance:
     - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
         type: 3}
       propertyPath: FocusAttack_One.AnimatorTriggerName
-      value: Attack
+      value: FocusAttack
       objectReference: {fileID: 0}
     - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
         type: 3}
@@ -10016,7 +10016,7 @@ PrefabInstance:
     - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
         type: 3}
       propertyPath: FocusAttack_Two.AnimatorTriggerName
-      value: Attack
+      value: FocusAttack
       objectReference: {fileID: 0}
     - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
         type: 3}
@@ -10056,7 +10056,7 @@ PrefabInstance:
     - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
         type: 3}
       propertyPath: FocusAttack_Three.AnimatorTriggerName
-      value: Attack
+      value: FocusAttack
       objectReference: {fileID: 0}
     - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
         type: 3}

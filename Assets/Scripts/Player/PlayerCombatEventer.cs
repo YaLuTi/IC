@@ -13,6 +13,8 @@ public class PlayerCombatEventer : MonoBehaviour
     PlayerHP playerHP;
     PlayerMove playerMove;
 
+    int countTest = 0;
+
     bool IsStateChange = false;
     public int ComboCount = 0;
 
@@ -49,6 +51,7 @@ public class PlayerCombatEventer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        countTest++;
         if (PlayingEvent != empty)
         {
             if (PlayingEvent.Tag == "Dodge") playerMove.Rotateable = false;
@@ -71,9 +74,10 @@ public class PlayerCombatEventer : MonoBehaviour
                     if (PlayingEvent.Tag == "Dodge")
                     {
                         animator.ResetTrigger("Attack");
+                        animator.ResetTrigger("FocusAttack");
                         animator.SetTrigger("IsDodging");
                     }
-                    if(PlayingEvent.Tag == "Attack") animator.SetTrigger("Attack"); 
+                    if(PlayingEvent.Tag == "Attack") animator.SetTrigger(PlayingEvent.AnimatorTriggerName); 
                     NextEvent = empty;
                     // Debug.Log(PlayingEvent.AnimatorTriggerName);
                 }
@@ -97,12 +101,21 @@ public class PlayerCombatEventer : MonoBehaviour
     // 3 - Damaged
     public bool SetAnimation(AnimationEvent animationEvent)
     {
+        if(countTest < 10)
+        {
+            return false;
+        }
+        countTest = 0;
         // Debug.Log(animationEvent.TriggerButton);
         if (PlayingEvent != empty)
         {
             // Debug.Log("C1");
             if (!playerHP.CheckSP(animationEvent.CostStamina)) return false;
-            if (NextEvent == empty && animationEvent.Tag == "Attack" && PlayingEvent.Tag == "Attack")
+            if (animator.IsInTransition(0))
+            {
+                return false;
+            }
+            if (NextEvent == empty && animationEvent.Tag == "Attack" && PlayingEvent.Tag == "Attack" && animationEvent != PlayingEvent)
             {
                 // Debug.Log("OOOOOOOOOOOOOOOOOOOOOOAAAAAAAAAAAAA");
                 NextEvent = animationEvent;
@@ -110,14 +123,15 @@ public class PlayerCombatEventer : MonoBehaviour
                 // animator.SetTrigger("Attack");
                 return true;
             }
-            if (animator.IsInTransition(0))
-            {
-                return false;
-            }
             if (animationEvent.Tag == "Dodge")
             {
                 StateInfo = animator.GetCurrentAnimatorStateInfo(0);
-                // if (StateInfo.normalizedTime < PlayingEvent.EndTime) return false;
+                /*if (StateInfo.normalizedTime < PlayingEvent.ReadyTime)
+                {
+                    PlayingEvent = animationEvent;
+                    if (PlayingEvent.AnimatorTriggerName != null) animator.SetTrigger(PlayingEvent.AnimatorTriggerName);
+                    return true;
+                }*/
                 if (NextEvent == empty) NextEvent = animationEvent;
                 if (NextEvent != empty && PlayingEvent.Tag == "Attack")
                 {

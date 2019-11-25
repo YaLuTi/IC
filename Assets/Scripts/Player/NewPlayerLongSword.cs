@@ -27,7 +27,7 @@ public class NewPlayerLongSword : MonoBehaviour
     float DodgeCooldown = 20f;
     float _DodgeCooldownCount = 20f;
     float DodgeReverseSpeed = 1;
-    int combo = 0;
+    public int combo = 0;
     bool Drinking = false;
 
     void Start()
@@ -42,6 +42,7 @@ public class NewPlayerLongSword : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Value();
         if (!animator.GetBool("IsOnCombo"))
         {
             combo = 0;
@@ -52,6 +53,7 @@ public class NewPlayerLongSword : MonoBehaviour
             {
                 _DodgeCooldownCount = 0;
                 combatEventer.SetAnimation(Step);
+                return;
             }
         }
         else
@@ -60,17 +62,23 @@ public class NewPlayerLongSword : MonoBehaviour
             {
                 _DodgeCooldownCount = 0;
                 combatEventer.SetAnimation(Dodge);
+                return;
             }
         }
         if(Input.GetAxis("DPadY") == 1 && !Drinking)
         {
             Drinking = true;
             combatEventer.SetAnimation(Drink);
+            return;
         }
         else if(Input.GetAxis("DPadY") == 0)
         {
             Drinking = false;
         }
+
+        // Add a new animator Trigger named FocusAttack   要想辦法處理TriggerName問題
+
+
         if (Input.GetButtonDown("R1") && playerHP.CheckSP(2))
         {
             if (animator.GetBool("Focus"))
@@ -80,6 +88,7 @@ public class NewPlayerLongSword : MonoBehaviour
                     if (combatEventer.SetAnimation(FocusAttack_One))
                     {
                         combo = 1;
+                        return;
                     }
                 }
                 else if(combo == 1)
@@ -87,13 +96,15 @@ public class NewPlayerLongSword : MonoBehaviour
                     if (combatEventer.SetAnimation(FocusAttack_Two))
                     {
                         combo = 2;
+                        return;
                     }
                 }
                 else if (combo == 2)
                 {
                     if (combatEventer.SetAnimation(FocusAttack_Three))
                     {
-                        combo = -1;
+                        combo = 0;
+                        return;
                     }
                 }
             }
@@ -104,6 +115,7 @@ public class NewPlayerLongSword : MonoBehaviour
                     if (combatEventer.SetAnimation(LightAttack_One))
                     {
                         combo = 2;
+                        return;
                     }
                 }
                 else if (combo == 2)
@@ -111,6 +123,7 @@ public class NewPlayerLongSword : MonoBehaviour
                     if (combatEventer.SetAnimation(LightAttack_Two))
                     {
                         combo = 0;
+                        return;
                     }
                 }
             }
@@ -118,17 +131,18 @@ public class NewPlayerLongSword : MonoBehaviour
         if (Input.GetButtonDown("R2") && playerHP.CheckSP(2))
         {
             combatEventer.SetAnimation(HeavyAttack);
+            return;
         }
         if (Input.GetButtonDown("L1") && playerHP.CheckSP(2))
         {
             combatEventer.SetAnimation(Block);
             animator.SetBool("IsBlock", true);
+            return;
         }
         if (Input.GetButtonUp("L1"))
         {
             animator.SetBool("IsBlock", false);
         }
-        Value();
     }
 
     void Value()
