@@ -133,6 +133,9 @@ public class Shadow_AI : TestMonster
     public override void e_FoundPlayer()
     {
         base.e_FoundPlayer();
-        attackstates = Attackstates.Attacking;
+        if (attackstates != Attackstates.NuN)
+        {
+            attackstates = Attackstates.Attacking;
+        }
     }
 }

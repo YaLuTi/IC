@@ -42,6 +42,14 @@ public class CameraRotate : MonoBehaviour {
         {
             followObj = GameObject.FindGameObjectWithTag("Player");
         }
+        if(camera == null)
+        {
+            camera = GameObject.FindGameObjectWithTag("Camera").GetComponent<Camera>();
+        }
+        if(canvas == null)
+        {
+            canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<RectTransform>();
+        }
         distance = followObj.transform.position - this.transform.position;
         cinemachineVirtualCamera = GetComponent<CinemachineVirtualCamera>();
         transposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();

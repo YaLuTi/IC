@@ -11,6 +11,8 @@ public class PlayerHP : MonoBehaviour {
     public bool Invulnerability = false; // Remember change this to private
 
     public GameObject DamagedParticle;
+    PlayerCombatEventer playerCombatEventer;
+    public AnimationEvent DamagedEvent;
 
     [Header("Value")]
     public float MaxHP = 10;
@@ -27,7 +29,9 @@ public class PlayerHP : MonoBehaviour {
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
-	}
+        playerCombatEventer = GetComponent<PlayerCombatEventer>();
+
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -62,7 +66,7 @@ public class PlayerHP : MonoBehaviour {
         }
         Instantiate(DamagedParticle, transform.position, Quaternion.identity);
         HP -= damage;
-        animator.SetTrigger("Damaged");
+        playerCombatEventer.SetAnimation(DamagedEvent);
     }
 
     public void Healed(float heal)

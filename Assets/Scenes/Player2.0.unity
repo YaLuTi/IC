@@ -533,12 +533,22 @@ PrefabInstance:
     - target: {fileID: 1031527482831574150, guid: 65748da7c071e1948acf7ff8be933667,
         type: 3}
       propertyPath: Radius
-      value: 0
+      value: 5.46
       objectReference: {fileID: 0}
     - target: {fileID: 1031527482831574150, guid: 65748da7c071e1948acf7ff8be933667,
         type: 3}
       propertyPath: Angle
       value: 143
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031527482831574150, guid: 65748da7c071e1948acf7ff8be933667,
+        type: 3}
+      propertyPath: ObjMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9189221761086336811, guid: 65748da7c071e1948acf7ff8be933667,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1979582484, guid: 65748da7c071e1948acf7ff8be933667, type: 3}
@@ -905,6 +915,11 @@ PrefabInstance:
       propertyPath: Angle
       value: 143
       objectReference: {fileID: 0}
+    - target: {fileID: 9189221761086336811, guid: 65748da7c071e1948acf7ff8be933667,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1979582484, guid: 65748da7c071e1948acf7ff8be933667, type: 3}
     - {fileID: 1979582481, guid: 65748da7c071e1948acf7ff8be933667, type: 3}
@@ -928,7 +943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &282925593
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3074,6 +3089,11 @@ PrefabInstance:
       propertyPath: Angle
       value: 143
       objectReference: {fileID: 0}
+    - target: {fileID: 9189221761086336811, guid: 65748da7c071e1948acf7ff8be933667,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1979582484, guid: 65748da7c071e1948acf7ff8be933667, type: 3}
     - {fileID: 1979582481, guid: 65748da7c071e1948acf7ff8be933667, type: 3}
@@ -3085,80 +3105,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1922609591}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &873663037
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 873663038}
-  - component: {fileID: 873663040}
-  - component: {fileID: 873663039}
-  m_Layer: 5
-  m_Name: LockImage
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &873663038
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 873663037}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1.5}
-  m_Children: []
-  m_Father: {fileID: 1523124407}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &873663039
+--- !u!114 &873663039 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 873663039, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1636606099}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 873663037}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 0fe3578a3410c314c8b5ba43d14c118e, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
---- !u!222 &873663040
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 873663037}
-  m_CullTransparentMesh: 0
 --- !u!4 &877799018 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1914541610575204286, guid: 87505ee78753d4d488d6c720cc77fe84,
@@ -3977,12 +3935,6 @@ Transform:
   m_Father: {fileID: 1342938768}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1251253518 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1031527483390711155, guid: 65748da7c071e1948acf7ff8be933667,
-    type: 3}
-  m_PrefabInstance: {fileID: 192680720}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1253724560
 GameObject:
   m_ObjectHideFlags: 0
@@ -4285,36 +4237,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 28
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1356065857
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1356065858}
-  m_Layer: 9
-  m_Name: Center
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1356065858
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1356065857}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.047, y: 1.185, z: 0.064}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1251253518}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1362247672 stripped
 Transform:
@@ -4829,6 +4751,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1144111649615982, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d, type: 3}
+      propertyPath: m_Name
+      value: GoodCanvas
+      objectReference: {fileID: 0}
     - target: {fileID: 224052273010644056, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4868,6 +4794,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 224052273010644056, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224052273010644056, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224052273010644056, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224052273010644056, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d,
         type: 3}
@@ -4948,31 +4889,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114230619761517108, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114230619761517108, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224398223868511342, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 367
-      objectReference: {fileID: 0}
-    - target: {fileID: 224367469427265932, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 338.89996
-      objectReference: {fileID: 0}
-    - target: {fileID: 224811810503895682, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -351
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b5abcdbcba8858478cdaf07fa5e7a3d, type: 3}
@@ -9963,181 +9879,6 @@ PrefabInstance:
       propertyPath: SPslider
       value: 
       objectReference: {fileID: 1636606100}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_One.EventName
-      value: FocusAttack_One
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_One.TriggerButton
-      value: R1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_One.AnimatorTriggerName
-      value: FocusAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_One.Tag
-      value: Attack
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_One.InterruptLevel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_One.CostStamina
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_One.ReadyTime
-      value: 0.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_One.EndTime
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_Two.EventName
-      value: FocusAttack_Two
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_Two.TriggerButton
-      value: R1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_Two.AnimatorTriggerName
-      value: FocusAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_Two.Tag
-      value: Attack
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_Two.InterruptLevel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_Two.CostStamina
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_Two.ReadyTime
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_Two.EndTime
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_Three.EventName
-      value: FocusAttack_Three
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_Three.TriggerButton
-      value: R1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_Three.AnimatorTriggerName
-      value: FocusAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_Three.Tag
-      value: Attack
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_Three.InterruptLevel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_Three.CostStamina
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_Three.ReadyTime
-      value: 0.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289957559571555, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: FocusAttack_Three.EndTime
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289958778381891, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: m_AABB.m_Center.x
-      value: -0.0010616779
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289958778381891, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: m_AABB.m_Center.y
-      value: 0.00014464557
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289958778381891, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: m_AABB.m_Center.z
-      value: 0.01280117
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289958778381891, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: m_AABB.m_Extent.x
-      value: 0.0033404827
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289958778381891, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: m_AABB.m_Extent.y
-      value: 0.001361616
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289958778381891, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: m_AABB.m_Extent.z
-      value: 0.0051136017
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289958778381895, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: m_AABB.m_Center.y
-      value: -0.00031995773
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289958778381895, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: m_AABB.m_Center.z
-      value: 0.018496513
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289958778381895, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: m_AABB.m_Extent.x
-      value: 0.00091290474
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289958778381895, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: m_AABB.m_Extent.y
-      value: 0.001458644
-      objectReference: {fileID: 0}
-    - target: {fileID: 6200289958778381895, guid: d39c411218dd30b42b351e5f27ea3e80,
-        type: 3}
-      propertyPath: m_AABB.m_Extent.z
-      value: 0.0013909092
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d39c411218dd30b42b351e5f27ea3e80, type: 3}
 --- !u!1001 &6409603681902591689

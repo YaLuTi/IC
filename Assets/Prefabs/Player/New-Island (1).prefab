@@ -147,14 +147,32 @@ MonoBehaviour:
     ReadyTime: 0.1
     EndTime: 0.37
   FocusAttack_One:
-    EventName: 
-    TriggerButton: 
-    AnimatorTriggerName: 
-    Tag: 
-    InterruptLevel: 0
-    CostStamina: 0
-    ReadyTime: 0
-    EndTime: 0
+    EventName: FocusAttack_One
+    TriggerButton: R1
+    AnimatorTriggerName: FocusAttack
+    Tag: Attack
+    InterruptLevel: 1
+    CostStamina: 2
+    ReadyTime: 0.16
+    EndTime: 0.35
+  FocusAttack_Two:
+    EventName: FocusAttack_Two
+    TriggerButton: R1
+    AnimatorTriggerName: FocusAttack
+    Tag: Attack
+    InterruptLevel: 1
+    CostStamina: 2
+    ReadyTime: 0.2
+    EndTime: 0.4
+  FocusAttack_Three:
+    EventName: FocusAttack_Three
+    TriggerButton: R1
+    AnimatorTriggerName: FocusAttack
+    Tag: Attack
+    InterruptLevel: 1
+    CostStamina: 2
+    ReadyTime: 0.16
+    EndTime: 0.35
   HeavyAttack:
     EventName: HeavyAttack
     TriggerButton: R2
@@ -164,6 +182,7 @@ MonoBehaviour:
     CostStamina: 2
     ReadyTime: 0
     EndTime: 1
+  combo: 0
 --- !u!114 &6200289958783658696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +370,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Invulnerability: 0
   DamagedParticle: {fileID: 132858, guid: dcbbdee2152660b41822b2eb0ccb8767, type: 3}
+  DamagedEvent:
+    EventName: Hitten
+    TriggerButton: 
+    AnimatorTriggerName: Damaged
+    Tag: Damaged
+    InterruptLevel: 3
+    CostStamina: 0
+    ReadyTime: 0.1
+    EndTime: 0.7
   MaxHP: 10
   HP: 10
   HPslider: {fileID: 0}
@@ -693,8 +721,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 6200289958784087935}
   m_AABB:
-    m_Center: {x: -0.12370288, y: 0.08614653, z: -0.002308771}
-    m_Extent: {x: 0.3516935, y: 0.51464736, z: 0.1524045}
+    m_Center: {x: -0.0010616779, y: 0.00014464557, z: 0.01280117}
+    m_Extent: {x: 0.0033404827, y: 0.001361616, z: 0.0051136017}
   m_DirtyAABB: 0
 --- !u!1 &6200289958783658721
 GameObject:
@@ -2407,8 +2435,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 6200289958784087779}
   m_AABB:
-    m_Center: {x: 0, y: 0.31280783, z: 0.05408454}
-    m_Extent: {x: 0.09129989, y: 0.13890901, z: 0.1457309}
+    m_Center: {x: 0, y: -0.00031995773, z: 0.018496513}
+    m_Extent: {x: 0.00091290474, y: 0.001458644, z: 0.0013909092}
   m_DirtyAABB: 0
 --- !u!1 &6200289958783658825
 GameObject:

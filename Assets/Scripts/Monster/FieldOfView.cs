@@ -44,20 +44,24 @@ public class FieldOfView : MonoBehaviour {
     {
         ViewTargets.Clear();
         Collider[] targets = Physics.OverlapSphere(transform.position, Radius, TargetMask);
-
         for(int i = 0; i < targets.Length; i++)
         {
             Transform target = targets[i].transform;
             if (!target.CompareTag("Player")) continue;
             Vector3 dir = (target.position - transform.position).normalized;
-            if(Vector3.Angle(transform.forward, dir) < Angle / 2)
+            if (Vector3.Angle(transform.forward, dir) < Angle / 2)
             {
                 float Distance = Vector3.Distance(transform.position, target.transform.position);
 
-                if (!Physics.Raycast(transform.position, dir, Distance, ObjMask))
+                RaycastHit raycastHitl;
+                if (!Physics.Raycast(transform.position, dir, out raycastHitl, Distance, ObjMask))
                 {
                     ViewTargets.Add(targets[i].gameObject);
                     monster.e_FoundPlayer();
+                }
+                else
+                {
+                    Debug.Log(raycastHitl.collider.name);
                 }
             }
         }

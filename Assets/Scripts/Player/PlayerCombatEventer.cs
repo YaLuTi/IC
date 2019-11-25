@@ -101,6 +101,13 @@ public class PlayerCombatEventer : MonoBehaviour
     // 3 - Damaged
     public bool SetAnimation(AnimationEvent animationEvent)
     {
+        if(animationEvent.InterruptLevel == 3)
+        {
+            PlayingEvent = animationEvent;
+            NextEvent = empty;
+            if (PlayingEvent.AnimatorTriggerName != null) animator.SetTrigger(PlayingEvent.AnimatorTriggerName);
+            return true;
+        }
         if(countTest < 10)
         {
             return false;
