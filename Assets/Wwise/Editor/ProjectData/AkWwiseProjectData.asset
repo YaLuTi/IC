@@ -24,14 +24,14 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 5b0a9973d499ee4cbe532ad9a9f5daed
     GuidInternal: 
-    m_lastTime: -8586278669688710052
+    m_lastTime: -8586276764598028056
     List: []
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 9f26bc22348f9c45a664652c288baac3
     GuidInternal: 
-    m_lastTime: -8586272751905272224
+    m_lastTime: -8586271830360048564
     List:
     - name: Main
       guid: 5d35b09681007a41a7bb0f7696c558c7
@@ -47,7 +47,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 156ac43791956c4180cbe9a949aca85b
     GuidInternal: 
-    m_lastTime: -8586272751905142574
+    m_lastTime: -8586271830360587115
     List:
     - name: BossFight
       guid: 9cbe567d2ef2e0428cbab77fd17ab387
@@ -59,13 +59,13 @@ MonoBehaviour:
         ObjectType: 3
       Path: BGM\BossFight
       maxAttenuation: 0
-      maxDuration: 16.695646
-      minDuration: 16.695646
+      maxDuration: -1
+      minDuration: -1
   - PhysicalPath: Events\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 0a82cd74adb1cd4a966ed017b0009a39
     GuidInternal: 
-    m_lastTime: -8586272745088031548
+    m_lastTime: -8586271830360577146
     List:
     - name: Main_event
       guid: e43356ec2b79a244a50799d40f389e70
@@ -145,7 +145,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 4c772a2a5309584991c45754297b2ebb
     GuidInternal: 
-    m_lastTime: -8586272737570074046
+    m_lastTime: -8586271830360038583
     List:
     - name: AmbientDungeonState
       guid: 599a01843806e8479c7eca783dcc4bb2
@@ -194,6 +194,7 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /IC_WwiseProject
+  - /IC_WwiseProject/Events
   - /IC_WwiseProject/States
   - /IC_WwiseProject/States/Default Work Unit
   - /IC_WwiseProject/States/Default Work Unit/AmbientDungeonState
