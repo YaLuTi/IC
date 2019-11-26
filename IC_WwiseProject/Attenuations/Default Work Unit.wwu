@@ -4,6 +4,9 @@
 		<WorkUnit Name="Default Work Unit" ID="{534E329D-4184-49AF-AA98-29B6F29D3DC3}" PersistMode="Standalone">
 			<ChildrenList>
 				<Attenuation Name="Fire" ID="{E7B7D576-792A-4C36-8F78-11C28AB51D7B}" ShortID="171202550">
+					<PropertyList>
+						<Property Name="RadiusMax" Type="Real64" Value="80"/>
+					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
 							<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
@@ -18,22 +21,22 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>4.07524</XPos>
+											<XPos>3.260192</XPos>
 											<YPos>-3.63968</YPos>
 											<Flags>0</Flags>
 										</Point>
 										<Point>
-											<XPos>9.87461</XPos>
+											<XPos>7.899688</XPos>
 											<YPos>-14.61944</YPos>
 											<Flags>0</Flags>
 										</Point>
 										<Point>
-											<XPos>12.85266</XPos>
+											<XPos>10.282128</XPos>
 											<YPos>-200</YPos>
 											<Flags>0</Flags>
 										</Point>
 										<Point>
-											<XPos>100</XPos>
+											<XPos>80</XPos>
 											<YPos>-200</YPos>
 											<Flags>37</Flags>
 										</Point>
