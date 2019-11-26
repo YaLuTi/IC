@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="134">
 	<RootPaths>
-		<ProjectRoot>D:\Unity\ZenTi\IC_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Unity\ZenTi\IC_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>E:\IC\IC_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>E:\IC\IC_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>E:\IC\IC_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Unity\ZenTi\IC_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>E:\IC\IC_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -25,7 +25,7 @@
 				<Event Id="580146960" Name="BossFight" ObjectPath="\Events\BGM\BossFight" DurationType="OneShot" DurationMin="16.695646" DurationMax="16.695646"/>
 				<Event Id="1811523627" Name="Main_event" ObjectPath="\Events\Default Work Unit\Main_event" DurationType="Infinite"/>
 				<Event Id="2727481903" Name="PotBreak" ObjectPath="\Events\Props\PotBreak" DurationType="OneShot" DurationMin="1.402456" DurationMax="1.556122"/>
-				<Event Id="2041519613" Name="TorchFire" ObjectPath="\Events\Props\TorchFire" MaxAttenuation="100.000000" DurationType="Infinite"/>
+				<Event Id="2041519613" Name="TorchFire" ObjectPath="\Events\Props\TorchFire" MaxAttenuation="80.000000" DurationType="Infinite"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="63831569" Language="SFX">
