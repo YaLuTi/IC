@@ -122,6 +122,7 @@ public class Shadow_AI : TestMonster
     {
         base.Damaged(damage, p, Attacker);
         IsStun = true;
+        IsAttacking = false;
         LongAttacking = false;
     }
 

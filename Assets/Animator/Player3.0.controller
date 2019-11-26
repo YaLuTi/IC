@@ -154,6 +154,26 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!114 &114068050520711500
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b83b76ec5e3ece94b92a2716d8fc4c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvents:
+  - AKevent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: 0551ab2b5af47174bb8d35e86da6497e,
+        type: 2}
+    time: 0.12
+    played: 0
 --- !u!114 &114128395831406636
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -253,6 +273,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.4
+--- !u!114 &114525004688265052
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b83b76ec5e3ece94b92a2716d8fc4c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvents:
+  - AKevent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: a14234d68c52f0845b1aa6c663235fe1,
+        type: 2}
+    time: 0.2
+    played: 0
 --- !u!114 &114564335417429976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2429,6 +2469,7 @@ AnimatorState:
   - {fileID: 114755941570170262}
   - {fileID: 114369604360716974}
   - {fileID: 114826756182647580}
+  - {fileID: 114525004688265052}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -2831,6 +2872,7 @@ AnimatorState:
   - {fileID: 114703801732313402}
   - {fileID: 114869464550689014}
   - {fileID: 114644426298023810}
+  - {fileID: 114068050520711500}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

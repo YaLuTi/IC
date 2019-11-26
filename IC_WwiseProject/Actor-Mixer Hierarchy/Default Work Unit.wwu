@@ -25,6 +25,10 @@
 							<Language>SFX</Language>
 							<AudioFile>ambientdungeon.wav</AudioFile>
 						</AudioFileSource>
+						<AudioFileSource Name="GolemBloodSound" ID="{EEBA6933-6514-4993-AECE-622045D7931D}" ShortID="486129526">
+							<Language>SFX</Language>
+							<AudioFile>GolemBloodSound.wav</AudioFile>
+						</AudioFileSource>
 					</ChildrenList>
 					<StateInfo>
 						<StateGroupList>
@@ -484,11 +488,219 @@
 							<Language>SFX</Language>
 							<AudioFile>273_loop2_dream-comes-true_0016.wav</AudioFile>
 						</AudioFileSource>
+						<AudioFileSource Name="GolemBloodSound" ID="{80AEB47D-9D73-4C81-834E-C771B4D6BD40}" ShortID="476979142">
+							<Language>SFX</Language>
+							<AudioFile>GolemBloodSound.wav</AudioFile>
+						</AudioFileSource>
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="273_loop2_dream-comes-true_0016" ID="{4B44C431-B456-429A-B581-DFFE08847996}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
+				<RandomSequenceContainer Name="PlayerStep" ID="{FE15325C-0CD4-4EE1-B340-D6B891F49AEB}" ShortID="585317018">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="walk5" ID="{198DE5CF-883D-4A7C-A8D8-37D9B6C2248A}" ShortID="74968928">
+							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="walk5" ID="{9F0A6BF4-6EE2-4969-9F22-AB2205BB847E}" ShortID="436243836">
+									<Language>SFX</Language>
+									<AudioFile>walk5.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="walk5" ID="{9F0A6BF4-6EE2-4969-9F22-AB2205BB847E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="walk6" ID="{4C81E41A-4F6F-46F7-B1D0-1A0354191177}" ShortID="712686076">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="walk6" ID="{85DF11B4-465C-4EDC-8200-DAB4664BC82C}" ShortID="647973800">
+									<Language>SFX</Language>
+									<AudioFile>walk6.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="walk6" ID="{85DF11B4-465C-4EDC-8200-DAB4664BC82C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="walk7" ID="{05C64059-D786-4AFB-AFB4-534ED031837E}" ShortID="205263031">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="walk7" ID="{D48D3AA0-D210-413A-8753-8DD13AB00483}" ShortID="1065511772">
+									<Language>SFX</Language>
+									<AudioFile>walk7.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="walk7" ID="{D48D3AA0-D210-413A-8753-8DD13AB00483}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<Sound Name="GolemBloodSound" ID="{35439BCC-1B3A-4FA7-8C17-F48FF5225968}" ShortID="84319592">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>230</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-19</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="GolemBloodSound" ID="{0220FB42-A41D-46D0-9E3F-D1FEC5B5E924}" ShortID="487698438">
+							<Language>SFX</Language>
+							<AudioFile>GolemBloodSound.wav</AudioFile>
+							<ConvertedFileIDList>
+								<File ID="476979142"/>
+							</ConvertedFileIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="GolemBloodSound" ID="{0220FB42-A41D-46D0-9E3F-D1FEC5B5E924}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<RandomSequenceContainer Name="Sword" ID="{5A0DE127-DB27-4BE2-863E-5B52022458A3}" ShortID="819350606">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Sword_swing2" ID="{BC43464B-0E04-4DA0-AE5E-A0330DC9BC53}" ShortID="186371088">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>530</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Sword_swing2" ID="{51B54974-1FDD-4A8C-A2D7-34B41FBFAABD}" ShortID="1039368945">
+									<Language>SFX</Language>
+									<AudioFile>Sword_swing2.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sword_swing2" ID="{51B54974-1FDD-4A8C-A2D7-34B41FBFAABD}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Sword_swing3" ID="{7C9F6993-8264-46D6-BC4C-3477A709A840}" ShortID="903997833">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>150</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-14</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Sword_swing3" ID="{190B5EC4-9995-4C79-978C-4B4125C1F94B}" ShortID="231745951">
+									<Language>SFX</Language>
+									<AudioFile>Sword_swing3.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sword_swing3" ID="{190B5EC4-9995-4C79-978C-4B4125C1F94B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

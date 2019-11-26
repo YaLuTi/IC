@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{72068ACD-3659-44D1-9A32-870BC35FA14B}" SchemaVersion="94">
+	<Events>
+		<WorkUnit Name="Sword" ID="{72068ACD-3659-44D1-9A32-870BC35FA14B}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="SwordAttack2" ID="{E2AC0962-610F-41AD-B0F1-263B4EAC1334}">
+					<ChildrenList>
+						<Action Name="" ID="{08563C25-BA23-40B7-879E-40C1C7B21AEC}" ShortID="794992741">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Sword_swing2" ID="{BC43464B-0E04-4DA0-AE5E-A0330DC9BC53}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="SwordAttack1" ID="{D848A0C8-81BD-434E-BE2F-C8875A9041F6}">
+					<ChildrenList>
+						<Action Name="" ID="{8100BC7E-ABF1-41C3-908A-10B6D90FAA32}" ShortID="262847831">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Sword_swing3" ID="{7C9F6993-8264-46D6-BC4C-3477A709A840}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

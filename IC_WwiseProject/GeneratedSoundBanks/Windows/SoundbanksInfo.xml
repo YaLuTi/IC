@@ -23,8 +23,12 @@
 			<IncludedEvents>
 				<Event Id="3764932550" Name="BarrelBreak" ObjectPath="\Events\Props\BarrelBreak" DurationType="OneShot" DurationMin="1.477196" DurationMax="1.592391"/>
 				<Event Id="580146960" Name="BossFight" ObjectPath="\Events\BGM\BossFight" DurationType="OneShot" DurationMin="16.695646" DurationMax="16.695646"/>
+				<Event Id="251527805" Name="GolemBlood" ObjectPath="\Events\Monster\GolemBlood" DurationType="OneShot" DurationMin="0.899816" DurationMax="0.899816"/>
 				<Event Id="1811523627" Name="Main_event" ObjectPath="\Events\Default Work Unit\Main_event" DurationType="Infinite"/>
+				<Event Id="412471812" Name="PlayerStep" ObjectPath="\Events\Player\PlayerStep" DurationType="OneShot" DurationMin="0.837812" DurationMax="0.890188"/>
 				<Event Id="2727481903" Name="PotBreak" ObjectPath="\Events\Props\PotBreak" DurationType="OneShot" DurationMin="1.402456" DurationMax="1.556122"/>
+				<Event Id="2184892217" Name="SwordAttack1" ObjectPath="\Events\Sword\SwordAttack1" DurationType="OneShot" DurationMin="0.266825" DurationMax="0.266825"/>
+				<Event Id="2184892218" Name="SwordAttack2" ObjectPath="\Events\Sword\SwordAttack2" DurationType="OneShot" DurationMin="0.366562" DurationMax="0.366562"/>
 				<Event Id="2041519613" Name="TorchFire" ObjectPath="\Events\Props\TorchFire" MaxAttenuation="100.000000" DurationType="Infinite"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
@@ -32,9 +36,25 @@
 					<ShortName>PotBreak1.wav</ShortName>
 					<Path>SFX\PotBreak1_10C4C929.wem</Path>
 				</File>
+				<File Id="231745951" Language="SFX">
+					<ShortName>Sword_swing3.wav</ShortName>
+					<Path>SFX\Sword_swing3_10C4C929.wem</Path>
+				</File>
+				<File Id="436243836" Language="SFX">
+					<ShortName>walk5.wav</ShortName>
+					<Path>SFX\walk5_10C4C929.wem</Path>
+				</File>
+				<File Id="476979142" Language="SFX">
+					<ShortName>GolemBloodSound.wav</ShortName>
+					<Path>SFX\GolemBloodSound_10C4C929.wem</Path>
+				</File>
 				<File Id="614328910" Language="SFX">
 					<ShortName>BarrelBreak2.wav</ShortName>
 					<Path>SFX\BarrelBreak2_10C4C929.wem</Path>
+				</File>
+				<File Id="647973800" Language="SFX">
+					<ShortName>walk6.wav</ShortName>
+					<Path>SFX\walk6_10C4C929.wem</Path>
 				</File>
 				<File Id="673948184" Language="SFX">
 					<ShortName>ambientdungeon.wav</ShortName>
@@ -47,6 +67,14 @@
 				<File Id="1031287844" Language="SFX">
 					<ShortName>FireIdleLoop.wav</ShortName>
 					<Path>SFX\FireIdleLoop_D79FB2B7.wem</Path>
+				</File>
+				<File Id="1039368945" Language="SFX">
+					<ShortName>Sword_swing2.wav</ShortName>
+					<Path>SFX\Sword_swing2_10C4C929.wem</Path>
+				</File>
+				<File Id="1065511772" Language="SFX">
+					<ShortName>walk7.wav</ShortName>
+					<Path>SFX\walk7_10C4C929.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

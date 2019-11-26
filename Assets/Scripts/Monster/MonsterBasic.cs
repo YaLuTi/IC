@@ -13,7 +13,7 @@ public class MonsterBasic : MonoBehaviour {
     [Header("Effect")]
     public GameObject DamagedParticle;
     [Header("Audio")]
-    public AudioClip[] DamagedAudios;
+    public AK.Wwise.Event DamagedAudios;
     public RangedFloat volume;
     [MinMaxRange(0f, 2f)]
     public RangedFloat pitch;
@@ -112,12 +112,8 @@ public class MonsterBasic : MonoBehaviour {
         GameObject g = Instantiate(DamagedParticle, p, Quaternion.identity);
         g.transform.LookAt(player.transform.position);
         Destroy(g, 3);
-        if (DamagedAudios.Length == 0) return;
 
-        audioSource.clip = DamagedAudios[Random.Range(0, DamagedAudios.Length)];
-        audioSource.volume = Random.Range(volume.minValue, volume.maxValue);
-        audioSource.pitch = Random.Range(pitch.minValue, pitch.maxValue);
-        audioSource.PlayOneShot(audioSource.clip);
+        DamagedAudios.Post(gameObject);
     }
 
     public void SetAttack()

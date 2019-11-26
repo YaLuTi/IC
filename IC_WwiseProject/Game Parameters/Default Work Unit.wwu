@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{FF89B3D4-5B4D-4429-A926-DADBE8ACC345}" SchemaVersion="94">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{FF89B3D4-5B4D-4429-A926-DADBE8ACC345}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{FF89B3D4-5B4D-4429-A926-DADBE8ACC345}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="Decay" ID="{CDD243E2-A209-4218-8305-7E7164060BEC}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>
