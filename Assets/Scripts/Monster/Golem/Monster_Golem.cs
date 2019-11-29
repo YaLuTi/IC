@@ -282,6 +282,12 @@ public class Monster_Golem : TestMonster {
         base.e_Patrol();
     }
 
+    public override void e_FoundPlayer()
+    {
+        base.e_FoundPlayer();
+        attackstates = Attackstates.Attacking;
+    }
+
     public override void UpdateAttackState()
     {
         base.UpdateAttackState();
