@@ -36,6 +36,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="OpenDoor" ID="{0F1C51EE-A8CD-4CDE-B2B0-F9FD86EBC39F}">
+					<ChildrenList>
+						<Action Name="" ID="{35B585CB-A192-409A-9300-1CF0B1100C16}" ShortID="1020295200">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MEOW" ID="{499A583D-D285-4797-B0FA-5F03DBB4908C}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

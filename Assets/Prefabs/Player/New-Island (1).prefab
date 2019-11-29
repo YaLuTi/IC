@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 6200289958774298767}
   - component: {fileID: 6200289957559571554}
   - component: {fileID: 6200289957559571555}
+  - component: {fileID: 7753116175185368877}
   - component: {fileID: 6200289958783658696}
   - component: {fileID: 6200289958783658694}
   - component: {fileID: 6200289958783658692}
@@ -379,6 +380,36 @@ MonoBehaviour:
     ReadyTime: 0
     EndTime: 1
   combo: 0
+--- !u!114 &7753116175185368877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6200289958783658689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d9346efc12ece41812d9bab3bce7e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pick:
+    EventName: PickItem
+    TriggerButton: JoyStickO
+    AnimatorTriggerName: PickItem
+    Tag: Pick
+    InterruptLevel: 2
+    CostStamina: 0
+    ReadyTime: 0
+    EndTime: 0.9
+  Open:
+    EventName: 
+    TriggerButton: 
+    AnimatorTriggerName: 
+    Tag: 
+    InterruptLevel: 0
+    CostStamina: 0
+    ReadyTime: 0
+    EndTime: 0
 --- !u!114 &6200289958783658696
 MonoBehaviour:
   m_ObjectHideFlags: 0

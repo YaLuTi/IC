@@ -4,9 +4,11 @@ Event	ID	Name			Wwise Object Path	Notes
 	580146960	BossFight			\BGM\BossFight	
 	1811523627	Main_event			\Default Work Unit\Main_event	
 	2041519613	TorchFire			\Props\TorchFire	
+	2122995345	OpenDoor			\Props\OpenDoor	
 	2184892217	SwordAttack1			\Sword\SwordAttack1	
 	2184892218	SwordAttack2			\Sword\SwordAttack2	
 	2727481903	PotBreak			\Props\PotBreak	
+	2985974755	Boss_Start			\Default Work Unit\Boss_Start	
 	3764932550	BarrelBreak			\Props\BarrelBreak	
 
 State Group	ID	Name			Wwise Object Path	Notes
@@ -34,6 +36,7 @@ Effect plug-ins	ID	Name	Type				Notes
 	3043085106	High_Impact	Wwise Compressor			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	3812532	273_loop3_dream-comes-true_0016	D:\Unity\ZenTi\IC_WwiseProject\.cache\Mac\SFX\273_loop3_dream-comes-true_0016_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\273_loop3_dream-comes-true_0016		3205632
 	63831569	PotBreak1	D:\Unity\ZenTi\IC_WwiseProject\.cache\Mac\SFX\PotBreak1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PotBreak\PotBreak1		262168
 	231745951	Sword_swing3	D:\Unity\ZenTi\IC_WwiseProject\.cache\Mac\SFX\Sword_swing3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sword\Sword_swing3		51392
 	436243836	walk5	D:\Unity\ZenTi\IC_WwiseProject\.cache\Mac\SFX\walk5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerStep\walk5		170980
@@ -41,7 +44,8 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	614328910	BarrelBreak2	D:\Unity\ZenTi\IC_WwiseProject\.cache\Mac\SFX\BarrelBreak2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BarrelSound\BarrelBreak2		162332
 	647973800	walk6	D:\Unity\ZenTi\IC_WwiseProject\.cache\Mac\SFX\walk6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerStep\walk6		160924
 	673948184	ambientdungeon	D:\Unity\ZenTi\IC_WwiseProject\.cache\Mac\SFX\ambientdungeon_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\ambientdungeon		41780772
-	970753656	273_loop2_dream-comes-true_0016	D:\Unity\ZenTi\IC_WwiseProject\.cache\Mac\SFX\273_loop2_dream-comes-true_0016_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\273_loop2_dream-comes-true_0016		3205628
+	848970447	MEOW	D:\Unity\ZenTi\IC_WwiseProject\.cache\Mac\SFX\MEOW_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\MEOW		196064
+	970753656	273_loop2_dream-comes-true_0016	D:\Unity\ZenTi\IC_WwiseProject\.cache\Mac\SFX\273_loop2_dream-comes-true_0016_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\273_loop2_dream-comes-true_0016		3205628
 	1031287844	FireIdleLoop	D:\Unity\ZenTi\IC_WwiseProject\.cache\Mac\SFX\FireIdleLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\FireIdleLoop		1739160
 	1039368945	Sword_swing2	D:\Unity\ZenTi\IC_WwiseProject\.cache\Mac\SFX\Sword_swing2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sword\Sword_swing2		95652
 	1065511772	walk7	D:\Unity\ZenTi\IC_WwiseProject\.cache\Mac\SFX\walk7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerStep\walk7		164276

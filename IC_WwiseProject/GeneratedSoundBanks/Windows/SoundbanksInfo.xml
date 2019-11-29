@@ -22,16 +22,22 @@
 			<Path>Main.bnk</Path>
 			<IncludedEvents>
 				<Event Id="3764932550" Name="BarrelBreak" ObjectPath="\Events\Props\BarrelBreak" DurationType="OneShot" DurationMin="1.477196" DurationMax="1.592391"/>
-				<Event Id="580146960" Name="BossFight" ObjectPath="\Events\BGM\BossFight" DurationType="OneShot" DurationMin="16.695646" DurationMax="16.695646"/>
+				<Event Id="2985974755" Name="Boss_Start" ObjectPath="\Events\Default Work Unit\Boss_Start" DurationType="Infinite"/>
+				<Event Id="580146960" Name="BossFight" ObjectPath="\Events\BGM\BossFight" DurationType="Infinite"/>
 				<Event Id="251527805" Name="GolemBlood" ObjectPath="\Events\Monster\GolemBlood" DurationType="OneShot" DurationMin="0.899816" DurationMax="0.899816"/>
 				<Event Id="1811523627" Name="Main_event" ObjectPath="\Events\Default Work Unit\Main_event" DurationType="Infinite"/>
+				<Event Id="2122995345" Name="OpenDoor" ObjectPath="\Events\Props\OpenDoor" DurationType="OneShot" DurationMin="1.211675" DurationMax="1.211675"/>
 				<Event Id="412471812" Name="PlayerStep" ObjectPath="\Events\Player\PlayerStep" DurationType="OneShot" DurationMin="0.837812" DurationMax="0.890188"/>
 				<Event Id="2727481903" Name="PotBreak" ObjectPath="\Events\Props\PotBreak" DurationType="OneShot" DurationMin="1.402456" DurationMax="1.556122"/>
 				<Event Id="2184892217" Name="SwordAttack1" ObjectPath="\Events\Sword\SwordAttack1" DurationType="OneShot" DurationMin="0.266825" DurationMax="0.266825"/>
 				<Event Id="2184892218" Name="SwordAttack2" ObjectPath="\Events\Sword\SwordAttack2" DurationType="OneShot" DurationMin="0.366562" DurationMax="0.366562"/>
-				<Event Id="2041519613" Name="TorchFire" ObjectPath="\Events\Props\TorchFire" MaxAttenuation="100.000000" DurationType="Infinite"/>
+				<Event Id="2041519613" Name="TorchFire" ObjectPath="\Events\Props\TorchFire" MaxAttenuation="80.000000" DurationType="Infinite"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="3812532" Language="SFX">
+					<ShortName>273_loop3_dream-comes-true_0016.wav</ShortName>
+					<Path>SFX\273_loop3_dream-comes-true_0016_D79FB2B7.wem</Path>
+				</File>
 				<File Id="63831569" Language="SFX">
 					<ShortName>PotBreak1.wav</ShortName>
 					<Path>SFX\PotBreak1_10C4C929.wem</Path>
@@ -60,9 +66,13 @@
 					<ShortName>ambientdungeon.wav</ShortName>
 					<Path>SFX\ambientdungeon_D79FB2B7.wem</Path>
 				</File>
+				<File Id="848970447" Language="SFX">
+					<ShortName>MEOW.wav</ShortName>
+					<Path>SFX\MEOW_10C4C929.wem</Path>
+				</File>
 				<File Id="970753656" Language="SFX">
 					<ShortName>273_loop2_dream-comes-true_0016.wav</ShortName>
-					<Path>SFX\273_loop2_dream-comes-true_0016_10C4C929.wem</Path>
+					<Path>SFX\273_loop2_dream-comes-true_0016_D79FB2B7.wem</Path>
 				</File>
 				<File Id="1031287844" Language="SFX">
 					<ShortName>FireIdleLoop.wav</ShortName>

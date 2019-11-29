@@ -469,6 +469,7 @@
 				</RandomSequenceContainer>
 				<Sound Name="273_loop2_dream-comes-true_0016" ID="{67F7A5B9-B302-448E-926D-C87A96EF9A32}" ShortID="759934657">
 					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-19</Value>
@@ -491,6 +492,16 @@
 						<AudioFileSource Name="GolemBloodSound" ID="{80AEB47D-9D73-4C81-834E-C771B4D6BD40}" ShortID="476979142">
 							<Language>SFX</Language>
 							<AudioFile>GolemBloodSound.wav</AudioFile>
+							<ConvertedFileIDList>
+								<File ID="486129526"/>
+							</ConvertedFileIDList>
+						</AudioFileSource>
+						<AudioFileSource Name="273_loop3_dream-comes-true_0016" ID="{3AC15472-C747-4F48-9825-B8034B6E3755}" ShortID="598323183">
+							<Language>SFX</Language>
+							<AudioFile>273_loop3_dream-comes-true_0016.wav</AudioFile>
+							<ConvertedFileIDList>
+								<File ID="3812532"/>
+							</ConvertedFileIDList>
 						</AudioFileSource>
 					</ChildrenList>
 					<ActiveSourceList>
@@ -617,6 +628,10 @@
 								<File ID="476979142"/>
 							</ConvertedFileIDList>
 						</AudioFileSource>
+						<AudioFileSource Name="DoorTest" ID="{8BAB7933-D618-4C25-B331-5388113B92F0}" ShortID="954590724">
+							<Language>SFX</Language>
+							<AudioFile>DoorTest.wav</AudioFile>
+						</AudioFileSource>
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="GolemBloodSound" ID="{0220FB42-A41D-46D0-9E3F-D1FEC5B5E924}" Platform="Linked"/>
@@ -701,6 +716,196 @@
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
+				<Sound Name="273_loop3_dream-comes-true_0016" ID="{E325D6EF-FF73-458E-9B91-1EFC6E4AEC33}" ShortID="841819254">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-11</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="273_loop3_dream-comes-true_0016" ID="{705622E1-3401-4C50-9158-C4B7A6401FCA}" ShortID="3812532">
+							<Language>SFX</Language>
+							<AudioFile>273_loop3_dream-comes-true_0016.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="273_loop3_dream-comes-true_0016" ID="{705622E1-3401-4C50-9158-C4B7A6401FCA}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="_Without_God_-_David_Fesliyan" ID="{A1347706-B35A-4E57-BCA0-CF13A9C990FC}" ShortID="531102733">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="_Without_God_-_David_Fesliyan" ID="{80BD41DA-BDD0-4522-85B5-B4F756D6A07B}" ShortID="534660860">
+							<Language>SFX</Language>
+							<AudioFile>_Without_God_-_David_Fesliyan.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="_Without_God_-_David_Fesliyan" ID="{80BD41DA-BDD0-4522-85B5-B4F756D6A07B}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="SwordBlock" ID="{F7E5D6FF-EA93-4058-9B63-4C29C154CDE8}" ShortID="877061049">
+					<PropertyList>
+						<Property Name="OutputBusHighpass" Type="int16">
+							<ValueList>
+								<Value>52</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>50</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Melee_Sword_Attack_04" ID="{C914C24A-F80C-44BD-BE47-758AEA46D1BD}" ShortID="156434767">
+							<Language>SFX</Language>
+							<AudioFile>Melee_Sword_Attack_04.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Melee_Sword_Attack_04" ID="{C914C24A-F80C-44BD-BE47-758AEA46D1BD}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="MetalGate" ID="{3C243189-AC34-447A-9BEF-A220C313072C}" ShortID="36545420">
+					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>34</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>2</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>-710</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="MetalGate" ID="{8CB857A9-E913-4E35-8F28-4C8F599A327C}" ShortID="863614403">
+							<Language>SFX</Language>
+							<AudioFile>MetalGate.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="MetalGate" ID="{8CB857A9-E913-4E35-8F28-4C8F599A327C}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="DoorTest" ID="{C0E524A1-1A2F-4AA4-AF72-8E52E8F1505E}" ShortID="606597449">
+					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>48</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>26</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>-300</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="DoorTest" ID="{20E6EF15-04C6-488B-A3E3-05C44A696532}" ShortID="842504450">
+							<Language>SFX</Language>
+							<AudioFile>DoorTest.wav</AudioFile>
+							<ConvertedFileIDList>
+								<File ID="954590724"/>
+							</ConvertedFileIDList>
+						</AudioFileSource>
+						<AudioFileSource Name="MEOW" ID="{3B0920A4-74C3-4DCC-B489-6DE78A93824D}" ShortID="848970447">
+							<Language>SFX</Language>
+							<AudioFile>MEOW.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="DoorTest" ID="{20E6EF15-04C6-488B-A3E3-05C44A696532}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="MEOW" ID="{499A583D-D285-4797-B0FA-5F03DBB4908C}" ShortID="195406017">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>-150</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="MEOW" ID="{5FDD9090-8163-43C7-82A9-CD36E9D10CE3}" ShortID="722587548">
+							<Language>SFX</Language>
+							<AudioFile>MEOW.wav</AudioFile>
+							<ConvertedFileIDList>
+								<File ID="848970447"/>
+							</ConvertedFileIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="MEOW" ID="{5FDD9090-8163-43C7-82A9-CD36E9D10CE3}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

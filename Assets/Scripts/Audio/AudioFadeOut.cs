@@ -15,8 +15,9 @@ public class AudioFadeOut : MonoBehaviour
     {
         
     }
+    
 
-    public void Set()
+    private void OnTriggerEnter(Collider other)
     {
         Debug.Log("S");
         state.SetValue();

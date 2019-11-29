@@ -55,6 +55,7 @@ public class PlayerHP : MonoBehaviour {
 
     public void Damaged(float damage)
     {
+        if (animator.GetBool("IsBlock")) return;
         if (Invulnerability)
         {
             Debug.Log("Dodge");

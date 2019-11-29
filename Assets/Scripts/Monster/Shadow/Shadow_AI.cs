@@ -56,7 +56,7 @@ public class Shadow_AI : TestMonster
         {
             case BattleSolution.MeleeAttack:
                 animator.SetFloat("Speed", 1);
-
+                
                 /*
                 if (LongAttacking)
                 {
@@ -79,13 +79,13 @@ public class Shadow_AI : TestMonster
                     IsAttacking = true;
                 }
                 
-                if (PlayerDistance < LongAttackRange && !IsAttacking && LongAttackCD >= 7.5f)
+                /*if (PlayerDistance < LongAttackRange && !IsAttacking && LongAttackCD >= 7.5f)
                 {
                     LongAttackCD = 0;
                     animator.SetTrigger("LongAttackReady");
                     // LongAttacking = true;
                     IsAttacking = true;
-                }
+                }*/
                 if(PlayerDistance < MeleeAttackRange && !IsAttacking)
                 {
                     animator.SetTrigger("MeleeAttack");

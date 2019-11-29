@@ -28,6 +28,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Boss_Start" ID="{917E9ADC-D37F-4398-99E0-06F848DD29BE}">
+					<ChildrenList>
+						<Action Name="" ID="{E03B1F3F-DE51-4456-AC97-C11175E47960}" ShortID="511704503">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="273_loop3_dream-comes-true_0016" ID="{E325D6EF-FF73-458E-9B91-1EFC6E4AEC33}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

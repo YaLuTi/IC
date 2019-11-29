@@ -5,7 +5,7 @@ using UnityEngine;
 public class Animator_GetoffStun : StateMachineBehaviour
 {
     MonsterBasic monster;
-    public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+    public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
         monster = animator.GetComponent<MonsterBasic>();
         monster.IsStun = false;
