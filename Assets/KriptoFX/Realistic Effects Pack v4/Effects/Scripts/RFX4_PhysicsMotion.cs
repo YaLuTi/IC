@@ -6,7 +6,6 @@ using Random = UnityEngine.Random;
 
 public class RFX4_PhysicsMotion : MonoBehaviour
 {
-    public LayerMask layerMask;
     public bool UseCollisionDetect = true;
     public float MaxDistnace = -1;
     public float Mass = 1;
@@ -80,13 +79,12 @@ public class RFX4_PhysicsMotion : MonoBehaviour
         if (FreezeRotation) rigid.constraints = RigidbodyConstraints.FreezeRotation;
         rigid.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         rigid.interpolation = RigidbodyInterpolation.Interpolate;
-        rigid.AddForce(transform.up * (effectSettings.Speed + currentSpeedOffset), ForceMode);
+        rigid.AddForce(transform.forward * (effectSettings.Speed + currentSpeedOffset), ForceMode);
         isInitializedForce = true;
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag != "Player") return;
         if (isCollided && !effectSettings.UseCollisionDetection) return;
         foreach (ContactPoint contact in collision.contacts)
         {
@@ -147,7 +145,7 @@ public class RFX4_PhysicsMotion : MonoBehaviour
     {
         if (!isInitializedForce) InitializeForce();
         if (rigid != null && AddRealtimeForce.magnitude > 0.001f) rigid.AddForce(AddRealtimeForce);
-        if (rigid != null && MinSpeed > 0.001f) rigid.AddForce(transform.up * MinSpeed);
+        if (rigid != null && MinSpeed > 0.001f) rigid.AddForce(transform.forward * MinSpeed);
         if (rigid != null && effectSettings.MaxDistnace > 0 && transform.localPosition.magnitude > effectSettings.MaxDistnace) RemoveRigidbody();
         
         if (UseTargetPositionAfterCollision && isCollided && targetAnchor != null)
