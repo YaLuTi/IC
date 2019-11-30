@@ -158,6 +158,8 @@ public class TestMonster : MonsterBasic {
             animator.ResetTrigger(parameter.name);
         }
         animator.SetBool("IsDeath", true);
+        GetComponent<Rigidbody>().isKinematic = true;
+        GetComponent<Collider>().isTrigger = true;
         IsDeath = true;
         this.enabled = false;
         moveSpeed = 0;

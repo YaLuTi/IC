@@ -42,12 +42,18 @@ public class PlayerMove : MonoBehaviour {
     public bool IsDodging;
     bool IsSteping;
     public bool IsLock = false;
+
+    Rigidbody rb;
+    public float gravityScale = 1.0f;
+    public static float globalGravity = -9.81f;
+
     // Use this for initialization
     void Start ()
     {
         m_Animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         playerHP = GetComponent<PlayerHP>();
+        rb = GetComponent<Rigidbody>();
     }
 	
 	// Update is called once per frame
@@ -75,6 +81,12 @@ public class PlayerMove : MonoBehaviour {
             UnLock();
             moveSpeed = Default_MoveSpeed;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        Vector3 gravity = globalGravity * gravityScale * Vector3.up;
+        rb.AddForce(gravity, ForceMode.Acceleration);
     }
 
     void Lock()
@@ -253,6 +265,7 @@ public class PlayerMove : MonoBehaviour {
         // help the character turn faster (this is in addition to root rotation in the animation)
 
         if(animatorStateInfo.IsTag("Dodge")) return;
+        if (!Rotateable) return;
         if (animatorStateInfo.IsTag("Attack") && animatorStateInfo.normalizedTime > 0.2f) return;
         float turnSpeed = Mathf.Lerp(m_StationaryTurnSpeed, m_MovingTurnSpeed, m_ForwardAmount);
         transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);

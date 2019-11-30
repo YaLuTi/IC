@@ -26,6 +26,7 @@ public class PlayerPick : MonoBehaviour
                 if (combatEventer.SetAnimation(Pick))
                 {
                     item.Picked();
+                    CanPickItem = false;
                     item = null;
                 }
             }else if (door != null)
@@ -33,6 +34,7 @@ public class PlayerPick : MonoBehaviour
                 if (combatEventer.SetAnimation(Open))
                 {
                     door.Open();
+                    CanPickItem = false;
                     door = null;
                 }
             }

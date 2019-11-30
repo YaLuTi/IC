@@ -764,6 +764,11 @@
 				</Sound>
 				<Sound Name="SwordBlock" ID="{F7E5D6FF-EA93-4058-9B63-4C29C154CDE8}" ShortID="877061049">
 					<PropertyList>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>42</Value>
+							</ValueList>
+						</Property>
 						<Property Name="OutputBusHighpass" Type="int16">
 							<ValueList>
 								<Value>52</Value>
@@ -771,7 +776,7 @@
 						</Property>
 						<Property Name="Pitch" Type="int32">
 							<ValueList>
-								<Value>50</Value>
+								<Value>-430</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
