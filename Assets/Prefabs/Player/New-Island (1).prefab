@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 642759390}
-  - component: {fileID: 642759391}
-  - component: {fileID: 642759392}
   m_Layer: 10
   m_Name: StepParticleSpawner
   m_TagString: Untagged
@@ -32,37 +30,6 @@ Transform:
   m_Father: {fileID: 6200289958784087787}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &642759391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642759389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1931034e59237e340b5db5680419a1db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particle: {fileID: 1226538630352690, guid: 44ed27e9c188e714f9fa81c83637c6a2, type: 3}
-  akEvent:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 34b8f001dc09fd7448d7dfc3ed052da0,
-      type: 2}
---- !u!65 &642759392
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642759389}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.030696053, y: 0.011099029, z: 0.06624061}
-  m_Center: {x: 0.024605464, y: -0.024952408, z: -0.044055037}
 --- !u!1 &788810832
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,8 +108,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1106344842}
-  - component: {fileID: 1106344844}
-  - component: {fileID: 1106344843}
   m_Layer: 10
   m_Name: StepParticleSpawner (1)
   m_TagString: Untagged
@@ -164,37 +129,6 @@ Transform:
   m_Father: {fileID: 6200289958784087847}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1106344844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106344841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1931034e59237e340b5db5680419a1db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particle: {fileID: 1226538630352690, guid: 44ed27e9c188e714f9fa81c83637c6a2, type: 3}
-  akEvent:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 34b8f001dc09fd7448d7dfc3ed052da0,
-      type: 2}
---- !u!65 &1106344843
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106344841}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.030696053, y: 0.011099029, z: 0.06624061}
-  m_Center: {x: 0.024605464, y: -0.024952408, z: -0.044055037}
 --- !u!1 &6200289958783658689
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,6 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6200289958784087777}
   - component: {fileID: 6200289958774298767}
+  - component: {fileID: 754760426673871196}
   - component: {fileID: 6200289957559571554}
   - component: {fileID: 6200289957559571555}
   - component: {fileID: 7753116175185368877}
@@ -264,6 +199,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &754760426673871196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6200289958783658689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ebd6f5e696e4945a763eedf84490d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StepParticle: {fileID: 1226538630352690, guid: 44ed27e9c188e714f9fa81c83637c6a2,
+    type: 3}
+  akEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 34b8f001dc09fd7448d7dfc3ed052da0,
+      type: 2}
+  RightStep: {fileID: 642759390}
+  LeftStep: {fileID: 1106344842}
 --- !u!114 &6200289957559571554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,6 +539,7 @@ MonoBehaviour:
   Rotateable: 1
   IsDodging: 0
   IsLock: 0
+  gravityScale: 1
 --- !u!114 &6200289958783658690
 MonoBehaviour:
   m_ObjectHideFlags: 0

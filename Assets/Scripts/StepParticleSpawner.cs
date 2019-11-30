@@ -5,6 +5,7 @@ using UnityEngine;
 public class StepParticleSpawner : MonoBehaviour {
 
     public GameObject StepParticle;
+    public AK.Wwise.Event akEvent;
     public Transform RightStep;
     public Transform LeftStep;
 	// Use this for initialization
@@ -20,12 +21,14 @@ public class StepParticleSpawner : MonoBehaviour {
     void StepParticleR()
     {
         GameObject g = Instantiate(StepParticle, RightStep.position, Quaternion.identity);
+        akEvent.Post(gameObject);
         Destroy(g, 3f);
     }
 
     void StepParticleL()
     {
         GameObject g = Instantiate(StepParticle, LeftStep.position, Quaternion.identity);
+        akEvent.Post(gameObject);
         Destroy(g, 3f);
     }
 }

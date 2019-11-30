@@ -76,15 +76,20 @@ public class CameraRotate : MonoBehaviour {
                 }
                 System.Array.Sort(distanceList, MonstersList);
 
-                if (MonstersList.Length > 1)
+                if (MonstersList.Length >= 1)
                 {
                     for(int i = 0; i < MonstersList.Length; i++)
                     {
                         Debug.Log(Vector3.Angle(transform.forward, (MonstersList[i].transform.position - transform.position).normalized));
-                        if (Physics.Raycast(transform.position, ((MonstersList[i].transform.position - transform.position).normalized), 15, LayerMask.GetMask("Default"))) continue;
+                        Debug.Log("O");
+                        Vector3 v = MonstersList[i].transform.position;
+                        v.y += 1;
+                        // if (Physics.Raycast(transform.position, ((v - transform.position).normalized), 15, LayerMask.GetMask("Collider"))) continue;
+                        Debug.Log("OO");
                         if (Vector3.Angle(transform.forward, (MonstersList[i].transform.position - transform.position).normalized) < 90 / 2)
                         {
-                            LockObj = MonstersList[i].transform.root.Find("Center").gameObject;
+                            Debug.Log("X");
+                            LockObj = MonstersList[i].transform.Find("Center").gameObject;
                             // cinemachineVirtualCamera.LookAt = MonstersList[1].gameObject.transform;
                             IsLock = !IsLock;
                             LockSprite.gameObject.SetActive(true);
