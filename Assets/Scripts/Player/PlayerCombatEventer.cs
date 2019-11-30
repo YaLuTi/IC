@@ -70,7 +70,7 @@ public class PlayerCombatEventer : MonoBehaviour
                     PlayingEvent = NextEvent;
                     IsStateChange = true; 
                    
-                    playerHP.ExpendSP(PlayingEvent.CostStamina);
+                    // playerHP.ExpendSP(PlayingEvent.CostStamina);
                     if (PlayingEvent.Tag == "Dodge")
                     {
                         animator.ResetTrigger("Attack");
@@ -166,13 +166,23 @@ public class PlayerCombatEventer : MonoBehaviour
         else
         {
             Debug.Log("C2");
+            if (animator.IsInTransition(0)) return false;
             PlayingEvent = animationEvent;
             IsStateChange = false;
+            // playerHP.ExpendSP(PlayingEvent.CostStamina);
             if (PlayingEvent.AnimatorTriggerName != null) animator.SetTrigger(PlayingEvent.AnimatorTriggerName);
             return true;
         }
     }
+
+    public void CleanEvent()
+    {
+        PlayingEvent = empty;
+        NextEvent = empty;
+    }
 }
+
+
 
 [System.Serializable]
 public class AnimationEvent

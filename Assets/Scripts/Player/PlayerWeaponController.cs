@@ -7,6 +7,7 @@ public class PlayerWeaponController : MonoBehaviour {
     public GameObject WeaponParent;
     [Header("Put Your Weapon Here")]
     public GameObject SpawnWeapon;
+    PlayerCombatEventer combatEventer;
 	// Use this for initialization
 	void Awake () {
         GameObject g = SpawnWeapon;
