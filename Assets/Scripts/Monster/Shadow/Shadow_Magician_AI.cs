@@ -11,7 +11,7 @@ public class Shadow_Magician_AI : TestMonster
     {
         PlayerDistance = Mathf.Abs(Vector3.Distance(player.transform.position, transform.position));
         base.Update();
-        destination = Nav.GetCorners();
+        // destination = Nav.GetCorners();
         CD();
     }
 

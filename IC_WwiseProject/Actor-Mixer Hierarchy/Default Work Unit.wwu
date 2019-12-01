@@ -509,6 +509,13 @@
 					</ActiveSourceList>
 				</Sound>
 				<RandomSequenceContainer Name="PlayerStep" ID="{FE15325C-0CD4-4EE1-B340-D6B891F49AEB}" ShortID="585317018">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
