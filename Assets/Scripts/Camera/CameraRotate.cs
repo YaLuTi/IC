@@ -16,6 +16,7 @@ public class CameraRotate : MonoBehaviour {
     Vector2 uiOffset;
 
     Collider[] MonstersList;
+    MonsterBasic LockingMonster;
     float[] distanceList;
 
     CinemachineVirtualCamera cinemachineVirtualCamera;
@@ -59,7 +60,7 @@ public class CameraRotate : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetButtonUp("R3"))
+        if (Input.GetButtonDown("R3"))
         {
             if (IsLock)
             {
@@ -81,15 +82,15 @@ public class CameraRotate : MonoBehaviour {
                     for(int i = 0; i < MonstersList.Length; i++)
                     {
                         Debug.Log(Vector3.Angle(transform.forward, (MonstersList[i].transform.position - transform.position).normalized));
-                        Debug.Log("O");
                         Vector3 v = MonstersList[i].transform.position;
                         v.y += 1;
+                        if (MonstersList[i].GetComponent<MonsterBasic>().IsDeath) continue;
                         // if (Physics.Raycast(transform.position, ((v - transform.position).normalized), 15, LayerMask.GetMask("Collider"))) continue;
-                        Debug.Log("OO");
                         if (Vector3.Angle(transform.forward, (MonstersList[i].transform.position - transform.position).normalized) < 90 / 2)
                         {
                             Debug.Log("X");
                             LockObj = MonstersList[i].transform.Find("Center").gameObject;
+                            LockingMonster = MonstersList[i].GetComponent<MonsterBasic>();
                             // cinemachineVirtualCamera.LookAt = MonstersList[1].gameObject.transform;
                             IsLock = !IsLock;
                             LockSprite.gameObject.SetActive(true);
@@ -104,12 +105,18 @@ public class CameraRotate : MonoBehaviour {
                 }
             }
         }
+
         if (!IsLock)
         {
             NomalCameraMove();
         }
         else
         {
+            if (LockingMonster.IsDeath)
+            {
+                IsLock = false;
+                LockSprite.gameObject.SetActive(false);
+            }
             Vector2 ViewportPosition = camera.WorldToViewportPoint(LockObj.transform.position);
             Vector2 proportionalPosition = new Vector2(ViewportPosition.x * canvas.sizeDelta.x, ViewportPosition.y * canvas.sizeDelta.y);
             LockSprite.rectTransform.localPosition = proportionalPosition - uiOffset;

@@ -139,6 +139,13 @@ public class PlayerCombatEventer : MonoBehaviour
                     if (PlayingEvent.AnimatorTriggerName != null) animator.SetTrigger(PlayingEvent.AnimatorTriggerName);
                     return true;
                 }*/
+                if(PlayingEvent.InterruptLevel == 0)
+                {
+                    PlayingEvent = animationEvent;
+                    IsStateChange = false;
+                    if (PlayingEvent.AnimatorTriggerName != null) animator.SetTrigger(PlayingEvent.AnimatorTriggerName);
+                    return true;
+                }
                 if (NextEvent == empty) NextEvent = animationEvent;
                 if (NextEvent != empty && PlayingEvent.Tag == "Attack")
                 {
@@ -166,7 +173,6 @@ public class PlayerCombatEventer : MonoBehaviour
         else
         {
             Debug.Log("C2");
-            if (animator.IsInTransition(0)) return false;
             PlayingEvent = animationEvent;
             IsStateChange = false;
             // playerHP.ExpendSP(PlayingEvent.CostStamina);

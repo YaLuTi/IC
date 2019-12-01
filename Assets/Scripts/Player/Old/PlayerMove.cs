@@ -102,7 +102,7 @@ public class PlayerMove : MonoBehaviour {
         LockTurn();
         Step();
 
-        ApplyExtraTurnRotation();
+        // ApplyExtraTurnRotation();
 
         AnimatorUpdate();
     }
@@ -183,6 +183,7 @@ public class PlayerMove : MonoBehaviour {
 
     void LockTurn()
     {
+        Debug.Log("C");
         Vector3 lookPos = cameraRotate.LockObj.transform.position - transform.position;
         lookPos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(lookPos);
@@ -267,6 +268,7 @@ public class PlayerMove : MonoBehaviour {
         if(animatorStateInfo.IsTag("Dodge")) return;
         if (!Rotateable) return;
         if (animatorStateInfo.IsTag("Attack") && animatorStateInfo.normalizedTime > 0.2f) return;
+        Debug.Log("CC");
         float turnSpeed = Mathf.Lerp(m_StationaryTurnSpeed, m_MovingTurnSpeed, m_ForwardAmount);
         transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
     }

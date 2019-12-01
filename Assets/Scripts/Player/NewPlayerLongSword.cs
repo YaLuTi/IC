@@ -69,6 +69,7 @@ public class NewPlayerLongSword : MonoBehaviour
         {
             Drinking = true;
             combatEventer.SetAnimation(Drink);
+            animator.SetBool("IsHealing", true);
             return;
         }
         else if(Input.GetAxis("DPadY") == 0)

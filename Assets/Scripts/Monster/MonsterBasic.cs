@@ -47,7 +47,7 @@ public class MonsterBasic : MonoBehaviour {
     public bool IsEventMonster = false;
     protected AudioSource audioSource;
     protected AINav Nav;
-    protected bool IsDeath = false;
+    public bool IsDeath = false;
 
     protected List<GameObject> targets;
     protected Animator animator;

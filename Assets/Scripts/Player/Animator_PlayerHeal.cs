@@ -15,4 +15,9 @@ public class Animator_PlayerHeal : StateMachineBehaviour
     {
         playerHP.Healed(1);
     }
+
+    public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+    {
+        animator.SetBool("IsHealing", false);
+    }
 }
