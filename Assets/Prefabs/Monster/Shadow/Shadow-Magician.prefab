@@ -601,6 +601,7 @@ GameObject:
   - component: {fileID: 2096496085707380513}
   - component: {fileID: 2096496085707380514}
   - component: {fileID: 6409603680584339247}
+  - component: {fileID: 6193133526676181906}
   m_Layer: 9
   m_Name: Shadow-Magician
   m_TagString: Monster
@@ -767,6 +768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7855cd8545c682a47ac57679eb442958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Projectiles: []
   ProjectileSpawnPosition:
   - {fileID: 2096496086219822873}
 --- !u!114 &2096496086220180214
@@ -781,18 +783,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be40b689fea198149bdd53db3aa8f3ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamagedParticle: {fileID: 1876859476893648, guid: b7c8ee648e6143b4c855a29558fc58c5,
+    type: 3}
+  DamagedAudios:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  volume:
+    minValue: 0
+    maxValue: 0
+  pitch:
+    minValue: 0
+    maxValue: 0
   player: {fileID: 0}
   patrolArray: []
   IsAttacking: 0
+  RotateAble: 1
   IsStun: 0
   solution: 1
+  HPSlider: {fileID: 0}
   moveSpeed: 1
   MaxHealth: 1
   Stamina: 10
-  HPSlider: {fileID: 0}
-  DamagedParticle: {fileID: 1876859476893648, guid: b7c8ee648e6143b4c855a29558fc58c5,
-    type: 3}
-  DamagedAssets: {fileID: 11400000, guid: ba3d7babf4577804190064555ad812a7, type: 2}
+  IsEventMonster: 0
+  IsDeath: 0
   attackstates: 4
   BattleRange: 10
   AngularSpeed: 2
@@ -810,7 +824,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1e87c4ae109d34f8b2c3eceaa5f774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {x: 0, y: 0, z: 0}
+  HighRate: 0
   PlayerMomentum: 0
 --- !u!114 &2096496085707380514
 MonoBehaviour:
@@ -1291,6 +1306,20 @@ MonoBehaviour:
     spineStiffness: 0.5
     pullBodyVertical: 0.5
     pullBodyHorizontal: 0
+--- !u!136 &6193133526676181906
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096496086220180215}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.8346812
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.8892789, z: 0}
 --- !u!1 &2096496086220180225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3019,6 +3048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140f944180bbe604c832b8491bdc7367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Attacking: 0
   AttackDamage: 2
   DestroyTime: 0.5
   HitParticle: {fileID: 1357193009995946, guid: d843d7a3c091c8040a1d364962634d12,

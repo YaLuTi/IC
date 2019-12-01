@@ -40,11 +40,11 @@ public class AINav : MonoBehaviour
                     path.corners[i] = hit.position + hit.normal * 1.5f;
             }
             LastTarget = target;
-            Debug.Log(path.corners.Length);
+            // Debug.Log(path.corners.Length);
         }
         
-        for (int i = 0; i < path.corners.Length - 1; i++)
-            Debug.DrawLine(path.corners[i], path.corners[i + 1], colors[i % 2]);
+        /*for (int i = 0; i < path.corners.Length - 1; i++)
+            Debug.DrawLine(path.corners[i], path.corners[i + 1], colors[i % 2]);*/
     }
 
     public Vector3 GetCorners()
