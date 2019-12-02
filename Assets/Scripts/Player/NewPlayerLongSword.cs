@@ -43,6 +43,7 @@ public class NewPlayerLongSword : MonoBehaviour
     void Update()
     {
         Value();
+
         if (!animator.GetBool("IsOnCombo"))
         {
             combo = 0;
@@ -65,11 +66,13 @@ public class NewPlayerLongSword : MonoBehaviour
                 return;
             }
         }
-        if(Input.GetAxis("DPadY") == 1 && !Drinking)
+        if(Input.GetAxis("DPadY") == 1 && !Drinking && !animator.GetBool("IsHealing"))
         {
-            Drinking = true;
-            combatEventer.SetAnimation(Drink);
-            animator.SetBool("IsHealing", true);
+            if (combatEventer.SetAnimation(Drink))
+            {
+                Drinking = true;
+                animator.SetBool("IsHealing", true);
+            }
             return;
         }
         else if(Input.GetAxis("DPadY") == 0)

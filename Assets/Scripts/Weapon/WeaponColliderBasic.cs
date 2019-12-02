@@ -6,6 +6,9 @@ public class WeaponColliderBasic : MonoBehaviour {
 
     public bool Attacking = false;
 
+    public bool IsPlayer = false;
+    public bool IsEnemy = false;
+
     public float AttackDamage = 1f;
     public float DestroyTime = 0.5f;
     public GameObject HitParticle;

@@ -172,6 +172,7 @@ public class PlayerCombatEventer : MonoBehaviour
         }
         else
         {
+            if (animator.IsInTransition(1)) return false;
             Debug.Log("C2");
             PlayingEvent = animationEvent;
             IsStateChange = false;
