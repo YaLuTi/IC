@@ -15,7 +15,7 @@ public class Shadow_AI : TestMonster
     protected override void Start()
     {
         base.Start();
-        animator.SetFloat("Speed", moveSpeed);
+        // animator.SetFloat("Speed", moveSpeed);
         // attackstates = Attackstates.Attacking;
         destination = Nav.GetCorners();
     }
