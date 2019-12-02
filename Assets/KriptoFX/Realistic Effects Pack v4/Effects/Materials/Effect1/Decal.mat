@@ -4,11 +4,12 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Decal
   m_Shader: {fileID: 4800000, guid: d8f400148b999fe41bd30759b3a9126b, type: 3}
-  m_ShaderKeywords: USE_QUAD_DECAL _BLENDMODE_BLEND
+  m_ShaderKeywords: USE_ALPHA_POW _BLENDMODE_BLEND
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -103,7 +104,7 @@ Material:
     - _SrcBlend: 1
     - _SrcMode: 5
     - _UVSec: 0
-    - _UseAlphaPow: 0
+    - _UseAlphaPow: 1
     - _UseCutout: 0
     - _UseCutoutTex: 0
     - _UseCutoutThreshold: 0
@@ -112,7 +113,7 @@ Material:
     - _UseVertexStreamRandom: 0
     - _UseWorldSpaceUV: 0
     - _ZTest: 10
-    - _ZTest1: 4
+    - _ZTest1: 5
     - _ZTestSelf: 5
     - _ZWrite: 1
     - _Ztest: 5
@@ -121,4 +122,4 @@ Material:
     - _CutoutColor: {r: 1, g: 1, b: 1, a: 1}
     - _DistortionSpeedScale: {r: 1, g: -1, b: 0.15, a: 0.15}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TintColor: {r: 1.9597656, g: 1.6290878, b: 5.988, a: 1}
+    - _TintColor: {r: 0, g: 1.0502512, b: 1.9986123, a: 1}
