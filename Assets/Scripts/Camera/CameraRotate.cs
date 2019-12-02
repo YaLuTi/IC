@@ -150,7 +150,6 @@ public class CameraRotate : MonoBehaviour {
         }*/
         float v = Input.GetAxis("CameraVertical");
         float e = QuickMath.Clamp0360(transform.eulerAngles.x);
-        Debug.Log(e);
         if (e + v * VerticalRotateSpeed > 90 && e + v * VerticalRotateSpeed < 270) v = 0;
         /*if (v == 0)
         {

@@ -2028,6 +2028,7 @@ MonoBehaviour:
   volume:
     minValue: 0.17145506
     maxValue: 0.2363299
+  PlayerDistance: 0
   pitch:
     minValue: 0.9434662
     maxValue: 1.0824835
@@ -2042,6 +2043,7 @@ MonoBehaviour:
   MaxHealth: 20
   Stamina: 10
   IsEventMonster: 0
+  IsDeath: 0
   attackstates: 4
   BattleRange: 10
   AngularSpeed: 4
@@ -2515,6 +2517,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attacking: 0
+  IsPlayer: 0
+  IsEnemy: 1
   AttackDamage: 2
   DestroyTime: 0.5
   HitParticle: {fileID: 0}

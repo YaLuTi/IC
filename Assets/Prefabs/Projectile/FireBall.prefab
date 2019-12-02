@@ -166,7 +166,7 @@ MonoBehaviour:
   LimitMaxDistance: 0
   MaxDistnace: -1
   Mass: 0.1
-  Speed: 1
+  Speed: 5
   AirDrag: 0
   UseGravity: 0
 --- !u!1 &4880949956861456139
@@ -219,14 +219,14 @@ MonoBehaviour:
   UseCollisionDetect: 0
   MaxDistnace: -1
   Mass: 0
-  Speed: 2
+  Speed: 10
   RandomSpeedOffset: 0
   AirDrag: 0.1
   UseGravity: 0
   ForceMode: 1
   AddRealtimeForce: {x: 0, y: 0, z: 0}
   MinSpeed: 0
-  ColliderRadius: 0.05
+  ColliderRadius: 0.2
   FreezeRotation: 0
   UseTargetPositionAfterCollision: 0
   EffectOnCollision: {fileID: 167520, guid: f3b6bcc909e8cd2498f7c7e6191e0e98, type: 3}

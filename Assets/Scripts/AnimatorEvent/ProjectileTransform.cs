@@ -23,6 +23,7 @@ public class ProjectileTransform : MonoBehaviour
     {
         GameObject g = Instantiate(Projectiles[i], ProjectileSpawnPosition[i].position, Quaternion.identity);
         g.transform.LookAt(monster.player.transform.position);
+        g.transform.eulerAngles += new Vector3(-5, 0, 0);
         Destroy(g, 4f);
     }
 
