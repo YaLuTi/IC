@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Trail1
   m_Shader: {fileID: 4800000, guid: 18cc8fe7d50c89741b56c1ae6a5baa66, type: 3}
   m_ShaderKeywords: BlendAdd Clip_OFF FrameBlend_OFF SoftParticles_OFF USE_SCRIPT_FRAMEBLENDING
@@ -46,7 +47,7 @@ Material:
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: f2bf911ecfd4c014db8c43c9dfbdda1d, type: 3}
         m_Scale: {x: 0.125, y: 0.125}
-        m_Offset: {x: 0, y: 0.375}
+        m_Offset: {x: 0.5, y: 0.375}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
