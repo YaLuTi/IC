@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="134">
 	<RootPaths>
-		<ProjectRoot>E:\IC\IC_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>E:\IC\IC_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>E:\IC\IC_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>D:\Unity\ZenTi\IC_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Unity\ZenTi\IC_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Unity\ZenTi\IC_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>E:\IC\IC_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Unity\ZenTi\IC_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -27,6 +27,8 @@
 				<Event Id="251527805" Name="GolemBlood" ObjectPath="\Events\Monster\GolemBlood" DurationType="OneShot" DurationMin="0.899816" DurationMax="0.899816"/>
 				<Event Id="1811523627" Name="Main_event" ObjectPath="\Events\Default Work Unit\Main_event" DurationType="Infinite"/>
 				<Event Id="2122995345" Name="OpenDoor" ObjectPath="\Events\Props\OpenDoor" DurationType="OneShot" DurationMin="1.211675" DurationMax="1.211675"/>
+				<Event Id="4055688079" Name="PlayerDamaged" ObjectPath="\Events\Player\PlayerDamaged" DurationType="OneShot" DurationMin="0.745751" DurationMax="0.745751"/>
+				<Event Id="1656947812" Name="PlayerDeath" ObjectPath="\Events\Player\PlayerDeath" DurationType="OneShot" DurationMin="11.732350" DurationMax="11.732350"/>
 				<Event Id="412471812" Name="PlayerStep" ObjectPath="\Events\Player\PlayerStep" DurationType="OneShot" DurationMin="0.837812" DurationMax="0.890188"/>
 				<Event Id="2727481903" Name="PotBreak" ObjectPath="\Events\Props\PotBreak" DurationType="OneShot" DurationMin="1.402456" DurationMax="1.556122"/>
 				<Event Id="2184892217" Name="SwordAttack1" ObjectPath="\Events\Sword\SwordAttack1" DurationType="OneShot" DurationMin="0.266825" DurationMax="0.266825"/>
@@ -38,9 +40,17 @@
 					<ShortName>273_loop3_dream-comes-true_0016.wav</ShortName>
 					<Path>SFX\273_loop3_dream-comes-true_0016_D79FB2B7.wem</Path>
 				</File>
+				<File Id="4103360" Language="SFX">
+					<ShortName>BloodSound.wav</ShortName>
+					<Path>SFX\BloodSound_10C4C929.wem</Path>
+				</File>
 				<File Id="63831569" Language="SFX">
 					<ShortName>PotBreak1.wav</ShortName>
 					<Path>SFX\PotBreak1_10C4C929.wem</Path>
+				</File>
+				<File Id="195242195" Language="SFX">
+					<ShortName>piano_string_low_calm_pedal_impact_01.wav</ShortName>
+					<Path>SFX\piano_string_low_calm_pedal_impact_01_10C4C929.wem</Path>
 				</File>
 				<File Id="231745951" Language="SFX">
 					<ShortName>Sword_swing3.wav</ShortName>

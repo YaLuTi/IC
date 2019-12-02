@@ -12,7 +12,6 @@ public class Shadow_AI : TestMonster
     float RotateAttackCD = 5f;
     public float MeleeAttackRange;
     float MeleeAttackCD = 1.5f;
-    float PlayerDistance = 0;
     protected override void Start()
     {
         base.Start();

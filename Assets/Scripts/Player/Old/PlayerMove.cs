@@ -268,7 +268,6 @@ public class PlayerMove : MonoBehaviour {
         if(animatorStateInfo.IsTag("Dodge")) return;
         if (!Rotateable) return;
         if (animatorStateInfo.IsTag("Attack") && animatorStateInfo.normalizedTime > 0.2f) return;
-        Debug.Log("CC");
         float turnSpeed = Mathf.Lerp(m_StationaryTurnSpeed, m_MovingTurnSpeed, m_ForwardAmount);
         transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
     }

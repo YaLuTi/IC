@@ -216,9 +216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9320f3afef659b64cb7316ce3c0bfbab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 513
   UseCollisionDetect: 0
   MaxDistnace: -1
   Mass: 0
@@ -254,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1024
 --- !u!1 &4881008475854123397
 GameObject:
   m_ObjectHideFlags: 0

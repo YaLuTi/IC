@@ -37,6 +37,11 @@ public class Monster_Golem : TestMonster {
     float speed = 1;
     public float anger = 0;
 
+    [Header("Particle")]
+    public GameObject JumpSlashParticle;
+    public GameObject JumpSlashParticle_t;
+    bool IsJumpSlashParticle = false;
+
     [Header("Sound Assets")]
     public AudioAssets StepSound;
     public AudioAssets AttackLowSound;
@@ -46,14 +51,13 @@ public class Monster_Golem : TestMonster {
     public AudioAssets AttackJumpSlashTwoSound;
     public AudioAssets AttackDownAttackOneSound;
     public AudioAssets AttackDownAttackTwoSound;
-
-    public float d;
+    
 
     // Set State
 	protected override void Start ()
     {
         base.Start();
-        d = Mathf.Abs(Vector3.Distance(player.transform.position, transform.position));
+        PlayerDistance = Mathf.Abs(Vector3.Distance(player.transform.position, transform.position));
         destination = Nav.GetCorners();
     }
 	
@@ -63,9 +67,16 @@ public class Monster_Golem : TestMonster {
         base.Update();
         if (player.activeSelf == true)
         {
-            d = Vector3.Distance(player.transform.position, transform.position);
+            PlayerDistance = Vector3.Distance(player.transform.position, transform.position);
         }
         CD();
+        if (IsJumpSlashParticle)
+        {
+            IsJumpSlashParticle = false;
+            Debug.Log(JumpSlashParticle_t.transform.position);
+            GameObject g = Instantiate(JumpSlashParticle, JumpSlashParticle_t.transform.position, Quaternion.identity);
+            Destroy(g, 6);
+        }
         animator.SetFloat("Speed", speed);
     }
     void OnDrawGizmosSelected()
@@ -102,29 +113,29 @@ public class Monster_Golem : TestMonster {
             animator.SetTrigger("AttackLow");
         }*/
         if (IsAttacking) return;
-       if(d < CloseDistance)
+       if(PlayerDistance < CloseDistance)
         {
             // SetXY(0, 1);
-            if (d < 4 && ShortAttackCD >= 300)
+            if (PlayerDistance < 4 && ShortAttackCD >= 300)
             {
                 IsAttacking = true;
                 ShortAttackCD = 0;
                 animator.SetTrigger("ShortAttack");
                 return;
             }
-            else if (d < 7 && ComboLowCD >= 450)
+            else if (PlayerDistance < 7 && ComboLowCD >= 450)
             {
                 IsAttacking = true;
                 ComboLowCD = 0;
                 animator.SetTrigger("AttackLow");
                 return;
             }
-            else if(d > 4 && ShortAttackCD >= 300)
+            else if(PlayerDistance > 4 && ShortAttackCD >= 300)
             {
                 SetXY(0, 1);
                 anger++;
             }
-            else if (d < 4 && anger >= 100)
+            else if (PlayerDistance < 4 && anger >= 100)
             {
                 if (CounterSlashCD >= 150)
                 {
@@ -141,7 +152,7 @@ public class Monster_Golem : TestMonster {
                 }
                 return;
             }
-            else if(d < 7 && ComboLowCD < 450 && ShortAttackCD < 300)
+            else if(PlayerDistance < 7 && ComboLowCD < 450 && ShortAttackCD < 300)
             {
                 SetXY(0, -1);
                 anger++;
@@ -153,15 +164,15 @@ public class Monster_Golem : TestMonster {
             }
             
         }
-        else if(d < MidDistance)
+        else if(PlayerDistance < MidDistance)
         {
             if(anger > 0)
             {
                 anger--;
             }
-            if (d > 9 && JumpSlashCD >= 600)
+            if (PlayerDistance > 9 && JumpSlashCD >= 600)
             {
-                if(d < 12)
+                if(PlayerDistance < 12)
                 {
                     SetXY(0, -1);
                 }
@@ -173,7 +184,7 @@ public class Monster_Golem : TestMonster {
                     return;
                 }
             }
-            else if(d > 9)
+            else if(PlayerDistance > 9)
             {
                 if(JumpSlashCD < 300)
                 {
@@ -187,7 +198,7 @@ public class Monster_Golem : TestMonster {
                     SetXY(0, 1);
                 }
             }
-            else if (d < 9 && ComboRotateCD >= 500)
+            else if (PlayerDistance < 9 && ComboRotateCD >= 500)
             {
                 IsAttacking = true;
                 ComboRotateCD = 0;
@@ -212,17 +223,17 @@ public class Monster_Golem : TestMonster {
             {
                 anger--;
             }
-            if (d < 15 && JumpSlashCD >= 600)
+            if (PlayerDistance < 15 && JumpSlashCD >= 600)
             {
                 IsAttacking = true;
                 JumpSlashCD = 0;
                 animator.SetTrigger("JumpSlash");
                 return;
             }
-            else if (d > 20 && JumpSlashCD >= 600)
+            else if (PlayerDistance > 20 && JumpSlashCD >= 600)
             {
                 SetXY(0, 2);
-            }else if (d < 20 && animator.GetFloat("Y") < 2 && JumpSlashCD >= 600)
+            }else if (PlayerDistance < 20 && animator.GetFloat("Y") < 2 && JumpSlashCD >= 600)
             {
                 SetXY(0, 1);
             }
@@ -242,7 +253,7 @@ public class Monster_Golem : TestMonster {
     public override void Damaged(float damage, Vector3 p, Vector3 Attacker)
     {
         base.Damaged(damage, p, Attacker);
-        if (d < CloseDistance)
+        if (PlayerDistance < CloseDistance)
         {
             anger += 50;
         }
@@ -293,6 +304,18 @@ public class Monster_Golem : TestMonster {
         base.UpdateAttackState();
     }
     
+
+    public void SpawnParticle(int i)
+    {
+        switch (i)
+        {
+            case 0:
+                IsJumpSlashParticle = true;
+                break;
+            default:
+                break;
+        }
+    }
 
     // Should be like animation curver
 

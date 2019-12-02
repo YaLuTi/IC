@@ -15,6 +15,7 @@ public class FieldOfView : MonoBehaviour {
 
     public List<GameObject> ViewTargets = new List<GameObject>();
 
+    int TestCount = 5;
     /* private void Start()
      {
          StartCoroutine(View(.2f));
@@ -37,33 +38,40 @@ public class FieldOfView : MonoBehaviour {
 
     private void Update()
     {
-        GetTarget();
+        if (monster.PlayerDistance < Radius)
+        {
+            GetTarget();
+        }
     }
 
     public void GetTarget()
     {
-        ViewTargets.Clear();
-        Collider[] targets = Physics.OverlapSphere(transform.position, Radius, TargetMask);
-        for(int i = 0; i < targets.Length; i++)
+        if (TestCount >= 5)
         {
-            Transform target = targets[i].transform;
-            if (!target.CompareTag("Player")) continue;
-            Vector3 dir = (target.position - transform.position).normalized;
-            if (Vector3.Angle(transform.forward, dir) < Angle / 2)
+            ViewTargets.Clear();
+            if (monster.PlayerDistance < Radius)
             {
-                float Distance = Vector3.Distance(transform.position, target.transform.position);
+                Transform target = monster.player.transform;
+                Vector3 dir = (target.position - transform.position).normalized;
+                if (Vector3.Angle(transform.forward, dir) < Angle / 2)
+                {
+                    float Distance = Vector3.Distance(transform.position, target.transform.position);
 
-                RaycastHit raycastHitl;
-                if (!Physics.Raycast(transform.position, dir, out raycastHitl, Distance, ObjMask))
-                {
-                    ViewTargets.Add(targets[i].gameObject);
-                    monster.e_FoundPlayer();
-                }
-                else
-                {
-                    Debug.Log(raycastHitl.collider.name);
+                    RaycastHit raycastHitl;
+                    if (!Physics.Raycast(transform.position, dir, out raycastHitl, Distance, ObjMask))
+                    {
+                        monster.e_FoundPlayer();
+                    }
+                    else
+                    {
+                    }
                 }
             }
+            
+        }
+        else if(TestCount < 5)
+        {
+            TestCount++;
         }
     }
 

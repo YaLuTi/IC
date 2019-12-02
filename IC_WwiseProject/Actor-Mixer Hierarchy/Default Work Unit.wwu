@@ -918,6 +918,68 @@
 						<ActiveSource Name="MEOW" ID="{5FDD9090-8163-43C7-82A9-CD36E9D10CE3}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
+				<Sound Name="piano_string_low_calm_pedal_impact_01" ID="{4C9CACE0-3C9B-4E3E-BB46-B4D85912D84B}" ShortID="373960256">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>-230</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-2</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="piano_string_low_calm_pedal_impact_01" ID="{802AD2BD-9A3C-4FB7-B7D9-002DEAB7C655}" ShortID="195242195">
+							<Language>SFX</Language>
+							<AudioFile>piano_string_low_calm_pedal_impact_01.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="piano_string_low_calm_pedal_impact_01" ID="{802AD2BD-9A3C-4FB7-B7D9-002DEAB7C655}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="BloodSound" ID="{A7412150-A2AA-4F4B-954D-27A6AB963B64}" ShortID="510945232">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>80</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-6</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="BloodSound" ID="{9AF72CD3-E13B-4AFB-9AF6-D855CBD433AC}" ShortID="4103360">
+							<Language>SFX</Language>
+							<AudioFile>BloodSound.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="BloodSound" ID="{9AF72CD3-E13B-4AFB-9AF6-D855CBD433AC}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

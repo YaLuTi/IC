@@ -9,10 +9,13 @@ public class PlayerHP : MonoBehaviour {
 
     Animator animator;
     public bool Invulnerability = false; // Remember change this to private
+    public GameObject HealthPotion;
 
     public GameObject DamagedParticle;
+    public AK.Wwise.Event DamagedSoundEvent;
     PlayerCombatEventer playerCombatEventer;
     public AnimationEvent DamagedEvent;
+    public AnimationEvent DeathEvent;
 
     [Header("Value")]
     public float MaxHP = 10;
@@ -24,6 +27,7 @@ public class PlayerHP : MonoBehaviour {
     public Slider SPslider;
     public float SPRegenSpeed;
     public float SPRegenCoolDown;
+    public static bool IsDeath = false;
     float SPRegenCount;
 
     // Use this for initialization
@@ -36,7 +40,10 @@ public class PlayerHP : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-
+        if (!animator.GetBool("IsHealing"))
+        {
+            HealthPotion.SetActive(false);
+        }
         if(SPRegenCount > SPRegenCoolDown && SP < MaxSP)
         {
             SP += SPRegenSpeed * Time.deltaTime;
@@ -53,8 +60,14 @@ public class PlayerHP : MonoBehaviour {
         SPslider.value = SP / MaxSP;
     }
 
+    public void TurnOnHealthPotion()
+    {
+        HealthPotion.SetActive(true);
+    }
+
     public void Damaged(float damage)
     {
+        if (IsDeath) return;
         if (animator.GetBool("IsBlock")) return;
         if (Invulnerability)
         {
@@ -63,11 +76,21 @@ public class PlayerHP : MonoBehaviour {
         }
         foreach (AnimatorControllerParameter parameter in animator.parameters)
         {
-            animator.ResetTrigger(parameter.name);
+          animator.ResetTrigger(parameter.name);
         }
         Instantiate(DamagedParticle, transform.position, Quaternion.identity);
+        DamagedSoundEvent.Post(gameObject);
         HP -= damage;
-        playerCombatEventer.SetAnimation(DamagedEvent);
+        if(HP < 0)
+        {
+            IsDeath = true;
+            playerCombatEventer.SetAnimation(DeathEvent);
+            GameObject.FindGameObjectWithTag("Death").GetComponent<DeathUI>()._DeathEvent();
+        }
+        else
+        {
+            playerCombatEventer.SetAnimation(DamagedEvent);
+        }
     }
 
     public void Healed(float heal)

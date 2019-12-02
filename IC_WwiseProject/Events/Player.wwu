@@ -14,6 +14,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="PlayerDeath" ID="{8C95AEA2-A356-4C3F-ACBE-3AF074A64962}">
+					<ChildrenList>
+						<Action Name="" ID="{8093749E-5D5D-4264-A0D4-0BFF9A19F61A}" ShortID="1032425855">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="piano_string_low_calm_pedal_impact_01" ID="{4C9CACE0-3C9B-4E3E-BB46-B4D85912D84B}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PlayerDamaged" ID="{1AC8035B-B1ED-4FCD-875E-3E956248B6B2}">
+					<ChildrenList>
+						<Action Name="" ID="{B1B9C41A-85D9-45B0-BA07-7E30CC748BFA}" ShortID="750118665">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BloodSound" ID="{A7412150-A2AA-4F4B-954D-27A6AB963B64}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

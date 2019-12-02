@@ -101,7 +101,7 @@ public class PlayerCombatEventer : MonoBehaviour
     // 3 - Damaged
     public bool SetAnimation(AnimationEvent animationEvent)
     {
-        if(animationEvent.InterruptLevel == 3)
+        if(animationEvent.InterruptLevel >= 3)
         {
             PlayingEvent = animationEvent;
             NextEvent = empty;

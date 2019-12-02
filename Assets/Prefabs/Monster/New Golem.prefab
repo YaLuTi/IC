@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2120277758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2120277759}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2120277759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120277758}
+  m_LocalRotation: {x: 0.6804388, y: -0.7203978, z: 0.026212575, w: 0.13169284}
+  m_LocalPosition: {x: -3.289, y: 1.269, z: 0.424}
+  m_LocalScale: {x: 1.3333375, y: 1.6082104, z: 1.3333385}
+  m_Children: []
+  m_Father: {fileID: 1987559453307694622}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1981596512040956478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,6 +1167,7 @@ Transform:
   - {fileID: 1987383402805931056}
   - {fileID: 1984913401404878236}
   - {fileID: 1987527565875615406}
+  - {fileID: 2120277759}
   m_Father: {fileID: 1987460396303843328}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1855,6 +1886,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StepParticle: {fileID: 1326377648832164, guid: 773ecb3322ad99845a2729e8ece2450b,
     type: 3}
+  akEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   RightStep: {fileID: 1987433313697642926}
   LeftStep: {fileID: 1987731176527874556}
 --- !u!114 &1879014498808195116
@@ -1925,6 +1960,7 @@ MonoBehaviour:
   volume:
     minValue: 0.24369748
     maxValue: 0.30252102
+  PlayerDistance: 0
   pitch:
     minValue: 0.85714287
     maxValue: 0.9915967
@@ -1939,7 +1975,8 @@ MonoBehaviour:
   MaxHealth: 50
   Stamina: 10
   IsEventMonster: 0
-  attackstates: 2
+  IsDeath: 0
+  attackstates: 0
   BattleRange: 10
   AngularSpeed: 4
   cutAudio: []
@@ -1957,6 +1994,9 @@ MonoBehaviour:
   CounterSlashCD: 200
   testRange: 1
   anger: 0
+  JumpSlashParticle: {fileID: 2447786678780144089, guid: d50cef120397aa841976849b583fd2a2,
+    type: 3}
+  JumpSlashParticle_t: {fileID: 2120277758}
   StepSound: {fileID: 11400000, guid: fb6c2836d97adb9428c505c477065512, type: 2}
   AttackLowSound: {fileID: 11400000, guid: 43b788c12c6e5c54b99f1d94cccfce82, type: 2}
   AttackLowTwoSound: {fileID: 11400000, guid: 43b788c12c6e5c54b99f1d94cccfce82, type: 2}
@@ -1969,7 +2009,6 @@ MonoBehaviour:
     type: 2}
   AttackDownAttackTwoSound: {fileID: 11400000, guid: b8f614c138353854882194224f182f73,
     type: 2}
-  d: 0
 --- !u!82 &1919162153035484220
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2078,14 +2117,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9323534712f21a049891d507d8a55528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Radius: 8
+  Radius: 20.39
   Angle: 135
   TargetMask:
     serializedVersion: 2
     m_Bits: 1024
   ObjMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
   ViewTargets: []
 --- !u!114 &1878789212346178692
 MonoBehaviour:
@@ -2111,7 +2150,7 @@ Rigidbody:
   m_GameObject: {fileID: 1982103514575878366}
   serializedVersion: 2
   m_Mass: 1e+9
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 1

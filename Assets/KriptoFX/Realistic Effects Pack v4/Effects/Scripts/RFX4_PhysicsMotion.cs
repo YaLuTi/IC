@@ -85,6 +85,7 @@ public class RFX4_PhysicsMotion : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Untagged") return;
         if (isCollided && !effectSettings.UseCollisionDetection) return;
         foreach (ContactPoint contact in collision.contacts)
         {

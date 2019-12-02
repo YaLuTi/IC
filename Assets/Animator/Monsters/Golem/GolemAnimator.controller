@@ -649,6 +649,60 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114391606904417602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588ebf372aaecd747b68f6ff3ed4db97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.0073165894
+      value: 0.49816895
+      inSlope: -0.17788449
+      outSlope: -0.17788449
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.095733166
+      value: 0.482441
+      inSlope: 0.7984408
+      outSlope: 0.7984408
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.3503797
+      value: 0.93437904
+      inSlope: 0.48109958
+      outSlope: 0.48109958
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.16273794
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.10101433
+      outSlope: 0.10101433
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114477386776692600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -765,6 +819,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7308f22f3df46fb4dad85f4e40bc82ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114610183361458840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75002817b6092e845a18f96bf275439e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnTime: 0.53
+  SpawnNum: 0
 --- !u!114 &114623244605073986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -807,6 +875,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartTime: 0.27
   EndTime: 0.32
+--- !u!114 &114768203343420342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3db5f439aa318bb419ec55e775f16a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartTime: 0.5
+  EndTime: 1
 --- !u!114 &114793806206751500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1622,17 +1704,18 @@ AnimatorState:
   m_StateMachineBehaviours:
   - {fileID: 114247337174066854}
   - {fileID: 114764069280840886}
+  - {fileID: 114391606904417602}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_SpeedParameterActive: 0
+  m_SpeedParameterActive: 1
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400002, guid: c58ed2d5fa01e954ab56cf44e0b00900, type: 3}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: AttackSpeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
@@ -1883,6 +1966,8 @@ AnimatorState:
   m_StateMachineBehaviours:
   - {fileID: 114053802058125380}
   - {fileID: 114888918521013978}
+  - {fileID: 114610183361458840}
+  - {fileID: 114768203343420342}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1981,13 +2066,13 @@ AnimatorStateMachine:
     m_Position: {x: 48, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102318592528242056}
-    m_Position: {x: -336, y: -360, z: 0}
+    m_Position: {x: -372, y: -384, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102937457857482852}
-    m_Position: {x: -120, y: -420, z: 0}
+    m_Position: {x: -156, y: -432, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102850903893769538}
-    m_Position: {x: 108, y: -420, z: 0}
+    m_Position: {x: 132, y: -456, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102155881262339492}
     m_Position: {x: 372, y: -408, z: 0}

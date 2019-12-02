@@ -15,6 +15,7 @@ public class MonsterBasic : MonoBehaviour {
     [Header("Audio")]
     public AK.Wwise.Event DamagedAudios;
     public RangedFloat volume;
+    public float PlayerDistance = 0;
     [MinMaxRange(0f, 2f)]
     public RangedFloat pitch;
 
@@ -65,6 +66,7 @@ public class MonsterBasic : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
         Nav = GetComponent<AINav>();
         Health = MaxHealth;
+        PlayerDistance = Mathf.Abs(Vector3.Distance(player.transform.position, transform.position));
     }
 	
 	// Update is called once per frame

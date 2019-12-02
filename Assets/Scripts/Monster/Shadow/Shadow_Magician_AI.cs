@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Shadow_Magician_AI : TestMonster
 {
-    float PlayerDistance = 0;
     public float LiteMagicDistance;
 
     protected override void Update()
@@ -58,6 +57,7 @@ public class Shadow_Magician_AI : TestMonster
     protected override void Start()
     {
         base.Start();
+        destination = Nav.GetCorners();
     }
     protected override void UpdateAnimator()
     {
