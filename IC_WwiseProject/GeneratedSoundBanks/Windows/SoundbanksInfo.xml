@@ -33,6 +33,7 @@
 				<Event Id="2727481903" Name="PotBreak" ObjectPath="\Events\Props\PotBreak" DurationType="OneShot" DurationMin="1.402456" DurationMax="1.556122"/>
 				<Event Id="2184892217" Name="SwordAttack1" ObjectPath="\Events\Sword\SwordAttack1" DurationType="OneShot" DurationMin="0.266825" DurationMax="0.266825"/>
 				<Event Id="2184892218" Name="SwordAttack2" ObjectPath="\Events\Sword\SwordAttack2" DurationType="OneShot" DurationMin="0.366562" DurationMax="0.366562"/>
+				<Event Id="4291874175" Name="SwordPowerAttack" ObjectPath="\Events\Sword\SwordPowerAttack" DurationType="OneShot" DurationMin="0.258510" DurationMax="0.258510"/>
 				<Event Id="2041519613" Name="TorchFire" ObjectPath="\Events\Props\TorchFire" MaxAttenuation="80.000000" DurationType="Infinite"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
@@ -55,6 +56,10 @@
 				<File Id="231745951" Language="SFX">
 					<ShortName>Sword_swing3.wav</ShortName>
 					<Path>SFX\Sword_swing3_10C4C929.wem</Path>
+				</File>
+				<File Id="294678461" Language="SFX">
+					<ShortName>swordpowerattack.wav</ShortName>
+					<Path>SFX\swordpowerattack_10C4C929.wem</Path>
 				</File>
 				<File Id="436243836" Language="SFX">
 					<ShortName>walk5.wav</ShortName>
