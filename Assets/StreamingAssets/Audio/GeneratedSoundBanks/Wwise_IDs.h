@@ -15,8 +15,10 @@ namespace AK
     {
         static const AkUniqueID BARRELBREAK = 3764932550U;
         static const AkUniqueID BOSS_START = 2985974755U;
+        static const AkUniqueID BOSSATTACK = 2555063238U;
         static const AkUniqueID BOSSFIGHT = 580146960U;
         static const AkUniqueID GOLEMBLOOD = 251527805U;
+        static const AkUniqueID GOLEMSTEP = 1537521749U;
         static const AkUniqueID MAIN_EVENT = 1811523627U;
         static const AkUniqueID OPENDOOR = 2122995345U;
         static const AkUniqueID PLAYERDAMAGED = 4055688079U;
@@ -27,6 +29,7 @@ namespace AK
         static const AkUniqueID SWORDATTACK2 = 2184892218U;
         static const AkUniqueID SWORDPOWERATTACK = 4291874175U;
         static const AkUniqueID TORCHFIRE = 2041519613U;
+        static const AkUniqueID UI_FOUND = 2721851678U;
     } // namespace EVENTS
 
     namespace STATES
@@ -41,6 +44,15 @@ namespace AK
                 static const AkUniqueID ON = 1651971902U;
             } // namespace STATE
         } // namespace AMBIENTDUNGEONSTATE
+
+        namespace NEW_STATE_GROUP
+        {
+            static const AkUniqueID GROUP = 2012657067U;
+
+            namespace STATE
+            {
+            } // namespace STATE
+        } // namespace NEW_STATE_GROUP
 
     } // namespace STATES
 

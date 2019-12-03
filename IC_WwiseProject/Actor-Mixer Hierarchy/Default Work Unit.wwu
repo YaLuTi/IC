@@ -1270,25 +1270,6 @@
 						<ActiveSource Name="Uisound3" ID="{494DF3B5-1B52-4364-8EF6-BB8CEB2AE20D}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
-				<Sound Name="AxeSwing" ID="{AB877A37-080E-4668-8F4B-9FC3247527A8}" ShortID="741982084">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="AxeSwing" ID="{FC4F8734-36E8-44F4-B1C5-A29748328E6C}" ShortID="95817455">
-							<Language>SFX</Language>
-							<AudioFile>AxeSwing.wav</AudioFile>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="AxeSwing" ID="{FC4F8734-36E8-44F4-B1C5-A29748328E6C}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
 				<Sound Name="FireExplosion3" ID="{74099088-4744-4F30-A07D-AEAEDA9FE14D}" ShortID="356596153">
 					<PropertyList>
 						<Property Name="Pitch" Type="int32">
@@ -1318,6 +1299,136 @@
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="FireExplosion3" ID="{CB6E4185-1BEB-442E-BBC0-98243E3420FB}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<RandomSequenceContainer Name="BossAxeSwing" ID="{7DFFE5BF-AE39-42AD-BD9F-B83972A79147}" ShortID="906948687">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="AxeSwing" ID="{AB877A37-080E-4668-8F4B-9FC3247527A8}" ShortID="741982084">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="AxeSwing" ID="{FC4F8734-36E8-44F4-B1C5-A29748328E6C}" ShortID="95817455">
+									<Language>SFX</Language>
+									<AudioFile>AxeSwing.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="AxeSwing" ID="{FC4F8734-36E8-44F4-B1C5-A29748328E6C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="AxeSwing_01" ID="{1B3FCB96-F56B-4119-9171-1B5018DA3E5D}" ShortID="484903980">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>280</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="AxeSwing" ID="{C46BB922-082B-4099-B3C8-616AFE8C092A}" ShortID="512306846">
+									<Language>SFX</Language>
+									<AudioFile>AxeSwing.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="95817455"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="AxeSwing" ID="{C46BB922-082B-4099-B3C8-616AFE8C092A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="AxeSwing_02" ID="{088A8C2D-F7D8-457D-8AEF-4E99D8BD2D75}" ShortID="676291207">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-200</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="AxeSwing" ID="{3109442D-C79A-4F70-BBF3-790A2FC70120}" ShortID="939218612">
+									<Language>SFX</Language>
+									<AudioFile>AxeSwing.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="95817455"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="AxeSwing" ID="{3109442D-C79A-4F70-BBF3-790A2FC70120}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<Sound Name="AxeSwing2" ID="{AEE3410B-A618-4861-95AF-A3F35950D097}" ShortID="934264194">
+					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>3</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>7</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>-280</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-14</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="AxeSwing2" ID="{0EFCC1BE-A735-4299-ADAF-7D606F650D64}" ShortID="337479239">
+							<Language>SFX</Language>
+							<AudioFile>AxeSwing2.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="AxeSwing2" ID="{0EFCC1BE-A735-4299-ADAF-7D606F650D64}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>
