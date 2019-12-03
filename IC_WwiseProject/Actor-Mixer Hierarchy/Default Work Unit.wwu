@@ -1270,6 +1270,56 @@
 						<ActiveSource Name="Uisound3" ID="{494DF3B5-1B52-4364-8EF6-BB8CEB2AE20D}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
+				<Sound Name="AxeSwing" ID="{AB877A37-080E-4668-8F4B-9FC3247527A8}" ShortID="741982084">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="AxeSwing" ID="{FC4F8734-36E8-44F4-B1C5-A29748328E6C}" ShortID="95817455">
+							<Language>SFX</Language>
+							<AudioFile>AxeSwing.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="AxeSwing" ID="{FC4F8734-36E8-44F4-B1C5-A29748328E6C}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="FireExplosion3" ID="{74099088-4744-4F30-A07D-AEAEDA9FE14D}" ShortID="356596153">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>300</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-11</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="FireExplosion3" ID="{CB6E4185-1BEB-442E-BBC0-98243E3420FB}" ShortID="453698648">
+							<Language>SFX</Language>
+							<AudioFile>FireExplosion3.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="FireExplosion3" ID="{CB6E4185-1BEB-442E-BBC0-98243E3420FB}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

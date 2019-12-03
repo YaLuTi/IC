@@ -49,9 +49,9 @@ public class WeaponColliderBasic : MonoBehaviour {
 
             if (((1 << other.gameObject.layer) & layerMask) != 0)
             {
-                hitObject.Add(other.gameObject.transform.root);
                 if (other.GetComponentInParent<MonsterBasic>() && IsPlayer)
                 {
+                    hitObject.Add(other.gameObject.transform.root);
                     MonsterBasic monster = other.gameObject.GetComponentInParent<MonsterBasic>();
                     if (!monster.IsDeath)
                     {
@@ -62,8 +62,13 @@ public class WeaponColliderBasic : MonoBehaviour {
                         Destroy(g, DestroyTime);
                     }
                 }
-                else if(other.GetComponent<PlayerHP>() && IsEnemy)
+            }
+            if (other.gameObject.tag == "Player")
+            {
+                hitObject.Add(other.gameObject.transform.root);
+                if (other.GetComponent<PlayerHP>() && IsEnemy)
                 {
+                    Debug.Log(1);
                     PlayerHP playerHP = other.gameObject.GetComponent<PlayerHP>();
                     playerHP.Damaged(AttackDamage);
                     if (playerHP.Invulnerability) return;

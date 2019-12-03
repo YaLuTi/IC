@@ -197,7 +197,6 @@ public class PlayerMove : MonoBehaviour {
 
     void LockTurn()
     {
-        Debug.Log("C");
         Vector3 lookPos = cameraRotate.LockObj.transform.position - transform.position;
         lookPos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(lookPos);

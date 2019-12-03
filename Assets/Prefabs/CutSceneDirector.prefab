@@ -43,7 +43,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fbbfae5484d3d741bf4d4f8d3b56415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainCamera: {fileID: 0}
+  BlackBar: {fileID: 0}
+  Player: {fileID: 0}
+  Cine: {fileID: 0}
+  Good_UI: {fileID: 0}
   CameraOne: {fileID: 0}
   CameraTwo: {fileID: 0}
   ActingPlayer: {fileID: 0}
+  FoundSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 7465781e4337d134fb5664ebd4da1c4d,
+      type: 2}
   BlackPanel: {fileID: 0}
+  OpenText: {fileID: 0}
+  CameraThree: {fileID: 0}
+  CameraFour: {fileID: 0}
+  CameraFive: {fileID: 0}
+  BossSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1c74c3ecb68786f40adb716b64bf703f,
+      type: 2}
+  BossScenePlayer: {fileID: 0}
+  Boss: {fileID: 0}

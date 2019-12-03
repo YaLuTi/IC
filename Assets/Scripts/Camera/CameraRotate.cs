@@ -82,14 +82,12 @@ public class CameraRotate : MonoBehaviour {
                 {
                     for(int i = 0; i < MonstersList.Length; i++)
                     {
-                        Debug.Log(Vector3.Angle(transform.forward, (MonstersList[i].transform.position - transform.position).normalized));
                         Vector3 v = MonstersList[i].transform.position;
                         v.y += 1;
                         if (MonstersList[i].GetComponent<MonsterBasic>().IsDeath) continue;
                         // if (Physics.Raycast(transform.position, ((v - transform.position).normalized), 15, LayerMask.GetMask("Collider"))) continue;
                         if (Vector3.Angle(transform.forward, (MonstersList[i].transform.position - transform.position).normalized) < 90 / 2)
                         {
-                            Debug.Log("X");
                             LockObj = MonstersList[i].transform.Find("Center").gameObject;
                             LockingMonster = MonstersList[i].GetComponent<MonsterBasic>();
                             // cinemachineVirtualCamera.LookAt = MonstersList[1].gameObject.transform;

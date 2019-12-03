@@ -23,8 +23,10 @@
 			<IncludedEvents>
 				<Event Id="3764932550" Name="BarrelBreak" ObjectPath="\Events\Props\BarrelBreak" DurationType="OneShot" DurationMin="1.477196" DurationMax="1.592391"/>
 				<Event Id="2985974755" Name="Boss_Start" ObjectPath="\Events\Default Work Unit\Boss_Start" DurationType="Infinite"/>
+				<Event Id="2555063238" Name="BossAttack" ObjectPath="\Events\Monster\BossAttack" DurationType="OneShot" DurationMin="1.212490" DurationMax="1.212490"/>
 				<Event Id="580146960" Name="BossFight" ObjectPath="\Events\BGM\BossFight" DurationType="Infinite"/>
 				<Event Id="251527805" Name="GolemBlood" ObjectPath="\Events\Monster\GolemBlood" DurationType="OneShot" DurationMin="0.778824" DurationMax="0.915545"/>
+				<Event Id="1537521749" Name="GolemStep" ObjectPath="\Events\Monster\GolemStep" DurationType="OneShot" DurationMin="2.548494" DurationMax="2.548494"/>
 				<Event Id="1811523627" Name="Main_event" ObjectPath="\Events\Default Work Unit\Main_event" DurationType="Infinite"/>
 				<Event Id="2122995345" Name="OpenDoor" ObjectPath="\Events\Props\OpenDoor" DurationType="OneShot" DurationMin="1.211675" DurationMax="1.211675"/>
 				<Event Id="4055688079" Name="PlayerDamaged" ObjectPath="\Events\Player\PlayerDamaged" DurationType="OneShot" DurationMin="0.745751" DurationMax="0.745751"/>
@@ -50,6 +52,10 @@
 					<ShortName>PotBreak1.wav</ShortName>
 					<Path>SFX\PotBreak1_10C4C929.wem</Path>
 				</File>
+				<File Id="95817455" Language="SFX">
+					<ShortName>AxeSwing.wav</ShortName>
+					<Path>SFX\AxeSwing_10C4C929.wem</Path>
+				</File>
 				<File Id="195242195" Language="SFX">
 					<ShortName>piano_string_low_calm_pedal_impact_01.wav</ShortName>
 					<Path>SFX\piano_string_low_calm_pedal_impact_01_10C4C929.wem</Path>
@@ -65,6 +71,10 @@
 				<File Id="436243836" Language="SFX">
 					<ShortName>walk5.wav</ShortName>
 					<Path>SFX\walk5_10C4C929.wem</Path>
+				</File>
+				<File Id="453698648" Language="SFX">
+					<ShortName>FireExplosion3.wav</ShortName>
+					<Path>SFX\FireExplosion3_10C4C929.wem</Path>
 				</File>
 				<File Id="476979142" Language="SFX">
 					<ShortName>GolemBloodSound.wav</ShortName>

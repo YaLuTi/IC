@@ -14,6 +14,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="GolemStep" ID="{0C6B1DD2-3778-4067-BE59-760C75194A01}">
+					<ChildrenList>
+						<Action Name="" ID="{D510066E-38DB-4F99-A9A5-5140CA4E02A3}" ShortID="824563589">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="FireExplosion3" ID="{74099088-4744-4F30-A07D-AEAEDA9FE14D}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="BossAttack" ID="{B9E67492-19B1-4CF3-9EFF-722705E222EA}">
+					<ChildrenList>
+						<Action Name="" ID="{E0D18556-5282-410E-98C6-71416A6B5DC2}" ShortID="40222235">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="AxeSwing" ID="{AB877A37-080E-4668-8F4B-9FC3247527A8}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
