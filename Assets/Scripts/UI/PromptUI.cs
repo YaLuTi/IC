@@ -5,6 +5,7 @@ using UnityEngine;
 public class PromptUI : MonoBehaviour
 {
     public GameObject Image;
+    public GameObject Hint;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +18,12 @@ public class PromptUI : MonoBehaviour
         if (PlayerPick.CanPickItem)
         {
             Image.SetActive(true);
+            Hint.SetActive(true);
         }
         else
         {
             Image.SetActive(false);
+            Hint.SetActive(false);
         }
     }
 }

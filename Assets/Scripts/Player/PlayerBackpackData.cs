@@ -7,7 +7,7 @@ public class PlayerBackpackData : MonoBehaviour
     public static bool WeaponOne;
     public static bool WeaponTwo;
     public static bool IsDoorOpen;
-    public static bool FirstDeath = false;
+    public static bool FirstDeath = true;
     public static PlayerBackpackData dude;
     public static int HealthAmount = 2;
     // Start is called before the first frame update
