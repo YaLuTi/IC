@@ -606,44 +606,6 @@
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
-				<Sound Name="GolemBloodSound" ID="{35439BCC-1B3A-4FA7-8C17-F48FF5225968}" ShortID="84319592">
-					<PropertyList>
-						<Property Name="Pitch" Type="int32">
-							<ValueList>
-								<Value>230</Value>
-							</ValueList>
-						</Property>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>-19</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="GolemBloodSound" ID="{0220FB42-A41D-46D0-9E3F-D1FEC5B5E924}" ShortID="487698438">
-							<Language>SFX</Language>
-							<AudioFile>GolemBloodSound.wav</AudioFile>
-							<ConvertedFileIDList>
-								<File ID="476979142"/>
-							</ConvertedFileIDList>
-						</AudioFileSource>
-						<AudioFileSource Name="DoorTest" ID="{8BAB7933-D618-4C25-B331-5388113B92F0}" ShortID="954590724">
-							<Language>SFX</Language>
-							<AudioFile>DoorTest.wav</AudioFile>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="GolemBloodSound" ID="{0220FB42-A41D-46D0-9E3F-D1FEC5B5E924}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
 				<RandomSequenceContainer Name="Sword" ID="{5A0DE127-DB27-4BE2-863E-5B52022458A3}" ShortID="819350606">
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -980,7 +942,118 @@
 						<ActiveSource Name="BloodSound" ID="{9AF72CD3-E13B-4AFB-9AF6-D855CBD433AC}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
-				<Sound Name="swordpowerattack" ID="{92CF40DC-72DE-4222-8EF6-9A190895A6D4}" ShortID="13121802">
+				<RandomSequenceContainer Name="SwordPowerAttack" ID="{1D061E05-2413-47EE-A939-431E8C32EFD6}" ShortID="993734219">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="swordpowerattack" ID="{92CF40DC-72DE-4222-8EF6-9A190895A6D4}" ShortID="13121802">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>30</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="swordpowerattack" ID="{535E8A6C-320D-49C0-ACD8-D7A185234A58}" ShortID="294678461">
+									<Language>SFX</Language>
+									<AudioFile>swordpowerattack.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="swordpowerattack" ID="{535E8A6C-320D-49C0-ACD8-D7A185234A58}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="swordpowerattack_01" ID="{D49FDA86-3AB4-47DA-B500-A6A421197BB1}" ShortID="940011595">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-400</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="swordpowerattack" ID="{27F79393-41CA-47D5-9942-52702363B50E}" ShortID="926181450">
+									<Language>SFX</Language>
+									<AudioFile>swordpowerattack.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="294678461"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="swordpowerattack" ID="{27F79393-41CA-47D5-9942-52702363B50E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="swordpowerattack_02" ID="{15CCEA2B-05E7-4624-9E74-EC2B3731107E}" ShortID="867237141">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-200</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="swordpowerattack" ID="{ED85BF78-ABD6-48A3-947D-0E95C92DA8D7}" ShortID="911932802">
+									<Language>SFX</Language>
+									<AudioFile>swordpowerattack.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="294678461"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="swordpowerattack" ID="{ED85BF78-ABD6-48A3-947D-0E95C92DA8D7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="GolemBlood" ID="{31162084-FA13-40C0-8253-7F21559138CA}" ShortID="244699658">
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
@@ -997,15 +1070,128 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<AudioFileSource Name="swordpowerattack" ID="{535E8A6C-320D-49C0-ACD8-D7A185234A58}" ShortID="294678461">
-							<Language>SFX</Language>
-							<AudioFile>swordpowerattack.wav</AudioFile>
-						</AudioFileSource>
+						<Sound Name="GolemBloodSound" ID="{35439BCC-1B3A-4FA7-8C17-F48FF5225968}" ShortID="84319592">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>480</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-19</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="GolemBloodSound" ID="{0220FB42-A41D-46D0-9E3F-D1FEC5B5E924}" ShortID="487698438">
+									<Language>SFX</Language>
+									<AudioFile>GolemBloodSound.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="476979142"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="DoorTest" ID="{8BAB7933-D618-4C25-B331-5388113B92F0}" ShortID="954590724">
+									<Language>SFX</Language>
+									<AudioFile>DoorTest.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="GolemBloodSound" ID="{0220FB42-A41D-46D0-9E3F-D1FEC5B5E924}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="GolemBloodSound_01" ID="{A6DEC55D-53A0-45FC-A9FC-5BB74682D888}" ShortID="852285899">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>430</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-19</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="GolemBloodSound" ID="{0E17D29E-FFE7-487C-9CCE-D62B2F4F9E21}" ShortID="252910443">
+									<Language>SFX</Language>
+									<AudioFile>GolemBloodSound.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="476979142"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="DoorTest" ID="{18E2CDFA-FF45-4CE8-AD00-FA821214A074}" ShortID="659817959">
+									<Language>SFX</Language>
+									<AudioFile>DoorTest.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="954590724"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="GolemBloodSound" ID="{0E17D29E-FFE7-487C-9CCE-D62B2F4F9E21}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="GolemBloodSound_02" ID="{A061C470-E610-48AD-A7F8-7D46ABC595B6}" ShortID="854076227">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>200</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-19</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="GolemBloodSound" ID="{4135204D-4FD6-4186-92DE-B69DA762DCFB}" ShortID="740308729">
+									<Language>SFX</Language>
+									<AudioFile>GolemBloodSound.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="476979142"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="DoorTest" ID="{578BFDC0-9B42-4469-BF2D-30A2838F7500}" ShortID="972037210">
+									<Language>SFX</Language>
+									<AudioFile>DoorTest.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="954590724"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="GolemBloodSound" ID="{4135204D-4FD6-4186-92DE-B69DA762DCFB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="swordpowerattack" ID="{535E8A6C-320D-49C0-ACD8-D7A185234A58}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
+				</RandomSequenceContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

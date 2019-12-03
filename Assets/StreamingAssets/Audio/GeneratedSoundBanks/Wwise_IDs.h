@@ -19,10 +19,13 @@ namespace AK
         static const AkUniqueID GOLEMBLOOD = 251527805U;
         static const AkUniqueID MAIN_EVENT = 1811523627U;
         static const AkUniqueID OPENDOOR = 2122995345U;
+        static const AkUniqueID PLAYERDAMAGED = 4055688079U;
+        static const AkUniqueID PLAYERDEATH = 1656947812U;
         static const AkUniqueID PLAYERSTEP = 412471812U;
         static const AkUniqueID POTBREAK = 2727481903U;
         static const AkUniqueID SWORDATTACK1 = 2184892217U;
         static const AkUniqueID SWORDATTACK2 = 2184892218U;
+        static const AkUniqueID SWORDPOWERATTACK = 4291874175U;
         static const AkUniqueID TORCHFIRE = 2041519613U;
     } // namespace EVENTS
 
