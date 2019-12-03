@@ -24,6 +24,11 @@
 						</Transition>
 					</TransitionList>
 				</StateGroup>
+				<StateGroup Name="New_State_Group" ID="{8B2F49B0-4B14-4FE1-80F8-8B6EBB09A8CE}">
+					<ChildrenList>
+						<State Name="None" ID="{CD5CF3A0-1C7D-479A-8EBB-26309CEB7343}"/>
+					</ChildrenList>
+				</StateGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</States>
