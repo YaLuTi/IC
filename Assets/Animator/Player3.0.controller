@@ -859,6 +859,26 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114790278739582566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b83b76ec5e3ece94b92a2716d8fc4c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvents:
+  - AKevent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: 34b8f001dc09fd7448d7dfc3ed052da0,
+        type: 2}
+    time: 0.35
+    played: 0
 --- !u!114 &114821110995866194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3001,9 +3021,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.63844204
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_ExitTime: 0.75000006
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -3350,6 +3370,7 @@ AnimatorState:
   - {fileID: 114745686940870536}
   - {fileID: 114155758914644200}
   - {fileID: 114153480024732396}
+  - {fileID: 114790278739582566}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -3606,7 +3627,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PickItem
-  m_Speed: 1.5
+  m_Speed: 0.7
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101320039702734942}
@@ -3620,7 +3641,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 00a2cb0fbd3b24e4dbc15ea3d99e6b37, type: 3}
+  m_Motion: {fileID: 7400002, guid: 00a2cb0fbd3b24e4dbc15ea3d99e6b37, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

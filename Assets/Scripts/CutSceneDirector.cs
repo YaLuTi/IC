@@ -18,6 +18,10 @@ public class CutSceneDirector : MonoBehaviour
     public GameObject CameraOne;
     public GameObject CameraTwo;
     public GameObject ActingPlayer;
+    public GameObject TextOne;
+    public GameObject TextTwo;
+    public GameObject TextThree;
+    public GameObject TextFour;
     public AK.Wwise.Event FoundSound;
     public Image BlackPanel;
     public TextMeshProUGUI OpenText;
@@ -27,11 +31,19 @@ public class CutSceneDirector : MonoBehaviour
     public GameObject CameraFive;
     public AK.Wwise.Event BossSound;
     public GameObject BossScenePlayer;
+    public GameObject CutSceneBoss;
     public GameObject Boss;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(OpenScene());
+        if (!PlayerBackpackData.FirstDeath)
+        {
+            StartCoroutine(OpenScene());
+        }
+        else
+        {
+            StartCoroutine(NormalDeath());
+        }
     }
 
     // Update is called once per frame
@@ -45,12 +57,20 @@ public class CutSceneDirector : MonoBehaviour
         StartCoroutine(BossScene());
     }
 
+    IEnumerator NormalDeath()
+    {
+        BlackPanel.DOColor(new Color(0, 0, 0, 1), 0f);
+        BlackPanel.DOColor(new Color(0, 0, 0, 0), 0.5f);
+        yield return 0;
+    }
+
     IEnumerator BossScene()
     {
         IsOnMovie = true;
         BlackPanel.DOColor(new Color(0, 0, 0, 1), 0.5f);
         yield return new WaitForSeconds(1.75f);
         BlackBar.SetActive(true);
+        Good_UI.SetActive(false);
         MainCamera.gameObject.SetActive(false);
         BossScenePlayer.SetActive(true);
         CameraThree.SetActive(true);
@@ -69,6 +89,7 @@ public class CutSceneDirector : MonoBehaviour
         yield return new WaitForSeconds(1f);
         CameraFour.SetActive(false);
         CameraFive.SetActive(true);
+        CutSceneBoss.SetActive(true);
         CameraFive.transform.DOMove(new Vector3(-168.249f, 5.55f, 31.58f), 4f).SetEase(Ease.InOutSine);
         BossScenePlayer.GetComponent<Animator>().SetTrigger("Stand");
         CameraFive.transform.DORotate(new Vector3(0, 86.23f, 0), 4f).SetEase(Ease.InOutSine);
@@ -79,7 +100,9 @@ public class CutSceneDirector : MonoBehaviour
         Player.transform.eulerAngles = new Vector3(0, -270, 0);
         Cine.transform.eulerAngles = new Vector3(13, 90, 0);
         yield return new WaitForSeconds(3.5f);
+        CutSceneBoss.SetActive(false);
         Boss.SetActive(true);
+        Good_UI.SetActive(true);
         BlackBar.SetActive(false);
         CameraFive.SetActive(false);
         MainCamera.gameObject.SetActive(true);
@@ -102,15 +125,26 @@ public class CutSceneDirector : MonoBehaviour
         MainCamera.gameObject.SetActive(false);
         CameraOne.SetActive(true);
         CameraOne.transform.DOMove(new Vector3(32.11f, 0.855f, 15.917f), 10f).SetEase(Ease.InOutSine);
-        yield return new WaitForSecondsRealtime(9.5f);
+        yield return new WaitForSecondsRealtime(1f);
+        TextOne.SetActive(true);
+        yield return new WaitForSecondsRealtime(3f);
+        TextOne.SetActive(false);
+        TextTwo.SetActive(true);
+        yield return new WaitForSecondsRealtime(5.5f);
+        TextTwo.SetActive(false);
+        TextThree.SetActive(true);
         CameraOne.SetActive(false);
         CameraTwo.SetActive(true);
         CameraTwo.transform.DOMove(new Vector3(38.677f, 0.65f, 16.012f), 14.954f);
         ActingPlayer.GetComponent<Animator>().SetTrigger("StandUp");
-        yield return new WaitForSecondsRealtime(6f);
+        yield return new WaitForSecondsRealtime(4f);
+        TextThree.SetActive(false);
+        TextFour.SetActive(true);
+        yield return new WaitForSecondsRealtime(2f);
         BlackPanel.DOColor(new Color(0, 0, 0, 1), 2f);
         yield return new WaitForSecondsRealtime(2f);
         BlackBar.SetActive(false);
+        TextFour.SetActive(false);
         yield return new WaitForSecondsRealtime(1f);
         CameraTwo.SetActive(false);
         MainCamera.gameObject.SetActive(true);
@@ -120,7 +154,7 @@ public class CutSceneDirector : MonoBehaviour
         Good_UI.SetActive(true);
         yield return new WaitForSecondsRealtime(0.7f);
         FoundSound.Post(gameObject);
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.2f);
         OpenText.DOColor(new Color(1, 1, 1, 1), 1f).SetEase(Ease.OutQuint);
         yield return new WaitForSecondsRealtime(0.05f);
         yield return new WaitForSecondsRealtime(3.5f);

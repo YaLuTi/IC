@@ -9,6 +9,7 @@ public class PlayerWeaponController : MonoBehaviour {
     public GameObject WeaponParent;
     [Header("Put Your Weapon Here")]
     public GameObject SpawnWeapon;
+    GameObject UsingWeapon;
     public WeaponList weaponList;
     [Header("Other Shit")]
     int WeaponNum;
@@ -18,17 +19,19 @@ public class PlayerWeaponController : MonoBehaviour {
     ButtonHighLight WeaponFrame;
 
     PlayerCombatEventer combatEventer;
+    NewPlayerLongSword longSword;
     public AnimationEvent ChangeWeaponEvent;
 	// Use this for initialization
 	void Awake () {
-        GameObject g = SpawnWeapon;
-        g = Instantiate(g);
-        g.transform.parent = WeaponParent.transform;
-        g.transform.localPosition = Vector3.zero;
-        g.transform.localRotation = Quaternion.identity;
+        UsingWeapon = SpawnWeapon;
+        UsingWeapon = Instantiate(UsingWeapon);
+        UsingWeapon.transform.parent = WeaponParent.transform;
+        UsingWeapon.transform.localPosition = Vector3.zero;
+        UsingWeapon.transform.localRotation = Quaternion.identity;
         combatEventer = GetComponent<PlayerCombatEventer>();
         WeaponIcon = WeaponUI.GetComponent<Image>();
         WeaponFrame = WeaponUI.GetComponentInChildren<ButtonHighLight>();
+        longSword = GetComponent<NewPlayerLongSword>();
 	}
 	
 	// Update is called once per frame
@@ -44,8 +47,14 @@ public class PlayerWeaponController : MonoBehaviour {
         }
 	}
     
-    void ChangeWeapon(GameObject weapon)
+    public void ChangeWeapon(GameObject weapon)
     {
-
+        Destroy(UsingWeapon);
+        UsingWeapon = weapon;
+        UsingWeapon = Instantiate(weapon);
+        UsingWeapon.transform.parent = WeaponParent.transform;
+        UsingWeapon.transform.localPosition = Vector3.zero;
+        UsingWeapon.transform.localRotation = Quaternion.identity;
+        longSword.weapon = UsingWeapon.GetComponent<WeaponColliderBasic>();
     }
 }

@@ -5,10 +5,20 @@ using UnityEngine;
 public class ItemBasic : MonoBehaviour
 {
     public int ItemNum;
+    public bool DeathEvent = false;
+    GameObject player;
+    public GameObject TestChangeWeaponFast;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (DeathEvent)
+        {
+            if (!PlayerBackpackData.FirstDeath)
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -39,6 +49,22 @@ public class ItemBasic : MonoBehaviour
         {
             case 0:
                 Debug.Log("Pick Item 0");
+                Destroy(this.gameObject);
+                break;
+            case 1:
+                PlayerBackpackData.HealthAmount += 1;
+                Destroy(this.gameObject);
+                break;
+            case 2:
+                PlayerBackpackData.HealthAmount += 2;
+                Destroy(this.gameObject);
+                break;
+            case 3:
+                PlayerBackpackData.HealthAmount += 3;
+                Destroy(this.gameObject);
+                break;
+            case 5:
+                player.GetComponent<PlayerWeaponController>().ChangeWeapon(TestChangeWeaponFast);
                 Destroy(this.gameObject);
                 break;
             default:

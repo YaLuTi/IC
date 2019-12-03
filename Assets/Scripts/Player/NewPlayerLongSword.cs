@@ -21,7 +21,7 @@ public class NewPlayerLongSword : MonoBehaviour
     PlayerHP playerHP;
     PlayerMove playerMove;
     Animator animator;
-    WeaponColliderBasic weapon;
+    public WeaponColliderBasic weapon;
 
     // Value
     float DodgeCooldown = 20f;
@@ -73,6 +73,7 @@ public class NewPlayerLongSword : MonoBehaviour
             if (combatEventer.SetAnimation(Drink))
             {
                 Drinking = true;
+                PlayerBackpackData.HealthAmount--;
                 animator.SetBool("IsHealing", true);
             }
             return;
@@ -134,7 +135,7 @@ public class NewPlayerLongSword : MonoBehaviour
                 }
             }
         }
-        if (Input.GetButtonDown("R2") && playerHP.CheckSP(2))
+        /*if (Input.GetButtonDown("R2") && playerHP.CheckSP(2))
         {
             combatEventer.SetAnimation(HeavyAttack);
             return;
@@ -144,7 +145,7 @@ public class NewPlayerLongSword : MonoBehaviour
             combatEventer.SetAnimation(Block);
             animator.SetBool("IsBlock", true);
             return;
-        }
+        }*/
         if (Input.GetButtonUp("L1"))
         {
             animator.SetBool("IsBlock", false);

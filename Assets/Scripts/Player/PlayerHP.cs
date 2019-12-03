@@ -80,6 +80,7 @@ public class PlayerHP : MonoBehaviour {
         if(HP < 0)
         {
             IsDeath = true;
+            PlayerBackpackData.FirstDeath = true;
             playerCombatEventer.SetAnimation(DeathEvent);
             GameObject.FindGameObjectWithTag("Death").GetComponent<DeathUI>()._DeathEvent();
         }

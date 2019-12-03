@@ -136,6 +136,7 @@ ModelImporter:
     400128: mixamorig:Spine1
     400130: mixamorig:Spine2
     7400000: Player_Pick
+    7400002: Unarmed Grab Torch From Floor
     9500000: //RootNode
     2186277476908879412: ImportLogs
   externalObjects: {}
@@ -177,6 +178,34 @@ ModelImporter:
       name: Player_Pick
       takeName: mixamo.com
       firstFrame: 0
+      lastFrame: 230
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Unarmed Grab Torch From Floor
+      takeName: mixamo.com
+      firstFrame: 146
       lastFrame: 230
       wrapMode: 0
       orientationOffsetY: 0

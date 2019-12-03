@@ -10,15 +10,18 @@ public class DeathUI : MonoBehaviour
     public Image BlackPanel;
     public Image BlackPanelTwo;
     public TextMeshProUGUI text;
+    public AK.Wwise.Event play;
+    public AK.Wwise.Event stop;
+    AkAmbient akAmbient;
     // Start is called before the first frame update
     void Start()
     {
+        play.Post(gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void _DeathEvent()
@@ -45,8 +48,9 @@ public class DeathUI : MonoBehaviour
             BlackPanelTwo.color += new Color(0, 0, 0, 0.005f);
             yield return new WaitForFixedUpdate();
         }
-        yield return new WaitForSecondsRealtime(2f);
-        SceneManager.LoadScene(0);
+        stop.Post(gameObject);
+       yield return new WaitForSecondsRealtime(2f);
+        SceneManager.LoadScene(1);
         yield return 0;
     }
 }
