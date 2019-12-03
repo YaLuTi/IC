@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="134">
 	<RootPaths>
-		<ProjectRoot>D:\Unity\ZenTi\IC_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Unity\ZenTi\IC_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Unity\ZenTi\IC_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>E:\IC\IC_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>E:\IC\IC_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>E:\IC\IC_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Unity\ZenTi\IC_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>E:\IC\IC_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -24,7 +24,7 @@
 				<Event Id="3764932550" Name="BarrelBreak" ObjectPath="\Events\Props\BarrelBreak" DurationType="OneShot" DurationMin="1.477196" DurationMax="1.592391"/>
 				<Event Id="2985974755" Name="Boss_Start" ObjectPath="\Events\Default Work Unit\Boss_Start" DurationType="Infinite"/>
 				<Event Id="580146960" Name="BossFight" ObjectPath="\Events\BGM\BossFight" DurationType="Infinite"/>
-				<Event Id="251527805" Name="GolemBlood" ObjectPath="\Events\Monster\GolemBlood" DurationType="OneShot" DurationMin="0.899816" DurationMax="0.899816"/>
+				<Event Id="251527805" Name="GolemBlood" ObjectPath="\Events\Monster\GolemBlood" DurationType="OneShot" DurationMin="0.778824" DurationMax="0.915545"/>
 				<Event Id="1811523627" Name="Main_event" ObjectPath="\Events\Default Work Unit\Main_event" DurationType="Infinite"/>
 				<Event Id="2122995345" Name="OpenDoor" ObjectPath="\Events\Props\OpenDoor" DurationType="OneShot" DurationMin="1.211675" DurationMax="1.211675"/>
 				<Event Id="4055688079" Name="PlayerDamaged" ObjectPath="\Events\Player\PlayerDamaged" DurationType="OneShot" DurationMin="0.745751" DurationMax="0.745751"/>
@@ -33,7 +33,7 @@
 				<Event Id="2727481903" Name="PotBreak" ObjectPath="\Events\Props\PotBreak" DurationType="OneShot" DurationMin="1.402456" DurationMax="1.556122"/>
 				<Event Id="2184892217" Name="SwordAttack1" ObjectPath="\Events\Sword\SwordAttack1" DurationType="OneShot" DurationMin="0.266825" DurationMax="0.266825"/>
 				<Event Id="2184892218" Name="SwordAttack2" ObjectPath="\Events\Sword\SwordAttack2" DurationType="OneShot" DurationMin="0.366562" DurationMax="0.366562"/>
-				<Event Id="4291874175" Name="SwordPowerAttack" ObjectPath="\Events\Sword\SwordPowerAttack" DurationType="OneShot" DurationMin="0.258510" DurationMax="0.258510"/>
+				<Event Id="4291874175" Name="SwordPowerAttack" ObjectPath="\Events\Sword\SwordPowerAttack" DurationType="OneShot" DurationMin="0.254059" DurationMax="0.325690"/>
 				<Event Id="2041519613" Name="TorchFire" ObjectPath="\Events\Props\TorchFire" MaxAttenuation="80.000000" DurationType="Infinite"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
