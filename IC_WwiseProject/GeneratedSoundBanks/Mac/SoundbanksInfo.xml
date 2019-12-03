@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="134">
 	<RootPaths>
-		<ProjectRoot>E:\IC\IC_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>E:\IC\IC_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>E:\IC\IC_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>D:\Unity\ZenTi\IC_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Unity\ZenTi\IC_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Unity\ZenTi\IC_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>E:\IC\IC_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Unity\ZenTi\IC_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -24,6 +24,7 @@
 				<Event Id="3764932550" Name="BarrelBreak" ObjectPath="\Events\Props\BarrelBreak" DurationType="OneShot" DurationMin="1.477196" DurationMax="1.592391"/>
 				<Event Id="2985974755" Name="Boss_Start" ObjectPath="\Events\Default Work Unit\Boss_Start" DurationType="Infinite"/>
 				<Event Id="2555063238" Name="BossAttack" ObjectPath="\Events\Monster\BossAttack" DurationType="OneShot" DurationMin="1.031425" DurationMax="1.360974"/>
+				<Event Id="2220222592" Name="BossAttack2" ObjectPath="\Events\Monster\BossAttack2" DurationType="OneShot" DurationMin="3.925477" DurationMax="3.925477"/>
 				<Event Id="580146960" Name="BossFight" ObjectPath="\Events\BGM\BossFight" DurationType="Infinite"/>
 				<Event Id="251527805" Name="GolemBlood" ObjectPath="\Events\Monster\GolemBlood" DurationType="OneShot" DurationMin="0.778824" DurationMax="0.915545"/>
 				<Event Id="1537521749" Name="GolemStep" ObjectPath="\Events\Monster\GolemStep" DurationType="OneShot" DurationMin="2.548494" DurationMax="2.548494"/>
@@ -67,6 +68,10 @@
 				<File Id="294678461" Language="SFX">
 					<ShortName>swordpowerattack.wav</ShortName>
 					<Path>SFX\swordpowerattack_10C4C929.wem</Path>
+				</File>
+				<File Id="337479239" Language="SFX">
+					<ShortName>AxeSwing2.wav</ShortName>
+					<Path>SFX\AxeSwing2_10C4C929.wem</Path>
 				</File>
 				<File Id="436243836" Language="SFX">
 					<ShortName>walk5.wav</ShortName>

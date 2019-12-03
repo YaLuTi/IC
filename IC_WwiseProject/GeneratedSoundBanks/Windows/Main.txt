@@ -9,6 +9,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2122995345	OpenDoor			\Props\OpenDoor	
 	2184892217	SwordAttack1			\Sword\SwordAttack1	
 	2184892218	SwordAttack2			\Sword\SwordAttack2	
+	2220222592	BossAttack2			\Monster\BossAttack2	
 	2555063238	BossAttack			\Monster\BossAttack	
 	2721851678	UI_Found			\UI\UI_Found	
 	2727481903	PotBreak			\Props\PotBreak	
@@ -41,23 +42,24 @@ Effect plug-ins	ID	Name	Type				Notes
 	3043085106	High_Impact	Wwise Compressor			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	3812532	273_loop3_dream-comes-true_0016	E:\IC\IC_WwiseProject\.cache\Windows\SFX\273_loop3_dream-comes-true_0016_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\273_loop3_dream-comes-true_0016		3205632
-	4103360	BloodSound	E:\IC\IC_WwiseProject\.cache\Windows\SFX\BloodSound_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BloodSound		137836
-	63831569	PotBreak1	E:\IC\IC_WwiseProject\.cache\Windows\SFX\PotBreak1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PotBreak\PotBreak1		262168
-	95817455	AxeSwing	E:\IC\IC_WwiseProject\.cache\Windows\SFX\AxeSwing_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BossAxeSwing\AxeSwing		232860
-	195242195	piano_string_low_calm_pedal_impact_01	E:\IC\IC_WwiseProject\.cache\Windows\SFX\piano_string_low_calm_pedal_impact_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\piano_string_low_calm_pedal_impact_01		1972436
-	231745951	Sword_swing3	E:\IC\IC_WwiseProject\.cache\Windows\SFX\Sword_swing3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sword\Sword_swing3		51392
-	294678461	swordpowerattack	E:\IC\IC_WwiseProject\.cache\Windows\SFX\swordpowerattack_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SwordPowerAttack\swordpowerattack		49696
-	436243836	walk5	E:\IC\IC_WwiseProject\.cache\Windows\SFX\walk5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerStep\walk5		170980
-	453698648	FireExplosion3	E:\IC\IC_WwiseProject\.cache\Windows\SFX\FireExplosion3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\FireExplosion3		194028
-	476979142	GolemBloodSound	E:\IC\IC_WwiseProject\.cache\Windows\SFX\GolemBloodSound_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\GolemBlood\GolemBloodSound		181344
-	614328910	BarrelBreak2	E:\IC\IC_WwiseProject\.cache\Windows\SFX\BarrelBreak2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BarrelSound\BarrelBreak2		162332
-	647973800	walk6	E:\IC\IC_WwiseProject\.cache\Windows\SFX\walk6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerStep\walk6		160924
-	673948184	ambientdungeon	E:\IC\IC_WwiseProject\.cache\Windows\SFX\ambientdungeon_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\ambientdungeon		41780772
-	848970447	MEOW	E:\IC\IC_WwiseProject\.cache\Windows\SFX\MEOW_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\MEOW		196064
-	970753656	273_loop2_dream-comes-true_0016	E:\IC\IC_WwiseProject\.cache\Windows\SFX\273_loop2_dream-comes-true_0016_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\273_loop2_dream-comes-true_0016		3205628
-	1031287844	FireIdleLoop	E:\IC\IC_WwiseProject\.cache\Windows\SFX\FireIdleLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\FireIdleLoop		1739160
-	1039368945	Sword_swing2	E:\IC\IC_WwiseProject\.cache\Windows\SFX\Sword_swing2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sword\Sword_swing2		95652
-	1054454763	Uisound3	E:\IC\IC_WwiseProject\.cache\Windows\SFX\Uisound3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Uisound3		588124
-	1065511772	walk7	E:\IC\IC_WwiseProject\.cache\Windows\SFX\walk7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerStep\walk7		164276
+	3812532	273_loop3_dream-comes-true_0016	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\273_loop3_dream-comes-true_0016_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\273_loop3_dream-comes-true_0016		3205632
+	4103360	BloodSound	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\BloodSound_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BloodSound		137836
+	63831569	PotBreak1	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\PotBreak1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PotBreak\PotBreak1		262168
+	95817455	AxeSwing	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\AxeSwing_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BossAxeSwing\AxeSwing		232860
+	195242195	piano_string_low_calm_pedal_impact_01	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\piano_string_low_calm_pedal_impact_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\piano_string_low_calm_pedal_impact_01		1972436
+	231745951	Sword_swing3	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\Sword_swing3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sword\Sword_swing3		51392
+	294678461	swordpowerattack	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\swordpowerattack_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SwordPowerAttack\swordpowerattack		49696
+	337479239	AxeSwing2	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\AxeSwing2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\AxeSwing2		589112
+	436243836	walk5	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\walk5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerStep\walk5		170980
+	453698648	FireExplosion3	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\FireExplosion3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\FireExplosion3		194028
+	476979142	GolemBloodSound	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\GolemBloodSound_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\GolemBlood\GolemBloodSound		181344
+	614328910	BarrelBreak2	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\BarrelBreak2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BarrelSound\BarrelBreak2		162332
+	647973800	walk6	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\walk6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerStep\walk6		160924
+	673948184	ambientdungeon	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\ambientdungeon_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\ambientdungeon		41780772
+	848970447	MEOW	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\MEOW_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\MEOW		196064
+	970753656	273_loop2_dream-comes-true_0016	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\273_loop2_dream-comes-true_0016_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\273_loop2_dream-comes-true_0016		3205628
+	1031287844	FireIdleLoop	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\FireIdleLoop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\FireIdleLoop		1739160
+	1039368945	Sword_swing2	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\Sword_swing2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sword\Sword_swing2		95652
+	1054454763	Uisound3	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\Uisound3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Uisound3		588124
+	1065511772	walk7	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\walk7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerStep\walk7		164276
 

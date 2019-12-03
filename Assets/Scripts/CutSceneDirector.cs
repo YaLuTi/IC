@@ -74,6 +74,7 @@ public class CutSceneDirector : MonoBehaviour
         CameraFive.transform.DORotate(new Vector3(0, 86.23f, 0), 4f).SetEase(Ease.InOutSine);
         yield return new WaitForSeconds(3.5f);
         BlackPanel.DOColor(new Color(0, 0, 0, 1), 1f);
+        yield return new WaitForSeconds(0.5f);
         Player.transform.position = new Vector3(-166.97f, 3.751f, 32.2f);
         Player.transform.eulerAngles = new Vector3(0, -270, 0);
         Cine.transform.eulerAngles = new Vector3(13, 90, 0);

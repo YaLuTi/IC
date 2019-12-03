@@ -85,7 +85,7 @@ public class TestMonster : MonsterBasic {
         Health -= damage;
         foreach (AnimatorControllerParameter parameter in animator.parameters)
         {
-            if (parameter.name != "Damaged" && parameter.name != "Ulti")
+            if (parameter.name != "Damaged" && parameter.name != "Casting")
             {
                 animator.ResetTrigger(parameter.name);
             }

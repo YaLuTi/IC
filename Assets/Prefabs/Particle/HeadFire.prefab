@@ -41,7 +41,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8354475438261157966}
   serializedVersion: 6
-  lengthInSec: 3.3
+  lengthInSec: 0.05
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3
@@ -116,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
+      scalar: 3
       minScalar: 1.5
       maxCurve:
         serializedVersion: 2
@@ -457,7 +457,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 0
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 2000
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -4710,7 +4710,7 @@ MonoBehaviour:
   UseCustomColor: 0
   EffectColor: {r: 1, g: 0, b: 0, a: 1}
   IsVisible: 1
-  FadeoutTime: 1.5
+  FadeoutTime: 0
   UseCollisionDetection: 1
   LimitMaxDistance: 0
   MaxDistnace: -1

@@ -38,11 +38,25 @@ public class Monster_Golem : TestMonster {
     public float anger = 0;
 
     bool SecondForm = false;
+    bool SecondAttack = false;
 
     [Header("Particle")]
+    public GameObject FireHead;
     public GameObject JumpSlashParticle;
     public GameObject JumpSlashParticle_t;
     bool IsJumpSlashParticle = false;
+
+    public GameObject AttackLowParticle;
+    public GameObject AttackLowParticle_t;
+    bool IsAttackLowParticle = false;
+
+    public GameObject CastingParticle;
+    public GameObject CastingParticle_t;
+    bool IsCastParticle = false;
+
+    public GameObject ComboParticle;
+    public GameObject ComboParticle_t;
+    bool IsComboParticle = false;
 
     [Header("Sound Assets")]
     public AudioAssets StepSound;
@@ -67,6 +81,14 @@ public class Monster_Golem : TestMonster {
 	protected override void Update ()
     {
         base.Update();
+        if (!SecondForm)
+        {
+            if(Health < 12)
+            {
+                SecondForm = true;
+                FireHead.SetActive(true);
+            }
+        }
         if (player.activeSelf == true)
         {
             PlayerDistance = Vector3.Distance(player.transform.position, transform.position);
@@ -77,6 +99,24 @@ public class Monster_Golem : TestMonster {
             IsJumpSlashParticle = false;
             Debug.Log(JumpSlashParticle_t.transform.position);
             GameObject g = Instantiate(JumpSlashParticle, JumpSlashParticle_t.transform.position, Quaternion.identity);
+            Destroy(g, 6);
+        }
+        if (IsAttackLowParticle)
+        {
+            IsAttackLowParticle = false;
+            GameObject g = Instantiate(AttackLowParticle, AttackLowParticle_t.transform.position, Quaternion.identity);
+            Destroy(g, 6);
+        }
+        if (IsCastParticle)
+        {
+            IsCastParticle = false;
+            GameObject g = Instantiate(CastingParticle, CastingParticle_t.transform.position, Quaternion.identity);
+            Destroy(g, 6);
+        }
+        if(IsComboParticle)
+        {
+            IsComboParticle = false;
+            GameObject g = Instantiate(ComboParticle, ComboParticle_t.transform.position, Quaternion.identity);
             Destroy(g, 6);
         }
         animator.SetFloat("Speed", speed);
@@ -115,6 +155,16 @@ public class Monster_Golem : TestMonster {
             animator.SetTrigger("AttackLow");
         }*/
         if (IsAttacking) return;
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("GolemCasting")) return;
+        if (SecondForm)
+        {
+            if (!SecondAttack)
+            {
+                IsAttacking = true;
+                SecondAttack = true;
+                animator.SetTrigger("Casting");
+            }
+        }
        if(PlayerDistance < CloseDistance)
         {
             // SetXY(0, 1);
@@ -313,6 +363,15 @@ public class Monster_Golem : TestMonster {
         {
             case 0:
                 IsJumpSlashParticle = true;
+                break;
+            case 1:
+                IsAttackLowParticle = true;
+                break;
+            case 2:
+                IsCastParticle = true;
+                break;
+            case 3:
+                IsComboParticle = true;
                 break;
             default:
                 break;

@@ -36,6 +36,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="BossAttack2" ID="{0E515E78-691F-4DC2-904A-1E341DF5A4B6}">
+					<ChildrenList>
+						<Action Name="" ID="{98C89544-32D1-47AA-9E20-89C6BB43313B}" ShortID="226919688">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="AxeSwing2" ID="{AEE3410B-A618-4861-95AF-A3F35950D097}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

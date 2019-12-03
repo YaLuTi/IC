@@ -27,12 +27,12 @@ public class MonsterWeaponTest : MonoBehaviour {
         weapon.StopAttack();
     }
 
-    void TrailOn()
+    public void TrailOn()
     {
         weaponTrail.TrailOn();
     }
 
-    void TrailOff()
+    public void TrailOff()
     {
         weaponTrail.TrailOff();
     }
