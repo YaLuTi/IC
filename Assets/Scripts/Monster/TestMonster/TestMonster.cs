@@ -85,9 +85,11 @@ public class TestMonster : MonsterBasic {
         Health -= damage;
         foreach (AnimatorControllerParameter parameter in animator.parameters)
         {
-            animator.ResetTrigger(parameter.name);
+            if (parameter.name != "Damaged" && parameter.name != "Ulti")
+            {
+                animator.ResetTrigger(parameter.name);
+            }
         }
-        animator.SetTrigger("Damaged");
 
         for (int i = 0; i < cutAudio.Length; i++)
         {

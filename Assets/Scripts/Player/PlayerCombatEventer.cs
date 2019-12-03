@@ -108,21 +108,46 @@ public class PlayerCombatEventer : MonoBehaviour
             if (PlayingEvent.AnimatorTriggerName != null) animator.SetTrigger(PlayingEvent.AnimatorTriggerName);
             return true;
         }
-        if(countTest < 10)
+        if (animationEvent.InterruptLevel == 3)
         {
-            // return false;
+            if (PlayingEvent != empty)
+            {
+                if (PlayingEvent.Tag == "Dodge") playerMove.Rotateable = true;
+            }
+            PlayingEvent = animationEvent;
+            NextEvent = empty;
+            if (PlayingEvent.AnimatorTriggerName != null) animator.SetTrigger(PlayingEvent.AnimatorTriggerName);
+            return false;
+        }
+        if (countTest < 10)
+        {
+            return false;
         }
         countTest = 0;
+        if(PlayingEvent != empty)
+        {
+            if(PlayingEvent.InterruptLevel >= 3)
+            {
+                return false;
+            }
+        }
         // Debug.Log(animationEvent.TriggerButton);
         if (PlayingEvent != empty)
         {
             // Debug.Log("C1");
             if (animationEvent.InterruptLevel == 3)
             {
+                foreach (AnimatorControllerParameter parameter in animator.parameters)
+                {
+                    if (parameter.name != "Damaged")
+                    {
+                        animator.ResetTrigger(parameter.name);
+                    }
+                }
                 if (PlayingEvent.Tag == "Dodge") playerMove.Rotateable = true;
                 PlayingEvent = animationEvent;
                 NextEvent = empty;
-                if (PlayingEvent.AnimatorTriggerName != null) animator.SetTrigger(PlayingEvent.AnimatorTriggerName);
+                animator.SetTrigger(PlayingEvent.AnimatorTriggerName);
                 return false;
             }
             if (!playerHP.CheckSP(animationEvent.CostStamina)) return false;

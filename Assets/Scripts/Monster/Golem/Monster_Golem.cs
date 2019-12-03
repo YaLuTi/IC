@@ -37,6 +37,8 @@ public class Monster_Golem : TestMonster {
     float speed = 1;
     public float anger = 0;
 
+    bool SecondForm = false;
+
     [Header("Particle")]
     public GameObject JumpSlashParticle;
     public GameObject JumpSlashParticle_t;

@@ -74,13 +74,6 @@ public class PlayerHP : MonoBehaviour {
             Debug.Log("Dodge");
             return;
         }
-        foreach (AnimatorControllerParameter parameter in animator.parameters)
-        {
-            if (parameter.name != "Damaged")
-            {
-                animator.ResetTrigger(parameter.name);
-            }
-        }
         Instantiate(DamagedParticle, transform.position, Quaternion.identity);
         DamagedSoundEvent.Post(gameObject);
         HP -= damage;

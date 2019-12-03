@@ -412,6 +412,26 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114235997599812080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b83b76ec5e3ece94b92a2716d8fc4c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvents:
+  - AKevent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: 8131ba45d50900a47810bbc8e0b3a81e,
+        type: 2}
+    time: 0.48
+    played: 0
 --- !u!114 &114247337174066854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -729,6 +749,26 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114424366219488918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b83b76ec5e3ece94b92a2716d8fc4c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvents:
+  - AKevent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: 8131ba45d50900a47810bbc8e0b3a81e,
+        type: 2}
+    time: 0.64
+    played: 0
 --- !u!114 &114477386776692600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -907,6 +947,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartTime: 0.33
   EndTime: 0.44
+--- !u!114 &114716734783101622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b83b76ec5e3ece94b92a2716d8fc4c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvents:
+  - AKevent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: 8131ba45d50900a47810bbc8e0b3a81e,
+        type: 2}
+    time: 0.125
+    played: 0
 --- !u!114 &114764069280840886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1803,6 +1863,7 @@ AnimatorState:
   - {fileID: 114547058557997016}
   - {fileID: 114847131619898684}
   - {fileID: 114623244605073986}
+  - {fileID: 114716734783101622}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1919,6 +1980,7 @@ AnimatorState:
   - {fileID: 114249778387920828}
   - {fileID: 114326642656298470}
   - {fileID: 114268254418308818}
+  - {fileID: 114235997599812080}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -2095,6 +2157,7 @@ AnimatorState:
   m_StateMachineBehaviours:
   - {fileID: 114298906945187006}
   - {fileID: 114067960706358888}
+  - {fileID: 114424366219488918}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

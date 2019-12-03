@@ -10,6 +10,8 @@ public class StepParticleSpawner : MonoBehaviour {
     public Transform LeftStep;
     bool PlayL = false;
     bool PlayR = false;
+    int LeftCooldown = 10;
+    int RightCooldown = 10;
 	// Use this for initialization
 	void Start () {
 		
@@ -20,18 +22,28 @@ public class StepParticleSpawner : MonoBehaviour {
         if (PlayL)
         {
             PlayL = false;
-            GameObject g = Instantiate(StepParticle, LeftStep.position, Quaternion.identity);
-            akEvent.Post(gameObject);
-            Destroy(g, 3f);
+            if (LeftCooldown >= 10)
+            {
+                LeftCooldown = 0;
+                GameObject g = Instantiate(StepParticle, LeftStep.position, Quaternion.identity);
+                akEvent.Post(gameObject);
+                Destroy(g, 3f);
+            }
         }
         if (PlayR)
         {
             PlayR = false;
-            GameObject g = Instantiate(StepParticle, RightStep.position, Quaternion.identity);
-            akEvent.Post(gameObject);
-            Destroy(g, 3f);
+            if (RightCooldown >= 10)
+            {
+                RightCooldown = 0;
+                GameObject g = Instantiate(StepParticle, RightStep.position, Quaternion.identity);
+                akEvent.Post(gameObject);
+                Destroy(g, 3f);
+            }
         }
-	}
+        LeftCooldown++;
+        RightCooldown++;
+    }
 
     void StepParticleR()
     {
