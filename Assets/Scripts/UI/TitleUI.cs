@@ -55,7 +55,7 @@ public class TitleUI : MonoBehaviour {
                 if (time < 0)
                 {
                     time = 0;
-                    StartCoroutine(DisplayLoadingScreen("TestScene"));
+                    StartCoroutine(DisplayLoadingScreen("SampleScene"));
                 }
             }
         }

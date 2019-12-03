@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class AudioFadeOut : MonoBehaviour
 {
+    public AK.Wwise.State On;
     public AK.Wwise.State state;
     // Start is called before the first frame update
     void Start()
     {
+        On.SetValue();
     }
 
     // Update is called once per frame

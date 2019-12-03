@@ -8,6 +8,8 @@ public class StepParticleSpawner : MonoBehaviour {
     public AK.Wwise.Event akEvent;
     public Transform RightStep;
     public Transform LeftStep;
+    bool PlayL = false;
+    bool PlayR = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -15,20 +17,29 @@ public class StepParticleSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (PlayL)
+        {
+            PlayL = false;
+            GameObject g = Instantiate(StepParticle, LeftStep.position, Quaternion.identity);
+            akEvent.Post(gameObject);
+            Destroy(g, 3f);
+        }
+        if (PlayR)
+        {
+            PlayR = false;
+            GameObject g = Instantiate(StepParticle, RightStep.position, Quaternion.identity);
+            akEvent.Post(gameObject);
+            Destroy(g, 3f);
+        }
 	}
 
     void StepParticleR()
     {
-        GameObject g = Instantiate(StepParticle, RightStep.position, Quaternion.identity);
-        akEvent.Post(gameObject);
-        Destroy(g, 3f);
+        PlayR = true;
     }
 
     void StepParticleL()
     {
-        GameObject g = Instantiate(StepParticle, LeftStep.position, Quaternion.identity);
-        akEvent.Post(gameObject);
-        Destroy(g, 3f);
+        PlayL = true;
     }
 }
