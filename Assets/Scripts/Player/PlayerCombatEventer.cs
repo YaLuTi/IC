@@ -55,7 +55,7 @@ public class PlayerCombatEventer : MonoBehaviour
         if (PlayingEvent != empty)
         {
             if (PlayingEvent.Tag == "Dodge") playerMove.Rotateable = false;
-            if (animator.IsInTransition(0)) return;
+            // if (animator.IsInTransition(0)) return;
             StateInfo = animator.GetCurrentAnimatorStateInfo(0);
             // Debug.Log(StateInfo.normalizedTime);
             /*if (StateInfo.IsName(PlayingEvent.EventName)) IsStateChange = true;
@@ -101,7 +101,7 @@ public class PlayerCombatEventer : MonoBehaviour
     // 3 - Damaged
     public bool SetAnimation(AnimationEvent animationEvent)
     {
-        if(animationEvent.InterruptLevel >= 3)
+        if (animationEvent.InterruptLevel > 3)
         {
             PlayingEvent = animationEvent;
             NextEvent = empty;
@@ -110,13 +110,20 @@ public class PlayerCombatEventer : MonoBehaviour
         }
         if(countTest < 10)
         {
-            return false;
+            // return false;
         }
         countTest = 0;
         // Debug.Log(animationEvent.TriggerButton);
         if (PlayingEvent != empty)
         {
             // Debug.Log("C1");
+            if (animationEvent.InterruptLevel == 3)
+            {
+                PlayingEvent = animationEvent;
+                NextEvent = empty;
+                if (PlayingEvent.AnimatorTriggerName != null) animator.SetTrigger(PlayingEvent.AnimatorTriggerName);
+                return false;
+            }
             if (!playerHP.CheckSP(animationEvent.CostStamina)) return false;
             if (animator.IsInTransition(0))
             {

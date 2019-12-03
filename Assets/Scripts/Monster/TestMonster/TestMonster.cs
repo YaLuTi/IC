@@ -47,6 +47,7 @@ public class TestMonster : MonsterBasic {
             Nav.target = patrolArray[patrolPoint];
             destination = Nav.GetCorners();
             animator.SetFloat("Speed", 1);
+            moveSpeed = 2;
             // navMesh.SetDestination(patrolArray[patrolPoint]);
         }
 
