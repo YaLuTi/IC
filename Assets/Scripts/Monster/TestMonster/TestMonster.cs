@@ -83,17 +83,17 @@ public class TestMonster : MonsterBasic {
         if (IsDeath) return;
         // animator.SetBool("IsLock", true);
         Health -= damage;
-
-        for(int i = 0; i < cutAudio.Length; i++)
-        {
-            cutAudio[i].Play(audioSource);
-        }
-
         foreach (AnimatorControllerParameter parameter in animator.parameters)
         {
             animator.ResetTrigger(parameter.name);
         }
         animator.SetTrigger("Damaged");
+
+        for (int i = 0; i < cutAudio.Length; i++)
+        {
+            cutAudio[i].Play(audioSource);
+        }
+
 
         Collider[] targets = Physics.OverlapSphere(transform.position, 10, LayerMask.GetMask("Creature"));
 

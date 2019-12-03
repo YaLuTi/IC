@@ -48,6 +48,7 @@ public class NewPlayerLongSword : MonoBehaviour
         {
             combo = 0;
         }
+        if (animator.GetBool("IsHealing")) return;
         if (playerMove.IsLock)
         {
             if (Input.GetButtonUp("JoyStickX") && _DodgeCooldownCount >= DodgeCooldown && (playerHP.CheckSP(3) || playerHP.OverpullSP()))

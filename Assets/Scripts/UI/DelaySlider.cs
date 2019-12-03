@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DelaySlider : MonoBehaviour
 {
     Slider slider;
+    public float FadeSpeed = 10;
     float value = 1;
     float cooldown = 0;
     bool IsCatching = false;
@@ -33,7 +34,7 @@ public class DelaySlider : MonoBehaviour
             {
                 if (IsCatching)
                 {
-                    slider.value -= (slider.maxValue / 10) * Time.deltaTime;
+                    slider.value -= (slider.maxValue / FadeSpeed) * Time.deltaTime;
                     if(slider.value < value)
                     {
                         slider.value = value;
