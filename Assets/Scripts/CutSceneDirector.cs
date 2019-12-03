@@ -46,7 +46,7 @@ public class CutSceneDirector : MonoBehaviour
         BlackPanel.DOColor(new Color(0, 0, 0, 1), 0.5f);
         yield return new WaitForSeconds(1.75f);
         BossScenePlayer.SetActive(true);
-        MainCamera.enabled = false;
+        MainCamera.gameObject.SetActive(false);
         CameraThree.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         CameraThree.transform.DOMove(new Vector3(-164.42f, 5.28f, 34f), 8).SetEase(Ease.InCubic);
@@ -74,7 +74,7 @@ public class CutSceneDirector : MonoBehaviour
         yield return new WaitForSeconds(3.5f);
         Boss.SetActive(true);
         CameraFive.SetActive(false);
-        MainCamera.enabled = true;
+        MainCamera.gameObject.SetActive(true);
         BlackPanel.DOColor(new Color(0, 0, 0, 0), 2f);
         BossScenePlayer.SetActive(false);
         yield return new WaitForSeconds(0.1f);
