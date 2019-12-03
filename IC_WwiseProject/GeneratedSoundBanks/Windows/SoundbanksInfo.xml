@@ -35,6 +35,7 @@
 				<Event Id="2184892218" Name="SwordAttack2" ObjectPath="\Events\Sword\SwordAttack2" DurationType="OneShot" DurationMin="0.366562" DurationMax="0.366562"/>
 				<Event Id="4291874175" Name="SwordPowerAttack" ObjectPath="\Events\Sword\SwordPowerAttack" DurationType="OneShot" DurationMin="0.254059" DurationMax="0.325690"/>
 				<Event Id="2041519613" Name="TorchFire" ObjectPath="\Events\Props\TorchFire" MaxAttenuation="80.000000" DurationType="Infinite"/>
+				<Event Id="2721851678" Name="UI_Found" ObjectPath="\Events\UI\UI_Found" DurationType="OneShot" DurationMin="7.036520" DurationMax="7.036520"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="3812532" Language="SFX">
@@ -96,6 +97,10 @@
 				<File Id="1039368945" Language="SFX">
 					<ShortName>Sword_swing2.wav</ShortName>
 					<Path>SFX\Sword_swing2_10C4C929.wem</Path>
+				</File>
+				<File Id="1054454763" Language="SFX">
+					<ShortName>Uisound3.wav</ShortName>
+					<Path>SFX\Uisound3_10C4C929.wem</Path>
 				</File>
 				<File Id="1065511772" Language="SFX">
 					<ShortName>walk7.wav</ShortName>

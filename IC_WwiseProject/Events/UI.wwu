@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{0469DF2F-0E24-4753-A39B-978F702FCF90}" SchemaVersion="94">
+	<Events>
+		<WorkUnit Name="UI" ID="{0469DF2F-0E24-4753-A39B-978F702FCF90}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="UI_Found" ID="{A8E13BA7-FBA1-4F3C-AEC2-4D3D00ACCCC2}">
+					<ChildrenList>
+						<Action Name="" ID="{72F24A16-77F1-4244-9F04-82BBB2C1329F}" ShortID="538639756">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Uisound3" ID="{90E63E71-147E-4107-8105-0C6A0B858BFD}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
