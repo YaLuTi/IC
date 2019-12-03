@@ -63,8 +63,13 @@ public class ItemBasic : MonoBehaviour
                 PlayerBackpackData.HealthAmount += 3;
                 Destroy(this.gameObject);
                 break;
+            case 4:
+                PlayerBackpackData.SecondWeapon = true;
+                Destroy(this.gameObject);
+                break;
             case 5:
-                player.GetComponent<PlayerWeaponController>().ChangeWeapon(TestChangeWeaponFast);
+                player.GetComponent<PlayerWeaponController>().ChangeWeapon(TestChangeWeaponFast, 1);
+                PlayerBackpackData.FirstWeapon = true;
                 Destroy(this.gameObject);
                 break;
             default:

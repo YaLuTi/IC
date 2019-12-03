@@ -92,7 +92,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attacking: 0
-  AttackDamage: 1
+  IsPlayer: 1
+  IsEnemy: 0
+  AttackDamage: 2.5
   DestroyTime: 3
   HitParticle: {fileID: 1030006944463454, guid: ea8c5862d6030b340ba9afb33cc6e89e,
     type: 3}
@@ -109,5 +111,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.00032650965, y: 0.0015821734, z: 0.008970564}
-  m_Center: {x: -7.276007e-12, y: -2.328307e-10, z: 0.0035075832}
+  m_Size: {x: 0.00032650965, y: 0.0015821734, z: 0.010749261}
+  m_Center: {x: 0, y: -2.2351741e-10, z: 0.0043969303}
