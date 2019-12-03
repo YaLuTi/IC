@@ -934,8 +934,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155a3d29d17913540921a098385938f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartTime: 0
-  EndTime: 1
+  StartTime: 0.1
+  EndTime: 0.9
 --- !u!114 &114937231335025786
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -3760,7 +3760,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400104, guid: bbc63157ab4790c43928f489ee9bd9d8, type: 3}
-  m_Tag: 
+  m_Tag: Damaged
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 

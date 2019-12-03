@@ -8,6 +8,9 @@ public class CutSceneDirector : MonoBehaviour
 {
     GameObject UI;
     public Camera MainCamera;
+    public GameObject Player;
+    public GameObject Cine;
+    public static bool IsOnMovie = false;
     [Header("OpenScene")]
     public GameObject CameraOne;
     public GameObject CameraTwo;
@@ -16,7 +19,10 @@ public class CutSceneDirector : MonoBehaviour
     [Header("Boss Scene")]
     public GameObject CameraThree;
     public GameObject CameraFour;
+    public GameObject CameraFive;
+    public AK.Wwise.Event BossSound;
     public GameObject BossScenePlayer;
+    public GameObject Boss;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,8 +42,10 @@ public class CutSceneDirector : MonoBehaviour
 
     IEnumerator BossScene()
     {
+        IsOnMovie = true;
         BlackPanel.DOColor(new Color(0, 0, 0, 1), 0.5f);
         yield return new WaitForSeconds(1.75f);
+        BossScenePlayer.SetActive(true);
         MainCamera.enabled = false;
         CameraThree.SetActive(true);
         yield return new WaitForSeconds(0.5f);
@@ -46,16 +54,37 @@ public class CutSceneDirector : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         BossScenePlayer.GetComponent<Animator>().SetTrigger("Pray");
         yield return new WaitForSeconds(5f);
-        CameraFour.transform.DOMove(new Vector3(-163.98f, 5.94f, 32.258f), 12f).SetEase(Ease.InCubic);
-        CameraFour.transform.DORotate(new Vector3(-5.051f, -90f, 0), 12).SetEase(Ease.InCubic);
+        CameraFour.transform.DOMove(new Vector3(-163.98f, 5.94f, 32.258f), 12f).SetEase(Ease.InSine);
+        CameraFour.transform.DORotate(new Vector3(-5.051f, -90f, 0), 12).SetEase(Ease.InSine);
         CameraThree.SetActive(false);
         CameraFour.SetActive(true);
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(9f);
+        BossSound.Post(gameObject);
+        yield return new WaitForSeconds(1f);
+        CameraFour.SetActive(false);
+        CameraFive.SetActive(true);
+        CameraFive.transform.DOMove(new Vector3(-168.249f, 5.55f, 31.58f), 4f).SetEase(Ease.InOutSine);
+        BossScenePlayer.GetComponent<Animator>().SetTrigger("Stand");
+        CameraFive.transform.DORotate(new Vector3(0, 86.23f, 0), 4f).SetEase(Ease.InOutSine);
+        yield return new WaitForSeconds(3.5f);
+        BlackPanel.DOColor(new Color(0, 0, 0, 1), 1f);
+        Player.transform.position = new Vector3(-166.97f, 3.751f, 32.2f);
+        Player.transform.eulerAngles = new Vector3(0, -270, 0);
+        Cine.transform.eulerAngles = new Vector3(13, 90, 0);
+        yield return new WaitForSeconds(3.5f);
+        Boss.SetActive(true);
+        CameraFive.SetActive(false);
+        MainCamera.enabled = true;
+        BlackPanel.DOColor(new Color(0, 0, 0, 0), 2f);
+        BossScenePlayer.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
+        IsOnMovie = false;
         yield return 0;
     }
 
     IEnumerator OpenScene()
     {
+        IsOnMovie = true;
         CameraOne.transform.DOMove(new Vector3(32.11f, 0.855f, 15.917f), 10f).SetEase(Ease.InOutSine);
         yield return new WaitForSecondsRealtime(9.5f);
         CameraOne.SetActive(false);

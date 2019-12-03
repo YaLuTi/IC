@@ -59,6 +59,20 @@ public class PlayerMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (CutSceneDirector.IsOnMovie)
+        {
+
+            m_Animator.SetFloat("Speed", 0, 0.1f, Time.deltaTime);
+            m_Animator.SetFloat("SpeedAmount", 0, 0.1f, Time.deltaTime);
+
+            m_Animator.SetFloat("Turn", 0, 0.25f, Time.deltaTime);
+            m_Animator.SetBool("IsLock", IsLock);
+            m_Animator.SetFloat("X", 0, 0.2f, Time.deltaTime);
+            m_Animator.SetFloat("Y", 0, 0.2f, Time.deltaTime);
+            m_Animator.SetBool("Focus", cameraRotate.IsFocus);
+            return;
+        }
+        
         animatorStateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
         if (cameraRotate.IsLock)
         {

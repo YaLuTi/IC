@@ -42,6 +42,7 @@ public class NewPlayerLongSword : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (CutSceneDirector.IsOnMovie) return;
         Value();
 
         if (!animator.GetBool("IsOnCombo"))

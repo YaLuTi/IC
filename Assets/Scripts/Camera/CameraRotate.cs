@@ -60,6 +60,7 @@ public class CameraRotate : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (CutSceneDirector.IsOnMovie) return;
         if (Input.GetButtonDown("R3"))
         {
             if (IsLock)

@@ -119,6 +119,7 @@ public class PlayerCombatEventer : MonoBehaviour
             // Debug.Log("C1");
             if (animationEvent.InterruptLevel == 3)
             {
+                if (PlayingEvent.Tag == "Dodge") playerMove.Rotateable = true;
                 PlayingEvent = animationEvent;
                 NextEvent = empty;
                 if (PlayingEvent.AnimatorTriggerName != null) animator.SetTrigger(PlayingEvent.AnimatorTriggerName);

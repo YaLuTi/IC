@@ -148,11 +148,11 @@ public class PlayerHP : MonoBehaviour {
         }
     }
 
-    void SetInvulnerability()
+    public void SetInvulnerability()
     {
         Invulnerability = true;
     }
-    void ReSetInvulnerability()
+    public void ReSetInvulnerability()
     {
         Invulnerability = false;
     }

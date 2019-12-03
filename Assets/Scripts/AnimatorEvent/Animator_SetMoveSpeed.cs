@@ -22,6 +22,11 @@ public class Animator_SetMoveSpeed : StateMachineBehaviour
             playerMove = animator.gameObject.GetComponent<PlayerMove>();
             playerMove.MoveSpeedMultiplier = 1;
         }
-        
+        if (animator.tag == "Damaged")
+        {
+            playerMove = animator.gameObject.GetComponent<PlayerMove>();
+            playerMove.MoveSpeedMultiplier = 1;
+        }
+
     }
 }

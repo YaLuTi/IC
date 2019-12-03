@@ -32,7 +32,9 @@ public class PlayerWeaponController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
+        if (CutSceneDirector.IsOnMovie) return;
         if (Input.GetButtonDown("JoyStickT"))
         {
             if (combatEventer.SetAnimation(ChangeWeaponEvent))
