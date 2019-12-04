@@ -42,14 +42,14 @@ public class CutSceneDirector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*if (!PlayerBackpackData.FirstDeath)
+        if (!PlayerBackpackData.FirstDeath)
         {
             StartCoroutine(OpenScene());
         }
         else
         {
             StartCoroutine(NormalDeath());
-        }*/
+        }
         // StartCoroutine(End());
     }
 
