@@ -27,7 +27,23 @@
 				<StateGroup Name="New_State_Group" ID="{8B2F49B0-4B14-4FE1-80F8-8B6EBB09A8CE}">
 					<ChildrenList>
 						<State Name="None" ID="{CD5CF3A0-1C7D-479A-8EBB-26309CEB7343}"/>
+						<State Name="BossOff" ID="{A4B0FF95-CF2C-422F-BE32-4A3C89D2DAA4}"/>
+						<State Name="BossOn" ID="{773893FF-C854-434D-93C2-17DD1B40BD6F}"/>
 					</ChildrenList>
+					<TransitionList>
+						<Transition>
+							<StartState Name="BossOff" ID="{A4B0FF95-CF2C-422F-BE32-4A3C89D2DAA4}"/>
+							<EndState Name="BossOn" ID="{773893FF-C854-434D-93C2-17DD1B40BD6F}"/>
+							<Time>1</Time>
+							<IsShared>false</IsShared>
+						</Transition>
+						<Transition>
+							<StartState Name="BossOn" ID="{773893FF-C854-434D-93C2-17DD1B40BD6F}"/>
+							<EndState Name="BossOff" ID="{A4B0FF95-CF2C-422F-BE32-4A3C89D2DAA4}"/>
+							<Time>4</Time>
+							<IsShared>false</IsShared>
+						</Transition>
+					</TransitionList>
 				</StateGroup>
 			</ChildrenList>
 		</WorkUnit>

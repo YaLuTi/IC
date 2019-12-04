@@ -39,6 +39,31 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Boss_Stop" ID="{5DE20D4B-8F55-44A3-8DAD-2BDC44CECC4E}">
+					<ChildrenList>
+						<Action Name="" ID="{3664DAD4-0929-4CA7-9955-DADB9895C383}" ShortID="252396080">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="273_loop3_dream-comes-true_0016" ID="{E325D6EF-FF73-458E-9B91-1EFC6E4AEC33}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="EndSong_Start" ID="{853B13FB-52E1-4DC7-A4F9-1FAED87E8111}">
+					<ChildrenList>
+						<Action Name="" ID="{F1F22F5D-BB78-4D36-9AD6-F44353EBA6B0}" ShortID="223684714">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="_Without_God_-_David_Fesliyan" ID="{A1347706-B35A-4E57-BCA0-CF13A9C990FC}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

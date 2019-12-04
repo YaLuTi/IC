@@ -704,6 +704,27 @@
 							<AudioFile>273_loop3_dream-comes-true_0016.wav</AudioFile>
 						</AudioFileSource>
 					</ChildrenList>
+					<StateInfo>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="New_State_Group" ID="{8B2F49B0-4B14-4FE1-80F8-8B6EBB09A8CE}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="BossOff" ID="{A4B0FF95-CF2C-422F-BE32-4A3C89D2DAA4}"/>
+								<CustomState Name="" ID="{AE8254F8-56C9-46C5-9CDB-EC7355C2109A}" ShortID="240250316">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64" Value="-108"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="BossOn" ID="{773893FF-C854-434D-93C2-17DD1B40BD6F}"/>
+								<CustomState Name="" ID="{60983B13-BFBD-4A4F-9F73-94FFED444F1A}" ShortID="296983452"/>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
 					<ActiveSourceList>
 						<ActiveSource Name="273_loop3_dream-comes-true_0016" ID="{705622E1-3401-4C50-9158-C4B7A6401FCA}" Platform="Linked"/>
 					</ActiveSourceList>
@@ -1429,6 +1450,37 @@
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="AxeSwing2" ID="{0EFCC1BE-A735-4299-ADAF-7D606F650D64}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="bossdead" ID="{3E27AD32-F677-46B9-A8DD-64522D276AA1}" ShortID="508032977">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>-380</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-7</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="bossdead" ID="{A830DC07-1185-4272-A5D2-DBFD1FCDE651}" ShortID="122905015">
+							<Language>SFX</Language>
+							<AudioFile>bossdead.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="bossdead" ID="{A830DC07-1185-4272-A5D2-DBFD1FCDE651}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>

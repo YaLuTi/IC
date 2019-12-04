@@ -2,7 +2,9 @@ Event	ID	Name			Wwise Object Path	Notes
 	251527805	GolemBlood			\Monster\GolemBlood	
 	412471812	PlayerStep			\Player\PlayerStep	
 	580146960	BossFight			\BGM\BossFight	
+	1057600524	BossDead			\Monster\BossDead	
 	1537521749	GolemStep			\Monster\GolemStep	
+	1542298081	Boss_Stop			\Default Work Unit\Boss_Stop	
 	1656947812	PlayerDeath			\Player\PlayerDeath	
 	1811523627	Main_event			\Default Work Unit\Main_event	
 	1906236073	Main_Pause			\Default Work Unit\Main_Pause	
@@ -14,21 +16,27 @@ Event	ID	Name			Wwise Object Path	Notes
 	2555063238	BossAttack			\Monster\BossAttack	
 	2721851678	UI_Found			\UI\UI_Found	
 	2727481903	PotBreak			\Props\PotBreak	
+	2896871506	EndSong_Start			\Default Work Unit\EndSong_Start	
 	2985974755	Boss_Start			\Default Work Unit\Boss_Start	
 	3764932550	BarrelBreak			\Props\BarrelBreak	
 	4055688079	PlayerDamaged			\Player\PlayerDamaged	
 	4291874175	SwordPowerAttack			\Sword\SwordPowerAttack	
 
 State Group	ID	Name			Wwise Object Path	Notes
+	2012657067	New_State_Group			\Default Work Unit\New_State_Group	
 	3244577782	AmbientDungeonState			\Default Work Unit\AmbientDungeonState	
 
 State	ID	Name	State Group			Notes
+	0	None	New_State_Group			
+	1161640753	BossOff	New_State_Group			
+	1541015973	BossOn	New_State_Group			
 	0	None	AmbientDungeonState			
 	930712164	Off	AmbientDungeonState			
 	1651971902	On	AmbientDungeonState			
 
 Custom State	ID	Name	State Group	Owner		Notes
 	169406831	Off	AmbientDungeonState	\Actor-Mixer Hierarchy\Default Work Unit\ambientdungeon		
+	240250316	BossOff	New_State_Group	\Actor-Mixer Hierarchy\Default Work Unit\273_loop3_dream-comes-true_0016		
 
 Effect plug-ins	ID	Name	Type				Notes
 	148620930	Wwise_Time_Stretch_(Custom)	Wwise Time Stretch			
@@ -47,6 +55,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	4103360	BloodSound	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\BloodSound_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BloodSound		137836
 	63831569	PotBreak1	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\PotBreak1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PotBreak\PotBreak1		262168
 	95817455	AxeSwing	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\AxeSwing_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BossAxeSwing\AxeSwing		232860
+	122905015	bossdead	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\bossdead_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\bossdead		491464
 	195242195	piano_string_low_calm_pedal_impact_01	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\piano_string_low_calm_pedal_impact_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\piano_string_low_calm_pedal_impact_01		1972436
 	231745951	Sword_swing3	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\Sword_swing3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sword\Sword_swing3		51392
 	294678461	swordpowerattack	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\swordpowerattack_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\SwordPowerAttack\swordpowerattack		49696
@@ -54,6 +63,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	436243836	walk5	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\walk5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerStep\walk5		170980
 	453698648	FireExplosion3	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\FireExplosion3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\FireExplosion3		194028
 	476979142	GolemBloodSound	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\GolemBloodSound_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\GolemBlood\GolemBloodSound		181344
+	534660860	_Without_God_-_David_Fesliyan	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\_Without_God_-_David_Fesliyan_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\_Without_God_-_David_Fesliyan		32896576
 	614328910	BarrelBreak2	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\BarrelBreak2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BarrelSound\BarrelBreak2		162332
 	647973800	walk6	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\walk6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerStep\walk6		160924
 	673948184	ambientdungeon	D:\Unity\ZenTi\IC_WwiseProject\.cache\Windows\SFX\ambientdungeon_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\ambientdungeon		41780772

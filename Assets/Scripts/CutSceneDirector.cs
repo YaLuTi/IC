@@ -30,20 +30,27 @@ public class CutSceneDirector : MonoBehaviour
     public GameObject CameraFour;
     public GameObject CameraFive;
     public AK.Wwise.Event BossSound;
+    public AK.Wwise.Event BossMusic;
     public GameObject BossScenePlayer;
     public GameObject CutSceneBoss;
     public GameObject Boss;
+    [Header("End Scene")]
+    public RectTransform EndingText;
+    public Light light;
+    public AK.Wwise.Event EndingSong;
+
     // Start is called before the first frame update
     void Start()
     {
-        if (!PlayerBackpackData.FirstDeath)
+        /*if (!PlayerBackpackData.FirstDeath)
         {
             StartCoroutine(OpenScene());
         }
         else
         {
             StartCoroutine(NormalDeath());
-        }
+        }*/
+        // StartCoroutine(End());
     }
 
     // Update is called once per frame
@@ -52,9 +59,31 @@ public class CutSceneDirector : MonoBehaviour
         
     }
 
+    public void _End()
+    {
+        StartCoroutine(End());
+    }
+
     public void _BossScene()
     {
         StartCoroutine(BossScene());
+    }
+
+    IEnumerator End()
+    {
+        BlackPanel.DOColor(new Color(1, 1, 1, 1), 10f);
+        Good_UI.SetActive(false);
+        while (light.intensity < 18)
+        {
+            light.intensity += 0.2f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        yield return new WaitForSeconds(0.5f);
+        BlackPanel.DOColor(new Color(0, 0, 0, 1), 0.5f);
+        EndingSong.Post(gameObject);
+        yield return new WaitForSeconds(2.5f);
+        EndingText.DOAnchorPosY(1325, 75);
+        yield return 0;
     }
 
     IEnumerator NormalDeath()
@@ -106,6 +135,7 @@ public class CutSceneDirector : MonoBehaviour
         BlackBar.SetActive(false);
         CameraFive.SetActive(false);
         MainCamera.gameObject.SetActive(true);
+        BossMusic.Post(gameObject);
         BlackPanel.DOColor(new Color(0, 0, 0, 0), 2f);
         BossScenePlayer.SetActive(false);
         yield return new WaitForSeconds(0.1f);
@@ -154,7 +184,7 @@ public class CutSceneDirector : MonoBehaviour
         MainCamera.gameObject.SetActive(true);
         ActingPlayer.SetActive(false);
         BlackPanel.DOColor(new Color(0, 0, 0, 0), 2f);
-        IsOnMovie = false;
+         IsOnMovie = false;
         BlackBar.SetActive(false);
         Good_UI.SetActive(true);
         yield return new WaitForSecondsRealtime(0.7f);

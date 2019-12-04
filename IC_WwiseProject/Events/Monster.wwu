@@ -47,6 +47,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="BossDead" ID="{FC36BA00-CA76-45B1-BF10-7521726B0868}">
+					<ChildrenList>
+						<Action Name="" ID="{AAA736C1-6AD3-4453-9D60-A0EC75A1EFA7}" ShortID="510577957">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="bossdead" ID="{3E27AD32-F677-46B9-A8DD-64522D276AA1}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

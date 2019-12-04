@@ -58,6 +58,10 @@ public class Monster_Golem : TestMonster {
     public GameObject ComboParticle_t;
     bool IsComboParticle = false;
 
+    public GameObject End;
+    public AK.Wwise.Event DeadSound;
+    public AK.Wwise.State CloseMusic;
+
     [Header("Sound Assets")]
     public AudioAssets StepSound;
     public AudioAssets AttackLowSound;
@@ -338,6 +342,9 @@ public class Monster_Golem : TestMonster {
     protected override void e_Death()
     {
         base.e_Death();
+        End.SetActive(true);
+        DeadSound.Post(gameObject);
+        CloseMusic.SetValue();
     }
 
     protected override void e_Patrol()
