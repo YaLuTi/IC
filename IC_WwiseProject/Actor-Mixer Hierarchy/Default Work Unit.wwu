@@ -1483,6 +1483,46 @@
 						<ActiveSource Name="bossdead" ID="{A830DC07-1185-4272-A5D2-DBFD1FCDE651}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
+				<Sound Name="StartMenuBGM" ID="{BC1F3894-A6FF-41E7-8189-39838243E459}" ShortID="149869384">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DC9B2092-B3D5-4EAC-A2C4-3ECC8A11FE51}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{73990A5B-99D4-4CEE-BE53-2AD9A9F5DAED}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="StartMenuBGM" ID="{80A7AA19-29FF-4851-9320-99D0B763D8A2}" ShortID="1050418550">
+							<Language>SFX</Language>
+							<AudioFile>StartMenuBGM.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<StateInfo>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="TitleStateGroup" ID="{769A0AD8-08BE-4D0D-B092-2BDDA57E9311}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="TitleOff" ID="{12424EF4-E3E0-46BC-9DBA-757C1AFDFB71}"/>
+								<CustomState Name="" ID="{A6B9BE07-18F9-4C20-8653-0305859847D0}" ShortID="939639742">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64" Value="-108"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="TitleOn" ID="{346368EC-E8E9-4D49-BF8C-148FDB75AD99}"/>
+								<CustomState Name="" ID="{F6F92485-371A-4C85-8823-E9C99D4C892F}" ShortID="936040641"/>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
+					<ActiveSourceList>
+						<ActiveSource Name="StartMenuBGM" ID="{80A7AA19-29FF-4851-9320-99D0B763D8A2}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

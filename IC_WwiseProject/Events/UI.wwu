@@ -14,6 +14,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="UI_Button" ID="{2B31CE19-98E7-4EBC-B4BA-7B48A00AEB44}">
+					<ChildrenList>
+						<Action Name="" ID="{A0F7B7F9-BCC3-476B-BC16-235CAA24AAD0}" ShortID="301184376">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="AxeSwing" ID="{AB877A37-080E-4668-8F4B-9FC3247527A8}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -21,7 +21,6 @@ public class Monster_AnimatorRotateSet : StateMachineBehaviour
 
         if (animatorStateInfo.normalizedTime > EndTime)
         {
-            Debug.Log("D");
             monster.RotateAble = true;
         }
     }

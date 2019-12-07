@@ -5,8 +5,12 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
-public class TitleUI : MonoBehaviour {
+public class TitleUI : MonoBehaviour
+{
 
+    public AK.Wwise.Event MenuMusic;
+    public AK.Wwise.State Stop;
+    public AK.Wwise.Event ButtonClick;
     public Image panel;
     public Image BlackPanel;
     public AnimationCurve animationCurve;
@@ -16,19 +20,22 @@ public class TitleUI : MonoBehaviour {
     float time;
     AudioSource audioSource;
     bool In = false;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         BlackPanel.color = new Color(0, 0, 0, 1);
         audioSource = GetComponent<AudioSource>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        MenuMusic.Post(gameObject);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
         if (Input.anyKey && !In)
         {
             In = true;
-            audioSource.Play();
+            ButtonClick.Post(gameObject);
         }
 
         if (!In)
@@ -59,17 +66,17 @@ public class TitleUI : MonoBehaviour {
                 }
             }
         }
-	}
+    }
 
     IEnumerator DisplayLoadingScreen(string sceneName)////(1)
     {
         yield return new WaitForSecondsRealtime(1.5f);
-
-        while(BlackPanel.color.a < 1)
+        Stop.SetValue();
+        while (BlackPanel.color.a < 1)
         {
             Color c = BlackPanel.color;
             c.a += (1 - c.a) * 0.05f;
-            if(c.a > 0.9f)
+            if (c.a > 0.9f)
             {
                 c.a = 1;
             }

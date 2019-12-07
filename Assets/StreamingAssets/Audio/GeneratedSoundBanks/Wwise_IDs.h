@@ -15,20 +15,27 @@ namespace AK
     {
         static const AkUniqueID BARRELBREAK = 3764932550U;
         static const AkUniqueID BOSS_START = 2985974755U;
+        static const AkUniqueID BOSS_STOP = 1542298081U;
         static const AkUniqueID BOSSATTACK = 2555063238U;
+        static const AkUniqueID BOSSATTACK2 = 2220222592U;
+        static const AkUniqueID BOSSDEAD = 1057600524U;
         static const AkUniqueID BOSSFIGHT = 580146960U;
+        static const AkUniqueID ENDSONG_START = 2896871506U;
         static const AkUniqueID GOLEMBLOOD = 251527805U;
         static const AkUniqueID GOLEMSTEP = 1537521749U;
         static const AkUniqueID MAIN_EVENT = 1811523627U;
+        static const AkUniqueID MAIN_PAUSE = 1906236073U;
         static const AkUniqueID OPENDOOR = 2122995345U;
         static const AkUniqueID PLAYERDAMAGED = 4055688079U;
         static const AkUniqueID PLAYERDEATH = 1656947812U;
         static const AkUniqueID PLAYERSTEP = 412471812U;
         static const AkUniqueID POTBREAK = 2727481903U;
+        static const AkUniqueID START_TITLE = 863404872U;
         static const AkUniqueID SWORDATTACK1 = 2184892217U;
         static const AkUniqueID SWORDATTACK2 = 2184892218U;
         static const AkUniqueID SWORDPOWERATTACK = 4291874175U;
         static const AkUniqueID TORCHFIRE = 2041519613U;
+        static const AkUniqueID UI_BUTTON = 2505162442U;
         static const AkUniqueID UI_FOUND = 2721851678U;
     } // namespace EVENTS
 
@@ -51,8 +58,21 @@ namespace AK
 
             namespace STATE
             {
+                static const AkUniqueID BOSSOFF = 1161640753U;
+                static const AkUniqueID BOSSON = 1541015973U;
             } // namespace STATE
         } // namespace NEW_STATE_GROUP
+
+        namespace TITLESTATEGROUP
+        {
+            static const AkUniqueID GROUP = 3635285305U;
+
+            namespace STATE
+            {
+                static const AkUniqueID TITLEOFF = 888557356U;
+                static const AkUniqueID TITLEON = 558475718U;
+            } // namespace STATE
+        } // namespace TITLESTATEGROUP
 
     } // namespace STATES
 

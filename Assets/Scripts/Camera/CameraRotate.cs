@@ -5,7 +5,8 @@ using Cinemachine;
 using DG.Tweening;
 using UnityEngine.UI;
 
-public class CameraRotate : MonoBehaviour {
+public class CameraRotate : MonoBehaviour
+{
 
     public GameObject followObj;
     public GameObject LockObj;
@@ -37,17 +38,20 @@ public class CameraRotate : MonoBehaviour {
     private Vector3 velocity = Vector3.zero;
     Vector3 rotateVector = new Vector3(); CinemachineFramingTransposer transposer;
 
-    void Start ()
+    void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        camera = GetComponent<Camera>();
         if (followObj == null)
         {
             followObj = GameObject.FindGameObjectWithTag("Player");
         }
-        if(camera == null)
+        if (camera == null)
         {
             camera = GameObject.FindGameObjectWithTag("Camera").GetComponent<Camera>();
         }
-        if(canvas == null)
+        if (canvas == null)
         {
             canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<RectTransform>();
         }
@@ -56,9 +60,9 @@ public class CameraRotate : MonoBehaviour {
         transposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
         this.uiOffset = new Vector2((float)canvas.sizeDelta.x / 2f, (float)canvas.sizeDelta.y / 2f);
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         if (CutSceneDirector.IsOnMovie) return;
         if (Input.GetButtonDown("R3"))
@@ -80,7 +84,7 @@ public class CameraRotate : MonoBehaviour {
 
                 if (MonstersList.Length >= 1)
                 {
-                    for(int i = 0; i < MonstersList.Length; i++)
+                    for (int i = 0; i < MonstersList.Length; i++)
                     {
                         Vector3 v = MonstersList[i].transform.position;
                         v.y += 1;
@@ -142,12 +146,12 @@ public class CameraRotate : MonoBehaviour {
 
     void NomalCameraMove()
     {
-        float h = Input.GetAxis("CameraHorizontal");
+        float h = Input.GetAxis("CameraHorizontal") + Input.GetAxis("Mouse X");
         /*if(h == 0)
         {
             h = Input.GetAxis("Mouse X");
         }*/
-        float v = Input.GetAxis("CameraVertical");
+        float v = Input.GetAxis("CameraVertical") + Input.GetAxis("Mouse Y");
         float e = QuickMath.Clamp0360(transform.eulerAngles.x);
         if (e + v * VerticalRotateSpeed > 90 && e + v * VerticalRotateSpeed < 270) v = 0;
         /*if (v == 0)
@@ -171,8 +175,8 @@ public class CameraRotate : MonoBehaviour {
 
     void LockCameraMove()
     {
-        float h = Input.GetAxis("CameraHorizontal");
-        float v = Input.GetAxis("CameraVertical");
+        float h = Input.GetAxis("CameraHorizontal") + Input.GetAxis("Mouse X");
+        float v = Input.GetAxis("CameraVertical") + Input.GetAxis("Mouse Y");
 
         float angle = Mathf.Atan2(LockObj.transform.position.z - followObj.transform.position.z, LockObj.transform.position.x - followObj.transform.position.x) * 180 / Mathf.PI;
 

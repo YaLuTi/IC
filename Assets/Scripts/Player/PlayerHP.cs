@@ -5,7 +5,8 @@ using UnityEngine.UI;
 using XInputDotNetPure;
 
 
-public class PlayerHP : MonoBehaviour {
+public class PlayerHP : MonoBehaviour
+{
 
     Animator animator;
     public bool Invulnerability = false; // Remember change this to private
@@ -16,6 +17,8 @@ public class PlayerHP : MonoBehaviour {
     PlayerCombatEventer playerCombatEventer;
     public AnimationEvent DamagedEvent;
     public AnimationEvent DeathEvent;
+
+    public GameObject OffUI;
 
     [Header("Value")]
     public float MaxHP = 10;
@@ -31,27 +34,29 @@ public class PlayerHP : MonoBehaviour {
     float SPRegenCount;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         animator = GetComponent<Animator>();
         playerCombatEventer = GetComponent<PlayerCombatEventer>();
-
+        IsDeath = false;
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         if (!animator.GetBool("IsHealing"))
         {
             HealthPotion.SetActive(false);
         }
-        if(SPRegenCount > SPRegenCoolDown && SP < MaxSP)
+        if (SPRegenCount > SPRegenCoolDown && SP < MaxSP)
         {
             SP += SPRegenSpeed * Time.deltaTime;
-            if(SP >= MaxSP)
+            if (SP >= MaxSP)
             {
                 SP = MaxSP;
             }
-        }else if (SPRegenCount < SPRegenCoolDown)
+        }
+        else if (SPRegenCount < SPRegenCoolDown)
         {
             SPRegenCount += 1 * Time.deltaTime;
         }
@@ -77,9 +82,10 @@ public class PlayerHP : MonoBehaviour {
         Instantiate(DamagedParticle, transform.position, Quaternion.identity);
         DamagedSoundEvent.Post(gameObject);
         HP -= damage;
-        if(HP < 0)
+        if (HP < 0)
         {
             IsDeath = true;
+            OffUI.SetActive(false);
             PlayerBackpackData.FirstDeath = true;
             playerCombatEventer.SetAnimation(DeathEvent);
             GameObject.FindGameObjectWithTag("Death").GetComponent<DeathUI>()._DeathEvent();
@@ -92,11 +98,11 @@ public class PlayerHP : MonoBehaviour {
 
     public void Healed(float heal)
     {
-        if(HP < MaxHP)
+        if (HP < MaxHP)
         {
             HP += heal * Time.deltaTime;
         }
-        if(HP >= MaxHP)
+        if (HP >= MaxHP)
         {
             HP = MaxHP;
         }
@@ -104,7 +110,7 @@ public class PlayerHP : MonoBehaviour {
 
     public void ExpendSP(float sp)
     {
-        if(SP - sp >= 0)
+        if (SP - sp >= 0)
         {
             SP -= sp;
             SPRegenCount = 0;

@@ -50,7 +50,12 @@ public class DeathUI : MonoBehaviour
         }
         stop.Post(gameObject);
        yield return new WaitForSecondsRealtime(2f);
-        SceneManager.LoadScene(1);
+        AsyncOperation async = SceneManager.LoadSceneAsync("SampleScene");////(2)
+        while (!async.isDone)////(3)
+        {
+            Debug.Log(async.progress * 100);
+            yield return null;
+        }
         yield return 0;
     }
 }

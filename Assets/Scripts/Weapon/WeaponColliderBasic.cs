@@ -65,6 +65,7 @@ public class WeaponColliderBasic : MonoBehaviour {
             }
             if (other.gameObject.tag == "Player")
             {
+                Debug.Log("A");
                 hitObject.Add(other.gameObject.transform.root);
                 if (other.GetComponent<PlayerHP>() && IsEnemy)
                 {

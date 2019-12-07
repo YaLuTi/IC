@@ -5,7 +5,10 @@ using UnityEngine;
 public class FPSLock : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         Application.targetFrameRate = 60;
     }
 	

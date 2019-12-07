@@ -45,6 +45,27 @@
 						</Transition>
 					</TransitionList>
 				</StateGroup>
+				<StateGroup Name="TitleStateGroup" ID="{769A0AD8-08BE-4D0D-B092-2BDDA57E9311}">
+					<ChildrenList>
+						<State Name="None" ID="{924CDDB8-578B-46ED-BF9C-39011B12F6ED}"/>
+						<State Name="TitleOn" ID="{346368EC-E8E9-4D49-BF8C-148FDB75AD99}"/>
+						<State Name="TitleOff" ID="{12424EF4-E3E0-46BC-9DBA-757C1AFDFB71}"/>
+					</ChildrenList>
+					<TransitionList>
+						<Transition>
+							<StartState Name="TitleOff" ID="{12424EF4-E3E0-46BC-9DBA-757C1AFDFB71}"/>
+							<EndState Name="TitleOn" ID="{346368EC-E8E9-4D49-BF8C-148FDB75AD99}"/>
+							<Time>1</Time>
+							<IsShared>false</IsShared>
+						</Transition>
+						<Transition>
+							<StartState Name="TitleOn" ID="{346368EC-E8E9-4D49-BF8C-148FDB75AD99}"/>
+							<EndState Name="TitleOff" ID="{12424EF4-E3E0-46BC-9DBA-757C1AFDFB71}"/>
+							<Time>2.5</Time>
+							<IsShared>false</IsShared>
+						</Transition>
+					</TransitionList>
+				</StateGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</States>

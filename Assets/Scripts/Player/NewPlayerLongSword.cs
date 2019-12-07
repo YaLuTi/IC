@@ -68,7 +68,7 @@ public class NewPlayerLongSword : MonoBehaviour
                 return;
             }
         }
-        if(Input.GetAxis("DPadY") == 1 && !Drinking && !animator.GetBool("IsHealing"))
+        if (Input.GetButtonUp("JoyStickS") && !Drinking && !animator.GetBool("IsHealing"))
         {
             if (combatEventer.SetAnimation(Drink))
             {
@@ -78,7 +78,7 @@ public class NewPlayerLongSword : MonoBehaviour
             }
             return;
         }
-        else if(Input.GetAxis("DPadY") == 0)
+        else if (!Input.GetButtonUp("JoyStickS"))
         {
             Drinking = false;
         }
@@ -90,7 +90,7 @@ public class NewPlayerLongSword : MonoBehaviour
         {
             if (animator.GetBool("Focus"))
             {
-                if(combo == 0)
+                if (combo == 0)
                 {
                     if (combatEventer.SetAnimation(FocusAttack_One))
                     {
@@ -98,7 +98,7 @@ public class NewPlayerLongSword : MonoBehaviour
                         return;
                     }
                 }
-                else if(combo == 1)
+                else if (combo == 1)
                 {
                     if (combatEventer.SetAnimation(FocusAttack_Two))
                     {

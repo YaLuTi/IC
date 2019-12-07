@@ -39,6 +39,12 @@ public class CutSceneDirector : MonoBehaviour
     public Light light;
     public AK.Wwise.Event EndingSong;
 
+    public GameObject TextFive;
+    public GameObject TextSix;
+    public GameObject TextSeven;
+    public GameObject TextEight;
+    public GameObject TextNine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +77,7 @@ public class CutSceneDirector : MonoBehaviour
 
     IEnumerator End()
     {
+        IsOnMovie = true;
         BlackPanel.DOColor(new Color(1, 1, 1, 1), 10f);
         Good_UI.SetActive(false);
         while (light.intensity < 18)
@@ -82,6 +89,22 @@ public class CutSceneDirector : MonoBehaviour
         BlackPanel.DOColor(new Color(0, 0, 0, 1), 0.5f);
         EndingSong.Post(gameObject);
         yield return new WaitForSeconds(2.5f);
+        TextFive.SetActive(true);
+        yield return new WaitForSeconds(3.1f);
+        TextFive.SetActive(false);
+        TextSix.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+        TextSix.SetActive(false);
+        TextSeven.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+        TextSeven.SetActive(false);
+        TextEight.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        TextEight.SetActive(false);
+        TextNine.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        TextNine.SetActive(false);
+        yield return new WaitForSeconds(2f);
         EndingText.DOAnchorPosY(1325, 75);
         yield return 0;
     }

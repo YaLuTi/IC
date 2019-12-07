@@ -14,6 +14,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Start_Title" ID="{EDDF8650-716C-40F1-8B59-92570BEE3077}">
+					<ChildrenList>
+						<Action Name="" ID="{5E196CA1-B57D-4AE4-A42D-D88B9D74C241}" ShortID="716112089">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="StartMenuBGM" ID="{BC1F3894-A6FF-41E7-8189-39838243E459}" WorkUnitID="{14D6FAAF-B93B-4AFC-8CC6-27950B0B7660}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
