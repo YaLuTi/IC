@@ -37,5 +37,6 @@ public class DoorNeedOpen : MonoBehaviour
     {
         AkSoundEngine.PostEvent("OpenDoor", gameObject);
         door.transform.DOLocalRotate(new Vector3(0, 130, 0), 4f).SetEase(Ease.OutQuad);
+        Destroy(this.gameObject);
     }
 }

@@ -8,6 +8,7 @@ public class ItemBasic : MonoBehaviour
     public bool DeathEvent = false;
     GameObject player;
     public GameObject TestChangeWeaponFast;
+    public GameObject ActiveObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +66,7 @@ public class ItemBasic : MonoBehaviour
                 break;
             case 4:
                 PlayerBackpackData.SecondWeapon = true;
+                if (ActiveObj != null) ActiveObj.SetActive(true);
                 Destroy(this.gameObject);
                 break;
             case 5:

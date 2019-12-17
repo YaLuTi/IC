@@ -25,7 +25,7 @@ public class ProjectileDamage : MonoBehaviour
             Debug.Log(1);
             if (collision.gameObject.tag == "Player")
             {
-                collision.gameObject.GetComponent<PlayerHP>().Damaged(4);
+                collision.gameObject.GetComponent<PlayerHP>().Damaged(2.5f);
             }else if (collision.gameObject.tag == "Monster")
             {
                 Debug.Log("D");

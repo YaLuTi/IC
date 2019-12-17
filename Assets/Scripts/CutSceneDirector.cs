@@ -14,6 +14,7 @@ public class CutSceneDirector : MonoBehaviour
     public GameObject Cine;
     public GameObject Good_UI;
     public static bool IsOnMovie = false;
+    public bool SkipOpen;
     [Header("OpenScene")]
     public GameObject CameraOne;
     public GameObject CameraTwo;
@@ -34,6 +35,7 @@ public class CutSceneDirector : MonoBehaviour
     public GameObject BossScenePlayer;
     public GameObject CutSceneBoss;
     public GameObject Boss;
+    public GameObject BossSlider;
     [Header("End Scene")]
     public RectTransform EndingText;
     public Light light;
@@ -48,7 +50,7 @@ public class CutSceneDirector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!PlayerBackpackData.FirstDeath)
+        if (!PlayerBackpackData.FirstDeath && !SkipOpen)
         {
             StartCoroutine(OpenScene());
         }
@@ -111,6 +113,7 @@ public class CutSceneDirector : MonoBehaviour
 
     IEnumerator NormalDeath()
     {
+        ActingPlayer.SetActive(false);
         BlackPanel.DOColor(new Color(0, 0, 0, 1), 0f);
         BlackPanel.DOColor(new Color(0, 0, 0, 0), 0.5f);
         yield return 0;
@@ -153,6 +156,7 @@ public class CutSceneDirector : MonoBehaviour
         Cine.transform.eulerAngles = new Vector3(13, 90, 0);
         yield return new WaitForSeconds(3.5f);
         CutSceneBoss.SetActive(false);
+        BossSlider.SetActive(true);
         Boss.SetActive(true);
         Good_UI.SetActive(true);
         BlackBar.SetActive(false);

@@ -78,7 +78,8 @@ public class CameraRotate : MonoBehaviour
                 distanceList = new float[MonstersList.Length];
                 for (int i = 0; i < MonstersList.Length; i++)
                 {
-                    distanceList[i] = Vector3.Angle(transform.forward, (MonstersList[i].transform.position - transform.position).normalized);//(MonstersList[i].transform.position - transform.position).sqrMagnitude;
+                    Vector3 monsterPosition = MonstersList[i].transform.Find("Center").transform.position;
+                    distanceList[i] = Vector3.Angle(transform.forward, (monsterPosition - transform.position).normalized);//(MonstersList[i].transform.position - transform.position).sqrMagnitude;
                 }
                 System.Array.Sort(distanceList, MonstersList);
 
@@ -86,10 +87,17 @@ public class CameraRotate : MonoBehaviour
                 {
                     for (int i = 0; i < MonstersList.Length; i++)
                     {
-                        Vector3 v = MonstersList[i].transform.position;
+                        Vector3 v = MonstersList[i].transform.Find("Center").transform.position;
                         v.y += 1;
                         if (MonstersList[i].GetComponent<MonsterBasic>().IsDeath) continue;
-                        // if (Physics.Raycast(transform.position, ((v - transform.position).normalized), 15, LayerMask.GetMask("Collider"))) continue;
+                        RaycastHit hit;
+                        if (Physics.Raycast(transform.position, ((v - transform.position).normalized),out hit,Vector3.Distance(transform.position, v), LayerMask.GetMask("Collider")))
+                        {
+                            continue;
+                            if (Vector3.Distance(transform.position, MonstersList[i].transform.Find("Center").transform.position) < 1)
+                            {
+                            }
+                        }
                         if (Vector3.Angle(transform.forward, (MonstersList[i].transform.position - transform.position).normalized) < 90 / 2)
                         {
                             LockObj = MonstersList[i].transform.Find("Center").gameObject;

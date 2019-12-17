@@ -343,6 +343,7 @@ public class Monster_Golem : TestMonster {
     {
         base.e_Death();
         End.SetActive(true);
+        HPSlider.gameObject.SetActive(false);
         DeadSound.Post(gameObject);
         CloseMusic.SetValue();
     }
