@@ -120,9 +120,12 @@ public class Shadow_AI : TestMonster
     public override void Damaged(float damage, Vector3 p, Vector3 Attacker)
     {
         base.Damaged(damage, p, Attacker);
-        IsStun = true;
-        IsAttacking = false;
-        LongAttacking = false;
+        if (damage > 0.5f)
+        {
+            IsStun = true;
+            IsAttacking = false;
+            LongAttacking = false;
+        }
     }
 
     protected override void UpdateAnimator()

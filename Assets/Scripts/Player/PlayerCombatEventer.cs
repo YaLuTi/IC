@@ -28,7 +28,7 @@ public class PlayerCombatEventer : MonoBehaviour
         NextEvent = empty;
     }
 
-    private void OnGUI()
+    /*private void OnGUI()
     {
         if(PlayingEvent != empty)
         {
@@ -46,7 +46,7 @@ public class PlayerCombatEventer : MonoBehaviour
         {
             GUI.TextArea(new Rect(10, 30, 100, 20), "");
         }
-    } 
+    } */
 
     // Update is called once per frame
     void Update()
