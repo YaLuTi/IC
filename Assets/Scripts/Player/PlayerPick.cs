@@ -58,11 +58,11 @@ public class PlayerPick : MonoBehaviour
         door = d;
         if (door != null)
         {
-            CanPickItem = true;
+            // CanPickItem = true;
         }
         else
         {
-            CanPickItem = false;
+            // CanPickItem = false;
         }
     }
 }
