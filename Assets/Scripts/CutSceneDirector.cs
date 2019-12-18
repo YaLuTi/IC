@@ -19,6 +19,7 @@ public class CutSceneDirector : MonoBehaviour
     public GameObject CameraOne;
     public GameObject CameraTwo;
     public GameObject ActingPlayer;
+    public GameObject PlayerLight;
     public GameObject TextOne;
     public GameObject TextTwo;
     public GameObject TextThree;
@@ -174,7 +175,8 @@ public class CutSceneDirector : MonoBehaviour
     {
         IsOnMovie = true;
         ActingPlayer.SetActive(true);
-        yield return new WaitForSecondsRealtime(0.1f);
+        PlayerLight.SetActive(false);
+         yield return new WaitForSecondsRealtime(0.1f);
         Good_UI.SetActive(false);
         BlackPanel.DOColor(new Color(0, 0, 0, 1), 0);
         TextOne.SetActive(true);
@@ -210,6 +212,7 @@ public class CutSceneDirector : MonoBehaviour
         CameraTwo.SetActive(false);
         MainCamera.gameObject.SetActive(true);
         ActingPlayer.SetActive(false);
+        PlayerLight.SetActive(true);
         BlackPanel.DOColor(new Color(0, 0, 0, 0), 2f);
          IsOnMovie = false;
         BlackBar.SetActive(false);
