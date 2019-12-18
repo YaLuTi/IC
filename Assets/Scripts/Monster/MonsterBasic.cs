@@ -114,7 +114,10 @@ public class MonsterBasic : MonoBehaviour {
         GameObject g = Instantiate(DamagedParticle, p, Quaternion.identity);
         g.transform.LookAt(player.transform.position);
         Destroy(g, 3);
-        animator.SetTrigger("Damaged");
+        if (damage > 0.5f)
+        {
+            animator.SetTrigger("Damaged");
+        }
         DamagedAudios.Post(gameObject);
     }
 

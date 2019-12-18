@@ -13,7 +13,7 @@ public class Animator_PlayerHeal : StateMachineBehaviour
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        playerHP.Healed(1);
+        playerHP.Healed(1.5f);
     }
     
 }

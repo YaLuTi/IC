@@ -83,11 +83,14 @@ public class TestMonster : MonsterBasic {
         if (IsDeath) return;
         // animator.SetBool("IsLock", true);
         Health -= damage;
-        foreach (AnimatorControllerParameter parameter in animator.parameters)
+        if (damage > 0.5f)
         {
-            if (parameter.name != "Damaged" && parameter.name != "Casting")
+            foreach (AnimatorControllerParameter parameter in animator.parameters)
             {
-                animator.ResetTrigger(parameter.name);
+                if (parameter.name != "Damaged" && parameter.name != "Casting")
+                {
+                    animator.ResetTrigger(parameter.name);
+                }
             }
         }
 

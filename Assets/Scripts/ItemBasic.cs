@@ -62,6 +62,7 @@ public class ItemBasic : MonoBehaviour
                 break;
             case 3:
                 PlayerBackpackData.HealthAmount += 3;
+                if (ActiveObj != null) ActiveObj.SetActive(true);
                 Destroy(this.gameObject);
                 break;
             case 4:

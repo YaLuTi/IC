@@ -9,7 +9,10 @@ public class DoorNeedOpen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (PlayerBackpackData.IsDoorOpen)
+        {
+            door.transform.DOLocalRotate(new Vector3(0, 130, 0), 4f).SetEase(Ease.OutQuad);
+        }
     }
 
     // Update is called once per frame
@@ -37,6 +40,7 @@ public class DoorNeedOpen : MonoBehaviour
     {
         AkSoundEngine.PostEvent("OpenDoor", gameObject);
         door.transform.DOLocalRotate(new Vector3(0, 130, 0), 4f).SetEase(Ease.OutQuad);
+        PlayerBackpackData.IsDoorOpen = true;
         Destroy(this.gameObject);
     }
 }
