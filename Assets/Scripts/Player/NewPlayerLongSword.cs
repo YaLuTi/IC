@@ -68,7 +68,7 @@ public class NewPlayerLongSword : MonoBehaviour
                 return;
             }
         }
-        if (Input.GetButtonUp("JoyStickS") && !Drinking && !animator.GetBool("IsHealing"))
+        if (Input.GetButtonUp("JoyStickS") && !Drinking && !animator.GetBool("IsHealing") && PlayerBackpackData.HealthAmount > 0)
         {
             if (combatEventer.SetAnimation(Drink))
             {

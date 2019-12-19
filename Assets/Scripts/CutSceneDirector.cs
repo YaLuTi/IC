@@ -39,6 +39,9 @@ public class CutSceneDirector : MonoBehaviour
     public GameObject BossSlider;
     [Header("End Scene")]
     public RectTransform EndingText;
+    public TMP_InputField inputField;
+    public bool EndEnter;
+    public SpeedRunUI RunUI;
     public Light light;
     public AK.Wwise.Event EndingSong;
 
@@ -78,9 +81,15 @@ public class CutSceneDirector : MonoBehaviour
         StartCoroutine(BossScene());
     }
 
+    public void EndEnterName()
+    {
+        EndEnter = true;
+    }
+
     IEnumerator End()
     {
         IsOnMovie = true;
+        SpeedRunTimer.Stop = true;
         BlackPanel.DOColor(new Color(1, 1, 1, 1), 10f);
         Good_UI.SetActive(false);
         while (light.intensity < 18)
@@ -90,6 +99,22 @@ public class CutSceneDirector : MonoBehaviour
         }
         yield return new WaitForSeconds(0.5f);
         BlackPanel.DOColor(new Color(0, 0, 0, 1), 0.5f);
+        yield return new WaitForSeconds(0.5f);
+        if (SpeedRunTimer.IsRunning)
+        {
+            if (SpeedRunTimer.RunTime < RunUI.BestTime)
+            {
+                inputField.gameObject.SetActive(true);
+                inputField.Select();
+                inputField.ActivateInputField();
+                while (!EndEnter)
+                {
+                    yield return new WaitForEndOfFrame();
+                }
+                inputField.gameObject.SetActive(false);
+                SpeedRunTimer.Write();
+            }
+        }
         EndingSong.Post(gameObject);
         yield return new WaitForSeconds(2.5f);
         TextFive.SetActive(true);
